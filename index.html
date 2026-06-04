@@ -3,45 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Esyton Insights LLP | Accounting and Income Tax Consultancy in India</title>
-  <meta name="description" content="Esyton Insights LLP is an India-focused accounting and income tax consultancy supporting businesses, founders, and professionals with practical compliance and advisory services.">
+  <title>Esyton Insights LLP | Accounting and Income Tax Guidance in India</title>
+  <meta name="description" content="Esyton Insights LLP provides guidance-led accounting and income tax consultancy for India-focused businesses, founders, professionals, and individuals.">
   <meta property="og:title" content="Esyton Insights LLP">
-  <meta property="og:description" content="Accounting, income tax, and compliance consultancy for India-focused businesses and professionals.">
+  <meta property="og:description" content="Guidance-led accounting and income tax consultancy for India.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://esyton.in/">
   <meta name="theme-color" content="#087c88">
   <style>
     :root {
-      color-scheme: light;
       --teal: #087c88;
-      --teal-2: #0a6672;
-      --teal-dark: #063f48;
-      --ink: #101f24;
-      --muted: #5c6a70;
+      --teal-dark: #064a53;
+      --ink: #111f24;
+      --muted: #5f6d72;
       --paper: #ffffff;
       --soft: #f4f8f8;
-      --line: #d8e5e6;
-      --gold: #bd7b20;
-      --green: #567c40;
-      --clay: #8d5d4a;
-      --night: #132a31;
-      --shadow: 0 24px 80px rgba(16, 31, 36, 0.14);
-      --shadow-small: 0 14px 34px rgba(16, 31, 36, 0.1);
+      --line: #dbe7e8;
+      --gold: #a96f22;
+      --green: #557b3f;
+      --clay: #8b6458;
+      --shadow: 0 22px 60px rgba(17, 31, 36, 0.11);
       --radius: 8px;
-      --max: 1160px;
+      --max: 1140px;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    [data-theme="dark"] {
-      color-scheme: dark;
-      --ink: #edf7f8;
-      --muted: #a9bdc1;
-      --paper: #0b1518;
-      --soft: #111f24;
-      --line: #243a40;
-      --night: #081114;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-      --shadow-small: 0 14px 34px rgba(0, 0, 0, 0.28);
     }
 
     * {
@@ -55,39 +39,12 @@
     body {
       margin: 0;
       color: var(--ink);
-      background: var(--paper);
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
       background:
-        linear-gradient(90deg, rgba(8, 124, 136, 0.045) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(8, 124, 136, 0.035) 1px, transparent 1px);
-      background-size: 44px 44px;
-      mask-image: linear-gradient(to bottom, #000 0%, transparent 72%);
-      pointer-events: none;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      background:
-        radial-gradient(ellipse at top left, rgba(8, 124, 136, 0.15), transparent 42%),
-        linear-gradient(120deg, rgba(244, 248, 248, 0.96), rgba(255, 255, 255, 0.72) 48%, rgba(249, 246, 239, 0.62));
-      pointer-events: none;
-    }
-
-    [data-theme="dark"] body::after {
-      background:
-        radial-gradient(ellipse at top left, rgba(8, 124, 136, 0.22), transparent 42%),
-        linear-gradient(120deg, #091315, #0c181c 50%, #15140f);
+        linear-gradient(90deg, rgba(8, 124, 136, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(8, 124, 136, 0.035) 1px, transparent 1px),
+        linear-gradient(120deg, #f7fbfb, #ffffff 48%, #fbf8f2);
+      background-size: 44px 44px, 44px 44px, auto;
+      line-height: 1.6;
     }
 
     a {
@@ -96,7 +53,8 @@
     }
 
     button,
-    input {
+    input,
+    textarea {
       font: inherit;
     }
 
@@ -105,23 +63,12 @@
       margin: 0 auto;
     }
 
-    .progress {
-      position: fixed;
-      inset: 0 auto auto 0;
-      z-index: 80;
-      width: 100%;
-      height: 3px;
-      transform-origin: left;
-      transform: scaleX(0);
-      background: linear-gradient(90deg, var(--teal), var(--gold), var(--green));
-    }
-
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      border-bottom: 1px solid rgba(216, 229, 230, 0.72);
-      background: color-mix(in srgb, var(--paper) 88%, transparent);
+      z-index: 20;
+      border-bottom: 1px solid rgba(219, 231, 232, 0.78);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(18px);
     }
 
@@ -145,20 +92,19 @@
       height: 44px;
       display: grid;
       place-items: center;
-      border: 1px solid rgba(8, 124, 136, 0.26);
+      border: 1px solid rgba(8, 124, 136, 0.24);
       border-radius: var(--radius);
       color: var(--teal);
-      background:
-        linear-gradient(135deg, color-mix(in srgb, var(--paper) 88%, var(--teal)), var(--paper));
-      font-size: 1.5rem;
+      background: #f7fbfb;
+      font-size: 1.55rem;
       font-weight: 900;
-      box-shadow: var(--shadow-small);
+      box-shadow: 0 12px 30px rgba(8, 124, 136, 0.1);
     }
 
     .brand-name {
       display: block;
       color: var(--teal);
-      font-size: 1.62rem;
+      font-size: 1.6rem;
       font-weight: 850;
       line-height: 0.95;
       letter-spacing: 0;
@@ -178,40 +124,27 @@
       align-items: center;
       gap: 8px;
       padding: 6px;
-      border: 1px solid color-mix(in srgb, var(--line) 86%, transparent);
+      border: 1px solid rgba(219, 231, 232, 0.9);
       border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 76%, transparent);
+      background: rgba(255, 255, 255, 0.74);
     }
 
-    .nav-links a,
-    .icon-button {
+    .nav-links a {
       min-height: 38px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 0;
-      border-radius: var(--radius);
-      color: color-mix(in srgb, var(--ink) 72%, var(--muted));
-      background: transparent;
-      font-size: 0.91rem;
-      font-weight: 750;
-      cursor: pointer;
-    }
-
-    .nav-links a {
       padding: 0 12px;
+      border-radius: var(--radius);
+      color: #34484e;
+      font-size: 0.91rem;
+      font-weight: 760;
     }
 
-    .nav-links a.active,
     .nav-links a:hover,
-    .icon-button:hover {
+    .nav-links a.active {
       color: var(--teal-dark);
-      background: color-mix(in srgb, var(--teal) 10%, transparent);
-    }
-
-    .icon-button {
-      width: 38px;
-      font-size: 1rem;
+      background: rgba(8, 124, 136, 0.09);
     }
 
     .button {
@@ -225,8 +158,7 @@
       border-radius: var(--radius);
       font-weight: 820;
       line-height: 1;
-      cursor: pointer;
-      transition: transform 170ms ease, box-shadow 170ms ease, background 170ms ease;
+      transition: transform 170ms ease, background 170ms ease, box-shadow 170ms ease;
     }
 
     .button:hover {
@@ -236,46 +168,50 @@
     .button-primary {
       color: #fff;
       background: var(--teal);
-      box-shadow: 0 14px 28px rgba(8, 124, 136, 0.2);
+      box-shadow: 0 14px 28px rgba(8, 124, 136, 0.18);
     }
 
     .button-primary:hover {
-      background: var(--teal-2);
+      background: var(--teal-dark);
     }
 
     .button-secondary {
       color: var(--teal-dark);
       border-color: rgba(8, 124, 136, 0.24);
-      background: color-mix(in srgb, var(--paper) 86%, var(--teal));
+      background: #fff;
     }
 
     .hero {
       min-height: calc(100svh - 76px);
       display: grid;
       align-items: center;
-      padding: 64px 0 34px;
+      padding: 64px 0 44px;
       border-bottom: 1px solid var(--line);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(390px, 0.9fr);
+      grid-template-columns: minmax(0, 1fr) minmax(370px, 0.86fr);
       gap: 58px;
       align-items: center;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 860;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .eyebrow {
       width: fit-content;
       margin: 0 0 18px;
       padding: 7px 10px;
-      border: 1px solid rgba(8, 124, 136, 0.18);
+      border: 1px solid rgba(169, 111, 34, 0.22);
       border-radius: var(--radius);
-      color: var(--teal-dark);
-      background: color-mix(in srgb, var(--paper) 92%, var(--teal));
-      font-size: 0.78rem;
-      font-weight: 850;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      background: #fffaf1;
     }
 
     h1,
@@ -286,251 +222,116 @@
     }
 
     h1 {
-      max-width: 850px;
+      max-width: 860px;
       margin-bottom: 22px;
-      font-size: clamp(2.85rem, 7.4vw, 6.65rem);
-      line-height: 0.94;
+      font-size: clamp(2.75rem, 7.2vw, 6.15rem);
+      line-height: 0.96;
       letter-spacing: 0;
     }
 
-    .text-shine {
+    h1 span {
       color: var(--teal);
-      position: relative;
-      display: inline-block;
     }
 
     .hero-copy {
-      max-width: 700px;
-      color: color-mix(in srgb, var(--ink) 72%, var(--muted));
+      max-width: 720px;
+      color: #40545a;
       font-size: clamp(1.08rem, 2vw, 1.28rem);
     }
 
-    .hero-actions,
-    .inline-actions {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      align-items: center;
-    }
-
-    .hero-actions {
       margin-top: 32px;
     }
 
-    .micro-strip {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 34px;
-    }
-
-    .micro {
-      min-height: 86px;
-      padding: 14px;
-      border: 1px solid rgba(8, 124, 136, 0.16);
+    .guidance-card {
+      border: 1px solid rgba(219, 231, 232, 0.94);
       border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 82%, transparent);
-      box-shadow: var(--shadow-small);
-    }
-
-    .micro strong {
-      display: block;
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .micro span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.83rem;
-      font-weight: 700;
-    }
-
-    .dashboard {
-      position: relative;
-      border: 1px solid color-mix(in srgb, var(--line) 86%, transparent);
-      border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 86%, transparent);
+      background: rgba(255, 255, 255, 0.92);
       box-shadow: var(--shadow);
       overflow: hidden;
-      transform-style: preserve-3d;
     }
 
-    .dashboard::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(120deg, rgba(8, 124, 136, 0.16), transparent 38%),
-        linear-gradient(300deg, rgba(189, 123, 32, 0.14), transparent 36%);
-    }
-
-    .dash-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      align-items: center;
+    .guidance-head {
       padding: 22px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(8, 124, 136, 0.1), rgba(255, 255, 255, 0.74));
+    }
+
+    .guidance-head h2 {
+      margin-bottom: 6px;
+      font-size: 1.35rem;
+      line-height: 1.15;
+    }
+
+    .guidance-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .guide-list {
+      display: grid;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .guide-list li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      padding: 18px 22px;
       border-bottom: 1px solid var(--line);
     }
 
-    .dash-head h2 {
-      margin: 0;
-      font-size: 1.05rem;
+    .guide-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .guide-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #fff;
+      background: var(--teal);
+      font-weight: 900;
+    }
+
+    .guide-list li:nth-child(2) .guide-icon {
+      background: var(--green);
+    }
+
+    .guide-list li:nth-child(3) .guide-icon {
+      background: var(--clay);
+    }
+
+    .guide-list strong {
+      display: block;
+      margin-bottom: 4px;
       line-height: 1.2;
     }
 
-    .status-pill {
-      padding: 7px 10px;
-      border-radius: var(--radius);
-      color: var(--green);
-      background: color-mix(in srgb, var(--green) 12%, transparent);
-      font-size: 0.75rem;
-      font-weight: 850;
-      white-space: nowrap;
-    }
-
-    .dash-body {
-      padding: 20px;
-      display: grid;
-      gap: 16px;
-    }
-
-    .chart-card,
-    .mini-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 90%, transparent);
-    }
-
-    .chart-card {
-      padding: 20px;
-    }
-
-    .chart-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 20px;
+    .guide-list span {
       color: var(--muted);
-      font-size: 0.84rem;
-      font-weight: 760;
-    }
-
-    .bars {
-      height: 174px;
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-      align-items: end;
-    }
-
-    .bar {
-      --h: 50%;
-      position: relative;
-      min-height: 28px;
-      height: var(--h);
-      border-radius: var(--radius) var(--radius) 3px 3px;
-      background: linear-gradient(180deg, var(--teal), var(--teal-dark));
-      transform-origin: bottom;
-      animation: grow 900ms ease both;
-    }
-
-    .bar:nth-child(2n) {
-      background: linear-gradient(180deg, var(--gold), #835116);
-    }
-
-    .bar:nth-child(3n) {
-      background: linear-gradient(180deg, var(--green), #304f22);
-    }
-
-    .bar::after {
-      content: attr(data-label);
-      position: absolute;
-      left: 50%;
-      bottom: -26px;
-      transform: translateX(-50%);
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 760;
-    }
-
-    @keyframes grow {
-      from {
-        transform: scaleY(0.18);
-        opacity: 0.3;
-      }
-      to {
-        transform: scaleY(1);
-        opacity: 1;
-      }
-    }
-
-    .dash-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .mini-card {
-      padding: 16px;
-      min-height: 112px;
-    }
-
-    .mini-card span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.78rem;
-      font-weight: 760;
-    }
-
-    .mini-card strong {
-      display: block;
-      margin-top: 10px;
-      font-size: 1.45rem;
-      line-height: 1.05;
-    }
-
-    .ticker {
-      display: flex;
-      gap: 10px;
-      padding: 0 20px 20px;
-      overflow: hidden;
-    }
-
-    .ticker span {
-      flex: 0 0 auto;
-      padding: 8px 11px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      color: var(--muted);
-      background: color-mix(in srgb, var(--paper) 84%, transparent);
-      font-size: 0.82rem;
-      font-weight: 780;
-      animation: slide 16s linear infinite;
-    }
-
-    @keyframes slide {
-      to {
-        transform: translateX(-220px);
-      }
     }
 
     section {
-      padding: 86px 0;
+      padding: 84px 0;
     }
 
     .section-heading {
-      max-width: 780px;
+      max-width: 790px;
       margin-bottom: 34px;
     }
 
     .section-heading h2 {
-      margin-bottom: 14px;
-      font-size: clamp(2rem, 4.2vw, 3.45rem);
-      line-height: 1.02;
+      margin: 10px 0 14px;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.04;
       letter-spacing: 0;
     }
 
@@ -539,28 +340,19 @@
       font-size: 1.05rem;
     }
 
-    .section-kicker {
-      margin-bottom: 12px;
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 860;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
     .service-layout {
       display: grid;
-      grid-template-columns: 310px minmax(0, 1fr);
+      grid-template-columns: 300px minmax(0, 1fr);
       gap: 22px;
       align-items: start;
     }
 
-    .service-tabs {
+    .tabs {
       display: grid;
       gap: 10px;
     }
 
-    .service-tab {
+    .tab-button {
       width: 100%;
       min-height: 70px;
       display: grid;
@@ -571,15 +363,15 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       color: var(--ink);
-      background: color-mix(in srgb, var(--paper) 88%, transparent);
+      background: rgba(255, 255, 255, 0.88);
       text-align: left;
       cursor: pointer;
     }
 
-    .service-tab.active {
+    .tab-button.active {
       border-color: rgba(8, 124, 136, 0.42);
-      background: color-mix(in srgb, var(--teal) 10%, var(--paper));
-      box-shadow: var(--shadow-small);
+      background: rgba(8, 124, 136, 0.08);
+      box-shadow: 0 14px 34px rgba(17, 31, 36, 0.09);
     }
 
     .tab-icon {
@@ -593,39 +385,44 @@
       font-weight: 900;
     }
 
-    .service-tab:nth-child(2) .tab-icon {
+    .tab-button:nth-child(2) .tab-icon {
       background: var(--gold);
     }
 
-    .service-tab:nth-child(3) .tab-icon {
+    .tab-button:nth-child(3) .tab-icon {
       background: var(--green);
     }
 
-    .service-tab:nth-child(4) .tab-icon {
+    .tab-button:nth-child(4) .tab-icon {
       background: var(--clay);
     }
 
-    .service-tab strong,
-    .service-tab span {
+    .tab-button strong,
+    .tab-button span {
       display: block;
     }
 
-    .service-tab span {
+    .tab-button span {
       color: var(--muted);
       font-size: 0.82rem;
       font-weight: 650;
     }
 
-    .service-panel {
-      min-height: 454px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 260px;
-      gap: 20px;
-      padding: 26px;
+    .service-panel,
+    .checklist-panel,
+    .contact-panel {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 90%, transparent);
-      box-shadow: var(--shadow-small);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 14px 34px rgba(17, 31, 36, 0.08);
+    }
+
+    .service-panel {
+      min-height: 500px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 285px;
+      gap: 20px;
+      padding: 26px;
     }
 
     .panel-copy h3 {
@@ -652,7 +449,7 @@
       grid-template-columns: 28px minmax(0, 1fr);
       gap: 10px;
       align-items: start;
-      color: color-mix(in srgb, var(--ink) 78%, var(--muted));
+      color: #34484e;
     }
 
     .check {
@@ -667,224 +464,169 @@
       font-weight: 900;
     }
 
-    .service-aside {
+    .side-note {
       display: grid;
       gap: 12px;
+      align-content: start;
     }
 
-    .aside-stat {
-      min-height: 118px;
+    .note-box {
       padding: 18px;
       border-radius: var(--radius);
       color: #fff;
-      background: linear-gradient(145deg, var(--night), var(--teal-dark));
+      background: linear-gradient(145deg, #132a31, var(--teal-dark));
     }
 
-    .aside-stat span {
+    .note-box span {
       display: block;
-      color: rgba(255, 255, 255, 0.7);
+      color: rgba(255, 255, 255, 0.72);
       font-size: 0.78rem;
       font-weight: 760;
     }
 
-    .aside-stat strong {
+    .note-box strong {
       display: block;
-      margin-top: 12px;
-      font-size: 1.6rem;
-      line-height: 1.05;
+      margin-top: 10px;
+      font-size: 1.15rem;
+      line-height: 1.2;
     }
 
-    .calculator-band {
+    .soft-band {
       border-block: 1px solid var(--line);
-      background: color-mix(in srgb, var(--soft) 88%, transparent);
+      background: rgba(244, 248, 248, 0.82);
     }
 
-    .calculator {
+    .checklist-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.86fr) minmax(340px, 1fr);
+      grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
       gap: 28px;
-      align-items: stretch;
+      align-items: start;
     }
 
-    .calc-card,
-    .score-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 90%, transparent);
-      box-shadow: var(--shadow-small);
-    }
-
-    .calc-card {
-      padding: 24px;
-    }
-
-    .field {
+    .client-type {
       display: grid;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-top: 24px;
     }
 
-    .field label {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      color: color-mix(in srgb, var(--ink) 82%, var(--muted));
-      font-size: 0.92rem;
-      font-weight: 800;
-    }
-
-    .field output {
-      color: var(--teal);
-      font-weight: 900;
-    }
-
-    input[type="range"] {
-      width: 100%;
-      accent-color: var(--teal);
-    }
-
-    .toggle-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .toggle {
-      position: relative;
-    }
-
-    .toggle input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .toggle span {
+    .client-type button {
       min-height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      color: var(--muted);
-      background: color-mix(in srgb, var(--paper) 88%, transparent);
-      font-size: 0.86rem;
+      color: #34484e;
+      background: #fff;
       font-weight: 780;
-      text-align: center;
+      text-align: left;
+      padding: 0 14px;
       cursor: pointer;
     }
 
-    .toggle input:checked + span {
+    .client-type button.active {
       color: var(--teal-dark);
-      border-color: rgba(8, 124, 136, 0.4);
-      background: color-mix(in srgb, var(--teal) 11%, var(--paper));
+      border-color: rgba(8, 124, 136, 0.42);
+      background: rgba(8, 124, 136, 0.08);
     }
 
-    .score-card {
-      padding: 28px;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 24px;
-      overflow: hidden;
+    .checklist-panel {
+      padding: 26px;
     }
 
-    .score-ring {
-      --score: 62;
-      width: min(270px, 82vw);
-      aspect-ratio: 1;
-      place-self: center;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background:
-        conic-gradient(var(--teal) calc(var(--score) * 1%), rgba(8, 124, 136, 0.13) 0);
-      box-shadow: inset 0 0 0 1px rgba(8, 124, 136, 0.1);
+    .checklist-panel h3 {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+      line-height: 1.12;
     }
 
-    .score-inner {
-      width: 76%;
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--paper);
-      text-align: center;
-    }
-
-    .score-inner strong {
-      display: block;
-      font-size: 3rem;
-      line-height: 1;
-    }
-
-    .score-inner span {
-      display: block;
-      margin-top: 8px;
+    .checklist-panel p {
       color: var(--muted);
-      font-weight: 760;
     }
 
-    .score-note {
-      margin: 0;
-      color: var(--muted);
-      text-align: center;
+    .doc-list {
+      display: grid;
+      gap: 10px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .workflow {
+    .doc-list li {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .process {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 14px;
+      counter-reset: process;
     }
 
-    .flow-card {
-      position: relative;
+    .process-card {
       min-height: 250px;
       padding: 20px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 88%, transparent);
-      overflow: hidden;
+      background: rgba(255, 255, 255, 0.92);
+      counter-increment: process;
     }
 
-    .flow-card::before {
-      content: attr(data-step);
-      display: block;
+    .process-card::before {
+      content: counter(process);
       width: 38px;
       height: 38px;
-      margin-bottom: 42px;
       display: grid;
       place-items: center;
+      margin-bottom: 42px;
       border-radius: 50%;
       color: #fff;
       background: var(--teal-dark);
       font-weight: 900;
     }
 
-    .flow-card::after {
-      content: "";
-      position: absolute;
-      top: 38px;
-      right: 20px;
-      width: 42%;
-      height: 1px;
-      background: var(--line);
-    }
-
-    .flow-card h3 {
+    .process-card h3 {
       margin-bottom: 8px;
       font-size: 1.15rem;
       line-height: 1.2;
     }
 
-    .flow-card p {
+    .process-card p {
       color: var(--muted);
       font-size: 0.94rem;
     }
 
-    .contact-section {
-      border-top: 1px solid var(--line);
+    .faq-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      overflow: hidden;
+    }
+
+    summary {
+      min-height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 0 18px;
+      color: var(--ink);
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    details p {
+      margin: 0;
+      padding: 0 18px 18px;
+      color: var(--muted);
     }
 
     .contact-grid {
@@ -896,10 +638,6 @@
 
     .contact-panel {
       padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: color-mix(in srgb, var(--paper) 90%, transparent);
-      box-shadow: var(--shadow-small);
     }
 
     .contact-panel h3 {
@@ -933,47 +671,16 @@
       place-items: center;
       border-radius: var(--radius);
       color: var(--teal-dark);
-      background: color-mix(in srgb, var(--teal) 12%, transparent);
+      background: rgba(8, 124, 136, 0.1);
       font-weight: 900;
-    }
-
-    .contact-preview {
-      display: grid;
-      gap: 14px;
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: color-mix(in srgb, var(--soft) 76%, transparent);
-    }
-
-    .contact-preview div {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      border-bottom: 1px dashed var(--line);
-      padding-bottom: 12px;
-    }
-
-    .contact-preview div:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .contact-preview span {
-      color: var(--muted);
-      font-weight: 720;
-    }
-
-    .contact-preview strong {
-      text-align: right;
     }
 
     .notice {
       border-left: 4px solid var(--gold);
       padding: 16px 18px;
       border-radius: var(--radius);
-      color: color-mix(in srgb, var(--ink) 84%, var(--gold));
-      background: color-mix(in srgb, var(--gold) 10%, var(--paper));
+      color: #4d3c22;
+      background: #fff8ed;
     }
 
     .notice p {
@@ -985,6 +692,7 @@
       padding: 28px 0;
       border-top: 1px solid var(--line);
       color: var(--muted);
+      background: rgba(255, 255, 255, 0.7);
       font-size: 0.92rem;
     }
 
@@ -1006,57 +714,6 @@
       transform: translateY(0);
     }
 
-    .command {
-      position: fixed;
-      inset: 0;
-      z-index: 90;
-      display: none;
-      place-items: start center;
-      padding-top: 11vh;
-      background: rgba(9, 18, 20, 0.42);
-      backdrop-filter: blur(12px);
-    }
-
-    .command.open {
-      display: grid;
-    }
-
-    .command-box {
-      width: min(620px, calc(100% - 28px));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--paper);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .command-box input {
-      width: 100%;
-      height: 58px;
-      border: 0;
-      border-bottom: 1px solid var(--line);
-      padding: 0 18px;
-      color: var(--ink);
-      background: transparent;
-      outline: none;
-    }
-
-    .command-actions {
-      display: grid;
-      padding: 8px;
-    }
-
-    .command-actions a {
-      padding: 14px 12px;
-      border-radius: var(--radius);
-      color: color-mix(in srgb, var(--ink) 76%, var(--muted));
-      font-weight: 760;
-    }
-
-    .command-actions a:hover {
-      background: color-mix(in srgb, var(--teal) 10%, transparent);
-    }
-
     @media (max-width: 980px) {
       .nav {
         align-items: flex-start;
@@ -1071,7 +728,7 @@
 
       .hero-grid,
       .service-layout,
-      .calculator,
+      .checklist-grid,
       .contact-grid {
         grid-template-columns: 1fr;
       }
@@ -1084,7 +741,7 @@
         grid-template-columns: 1fr;
       }
 
-      .workflow {
+      .process {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -1098,42 +755,25 @@
         display: none;
       }
 
-      .nav-cta {
-        flex: 1;
-      }
-
+      .nav-cta,
       .button {
         width: 100%;
       }
 
       .hero-actions,
-      .inline-actions,
-      .micro-strip,
-      .dash-grid,
-      .toggle-grid,
-      .workflow {
-        grid-template-columns: 1fr;
+      .process {
         display: grid;
+        grid-template-columns: 1fr;
       }
 
-      .dash-head,
-      .footer-row,
-      .contact-preview div {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .service-tab,
+      .guide-list li,
+      .tab-button,
       .contact-row {
         grid-template-columns: 1fr;
       }
 
       section {
         padding: 62px 0;
-      }
-
-      .contact-preview strong {
-        text-align: left;
       }
     }
 
@@ -1142,15 +782,12 @@
       *::before,
       *::after {
         scroll-behavior: auto !important;
-        animation-duration: 1ms !important;
         transition-duration: 1ms !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="progress" id="progress"></div>
-
   <header class="site-header">
     <div class="shell nav">
       <a class="brand" href="#top" aria-label="Esyton Insights LLP home">
@@ -1163,11 +800,9 @@
 
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#services">Services</a>
-        <a href="#readiness">Readiness</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#contact">Contact</a>
-        <button class="icon-button" id="themeToggle" type="button" title="Toggle theme" aria-label="Toggle theme">◐</button>
-        <button class="icon-button" id="commandOpen" type="button" title="Quick navigation" aria-label="Open quick navigation">⌘</button>
+        <a href="#documents">Documents</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
         <a class="button button-primary nav-cta" href="mailto:contact@esyton.in">Get in touch</a>
       </nav>
     </div>
@@ -1177,59 +812,38 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div class="reveal">
-          <p class="eyebrow">India-focused accounting and income tax consultancy</p>
-          <h1 id="hero-title">Esyton Insights LLP for sharper <span class="text-shine">financial clarity</span>.</h1>
+          <p class="eyebrow">Accounting and income tax guidance in India</p>
+          <h1 id="hero-title">Clear guidance before <span>accounting and tax decisions</span>.</h1>
           <p class="hero-copy">
-            A premium advisory homepage for an India-first accounting and income tax practice:
-            built around practical compliance, decision-ready records, and calm execution before deadlines.
+            Esyton Insights LLP is proposed as a guidance-led consultancy for accounting,
+            income tax, and related compliance matters in India. The focus is on helping
+            clients understand what needs to be prepared, reviewed, filed, and documented.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#readiness">Check readiness</a>
+            <a class="button button-primary" href="#documents">See document guidance</a>
             <a class="button button-secondary" href="#services">Explore services</a>
-          </div>
-          <div class="micro-strip" aria-label="Practice highlights">
-            <div class="micro"><strong>India</strong><span>Primary jurisdiction</span></div>
-            <div class="micro"><strong>Tax</strong><span>Income tax advisory</span></div>
-            <div class="micro"><strong>MIS</strong><span>Reporting discipline</span></div>
           </div>
         </div>
 
-        <aside class="dashboard reveal" id="tiltCard" aria-label="Interactive practice dashboard">
-          <div class="dash-head">
-            <h2>Live-style compliance cockpit</h2>
-            <span class="status-pill">Onboarding ready</span>
+        <aside class="guidance-card reveal" aria-label="Guidance summary">
+          <div class="guidance-head">
+            <h2>What this practice helps clarify</h2>
+            <p>A practical starting point for clients before a formal engagement begins.</p>
           </div>
-          <div class="dash-body">
-            <div class="chart-card">
-              <div class="chart-top">
-                <span>Monthly finance activity</span>
-                <span>Books • Tax • Review</span>
-              </div>
-              <div class="bars" aria-hidden="true">
-                <span class="bar" style="--h: 58%" data-label="Apr"></span>
-                <span class="bar" style="--h: 74%" data-label="May"></span>
-                <span class="bar" style="--h: 46%" data-label="Jun"></span>
-                <span class="bar" style="--h: 88%" data-label="Jul"></span>
-                <span class="bar" style="--h: 64%" data-label="Aug"></span>
-                <span class="bar" style="--h: 79%" data-label="Sep"></span>
-                <span class="bar" style="--h: 53%" data-label="Oct"></span>
-              </div>
-            </div>
-            <div class="dash-grid">
-              <div class="mini-card"><span>Core domains</span><strong>Accounts + Tax</strong></div>
-              <div class="mini-card"><span>Client focus</span><strong>SMEs + founders</strong></div>
-              <div class="mini-card"><span>Support rhythm</span><strong>Monthly</strong></div>
-              <div class="mini-card"><span>Output style</span><strong>Clear notes</strong></div>
-            </div>
-          </div>
-          <div class="ticker" aria-label="Service ticker">
-            <span>Ledger review</span>
-            <span>Advance tax</span>
-            <span>Return readiness</span>
-            <span>Document checklists</span>
-            <span>Compliance calendar</span>
-            <span>Management reports</span>
-          </div>
+          <ul class="guide-list">
+            <li>
+              <span class="guide-icon">1</span>
+              <span><strong>What applies to you</strong><span>Identify the accounting, income tax, and compliance areas relevant to your situation.</span></span>
+            </li>
+            <li>
+              <span class="guide-icon">2</span>
+              <span><strong>What records are needed</strong><span>Prepare invoices, bank data, ledgers, tax proofs, returns, notices, and supporting documents.</span></span>
+            </li>
+            <li>
+              <span class="guide-icon">3</span>
+              <span><strong>What should happen next</strong><span>Move from scattered information to a clear checklist, review plan, and filing path.</span></span>
+            </li>
+          </ul>
         </aside>
       </div>
     </section>
@@ -1237,150 +851,157 @@
     <section id="services" aria-labelledby="services-title">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="section-kicker">Interactive service map</p>
-          <h2 id="services-title">Choose a focus area and see how Esyton would support the work.</h2>
+          <p class="section-kicker">Service guidance</p>
+          <h2 id="services-title">Choose the area where you need clarity.</h2>
           <p>
-            The page behaves more like a compact advisory product than a brochure: each service
-            has its own scope, outputs, and practical client benefit.
+            These sections describe the type of guidance Esyton may provide. They avoid
+            claimed results and focus instead on scope, preparation, and practical next steps.
           </p>
         </div>
 
         <div class="service-layout reveal">
-          <div class="service-tabs" role="tablist" aria-label="Service categories">
-            <button class="service-tab active" type="button" role="tab" aria-selected="true" data-service="accounts">
+          <div class="tabs" role="tablist" aria-label="Service categories">
+            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-service="accounts">
               <span class="tab-icon">₹</span>
               <span><strong>Accounting</strong><span>Books, ledgers, statements</span></span>
             </button>
-            <button class="service-tab" type="button" role="tab" aria-selected="false" data-service="tax">
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="tax">
               <span class="tab-icon">%</span>
-              <span><strong>Income Tax</strong><span>Advisory and return readiness</span></span>
+              <span><strong>Income Tax</strong><span>Computation and filing readiness</span></span>
             </button>
-            <button class="service-tab" type="button" role="tab" aria-selected="false" data-service="compliance">
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="compliance">
               <span class="tab-icon">✓</span>
-              <span><strong>Compliance</strong><span>Calendars and filing coordination</span></span>
+              <span><strong>Compliance</strong><span>Due dates and records</span></span>
             </button>
-            <button class="service-tab" type="button" role="tab" aria-selected="false" data-service="insights">
-              <span class="tab-icon">↗</span>
-              <span><strong>Insights</strong><span>MIS and founder reporting</span></span>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="advisory">
+              <span class="tab-icon">?</span>
+              <span><strong>Advisory</strong><span>Questions and decisions</span></span>
             </button>
           </div>
 
           <article class="service-panel" id="servicePanel">
             <div class="panel-copy">
-              <h3 id="serviceTitle">Accounting and reporting</h3>
+              <h3 id="serviceTitle">Accounting guidance</h3>
               <p id="serviceText">
-                Practical bookkeeping guidance, ledger review, reconciliations, financial statements,
-                and management-ready reporting for Indian businesses that need reliable numbers.
+                Guidance on maintaining books, reviewing ledgers, reconciling bank accounts,
+                and preparing accounting information that can support tax and business decisions.
               </p>
               <ul class="feature-list" id="serviceFeatures">
-                <li><span class="check">✓</span><span>Monthly books review and ledger hygiene</span></li>
-                <li><span class="check">✓</span><span>Bank, receivable, payable, and expense reconciliation</span></li>
-                <li><span class="check">✓</span><span>Financial summaries that are readable for founders</span></li>
+                <li><span class="check">✓</span><span>Understand which ledgers and records should be maintained.</span></li>
+                <li><span class="check">✓</span><span>Identify gaps in bank, receivable, payable, and expense records.</span></li>
+                <li><span class="check">✓</span><span>Prepare accounting summaries for review and filing support.</span></li>
               </ul>
             </div>
-            <aside class="service-aside" aria-label="Selected service facts">
-              <div class="aside-stat"><span>Recommended rhythm</span><strong id="serviceRhythm">Monthly</strong></div>
-              <div class="aside-stat"><span>Primary output</span><strong id="serviceOutput">Clean books</strong></div>
-              <div class="aside-stat"><span>Best suited for</span><strong id="serviceFit">SMEs</strong></div>
+            <aside class="side-note" aria-label="Selected service guidance notes">
+              <div class="note-box"><span>Useful when</span><strong id="serviceWhen">Books are incomplete or need review</strong></div>
+              <div class="note-box"><span>Client preparation</span><strong id="servicePrep">Bank statements, invoices, ledgers</strong></div>
+              <div class="note-box"><span>Likely outcome</span><strong id="serviceOutcome">Clearer records and next actions</strong></div>
             </aside>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="readiness" class="calculator-band" aria-labelledby="readiness-title">
-      <div class="shell calculator">
+    <section id="documents" class="soft-band" aria-labelledby="documents-title">
+      <div class="shell checklist-grid">
         <div class="section-heading reveal">
-          <p class="section-kicker">Compliance readiness tool</p>
-          <h2 id="readiness-title">Estimate how organized your records feel today.</h2>
+          <p class="section-kicker">Document guidance</p>
+          <h2 id="documents-title">Prepare the right records before the first review.</h2>
           <p>
-            This is a lightweight interactive score for the homepage. It gives prospects a useful
-            reason to engage before the first call and shows the practice’s structured style.
+            Select the profile closest to your case. The checklist updates to show the type
+            of information that may be useful for an initial accounting or income tax discussion.
           </p>
-          <div class="inline-actions">
-            <a class="button button-primary" href="#contact">Discuss my score</a>
-            <button class="button button-secondary" type="button" id="resetCalc">Reset tool</button>
+          <div class="client-type" role="tablist" aria-label="Client profile">
+            <button class="active" type="button" data-client="business">Business / LLP / Company</button>
+            <button type="button" data-client="professional">Professional / Consultant</button>
+            <button type="button" data-client="individual">Individual taxpayer</button>
           </div>
         </div>
 
-        <div class="calc-card reveal" aria-label="Readiness inputs">
-          <div class="field">
-            <label for="booksRange">Books updated <output id="booksOut">60%</output></label>
-            <input id="booksRange" type="range" min="0" max="100" value="60">
-          </div>
-          <div class="field">
-            <label for="docsRange">Documents organized <output id="docsOut">55%</output></label>
-            <input id="docsRange" type="range" min="0" max="100" value="55">
-          </div>
-          <div class="field">
-            <label for="taxRange">Tax planning clarity <output id="taxOut">45%</output></label>
-            <input id="taxRange" type="range" min="0" max="100" value="45">
-          </div>
-          <div class="toggle-grid" aria-label="Additional readiness checks">
-            <label class="toggle"><input type="checkbox" id="noticeToggle"><span>No pending notice</span></label>
-            <label class="toggle"><input type="checkbox" id="calendarToggle" checked><span>Deadline calendar</span></label>
-            <label class="toggle"><input type="checkbox" id="misToggle"><span>MIS prepared</span></label>
-            <label class="toggle"><input type="checkbox" id="reviewToggle" checked><span>Quarterly review</span></label>
-          </div>
-        </div>
-
-        <aside class="score-card reveal" aria-live="polite">
-          <div>
-            <p class="section-kicker">Current readiness</p>
-            <h3 id="scoreTitle">Needs structured review</h3>
-          </div>
-          <div class="score-ring" id="scoreRing">
-            <div class="score-inner">
-              <strong id="scoreValue">62</strong>
-              <span>out of 100</span>
-            </div>
-          </div>
-          <p class="score-note" id="scoreNote">
-            A focused accounting and tax review can improve document quality, filing readiness, and deadline confidence.
+        <article class="checklist-panel reveal">
+          <h3 id="docTitle">For a business, LLP, or company</h3>
+          <p id="docIntro">
+            Bring records that explain revenue, expenses, bank movement, statutory registrations,
+            and previous compliance history.
           </p>
-        </aside>
+          <ul class="doc-list" id="docList">
+            <li><span class="check">✓</span><span>Bank statements for the relevant period</span></li>
+            <li><span class="check">✓</span><span>Sales invoices, purchase bills, and expense vouchers</span></li>
+            <li><span class="check">✓</span><span>Books of account, ledgers, trial balance, or accounting exports</span></li>
+            <li><span class="check">✓</span><span>Previous income tax returns, notices, and assessment records, if any</span></li>
+            <li><span class="check">✓</span><span>Entity registration documents and key compliance records</span></li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <section id="workflow" aria-labelledby="workflow-title">
+    <section id="process" aria-labelledby="process-title">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="section-kicker">Operating model</p>
-          <h2 id="workflow-title">A premium process without unnecessary complexity.</h2>
+          <p class="section-kicker">Engagement process</p>
+          <h2 id="process-title">A simple path from question to action.</h2>
           <p>
-            The workflow is built for repeatability: understand the facts, organize evidence,
-            complete the work, then keep the client informed with useful summaries.
+            This is a guidance model, not a claim of past outcomes. It explains how a client
+            matter can be approached once the scope and records are understood.
           </p>
         </div>
-        <div class="workflow reveal">
-          <article class="flow-card" data-step="1">
-            <h3>Discovery</h3>
-            <p>Review entity profile, income streams, existing filings, pain points, and urgent deadlines.</p>
+        <div class="process reveal">
+          <article class="process-card">
+            <h3>Initial discussion</h3>
+            <p>Understand the taxpayer profile, business context, urgency, prior filings, and the specific issue.</p>
           </article>
-          <article class="flow-card" data-step="2">
-            <h3>Record design</h3>
-            <p>Create checklists for ledgers, bank data, invoices, tax proofs, and statutory documents.</p>
+          <article class="process-card">
+            <h3>Record checklist</h3>
+            <p>Convert the matter into a clear list of documents, data points, and missing information.</p>
           </article>
-          <article class="flow-card" data-step="3">
-            <h3>Execution</h3>
-            <p>Coordinate accounting, tax computations, filing preparation, and compliance action items.</p>
+          <article class="process-card">
+            <h3>Review and guidance</h3>
+            <p>Review available information, explain options, and identify compliance or filing requirements.</p>
           </article>
-          <article class="flow-card" data-step="4">
-            <h3>Insight loop</h3>
-            <p>Share readable summaries, risk flags, and next-period priorities for better decisions.</p>
+          <article class="process-card">
+            <h3>Next actions</h3>
+            <p>Prepare the filing path, response plan, accounting cleanup, or advisory note as applicable.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <section id="faq" class="soft-band" aria-labelledby="faq-title">
+      <div class="shell">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Common questions</p>
+          <h2 id="faq-title">Before contacting Esyton.</h2>
+          <p>These prompts help visitors understand when to reach out and what to share.</p>
+        </div>
+        <div class="faq-grid reveal">
+          <details>
+            <summary>Can I reach out if my books are incomplete?</summary>
+            <p>Yes. The first step can be to identify missing records, reconcile available information, and prepare a cleanup plan.</p>
+          </details>
+          <details>
+            <summary>What should I mention in the first email?</summary>
+            <p>Briefly describe whether the matter relates to accounting, income tax filing, a notice, business compliance, or a specific transaction.</p>
+          </details>
+          <details>
+            <summary>Is this page giving tax advice?</summary>
+            <p>No. This page provides general guidance. Specific advice should be based on facts, documents, applicable law, and a formal review.</p>
+          </details>
+          <details>
+            <summary>Can the contact details be changed later?</summary>
+            <p>Yes. The email and mobile placeholders in this HTML can be updated before publishing the website publicly.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
       <div class="shell contact-grid">
         <div class="section-heading reveal">
           <p class="section-kicker">Next step</p>
-          <h2 id="contact-title">Start with a clean first conversation.</h2>
+          <h2 id="contact-title">Share the facts. Get a clear starting point.</h2>
           <p>
-            Share your accounting or income tax requirement. Esyton can respond with the documents
-            needed, likely scope, and next steps once the final contact details are updated.
+            For accounting or income tax matters, include the taxpayer type, assessment year or
+            financial year, current issue, and whether any deadline or notice is involved.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="mailto:contact@esyton.in">Email Esyton</a>
@@ -1404,12 +1025,7 @@
               <span><strong>Website</strong> esyton.in</span>
             </div>
           </div>
-          <div class="contact-preview">
-            <div><span>Engagement type</span><strong>Accounting / Income tax</strong></div>
-            <div><span>Primary geography</span><strong>India</strong></div>
-            <div><span>Current status</span><strong>Proposed practice</strong></div>
-          </div>
-          <div class="notice" style="margin-top: 18px;">
+          <div class="notice">
             <p>Email and mobile are placeholders and should be updated before public launch.</p>
           </div>
         </aside>
@@ -1420,215 +1036,147 @@
   <footer class="site-footer">
     <div class="shell footer-row">
       <span>© 2026 Esyton Insights LLP. All rights reserved.</span>
-      <span>Accounting and income tax consultancy in India.</span>
+      <span>General guidance only. Specific advice requires review of facts and documents.</span>
     </div>
   </footer>
 
-  <div class="command" id="commandMenu" aria-hidden="true">
-    <div class="command-box" role="dialog" aria-label="Quick navigation">
-      <input id="commandInput" type="text" placeholder="Jump to services, readiness, workflow, or contact">
-      <div class="command-actions">
-        <a href="#services" data-command-link>Services</a>
-        <a href="#readiness" data-command-link>Readiness tool</a>
-        <a href="#workflow" data-command-link>Workflow</a>
-        <a href="#contact" data-command-link>Contact</a>
-      </div>
-    </div>
-  </div>
-
   <script>
-    const services = {
+    const serviceGuidance = {
       accounts: {
-        title: "Accounting and reporting",
-        text: "Practical bookkeeping guidance, ledger review, reconciliations, financial statements, and management-ready reporting for Indian businesses that need reliable numbers.",
-        rhythm: "Monthly",
-        output: "Clean books",
-        fit: "SMEs",
+        title: "Accounting guidance",
+        text: "Guidance on maintaining books, reviewing ledgers, reconciling bank accounts, and preparing accounting information that can support tax and business decisions.",
+        when: "Books are incomplete or need review",
+        prep: "Bank statements, invoices, ledgers",
+        outcome: "Clearer records and next actions",
         features: [
-          "Monthly books review and ledger hygiene",
-          "Bank, receivable, payable, and expense reconciliation",
-          "Financial summaries that are readable for founders"
+          "Understand which ledgers and records should be maintained.",
+          "Identify gaps in bank, receivable, payable, and expense records.",
+          "Prepare accounting summaries for review and filing support."
         ]
       },
       tax: {
-        title: "Income tax consultancy",
-        text: "Advisory for taxable income, deductions, advance tax, return filing readiness, notices, and practical documentation for individuals and businesses.",
-        rhythm: "Quarterly",
-        output: "Tax clarity",
-        fit: "Owners",
+        title: "Income tax guidance",
+        text: "Guidance on income classification, deductions, advance tax, filing preparation, and how to organize records before return filing or responding to tax queries.",
+        when: "A return, tax estimate, or notice needs attention",
+        prep: "Form 16, AIS/TIS, bank data, proofs",
+        outcome: "Filing-ready tax information",
         features: [
-          "Advance tax and year-end tax position review",
-          "Return filing preparation and supporting schedules",
-          "Notice response coordination and document mapping"
+          "Identify income heads, deductions, and records needed for review.",
+          "Prepare information for income tax return filing discussions.",
+          "Organize facts and documents for tax notices or queries."
         ]
       },
       compliance: {
-        title: "Compliance coordination",
-        text: "Calendar tracking, filing coordination, document checklists, and structured follow-ups to keep finance obligations visible before due dates arrive.",
-        rhythm: "Ongoing",
-        output: "Deadline control",
-        fit: "Teams",
+        title: "Compliance guidance",
+        text: "Guidance on understanding due dates, document trails, filing dependencies, and how recurring finance obligations can be tracked more clearly.",
+        when: "Deadlines or filings are unclear",
+        prep: "Prior filings, registrations, due dates",
+        outcome: "A practical compliance checklist",
         features: [
-          "Compliance calendar and reminder-led execution",
-          "Document requests grouped by priority and deadline",
-          "Regular follow-ups for pending action items"
+          "Map recurring statutory and tax-related obligations.",
+          "Create a checklist of records needed for each filing cycle.",
+          "Separate urgent actions from routine follow-up work."
         ]
       },
-      insights: {
-        title: "Business finance insights",
-        text: "Readable summaries, exception reports, and decision support that help founders see what the numbers are saying without drowning in raw ledgers.",
-        rhythm: "Monthly",
-        output: "MIS notes",
-        fit: "Founders",
+      advisory: {
+        title: "Transaction and decision guidance",
+        text: "Guidance for finance and tax questions that arise before important business decisions, transactions, investments, or structural changes.",
+        when: "A decision has tax or accounting impact",
+        prep: "Facts, contracts, values, timelines",
+        outcome: "Questions, risks, and next steps",
         features: [
-          "Management summaries with practical commentary",
-          "Expense, margin, cash, and receivable observations",
-          "Founder-facing notes for better business decisions"
+          "Frame the accounting and tax questions before action is taken.",
+          "Identify the documents and assumptions needed for review.",
+          "Prepare a practical note on possible next steps."
         ]
       }
     };
 
-    const root = document.documentElement;
-    const progress = document.getElementById("progress");
-    const navLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
-    const sections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
-    const revealItems = [...document.querySelectorAll(".reveal")];
+    const documentGuidance = {
+      business: {
+        title: "For a business, LLP, or company",
+        intro: "Bring records that explain revenue, expenses, bank movement, statutory registrations, and previous compliance history.",
+        items: [
+          "Bank statements for the relevant period",
+          "Sales invoices, purchase bills, and expense vouchers",
+          "Books of account, ledgers, trial balance, or accounting exports",
+          "Previous income tax returns, notices, and assessment records, if any",
+          "Entity registration documents and key compliance records"
+        ]
+      },
+      professional: {
+        title: "For a professional or consultant",
+        intro: "Prepare documents that explain receipts, expenses, tax deductions, and the nature of professional work.",
+        items: [
+          "Client invoices, fee receipts, and bank statements",
+          "Expense records connected to professional work",
+          "Form 26AS, AIS/TIS, TDS certificates, and advance tax challans",
+          "Previous income tax returns and computation sheets",
+          "Details of investments, deductions, loans, or major transactions"
+        ]
+      },
+      individual: {
+        title: "For an individual taxpayer",
+        intro: "Collect documents that explain salary, other income, deductions, investments, and prior tax filings.",
+        items: [
+          "PAN, Aadhaar, Form 16, and salary details, where applicable",
+          "Form 26AS, AIS/TIS, interest certificates, and bank statements",
+          "Investment and deduction proofs",
+          "Capital gains, property income, foreign income, or other income details, if any",
+          "Previous income tax return and any tax notice received"
+        ]
+      }
+    };
 
-    function updateProgress() {
-      const max = document.body.scrollHeight - innerHeight;
-      const ratio = max > 0 ? scrollY / max : 0;
-      progress.style.transform = `scaleX(${Math.min(1, Math.max(0, ratio))})`;
-
-      let current = "";
-      sections.forEach((section) => {
-        if (section.getBoundingClientRect().top <= 130) current = `#${section.id}`;
-      });
-      navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === current));
-    }
-
-    addEventListener("scroll", updateProgress, { passive: true });
-    updateProgress();
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    }, { threshold: 0.16 });
-    revealItems.forEach((item) => revealObserver.observe(item));
-
-    document.querySelectorAll(".service-tab").forEach((button) => {
+    document.querySelectorAll(".tab-button").forEach((button) => {
       button.addEventListener("click", () => {
-        const data = services[button.dataset.service];
-        document.querySelectorAll(".service-tab").forEach((tab) => {
+        const data = serviceGuidance[button.dataset.service];
+        document.querySelectorAll(".tab-button").forEach((tab) => {
           tab.classList.toggle("active", tab === button);
           tab.setAttribute("aria-selected", tab === button ? "true" : "false");
         });
         document.getElementById("serviceTitle").textContent = data.title;
         document.getElementById("serviceText").textContent = data.text;
-        document.getElementById("serviceRhythm").textContent = data.rhythm;
-        document.getElementById("serviceOutput").textContent = data.output;
-        document.getElementById("serviceFit").textContent = data.fit;
+        document.getElementById("serviceWhen").textContent = data.when;
+        document.getElementById("servicePrep").textContent = data.prep;
+        document.getElementById("serviceOutcome").textContent = data.outcome;
         document.getElementById("serviceFeatures").innerHTML = data.features
           .map((feature) => `<li><span class="check">✓</span><span>${feature}</span></li>`)
           .join("");
       });
     });
 
-    const inputs = {
-      books: document.getElementById("booksRange"),
-      docs: document.getElementById("docsRange"),
-      tax: document.getElementById("taxRange")
-    };
-    const outputs = {
-      books: document.getElementById("booksOut"),
-      docs: document.getElementById("docsOut"),
-      tax: document.getElementById("taxOut")
-    };
-    const toggles = ["noticeToggle", "calendarToggle", "misToggle", "reviewToggle"].map((id) => document.getElementById(id));
-    const scoreRing = document.getElementById("scoreRing");
-    const scoreValue = document.getElementById("scoreValue");
-    const scoreTitle = document.getElementById("scoreTitle");
-    const scoreNote = document.getElementById("scoreNote");
-
-    function calculateScore() {
-      Object.entries(inputs).forEach(([key, input]) => outputs[key].textContent = `${input.value}%`);
-      const base = (Number(inputs.books.value) * 0.34) + (Number(inputs.docs.value) * 0.33) + (Number(inputs.tax.value) * 0.33);
-      const bonus = toggles.reduce((sum, toggle) => sum + (toggle.checked ? 5 : 0), 0);
-      const score = Math.min(100, Math.round(base + bonus));
-      scoreRing.style.setProperty("--score", score);
-      scoreValue.textContent = score;
-
-      if (score >= 82) {
-        scoreTitle.textContent = "Strong compliance posture";
-        scoreNote.textContent = "Your records look organized. A periodic review can help preserve quality and catch tax opportunities earlier.";
-      } else if (score >= 62) {
-        scoreTitle.textContent = "Needs structured review";
-        scoreNote.textContent = "A focused accounting and tax review can improve document quality, filing readiness, and deadline confidence.";
-      } else {
-        scoreTitle.textContent = "High priority cleanup";
-        scoreNote.textContent = "The first step should be organizing records, mapping deadlines, and identifying missing tax documentation.";
-      }
-    }
-
-    [...Object.values(inputs), ...toggles].forEach((item) => item.addEventListener("input", calculateScore));
-    document.getElementById("resetCalc").addEventListener("click", () => {
-      inputs.books.value = 60;
-      inputs.docs.value = 55;
-      inputs.tax.value = 45;
-      toggles.forEach((toggle, index) => toggle.checked = index === 1 || index === 3);
-      calculateScore();
-    });
-    calculateScore();
-
-    document.getElementById("themeToggle").addEventListener("click", () => {
-      const next = root.dataset.theme === "dark" ? "light" : "dark";
-      root.dataset.theme = next;
-      localStorage.setItem("esyton-theme", next);
-    });
-    const savedTheme = localStorage.getItem("esyton-theme");
-    if (savedTheme) root.dataset.theme = savedTheme;
-
-    const commandMenu = document.getElementById("commandMenu");
-    const commandInput = document.getElementById("commandInput");
-    function openCommand() {
-      commandMenu.classList.add("open");
-      commandMenu.setAttribute("aria-hidden", "false");
-      commandInput.focus();
-    }
-    function closeCommand() {
-      commandMenu.classList.remove("open");
-      commandMenu.setAttribute("aria-hidden", "true");
-      commandInput.value = "";
-    }
-    document.getElementById("commandOpen").addEventListener("click", openCommand);
-    document.querySelectorAll("[data-command-link]").forEach((link) => link.addEventListener("click", closeCommand));
-    commandMenu.addEventListener("click", (event) => {
-      if (event.target === commandMenu) closeCommand();
-    });
-    document.addEventListener("keydown", (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
-        event.preventDefault();
-        openCommand();
-      }
-      if (event.key === "Escape") closeCommand();
-    });
-    commandInput.addEventListener("input", () => {
-      const query = commandInput.value.toLowerCase();
-      document.querySelectorAll("[data-command-link]").forEach((link) => {
-        link.style.display = link.textContent.toLowerCase().includes(query) ? "block" : "none";
+    document.querySelectorAll("[data-client]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const data = documentGuidance[button.dataset.client];
+        document.querySelectorAll("[data-client]").forEach((item) => item.classList.toggle("active", item === button));
+        document.getElementById("docTitle").textContent = data.title;
+        document.getElementById("docIntro").textContent = data.intro;
+        document.getElementById("docList").innerHTML = data.items
+          .map((item) => `<li><span class="check">✓</span><span>${item}</span></li>`)
+          .join("");
       });
     });
 
-    const tiltCard = document.getElementById("tiltCard");
-    tiltCard.addEventListener("mousemove", (event) => {
-      const rect = tiltCard.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 8;
-      const y = ((event.clientY - rect.top) / rect.height - 0.5) * -8;
-      tiltCard.style.transform = `rotateX(${y}deg) rotateY(${x}deg)`;
-    });
-    tiltCard.addEventListener("mouseleave", () => {
-      tiltCard.style.transform = "rotateX(0deg) rotateY(0deg)";
-    });
+    const revealItems = [...document.querySelectorAll(".reveal")];
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.14 });
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    const navLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
+    const sections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    function updateActiveNav() {
+      let current = "";
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= 130) current = `#${section.id}`;
+      });
+      navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === current));
+    }
+    addEventListener("scroll", updateActiveNav, { passive: true });
+    updateActiveNav();
   </script>
 </body>
 </html>
