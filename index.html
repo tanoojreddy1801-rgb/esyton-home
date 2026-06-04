@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esyton Insights LLP | Accounting and Income Tax Consultancy in India</title>
+  <meta name="description" content="Esyton Insights LLP is an India-focused accounting and income tax consultancy supporting businesses, founders, and professionals with practical compliance and advisory services.">
+  <meta property="og:title" content="Esyton Insights LLP">
+  <meta property="og:description" content="Accounting, income tax, and compliance consultancy for India-focused businesses and professionals.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://esyton.in/">
+  <meta name="theme-color" content="#087c88">
+  <style>
+    :root {
+      --teal: #087c88;
+      --teal-dark: #045762;
+      --ink: #132227;
+      --muted: #5c6b70;
+      --line: #dce7e8;
+      --soft: #f4f8f8;
+      --paper: #ffffff;
+      --accent: #bd7b20;
+      --green: #557b3f;
+      --shadow: 0 22px 60px rgba(19, 34, 39, 0.12);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(220, 231, 232, 0.78);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(8, 124, 136, 0.22);
+      border-radius: var(--radius);
+      color: var(--teal);
+      font-weight: 800;
+      background: #f7fbfb;
+    }
+
+    .brand-text {
+      display: grid;
+      gap: 0;
+    }
+
+    .brand-name {
+      color: var(--teal);
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1;
+    }
+
+    .brand-entity {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: #34484e;
+      font-size: 0.93rem;
+      font-weight: 650;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      font-weight: 750;
+      line-height: 1;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      color: #fff;
+      background: var(--teal);
+      box-shadow: 0 12px 24px rgba(8, 124, 136, 0.18);
+    }
+
+    .button-primary:hover {
+      background: var(--teal-dark);
+    }
+
+    .button-secondary {
+      color: var(--teal-dark);
+      border-color: rgba(8, 124, 136, 0.26);
+      background: #fff;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .hero {
+      background:
+        linear-gradient(110deg, rgba(244, 248, 248, 0.96) 0%, rgba(255, 255, 255, 0.82) 58%, rgba(249, 246, 239, 0.72) 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-grid {
+      min-height: calc(100svh - 72px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.88fr);
+      align-items: center;
+      gap: 54px;
+      padding: 72px 0 44px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 7px 10px;
+      border: 1px solid rgba(8, 124, 136, 0.18);
+      border-radius: var(--radius);
+      color: var(--teal-dark);
+      background: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.55rem, 7vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 24px 0 0;
+      color: #40555b;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 34px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      padding: 8px 11px;
+      border: 1px solid rgba(8, 124, 136, 0.16);
+      border-radius: var(--radius);
+      color: #31494f;
+      background: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .insight-panel {
+      position: relative;
+      border: 1px solid rgba(19, 34, 39, 0.09);
+      border-radius: var(--radius);
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-top {
+      padding: 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .panel-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .panel-status {
+      padding: 6px 9px;
+      border-radius: var(--radius);
+      color: var(--green);
+      background: rgba(85, 123, 63, 0.1);
+      font-size: 0.75rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .metric {
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      min-height: 124px;
+    }
+
+    .metric:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.65rem;
+      line-height: 1.05;
+    }
+
+    .worklist {
+      padding: 22px;
+    }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-item:first-child {
+      padding-top: 0;
+    }
+
+    .work-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .work-date {
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 850;
+    }
+
+    .work-item p {
+      margin: 0;
+      color: #34484e;
+      font-size: 0.96rem;
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-heading {
+      max-width: 730px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.06;
+      letter-spacing: 0;
+    }
+
+    .section-heading p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .service-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 24px;
+      min-height: 245px;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: #fff;
+      background: var(--teal);
+      font-size: 1.35rem;
+      font-weight: 900;
+    }
+
+    .service-card:nth-child(2) .service-icon {
+      background: var(--accent);
+    }
+
+    .service-card:nth-child(3) .service-icon {
+      background: var(--green);
+    }
+
+    .service-card h3 {
+      margin: 22px 0 10px;
+      font-size: 1.26rem;
+      line-height: 1.2;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .approach-band {
+      background: var(--soft);
+      border-block: 1px solid var(--line);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--teal-dark);
+      font-weight: 850;
+    }
+
+    .step h3 {
+      margin: 0 0 4px;
+      font-size: 1.02rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+      gap: 36px;
+      align-items: stretch;
+    }
+
+    .contact-box {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+      background: #fff;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0 0;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      color: #34484e;
+    }
+
+    .contact-row strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .mini-icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      color: var(--teal-dark);
+      background: rgba(8, 124, 136, 0.09);
+      font-weight: 850;
+    }
+
+    .notice {
+      border-left: 4px solid var(--accent);
+      padding: 18px 20px;
+      background: #fff8ed;
+      color: #4d3c22;
+      border-radius: var(--radius);
+    }
+
+    .notice p {
+      margin: 0;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      background: #fff;
+      font-size: 0.92rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero-grid,
+      .approach-grid,
+      .contact {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        min-height: auto;
+        padding: 54px 0 34px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .shell {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-links a:not(.button) {
+        display: none;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .metric:last-child {
+        border-bottom: 0;
+      }
+
+      .work-item,
+      .step,
+      .contact-row {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell nav" aria-label="Site navigation">
+      <a class="brand" href="#top" aria-label="Esyton Insights LLP home">
+        <span class="brand-mark" aria-hidden="true">e</span>
+        <span class="brand-text">
+          <span class="brand-name">esyton</span>
+          <span class="brand-entity">Insights LLP</span>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#contact">Contact</a>
+        <a class="button button-primary" href="mailto:contact@esyton.in">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">India-focused accounting and tax consultancy</p>
+          <h1 id="hero-title">Esyton Insights LLP</h1>
+          <p class="hero-copy">
+            Practical accounting, income tax, and compliance support for Indian businesses,
+            founders, professionals, and growing teams that need clear numbers and timely filings.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="#contact">Schedule a consultation</a>
+            <a class="button button-secondary" href="#services">View services</a>
+          </div>
+          <ul class="hero-points" aria-label="Core focus areas">
+            <li>Accounting setup</li>
+            <li>Income tax advisory</li>
+            <li>Return filing support</li>
+            <li>Business compliance</li>
+          </ul>
+        </div>
+
+        <aside class="insight-panel" aria-label="Practice snapshot">
+          <div class="panel-top">
+            <p class="panel-title">Compliance desk</p>
+            <span class="panel-status">Ready for onboarding</span>
+          </div>
+          <div class="metric-grid">
+            <div class="metric">
+              <span>Primary market</span>
+              <strong>India</strong>
+            </div>
+            <div class="metric">
+              <span>Core domains</span>
+              <strong>Tax + Accounts</strong>
+            </div>
+            <div class="metric">
+              <span>Client focus</span>
+              <strong>SMEs</strong>
+            </div>
+            <div class="metric">
+              <span>Advisory style</span>
+              <strong>Clear + timely</strong>
+            </div>
+          </div>
+          <div class="worklist">
+            <div class="work-item">
+              <span class="work-date">Monthly</span>
+              <p>Books review, reconciliations, MIS summaries, and management-ready reports.</p>
+            </div>
+            <div class="work-item">
+              <span class="work-date">Quarterly</span>
+              <p>Advance tax planning, compliance checks, and decision support for founders.</p>
+            </div>
+            <div class="work-item">
+              <span class="work-date">Annual</span>
+              <p>Income tax return preparation, documentation support, and year-end closure.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="services" aria-labelledby="services-title">
+      <div class="shell">
+        <div class="section-heading">
+          <h2 id="services-title">Consulting support built around everyday finance work.</h2>
+          <p>
+            Esyton Insights LLP is proposed to serve clients across India with a careful,
+            responsive, and documentation-led approach to accounting and income tax matters.
+          </p>
+        </div>
+        <div class="services">
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">₹</div>
+            <h3>Accounting and reporting</h3>
+            <p>
+              Bookkeeping guidance, ledger review, reconciliations, financial statements,
+              and management reports that help owners understand business performance.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">%</div>
+            <h3>Income tax consultancy</h3>
+            <p>
+              Advisory on taxable income, deductions, advance tax, return filing readiness,
+              notices, and practical documentation for individuals and businesses.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">✓</div>
+            <h3>Compliance coordination</h3>
+            <p>
+              Calendar tracking, document checklists, filing coordination, and structured
+              follow-ups so regular finance obligations do not slip through the cracks.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" class="approach-band" aria-labelledby="approach-title">
+      <div class="shell approach-grid">
+        <div class="section-heading">
+          <h2 id="approach-title">A clear process for serious finance work.</h2>
+          <p>
+            The aim is to make compliance feel less scattered: first understand the facts,
+            then organize records, then act before deadlines become emergencies.
+          </p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Understand the client context</h3>
+              <p>Business model, income streams, existing filings, records, and immediate priorities are reviewed first.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Organize records and deadlines</h3>
+              <p>Documents, ledgers, tax data, and compliance dates are converted into a practical working checklist.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Advise, file, and follow through</h3>
+              <p>Recommendations are explained plainly, actions are tracked, and filings are supported with proper records.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="shell contact">
+        <div class="section-heading">
+          <h2 id="contact-title">Start a conversation with Esyton Insights LLP.</h2>
+          <p>
+            Share the nature of your accounting or income tax requirement and the team can
+            respond with the next steps, documents needed, and expected timelines.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="mailto:contact@esyton.in">Email Esyton</a>
+            <a class="button button-secondary" href="tel:+910000000000">Call placeholder number</a>
+          </div>
+        </div>
+        <div class="contact-box">
+          <h3>Contact details</h3>
+          <div class="contact-list">
+            <div class="contact-row">
+              <span class="mini-icon" aria-hidden="true">@</span>
+              <span><strong>Email</strong> contact@esyton.in</span>
+            </div>
+            <div class="contact-row">
+              <span class="mini-icon" aria-hidden="true">☎</span>
+              <span><strong>Mobile</strong> +91 00000 00000</span>
+            </div>
+            <div class="contact-row">
+              <span class="mini-icon" aria-hidden="true">in</span>
+              <span><strong>Website</strong> esyton.in</span>
+            </div>
+          </div>
+          <div class="notice" style="margin-top: 24px;">
+            <p>
+              Email and mobile details are placeholders and should be updated before the
+              page is published publicly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-row">
+      <span>© 2026 Esyton Insights LLP. All rights reserved.</span>
+      <span>Accounting and income tax consultancy in India.</span>
+    </div>
+  </footer>
+</body>
+</html>
