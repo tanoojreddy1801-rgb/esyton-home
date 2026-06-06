@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Esyton Insights LLP | Accounting, Taxation, GST, Trademark & Business Advisory</title>
-  <meta name="description" content="Esyton Insights LLP provides guidance-led accounting and income tax consultancy for India-focused businesses, founders, professionals, and individuals.">
+  <title>Esyton Insights LLP | Income Tax Filing, Accounting, GST & Trademark Assistance</title>
+  <meta name="description" content="Income tax return filing assistance for individuals, professionals and businesses, supported by accounting, GST and trademark services from Esyton Insights LLP.">
   <meta property="og:title" content="Esyton Insights LLP">
-  <meta property="og:description" content="Guidance-led accounting and income tax consultancy for India.">
+  <meta property="og:description" content="Income tax filing assistance, accounting, GST and trademark services for individuals, professionals and businesses in India.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://esyton.in/">
   <meta name="theme-color" content="#087c88">
@@ -50,6 +50,11 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(169, 111, 34, 0.55);
+      outline-offset: 4px;
     }
 
     button,
@@ -99,6 +104,13 @@
       font-size: 1.55rem;
       font-weight: 900;
       box-shadow: 0 12px 30px rgba(8, 124, 136, 0.1);
+      transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+    }
+
+    .brand:hover .brand-mark {
+      transform: rotate(-5deg) scale(1.05);
+      background: #fff;
+      box-shadow: 0 16px 34px rgba(8, 124, 136, 0.18);
     }
 
     .brand-name {
@@ -139,12 +151,14 @@
       color: #203238;
       font-size: 0.91rem;
       font-weight: 760;
+      transition: color 180ms ease, background 180ms ease, transform 180ms ease;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--teal-dark);
       background: rgba(8, 124, 136, 0.18);
+      transform: translateY(-1px);
     }
 
     .button {
@@ -158,11 +172,11 @@
       border-radius: var(--radius);
       font-weight: 820;
       line-height: 1;
-      transition: transform 170ms ease, background 170ms ease, box-shadow 170ms ease;
+      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
     .button:hover {
-      transform: translateY(-1px);
+      transform: translateY(-3px);
     }
 
     .button-primary {
@@ -173,12 +187,19 @@
 
     .button-primary:hover {
       background: var(--teal-dark);
+      box-shadow: 0 18px 34px rgba(6, 74, 83, 0.25);
     }
 
     .button-secondary {
       color: var(--teal-dark);
       border-color: rgba(8, 124, 136, 0.24);
       background: #fff;
+    }
+
+    .button-secondary:hover {
+      border-color: var(--teal);
+      background: rgba(8, 124, 136, 0.07);
+      box-shadow: 0 12px 26px rgba(8, 124, 136, 0.1);
     }
 
     .hero {
@@ -252,6 +273,12 @@
       background: rgba(255, 255, 255, 0.92);
       box-shadow: var(--shadow);
       overflow: hidden;
+      transition: transform 240ms ease, box-shadow 240ms ease;
+    }
+
+    .guidance-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 70px rgba(17, 31, 36, 0.15);
     }
 
     .guidance-head {
@@ -284,6 +311,12 @@
       gap: 14px;
       padding: 18px 22px;
       border-bottom: 1px solid var(--line);
+      transition: background 180ms ease, padding-left 180ms ease;
+    }
+
+    .guide-list li:hover {
+      padding-left: 28px;
+      background: rgba(8, 124, 136, 0.045);
     }
 
     .guide-list li:last-child {
@@ -366,6 +399,13 @@
       background: rgba(255, 255, 255, 0.88);
       text-align: left;
       cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .tab-button:hover {
+      transform: translateX(5px);
+      border-color: rgba(8, 124, 136, 0.35);
+      box-shadow: 0 12px 28px rgba(17, 31, 36, 0.07);
     }
 
     .tab-button.active {
@@ -475,6 +515,12 @@
       border-radius: var(--radius);
       color: #fff;
       background: linear-gradient(145deg, #0e4751, #087c88);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .note-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(6, 74, 83, 0.18);
     }
 
     .note-box span {
@@ -519,6 +565,12 @@
       text-align: left;
       padding: 0 14px;
       cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .client-type button:hover {
+      transform: translateX(4px);
+      border-color: rgba(8, 124, 136, 0.35);
     }
 
     .client-type button.active {
@@ -573,6 +625,13 @@
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.92);
       counter-increment: process;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(8, 124, 136, 0.35);
+      box-shadow: 0 20px 42px rgba(17, 31, 36, 0.1);
     }
 
     .process-card::before {
@@ -609,6 +668,14 @@
       border-radius: var(--radius);
       background: rgba(255, 255, 255, 0.92);
       overflow: hidden;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+
+    details:hover,
+    details[open] {
+      border-color: rgba(8, 124, 136, 0.35);
+      box-shadow: 0 14px 30px rgba(17, 31, 36, 0.07);
+      transform: translateY(-2px);
     }
 
     summary {
@@ -621,6 +688,17 @@
       color: var(--ink);
       font-weight: 850;
       cursor: pointer;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--teal);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    details[open] summary::after {
+      content: "-";
     }
 
     details p {
@@ -803,7 +881,7 @@
         <a href="#documents">Documents</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
-        <a class="button button-primary nav-cta" href="mailto:contact@esyton.in">Get in touch</a>
+        <a class="button button-primary nav-cta" href="#contact">Start your filing</a>
       </nav>
     </div>
   </header>
@@ -812,34 +890,34 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div class="reveal">
-          <p class="eyebrow">Accounting • Taxation • GST • Trademark • Business Advisory</p>
-          <h1 id="hero-title">Building Financial Confidence Through <span>Tax, Compliance & Strategic Advisory</span>.</h1>
+          <p class="eyebrow">Income Tax Filing &bull; Accounting &bull; GST &bull; Trademarks</p>
+          <h1 id="hero-title">Income tax filing, made <span>clear and manageable</span>.</h1>
           <p class="hero-copy">
-            Esyton Insights LLP is a multidisciplinary professional services firm helping businesses, startups, LLPs, professionals and individuals navigate taxation, GST, accounting, trademark protection and regulatory compliance with clarity, precision and foresight.
+            Esyton Insights LLP assists individuals, salaried taxpayers, professionals, businesses and entities with income tax return filing, tax-related follow-up and organised documentation. Accounting, GST and trademark services support your wider compliance needs.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#documents">See document guidance</a>
-            <a class="button button-secondary" href="#services">Explore services</a>
+            <a class="button button-primary" href="#contact">Begin your ITR enquiry</a>
+            <a class="button button-secondary" href="#documents">View filing documents</a>
           </div>
         </div>
 
         <aside class="guidance-card reveal" aria-label="Guidance summary">
           <div class="guidance-head">
-            <h2>Why Businesses Choose Esyton</h2>
-            <p>Professional expertise extending beyond routine compliance and filings.</p>
+            <h2>Your filing, in three clear stages</h2>
+            <p>A practical approach to preparing and completing your income tax return.</p>
           </div>
           <ul class="guide-list">
             <li>
               <span class="guide-icon">1</span>
-              <span><strong>What applies to you</strong><span>Identify the accounting, income tax, and compliance areas relevant to your situation.</span></span>
+              <span><strong>Understand your income</strong><span>Review salary, business, professional, property, investment and other income relevant to your return.</span></span>
             </li>
             <li>
               <span class="guide-icon">2</span>
-              <span><strong>What records are needed</strong><span>Prepare invoices, bank data, ledgers, tax proofs, returns, notices, and supporting documents.</span></span>
+              <span><strong>Organise your records</strong><span>Bring together Form 16, AIS, Form 26AS, bank details, deduction proofs and applicable supporting documents.</span></span>
             </li>
             <li>
               <span class="guide-icon">3</span>
-              <span><strong>What should happen next</strong><span>Move from scattered information to a clear checklist, review plan, and filing path.</span></span>
+              <span><strong>Review and file</strong><span>Resolve information gaps, review the return details and complete filing within the applicable timeline.</span></span>
             </li>
           </ul>
         </aside>
@@ -849,15 +927,16 @@
     <section id="about" aria-labelledby="about-title">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="section-kicker">The Esyton Philosophy</p>
-          <h2 id="about-title">Compliance Beyond Filing. Strategy Beyond Numbers.</h2>
+          <p class="section-kicker">Tax-first assistance</p>
+          <h2 id="about-title">Focused support for accurate, timely income tax filing.</h2>
           <p>
-            Esyton represents a modern approach to professional services—combining technical expertise,
-            regulatory understanding and strategic thinking to help businesses operate with confidence.
+            Income tax filing can involve more than entering figures in a form. Income must be classified,
+            available tax information should be reconciled, deductions require supporting records, and the
+            completed return should reflect the taxpayer's actual financial position.
           </p>
           <p>
-            We believe compliance should not merely satisfy statutory requirements; it should become a
-            foundation for growth, governance and informed decision-making.
+            Esyton helps turn that work into a structured process. Where the matter also involves books of
+            account, GST records or business documentation, the connected services can be handled together.
           </p>
         </div>
       </div>
@@ -866,50 +945,49 @@
     <section id="services" aria-labelledby="services-title">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="section-kicker">Service guidance</p>
-          <h2 id="services-title">Professional Services Designed Around Your Business.</h2>
+          <p class="section-kicker">Our services</p>
+          <h2 id="services-title">Income tax first, with connected compliance support.</h2>
           <p>
-            From accounting and taxation to GST, trademarks and strategic advisory, Esyton delivers practical solutions tailored to the realities of modern business.
+            Start with your income tax return or tax concern. Add accounting, GST or trademark assistance where your personal or business requirements call for it.
           </p>
         </div>
 
         <div class="service-layout reveal">
           <div class="tabs" role="tablist" aria-label="Service categories">
-            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-service="accounts">
-              <span class="tab-icon">₹</span>
-              <span><strong>Accounting</strong><span>Books, ledgers, statements</span></span>
-            </button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="tax">
+            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-service="tax">
               <span class="tab-icon">%</span>
-              <span><strong>Income Tax</strong><span>Computation and filing readiness</span></span>
+              <span><strong>Income Tax</strong><span>ITR filing and tax assistance</span></span>
             </button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="compliance">
-              <span class="tab-icon">✓</span>
-              <span><strong>Compliance</strong><span>Due dates and records</span></span>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="accounts">
+              <span class="tab-icon">Rs</span>
+              <span><strong>Accounting</strong><span>Books, ledgers and statements</span></span>
             </button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="advisory">
-              <span class="tab-icon">?</span>
-              <span><strong>Advisory</strong><span>Questions and decisions</span></span>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="gst">
+              <span class="tab-icon">G</span>
+              <span><strong>GST</strong><span>Registration, returns and records</span></span>
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="trademark">
+              <span class="tab-icon">TM</span>
+              <span><strong>Trademarks</strong><span>Application assistance</span></span>
             </button>
           </div>
 
           <article class="service-panel" id="servicePanel">
             <div class="panel-copy">
-              <h3 id="serviceTitle">Accounting guidance</h3>
+              <h3 id="serviceTitle">Income tax return filing assistance</h3>
               <p id="serviceText">
-                Guidance on maintaining books, reviewing ledgers, reconciling bank accounts,
-                and preparing accounting information that can support tax and business decisions.
+                Assistance with preparing and filing income tax returns using the financial and tax information applicable to your profile.
               </p>
               <ul class="feature-list" id="serviceFeatures">
-                <li><span class="check">✓</span><span>Understand which ledgers and records should be maintained.</span></li>
-                <li><span class="check">✓</span><span>Identify gaps in bank, receivable, payable, and expense records.</span></li>
-                <li><span class="check">✓</span><span>Prepare accounting summaries for review and filing support.</span></li>
+                <li><span class="check">&#10003;</span><span>ITR filing for salaried individuals, professionals, proprietors and eligible entities.</span></li>
+                <li><span class="check">&#10003;</span><span>Review of AIS, TIS, Form 26AS, Form 16 and available income records.</span></li>
+                <li><span class="check">&#10003;</span><span>Assistance with revised or belated returns and tax notice documentation, where applicable.</span></li>
               </ul>
             </div>
             <aside class="side-note" aria-label="Selected service guidance notes">
-              <div class="note-box"><span>Useful when</span><strong id="serviceWhen">Books are incomplete or need review</strong></div>
-              <div class="note-box"><span>Client preparation</span><strong id="servicePrep">Bank statements, invoices, ledgers</strong></div>
-              <div class="note-box"><span>Likely outcome</span><strong id="serviceOutcome">Clearer records and next actions</strong></div>
+              <div class="note-box"><span>Useful for</span><strong id="serviceWhen">Annual filing or an unresolved return</strong></div>
+              <div class="note-box"><span>Key records</span><strong id="servicePrep">PAN, AIS, Form 26AS and income proofs</strong></div>
+              <div class="note-box"><span>Service focus</span><strong id="serviceOutcome">A reviewed, filing-ready return</strong></div>
             </aside>
           </article>
         </div>
@@ -919,11 +997,11 @@
     <section id="documents" class="soft-band" aria-labelledby="documents-title">
       <div class="shell checklist-grid">
         <div class="section-heading reveal">
-          <p class="section-kicker">Document guidance</p>
-          <h2 id="documents-title">Prepare the right records before the first review.</h2>
+          <p class="section-kicker">ITR document checklist</p>
+          <h2 id="documents-title">Prepare the records relevant to your return.</h2>
           <p>
-            Select the profile closest to your case. The checklist updates to show the type
-            of information that may be useful for an initial accounting or income tax discussion.
+            Select the profile closest to yours. The checklist highlights the core information
+            commonly required to review income and begin return preparation.
           </p>
           <div class="client-type" role="tablist" aria-label="Client profile">
             <button class="active" type="button" data-client="business">Business / LLP / Company</button>
@@ -933,17 +1011,16 @@
         </div>
 
         <article class="checklist-panel reveal">
-          <h3 id="docTitle">For a business, LLP, or company</h3>
+          <h3 id="docTitle">For a business, LLP or company</h3>
           <p id="docIntro">
-            Bring records that explain revenue, expenses, bank movement, statutory registrations,
-            and previous compliance history.
+            Prepare records covering business income, expenses, taxes, books of account and prior filings.
           </p>
           <ul class="doc-list" id="docList">
-            <li><span class="check">✓</span><span>Bank statements for the relevant period</span></li>
-            <li><span class="check">✓</span><span>Sales invoices, purchase bills, and expense vouchers</span></li>
-            <li><span class="check">✓</span><span>Books of account, ledgers, trial balance, or accounting exports</span></li>
-            <li><span class="check">✓</span><span>Previous income tax returns, notices, and assessment records, if any</span></li>
-            <li><span class="check">✓</span><span>Entity registration documents and key compliance records</span></li>
+            <li><span class="check">&#10003;</span><span>PAN, entity details and previous income tax return</span></li>
+            <li><span class="check">&#10003;</span><span>AIS, TIS, Form 26AS, TDS certificates and tax challans</span></li>
+            <li><span class="check">&#10003;</span><span>Books of account, trial balance, ledgers and financial statements</span></li>
+            <li><span class="check">&#10003;</span><span>Bank statements, sales records, purchase bills and expense details</span></li>
+            <li><span class="check">&#10003;</span><span>Details of loans, assets, investments and statutory filings relevant to the return</span></li>
           </ul>
         </article>
       </div>
@@ -952,29 +1029,29 @@
     <section id="process" aria-labelledby="process-title">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="section-kicker">Engagement process</p>
-          <h2 id="process-title">A simple path from question to action.</h2>
+          <p class="section-kicker">How it works</p>
+          <h2 id="process-title">A straightforward route to a completed return.</h2>
           <p>
-            This is a guidance model, not a claim of past outcomes. It explains how a client
-            matter can be approached once the scope and records are understood.
+            Each engagement begins with your taxpayer profile and records, then moves through review,
+            clarification and filing.
           </p>
         </div>
         <div class="process reveal">
           <article class="process-card">
-            <h3>Initial discussion</h3>
-            <p>Understand the taxpayer profile, business context, urgency, prior filings, and the specific issue.</p>
+            <h3>Share your requirement</h3>
+            <p>Tell us your taxpayer type, relevant financial year, income sources and any filing deadline or notice.</p>
           </article>
           <article class="process-card">
-            <h3>Record checklist</h3>
-            <p>Convert the matter into a clear list of documents, data points, and missing information.</p>
+            <h3>Submit your records</h3>
+            <p>Provide the tax statements, income details, bank information and supporting documents applicable to your return.</p>
           </article>
           <article class="process-card">
-            <h3>Review and guidance</h3>
-            <p>Review available information, explain options, and identify compliance or filing requirements.</p>
+            <h3>Review and clarify</h3>
+            <p>The available information is checked for consistency, and questions or missing records are identified before filing.</p>
           </article>
           <article class="process-card">
-            <h3>Next actions</h3>
-            <p>Prepare the filing path, response plan, accounting cleanup, or advisory note as applicable.</p>
+            <h3>Complete the filing</h3>
+            <p>The return is prepared for review and filing, followed by acknowledgement and any applicable next steps.</p>
           </article>
         </div>
       </div>
@@ -985,20 +1062,28 @@
         <div class="section-heading reveal">
           <p class="section-kicker">Common questions</p>
           <h2 id="faq-title">Frequently Asked Questions</h2>
-          <p>These prompts help visitors understand when to reach out and what to share.</p>
+          <p>Quick answers about filing assistance and connected services.</p>
         </div>
         <div class="faq-grid reveal">
           <details>
-            <summary>Can I reach out if my books are incomplete?</summary>
-            <p>Yes. The first step can be to identify missing records, reconcile available information, and prepare a cleanup plan.</p>
+            <summary>Who can seek income tax filing assistance?</summary>
+            <p>Salaried individuals, pensioners, professionals, proprietors, businesses and eligible entities can share their filing requirement for review.</p>
           </details>
           <details>
-            <summary>What should I mention in the first email?</summary>
-            <p>Briefly describe whether the matter relates to accounting, income tax filing, a notice, business compliance, or a specific transaction.</p>
+            <summary>Can you assist when I have multiple sources of income?</summary>
+            <p>Yes. Share details and supporting records for salary, professional or business income, house property, capital gains, interest and other applicable sources.</p>
           </details>
           <details>
-            <summary>Is this page giving tax advice?</summary>
-            <p>No. This page provides general guidance. Specific advice should be based on facts, documents, applicable law, and a formal review.</p>
+            <summary>Can accounting work be handled along with the return?</summary>
+            <p>Yes. Where filing depends on updated books, bank reconciliation, ledgers or financial statements, accounting assistance can be included in the scope.</p>
+          </details>
+          <details>
+            <summary>Do you also assist with GST and trademarks?</summary>
+            <p>Yes. GST registration and return-related assistance, as well as trademark application support, are available as connected services.</p>
+          </details>
+          <details>
+            <summary>What should I include in my first email?</summary>
+            <p>Mention your taxpayer type, financial year, main income sources, the service required and any deadline or notice involved.</p>
           </details>
         </div>
       </div>
@@ -1007,28 +1092,28 @@
     <section id="contact" aria-labelledby="contact-title">
       <div class="shell contact-grid">
         <div class="section-heading reveal">
-          <p class="section-kicker">Next step</p>
-          <h2 id="contact-title">Let's Build a Stronger Compliance & Growth Framework.</h2>
+          <p class="section-kicker">ITR enquiry</p>
+          <h2 id="contact-title">Start your income tax filing enquiry.</h2>
           <p>
-            For accounting or income tax matters, include the taxpayer type, assessment year or
-            financial year, current issue, and whether any deadline or notice is involved.
+            Email your taxpayer type, financial year, income sources and the assistance you need.
+            Include any applicable filing deadline or notice date so the requirement can be understood promptly.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="mailto:contact@esyton.in">Email Esyton</a>
-            <a class="button button-secondary" href="tel:+910000000000">Call placeholder number</a>
+            <a class="button button-primary" href="mailto:contact@esyton.in?subject=Income%20Tax%20Filing%20Enquiry">Send an ITR enquiry</a>
+            <a class="button button-secondary" href="#documents">Check required documents</a>
           </div>
         </div>
 
         <aside class="contact-panel reveal">
-          <h3>Contact details</h3>
+          <h3>Write to Esyton</h3>
           <div class="contact-list">
             <div class="contact-row">
               <span class="mini-icon">@</span>
-              <span><strong>Email</strong> contact@esyton.in</span>
+              <span><strong>Email</strong><a href="mailto:contact@esyton.in">contact@esyton.in</a></span>
             </div>
           </div>
           <div class="notice">
-            <p>Our executives will contact you back for details once you submit at query by heading to our ITR Enquiry section</p>
+            <p>For a faster initial review, include your PAN category, financial year, nature of income and a short description of the filing or tax issue.</p>
           </div>
         </aside>
       </div>
@@ -1038,94 +1123,94 @@
   <footer class="site-footer">
     <div class="shell footer-row">
       <span>2026 Esyton Insights LLP. All rights reserved.</span>
-      <span>Accounting • Taxation • GST • Trademark • Advisory</span>
+      <span>Income Tax Filing &bull; Accounting &bull; GST &bull; Trademarks</span>
     </div>
   </footer>
 
   <script>
     const serviceGuidance = {
-      accounts: {
-        title: "Accounting guidance",
-        text: "Guidance on maintaining books, reviewing ledgers, reconciling bank accounts, and preparing accounting information that can support tax and business decisions.",
-        when: "Books are incomplete or need review",
-        prep: "Bank statements, invoices, ledgers",
-        outcome: "Clearer records and next actions",
-        features: [
-          "Understand which ledgers and records should be maintained.",
-          "Identify gaps in bank, receivable, payable, and expense records.",
-          "Prepare accounting summaries for review and filing support."
-        ]
-      },
       tax: {
-        title: "Income tax guidance",
-        text: "Guidance on income classification, deductions, advance tax, filing preparation, and how to organize records before return filing or responding to tax queries.",
-        when: "A return, tax estimate, or notice needs attention",
-        prep: "Form 16, AIS/TIS, bank data, proofs",
-        outcome: "Filing-ready tax information",
+        title: "Income tax return filing assistance",
+        text: "Assistance with preparing and filing income tax returns using the financial and tax information applicable to your profile.",
+        when: "Annual filing or an unresolved return",
+        prep: "PAN, AIS, Form 26AS and income proofs",
+        outcome: "A reviewed, filing-ready return",
         features: [
-          "Identify income heads, deductions, and records needed for review.",
-          "Prepare information for income tax return filing discussions.",
-          "Organize facts and documents for tax notices or queries."
+          "ITR filing for salaried individuals, professionals, proprietors and eligible entities.",
+          "Review of AIS, TIS, Form 26AS, Form 16 and available income records.",
+          "Assistance with revised or belated returns and tax notice documentation, where applicable."
         ]
       },
-      compliance: {
-        title: "Compliance guidance",
-        text: "Guidance on understanding due dates, document trails, filing dependencies, and how recurring finance obligations can be tracked more clearly.",
-        when: "Deadlines or filings are unclear",
-        prep: "Prior filings, registrations, due dates",
-        outcome: "A practical compliance checklist",
+      accounts: {
+        title: "Accounting and bookkeeping assistance",
+        text: "Support for maintaining organised books, reviewing ledgers, reconciling accounts and preparing financial information for tax filing and business use.",
+        when: "Books need preparation or review",
+        prep: "Bank statements, invoices and ledgers",
+        outcome: "Updated, organised accounting records",
         features: [
-          "Map recurring statutory and tax-related obligations.",
-          "Create a checklist of records needed for each filing cycle.",
-          "Separate urgent actions from routine follow-up work."
+          "Bookkeeping and ledger maintenance for businesses and professionals.",
+          "Bank, customer, supplier and expense reconciliation.",
+          "Trial balance and financial statement preparation support."
         ]
       },
-      advisory: {
-        title: "Transaction and decision guidance",
-        text: "Guidance for finance and tax questions that arise before important business decisions, transactions, investments, or structural changes.",
-        when: "A decision has tax or accounting impact",
-        prep: "Facts, contracts, values, timelines",
-        outcome: "Questions, risks, and next steps",
+      gst: {
+        title: "GST registration and return assistance",
+        text: "Assistance with GST registration, periodic return preparation, record organisation and reconciliation of information used for GST compliance.",
+        when: "GST registration or returns are due",
+        prep: "Registration data, invoices and returns",
+        outcome: "Organised GST filing information",
         features: [
-          "Frame the accounting and tax questions before action is taken.",
-          "Identify the documents and assumptions needed for review.",
-          "Prepare a practical note on possible next steps."
+          "GST registration and amendment assistance.",
+          "Sales and purchase data review for return preparation.",
+          "Support with GST return records and reconciliation."
+        ]
+      },
+      trademark: {
+        title: "Trademark application assistance",
+        text: "Support with organising applicant and brand details, selecting the relevant class and preparing information for a trademark application.",
+        when: "A name, logo or brand needs protection",
+        prep: "Applicant, brand and usage details",
+        outcome: "Application-ready trademark information",
+        features: [
+          "Preliminary organisation of trademark and applicant details.",
+          "Assistance with class selection and application information.",
+          "Support with documentation and application follow-up."
         ]
       }
     };
 
     const documentGuidance = {
       business: {
-        title: "For a business, LLP, or company",
-        intro: "Bring records that explain revenue, expenses, bank movement, statutory registrations, and previous compliance history.",
+        title: "For a business, LLP or company",
+        intro: "Prepare records covering business income, expenses, taxes, books of account and prior filings.",
         items: [
-          "Bank statements for the relevant period",
-          "Sales invoices, purchase bills, and expense vouchers",
-          "Books of account, ledgers, trial balance, or accounting exports",
-          "Previous income tax returns, notices, and assessment records, if any",
-          "Entity registration documents and key compliance records"
+          "PAN, entity details and previous income tax return",
+          "AIS, TIS, Form 26AS, TDS certificates and tax challans",
+          "Books of account, trial balance, ledgers and financial statements",
+          "Bank statements, sales records, purchase bills and expense details",
+          "Details of loans, assets, investments and statutory filings relevant to the return"
         ]
       },
       professional: {
         title: "For a professional or consultant",
-        intro: "Prepare documents that explain receipts, expenses, tax deductions, and the nature of professional work.",
+        intro: "Prepare records covering professional receipts, work-related expenses, taxes paid and applicable deductions.",
         items: [
-          "Client invoices, fee receipts, and bank statements",
-          "Expense records connected to professional work",
-          "Form 26AS, AIS/TIS, TDS certificates, and advance tax challans",
-          "Previous income tax returns and computation sheets",
-          "Details of investments, deductions, loans, or major transactions"
+          "PAN, Aadhaar and previous income tax return",
+          "AIS, TIS, Form 26AS, TDS certificates and advance tax challans",
+          "Client invoices, fee receipts and business bank statements",
+          "Details of professional expenses, assets and applicable loans",
+          "Investment, deduction, capital gain and other income records"
         ]
       },
       individual: {
         title: "For an individual taxpayer",
-        intro: "Collect documents that explain salary, other income, deductions, investments, and prior tax filings.",
+        intro: "Collect records covering salary or pension, other income, investments, deductions and taxes already credited.",
         items: [
-          "PAN, Aadhaar, Form 16, and salary details, where applicable",
-          "Form 26AS, AIS/TIS, interest certificates, and bank statements",
-          "Investment and deduction proofs",
-          "Capital gains, property income, foreign income, or other income details, if any",
-          "Previous income tax return and any tax notice received"
+          "PAN, Aadhaar, Form 16 and previous income tax return",
+          "AIS, TIS, Form 26AS, interest certificates and bank statements",
+          "Investment and deduction proofs applicable to the chosen tax regime",
+          "Capital gains, property, foreign asset or other income details, where applicable",
+          "Tax challans and any income tax communication received"
         ]
       }
     };
@@ -1143,7 +1228,7 @@
         document.getElementById("servicePrep").textContent = data.prep;
         document.getElementById("serviceOutcome").textContent = data.outcome;
         document.getElementById("serviceFeatures").innerHTML = data.features
-          .map((feature) => `<li><span class="check">✓</span><span>${feature}</span></li>`)
+          .map((feature) => `<li><span class="check">&#10003;</span><span>${feature}</span></li>`)
           .join("");
       });
     });
@@ -1155,7 +1240,7 @@
         document.getElementById("docTitle").textContent = data.title;
         document.getElementById("docIntro").textContent = data.intro;
         document.getElementById("docList").innerHTML = data.items
-          .map((item) => `<li><span class="check">✓</span><span>${item}</span></li>`)
+          .map((item) => `<li><span class="check">&#10003;</span><span>${item}</span></li>`)
           .join("");
       });
     });
