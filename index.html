@@ -3,1143 +3,475 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Esyton Insights LLP | Income Tax Filing, Accounting, GST & Trademark Assistance</title>
-  <meta name="description" content="Income tax return filing assistance for individuals, professionals and businesses, supported by accounting, GST and trademark services from Esyton Insights LLP.">
-  <meta property="og:title" content="Esyton Insights LLP">
-  <meta property="og:description" content="Income tax filing assistance, accounting, GST and trademark services for individuals, professionals and businesses in India.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://esyton.in/">
-  <meta name="theme-color" content="#087c88">
+  <title>Esyton Insights LLP | Tax, Accounting, GST & Trademark Support</title>
+  <meta name="description" content="Practical income tax, accounting, GST and trademark assistance for individuals, professionals and growing businesses.">
+  <meta name="theme-color" content="#062f59">
   <style>
     :root {
-      --teal: #087c88;
-      --teal-dark: #064a53;
-      --ink: #081317;
-      --muted: #37474f;
-      --paper: #ffffff;
-      --soft: #f4f8f8;
-      --line: #dbe7e8;
-      --gold: #a96f22;
-      --green: #557b3f;
-      --clay: #8b6458;
-      --shadow: 0 22px 60px rgba(17, 31, 36, 0.11);
-      --radius: 8px;
-      --max: 1140px;
+      --navy: #062f59;
+      --navy-2: #0a426f;
+      --navy-3: #071f36;
+      --gold: #c5983d;
+      --yellow: #ffd800;
+      --ink: #101820;
+      --muted: #5d6872;
+      --paper: #fff;
+      --soft: #f4f6f8;
+      --line: #dfe5e9;
+      --shadow: 0 22px 55px rgba(6, 47, 89, .13);
+      --max: 1180px;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.65; }
+    body, button, input, textarea { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin-top: 0; }
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        linear-gradient(90deg, rgba(8, 124, 136, 0.04) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(8, 124, 136, 0.035) 1px, transparent 1px),
-        linear-gradient(120deg, #f7fbfb, #ffffff 48%, #fbf8f2);
-      background-size: 44px 44px, 44px 44px, auto;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    :focus-visible {
-      outline: 3px solid rgba(169, 111, 34, 0.55);
-      outline-offset: 4px;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
-
-    .shell {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
+    .shell { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .topbar { color: #dce9f3; background: var(--navy-3); font-size: .77rem; }
+    .topbar-row { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .topbar-list { display: flex; gap: 24px; align-items: center; }
+    .topbar strong { color: var(--yellow); }
 
     .site-header {
       position: sticky;
       top: 0;
       z-index: 20;
-      border-bottom: 1px solid rgba(219, 231, 232, 0.78);
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
     }
-
-    .nav {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(8, 124, 136, 0.24);
-      border-radius: var(--radius);
-      color: var(--teal);
-      background: #f7fbfb;
-      font-size: 1.55rem;
-      font-weight: 900;
-      box-shadow: 0 12px 30px rgba(8, 124, 136, 0.1);
-      transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
-    }
-
-    .brand:hover .brand-mark {
-      transform: rotate(-5deg) scale(1.05);
-      background: #fff;
-      box-shadow: 0 16px 34px rgba(8, 124, 136, 0.18);
-    }
-
-    .brand-name {
-      display: block;
-      color: var(--teal);
-      font-size: 1.6rem;
-      font-weight: 850;
-      line-height: 0.95;
-      letter-spacing: 0;
-    }
-
-    .brand-entity {
-      display: block;
-      color: var(--muted);
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px;
-      border: 1px solid rgba(219, 231, 232, 0.9);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.74);
-    }
-
-    .nav-links a {
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 12px;
-      border-radius: var(--radius);
-      color: #203238;
-      font-size: 0.91rem;
-      font-weight: 760;
-      transition: color 180ms ease, background 180ms ease, transform 180ms ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--teal-dark);
-      background: rgba(8, 124, 136, 0.18);
-      transform: translateY(-1px);
-    }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 13px; color: var(--navy); }
+    .brand-logo { width: 72px; }
+    .brand-word { font-size: 1.55rem; font-weight: 650; letter-spacing: .25em; line-height: 1; text-transform: lowercase; }
+    .brand-sub { display: block; margin-top: 7px; color: var(--muted); font-size: .61rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 3px; }
+    .nav-links a { padding: 12px 13px; color: #34424e; font-size: .86rem; font-weight: 700; }
+    .nav-links a:hover, .nav-links a.active { color: var(--navy); background: #edf3f7; }
 
     .button {
-      min-height: 46px;
+      min-height: 48px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 0 18px;
+      padding: 0 22px;
       border: 1px solid transparent;
-      border-radius: var(--radius);
-      font-weight: 820;
-      line-height: 1;
-      transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      border-radius: 2px;
+      font-weight: 800;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
-
-    .button:hover {
-      transform: translateY(-3px);
-    }
-
-    .button-primary {
-      color: #fff;
-      background: var(--teal);
-      box-shadow: 0 14px 28px rgba(8, 124, 136, 0.18);
-    }
-
-    .button-primary:hover {
-      background: var(--teal-dark);
-      box-shadow: 0 18px 34px rgba(6, 74, 83, 0.25);
-    }
-
-    .button-secondary {
-      color: var(--teal-dark);
-      border-color: rgba(8, 124, 136, 0.24);
-      background: #fff;
-    }
-
-    .button-secondary:hover {
-      border-color: var(--teal);
-      background: rgba(8, 124, 136, 0.07);
-      box-shadow: 0 12px 26px rgba(8, 124, 136, 0.1);
-    }
+    .button:hover { transform: translateY(-2px); }
+    .button-gold { color: var(--navy-3); background: var(--yellow); box-shadow: 0 12px 26px rgba(255,216,0,.2); }
+    .button-gold:hover { background: #ffe238; }
+    .button-navy { color: #fff; background: var(--navy); box-shadow: 0 12px 28px rgba(6,47,89,.2); }
+    .button-navy:hover { background: var(--navy-2); }
+    .button-outline { color: #fff; border-color: rgba(255,255,255,.5); }
+    .button-outline:hover { background: rgba(255,255,255,.1); }
 
     .hero {
-      min-height: calc(100svh - 76px);
+      position: relative;
+      min-height: 670px;
       display: grid;
       align-items: center;
-      padding: 64px 0 44px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(370px, 0.86fr);
-      gap: 58px;
-      align-items: center;
-    }
-
-    .eyebrow,
-    .section-kicker {
-      color: var(--gold);
-      font-size: 0.78rem;
-      font-weight: 860;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow {
-      width: fit-content;
-      margin: 0 0 18px;
-      padding: 7px 10px;
-      border: 1px solid rgba(169, 111, 34, 0.22);
-      border-radius: var(--radius);
-      background: #fffaf1;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 860px;
-      margin-bottom: 22px;
-      font-size: clamp(2.75rem, 7.2vw, 6.15rem);
-      line-height: 0.96;
-      letter-spacing: 0;
-    }
-
-    h1 span {
-      color: var(--teal);
-    }
-
-    .hero-copy {
-      max-width: 720px;
-      color: #23353b;
-      font-size: clamp(1.08rem, 2vw, 1.28rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
-
-    .guidance-card {
-      border: 1px solid rgba(219, 231, 232, 0.94);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: var(--shadow);
       overflow: hidden;
-      transition: transform 240ms ease, box-shadow 240ms ease;
-    }
-
-    .guidance-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 28px 70px rgba(17, 31, 36, 0.15);
-    }
-
-    .guidance-head {
-      padding: 22px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(135deg, rgba(8, 124, 136, 0.1), rgba(255, 255, 255, 0.74));
-    }
-
-    .guidance-head h2 {
-      margin-bottom: 6px;
-      font-size: 1.35rem;
-      line-height: 1.15;
-    }
-
-    .guidance-head p {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .guide-list {
-      display: grid;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .guide-list li {
-      display: grid;
-      grid-template-columns: 42px minmax(0, 1fr);
-      gap: 14px;
-      padding: 18px 22px;
-      border-bottom: 1px solid var(--line);
-      transition: background 180ms ease, padding-left 180ms ease;
-    }
-
-    .guide-list li:hover {
-      padding-left: 28px;
-      background: rgba(8, 124, 136, 0.045);
-    }
-
-    .guide-list li:last-child {
-      border-bottom: 0;
-    }
-
-    .guide-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius);
       color: #fff;
-      background: var(--teal);
-      font-weight: 900;
+      background:
+        linear-gradient(90deg, rgba(5,30,53,.98) 0%, rgba(6,47,89,.94) 50%, rgba(6,47,89,.55) 100%),
+        radial-gradient(circle at 85% 25%, #2678a8 0, #062f59 48%, #071f36 100%);
     }
-
-    .guide-list li:nth-child(2) .guide-icon {
-      background: var(--green);
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .14;
+      background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: linear-gradient(90deg, #000, transparent 75%);
     }
-
-    .guide-list li:nth-child(3) .guide-icon {
-      background: var(--clay);
-    }
-
-    .guide-list strong {
-      display: block;
-      margin-bottom: 4px;
-      line-height: 1.2;
-    }
-
-    .guide-list span {
-      color: var(--muted);
-    }
-
-    section {
-      padding: 84px 0;
-    }
-
-    .section-heading {
-      max-width: 790px;
-      margin-bottom: 34px;
-    }
-
-    .section-heading h2 {
-      margin: 10px 0 14px;
-      font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.04;
-      letter-spacing: 0;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .service-layout {
-      display: grid;
-      grid-template-columns: 300px minmax(0, 1fr);
-      gap: 22px;
-      align-items: start;
-    }
-
-    .tabs {
-      display: grid;
-      gap: 10px;
-    }
-
-    .tab-button {
-      width: 100%;
-      min-height: 70px;
-      display: grid;
-      grid-template-columns: 42px minmax(0, 1fr);
-      gap: 12px;
-      align-items: center;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.88);
-      text-align: left;
-      cursor: pointer;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
-    }
-
-    .tab-button:hover {
-      transform: translateX(5px);
-      border-color: rgba(8, 124, 136, 0.35);
-      box-shadow: 0 12px 28px rgba(17, 31, 36, 0.07);
-    }
-
-    .tab-button.active {
-      border-color: rgba(8, 124, 136, 0.42);
-      background: rgba(8, 124, 136, 0.15);
-      box-shadow: 0 14px 34px rgba(17, 31, 36, 0.09);
-    }
-
-    .tab-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius);
-      color: #fff;
-      background: var(--teal);
-      font-weight: 900;
-    }
-
-    .tab-button:nth-child(2) .tab-icon {
-      background: var(--gold);
-    }
-
-    .tab-button:nth-child(3) .tab-icon {
-      background: var(--green);
-    }
-
-    .tab-button:nth-child(4) .tab-icon {
-      background: var(--clay);
-    }
-
-    .tab-button strong,
-    .tab-button span {
-      display: block;
-    }
-
-    .tab-button span {
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 650;
-    }
-
-    .service-panel,
-    .checklist-panel,
-    .contact-panel {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 14px 34px rgba(17, 31, 36, 0.08);
-    }
-
-    .service-panel {
-      min-height: 500px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 285px;
-      gap: 20px;
-      padding: 26px;
-    }
-
-    .panel-copy h3 {
-      margin-bottom: 12px;
-      font-size: 2rem;
-      line-height: 1.08;
-    }
-
-    .panel-copy p {
-      color: var(--muted);
-      font-size: 1.03rem;
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 12px;
-      margin: 22px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .feature-list li {
-      display: grid;
-      grid-template-columns: 28px minmax(0, 1fr);
-      gap: 10px;
-      align-items: start;
-      color: #203238;
-    }
-
-    .check {
-      width: 28px;
-      height: 28px;
-      display: grid;
-      place-items: center;
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -130px;
+      width: 600px;
+      height: 600px;
+      border: 90px solid rgba(255,216,0,.92);
       border-radius: 50%;
-      color: #fff;
-      background: var(--teal);
-      font-size: 0.82rem;
-      font-weight: 900;
+      opacity: .16;
     }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.06fr .94fr; gap: 65px; align-items: center; padding: 86px 0 92px; }
+    .eyebrow, .section-kicker { color: var(--gold); font-size: .75rem; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 19px; color: var(--yellow); }
+    .eyebrow::before { content: ""; width: 40px; height: 3px; background: var(--yellow); }
+    h1 { max-width: 720px; margin-bottom: 22px; font-size: clamp(3.1rem, 6.2vw, 6.4rem); line-height: .94; letter-spacing: -.055em; }
+    h1 span { color: var(--yellow); }
+    .hero-copy { max-width: 640px; color: #d7e2eb; font-size: 1.12rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 34px; color: #c8d7e3; font-size: .85rem; font-weight: 700; }
+    .hero-trust span::before { content: "✓"; margin-right: 8px; color: var(--yellow); }
 
-    .side-note {
-      display: grid;
-      gap: 12px;
-      align-content: start;
-    }
+    .hero-visual { position: relative; min-height: 450px; display: grid; place-items: center; }
+    .visual-card { position: relative; z-index: 2; width: min(100%, 460px); padding: 27px; color: var(--ink); background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.28); }
+    .visual-top { display: flex; justify-content: space-between; align-items: start; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .visual-top small { display: block; color: var(--muted); font-weight: 800; text-transform: uppercase; }
+    .visual-top strong { display: block; margin-top: 4px; color: var(--navy); font-size: 1.45rem; }
+    .status { padding: 7px 10px; color: #2a5b27; background: #e9f6e7; font-size: .7rem; font-weight: 900; text-transform: uppercase; }
+    .chart { height: 150px; display: flex; align-items: end; gap: 13px; padding: 24px 4px 10px; border-bottom: 1px solid var(--line); }
+    .bar { flex: 1; min-height: 18px; background: var(--navy); }
+    .bar:nth-child(2), .bar:nth-child(5) { background: var(--gold); }
+    .metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; padding-top: 20px; }
+    .metric { padding: 13px; background: var(--soft); }
+    .metric span { display: block; color: var(--muted); font-size: .66rem; font-weight: 800; text-transform: uppercase; }
+    .metric strong { display: block; margin-top: 4px; color: var(--navy); font-size: 1rem; }
+    .floating-note { position: absolute; z-index: 3; right: -15px; bottom: 18px; width: 205px; padding: 18px; color: var(--navy-3); background: var(--yellow); box-shadow: var(--shadow); }
+    .floating-note strong { display: block; font-size: 1.05rem; }
+    .floating-note span { font-size: .78rem; font-weight: 650; }
 
-    .note-box {
-      padding: 18px;
-      border-radius: var(--radius);
-      color: #fff;
-      background: linear-gradient(145deg, #0e4751, #087c88);
-      transition: transform 180ms ease, box-shadow 180ms ease;
-    }
+    .quick-strip { position: relative; z-index: 4; margin-top: -35px; }
+    .quick-grid { display: grid; grid-template-columns: repeat(3,1fr); box-shadow: var(--shadow); }
+    .quick-card { min-height: 145px; display: grid; grid-template-columns: 52px 1fr; gap: 17px; align-items: center; padding: 25px; background: #fff; border-right: 1px solid var(--line); transition: transform .2s ease, background .2s ease; }
+    .quick-card:last-child { border-right: 0; }
+    .quick-card:hover { transform: translateY(-6px); background: #f9fbfc; }
+    .quick-icon { width: 52px; height: 52px; display: grid; place-items: center; color: var(--navy); background: var(--yellow); font-size: 1.15rem; font-weight: 950; }
+    .quick-card h3 { margin-bottom: 4px; color: var(--navy); font-size: 1.04rem; }
+    .quick-card p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.5; }
 
-    .note-box:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 28px rgba(6, 74, 83, 0.18);
-    }
+    section { padding: 92px 0; }
+    .section-heading { max-width: 780px; margin-bottom: 38px; }
+    .section-kicker { margin-bottom: 10px; color: var(--gold); }
+    .section-heading h2 { margin-bottom: 15px; color: var(--navy); font-size: clamp(2.2rem,4.2vw,3.7rem); line-height: 1.05; letter-spacing: -.035em; }
+    .section-heading p { color: var(--muted); font-size: 1.02rem; }
 
-    .note-box span {
-      display: block;
-      color: rgba(255, 255, 255, 0.72);
-      font-size: 0.78rem;
-      font-weight: 760;
-    }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 70px; align-items: center; }
+    .about-art { position: relative; min-height: 430px; padding: 48px; color: #fff; background: var(--navy); overflow: hidden; }
+    .about-art::after { content: ""; position: absolute; width: 270px; height: 270px; right: -70px; bottom: -70px; border: 55px solid var(--yellow); border-radius: 50%; opacity: .85; }
+    .about-number { position: relative; z-index: 1; font-size: clamp(5rem,11vw,9rem); font-weight: 900; line-height: .8; letter-spacing: -.08em; }
+    .about-art p { position: relative; z-index: 1; max-width: 260px; margin: 30px 0 0; color: #d6e2eb; font-weight: 650; }
+    .about-points { display: grid; gap: 18px; margin-top: 30px; }
+    .about-point { display: grid; grid-template-columns: 44px 1fr; gap: 15px; align-items: start; }
+    .about-point b { width: 44px; height: 44px; display: grid; place-items: center; color: var(--navy); background: var(--yellow); }
+    .about-point strong { display: block; color: var(--navy); }
+    .about-point span { color: var(--muted); font-size: .92rem; }
 
-    .note-box strong {
-      display: block;
-      margin-top: 10px;
-      font-size: 1.15rem;
-      line-height: 1.2;
-    }
+    .services { background: var(--soft); }
+    .service-layout { display: grid; grid-template-columns: 290px 1fr; gap: 22px; }
+    .tabs { display: grid; gap: 3px; align-content: start; }
+    .tab-button { min-height: 78px; display: grid; grid-template-columns: 42px 1fr; gap: 13px; align-items: center; padding: 14px; border: 0; border-left: 4px solid transparent; background: #fff; text-align: left; cursor: pointer; }
+    .tab-button:hover, .tab-button.active { border-left-color: var(--yellow); color: #fff; background: var(--navy); }
+    .tab-icon { width: 42px; height: 42px; display: grid; place-items: center; color: var(--navy); background: var(--yellow); font-weight: 900; }
+    .tab-button strong, .tab-button span { display: block; }
+    .tab-button span span { color: #7a8792; font-size: .76rem; }
+    .tab-button.active span span, .tab-button:hover span span { color: #c8d7e3; }
+    .service-panel { min-height: 480px; display: grid; grid-template-columns: 1fr 270px; gap: 35px; padding: 38px; background: #fff; box-shadow: 0 15px 40px rgba(6,47,89,.08); }
+    .panel-copy h3 { margin-bottom: 15px; color: var(--navy); font-size: 2.15rem; line-height: 1.08; }
+    .panel-copy p { color: var(--muted); }
+    .feature-list, .doc-list { display: grid; gap: 13px; margin: 25px 0 0; padding: 0; list-style: none; }
+    .feature-list li, .doc-list li { display: grid; grid-template-columns: 27px 1fr; gap: 11px; align-items: start; }
+    .check { width: 27px; height: 27px; display: grid; place-items: center; color: var(--navy); background: var(--yellow); font-size: .75rem; font-weight: 950; }
+    .side-note { display: grid; gap: 10px; align-content: start; }
+    .note-box { padding: 19px; color: #fff; background: var(--navy); border-bottom: 4px solid var(--yellow); }
+    .note-box span { display: block; color: #aebfcd; font-size: .69rem; font-weight: 900; text-transform: uppercase; }
+    .note-box strong { display: block; margin-top: 8px; line-height: 1.25; }
 
-    .soft-band {
-      border-block: 1px solid var(--line);
-      background: rgba(244, 248, 248, 0.82);
-    }
+    .documents-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 45px; align-items: start; }
+    .client-type { display: grid; gap: 5px; margin-top: 25px; }
+    .client-type button { min-height: 54px; padding: 0 17px; border: 1px solid var(--line); background: #fff; text-align: left; font-weight: 800; cursor: pointer; }
+    .client-type button:hover, .client-type button.active { color: #fff; border-color: var(--navy); background: var(--navy); }
+    .checklist-panel { padding: 34px; border-top: 6px solid var(--yellow); background: var(--soft); }
+    .checklist-panel h3 { margin-bottom: 10px; color: var(--navy); font-size: 1.8rem; }
+    .checklist-panel > p { color: var(--muted); }
+    .doc-list li { padding: 13px; background: #fff; }
 
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 0.82fr) minmax(360px, 1fr);
-      gap: 28px;
-      align-items: start;
-    }
+    .process-band { color: #fff; background: var(--navy); }
+    .process-band .section-kicker { color: var(--yellow); }
+    .process-band .section-heading h2 { color: #fff; }
+    .process-band .section-heading p { color: #c2d1dc; }
+    .process { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: rgba(255,255,255,.18); }
+    .process-card { min-height: 270px; padding: 26px; background: var(--navy); counter-increment: step; }
+    .process { counter-reset: step; }
+    .process-card::before { content: "0" counter(step); display: block; margin-bottom: 58px; color: var(--yellow); font-size: 2.1rem; font-weight: 900; }
+    .process-card h3 { margin-bottom: 10px; font-size: 1.12rem; }
+    .process-card p { margin: 0; color: #bfcfda; font-size: .88rem; }
 
-    .client-type {
-      display: grid;
-      gap: 10px;
-      margin-top: 24px;
-    }
+    .faq-grid { display: grid; gap: 8px; }
+    details { border: 1px solid var(--line); background: #fff; }
+    details[open] { border-left: 5px solid var(--yellow); box-shadow: 0 10px 28px rgba(6,47,89,.08); }
+    summary { min-height: 66px; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 0 20px; color: var(--navy); font-weight: 850; cursor: pointer; }
+    summary::after { content: "+"; color: var(--gold); font-size: 1.5rem; }
+    details[open] summary::after { content: "−"; }
+    details p { margin: 0; padding: 0 20px 20px; color: var(--muted); }
 
-    .client-type button {
-      min-height: 52px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      color: #203238;
-      background: #fff;
-      font-weight: 780;
-      text-align: left;
-      padding: 0 14px;
-      cursor: pointer;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
+    .contact { padding: 0; color: #fff; background: var(--navy-3); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 420px; gap: 65px; align-items: center; padding: 78px 0; }
+    .contact h2 { margin-bottom: 15px; font-size: clamp(2.4rem,5vw,4.5rem); line-height: 1; letter-spacing: -.04em; }
+    .contact-copy > p { max-width: 680px; color: #bccbd7; }
+    .contact-panel { padding: 31px; color: var(--ink); background: #fff; border-top: 6px solid var(--yellow); }
+    .contact-panel h3 { color: var(--navy); }
+    .contact-row { display: grid; grid-template-columns: 42px 1fr; gap: 13px; align-items: center; margin-top: 20px; }
+    .mini-icon { width: 42px; height: 42px; display: grid; place-items: center; color: var(--navy); background: var(--yellow); font-weight: 900; }
+    .contact-row strong { display: block; color: var(--navy); }
+    .contact-row span span, .contact-row a { color: var(--muted); }
+    .notice { margin-top: 22px; padding: 14px; color: #5d4b1b; background: #fff8d5; font-size: .83rem; }
 
-    .client-type button:hover {
-      transform: translateX(4px);
-      border-color: rgba(8, 124, 136, 0.35);
-    }
-
-    .client-type button.active {
-      color: var(--teal-dark);
-      border-color: rgba(8, 124, 136, 0.42);
-      background: rgba(8, 124, 136, 0.15);
-    }
-
-    .checklist-panel {
-      padding: 26px;
-    }
-
-    .checklist-panel h3 {
-      margin-bottom: 10px;
-      font-size: 1.8rem;
-      line-height: 1.12;
-    }
-
-    .checklist-panel p {
-      color: var(--muted);
-    }
-
-    .doc-list {
-      display: grid;
-      gap: 10px;
-      margin: 22px 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .doc-list li {
-      display: grid;
-      grid-template-columns: 28px minmax(0, 1fr);
-      gap: 10px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fff;
-    }
-
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      counter-reset: process;
-    }
-
-    .process-card {
-      min-height: 250px;
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.92);
-      counter-increment: process;
-      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-    }
-
-    .process-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(8, 124, 136, 0.35);
-      box-shadow: 0 20px 42px rgba(17, 31, 36, 0.1);
-    }
-
-    .process-card::before {
-      content: counter(process);
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 42px;
-      border-radius: 50%;
-      color: #fff;
-      background: var(--teal-dark);
-      font-weight: 900;
-    }
-
-    .process-card h3 {
-      margin-bottom: 8px;
-      font-size: 1.15rem;
-      line-height: 1.2;
-    }
-
-    .process-card p {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .faq-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    details {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.92);
-      overflow: hidden;
-      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-    }
-
-    details:hover,
-    details[open] {
-      border-color: rgba(8, 124, 136, 0.35);
-      box-shadow: 0 14px 30px rgba(17, 31, 36, 0.07);
-      transform: translateY(-2px);
-    }
-
-    summary {
-      min-height: 62px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 0 18px;
-      color: var(--ink);
-      font-weight: 850;
-      cursor: pointer;
-    }
-
-    summary::after {
-      content: "+";
-      color: var(--teal);
-      font-size: 1.45rem;
-      line-height: 1;
-    }
-
-    details[open] summary::after {
-      content: "-";
-    }
-
-    details p {
-      margin: 0;
-      padding: 0 18px 18px;
-      color: var(--muted);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 390px;
-      gap: 28px;
-      align-items: stretch;
-    }
-
-    .contact-panel {
-      padding: 28px;
-    }
-
-    .contact-panel h3 {
-      margin-bottom: 12px;
-      font-size: 1.45rem;
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-      margin: 24px 0;
-    }
-
-    .contact-row {
-      display: grid;
-      grid-template-columns: 38px minmax(0, 1fr);
-      gap: 12px;
-      align-items: start;
-      color: var(--muted);
-    }
-
-    .contact-row strong {
-      display: block;
-      color: var(--ink);
-    }
-
-    .mini-icon {
-      width: 38px;
-      height: 38px;
-      display: grid;
-      place-items: center;
-      border-radius: var(--radius);
-      color: var(--teal-dark);
-      background: rgba(8, 124, 136, 0.1);
-      font-weight: 900;
-    }
-
-    .notice {
-      border-left: 4px solid var(--gold);
-      padding: 16px 18px;
-      border-radius: var(--radius);
-      color: #4d3c22;
-      background: #fff8ed;
-    }
-
-    .notice p {
-      margin: 0;
-      font-size: 0.92rem;
-    }
-
-    .site-footer {
-      padding: 28px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.7);
-      font-size: 0.92rem;
-    }
-
-    .footer-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 650ms ease, transform 650ms ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .site-footer { padding: 27px 0; color: #9fb0bd; background: #041725; border-top: 1px solid rgba(255,255,255,.1); font-size: .83rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
 
     @media (max-width: 980px) {
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 16px 0;
-      }
-
-      .nav-links {
-        width: 100%;
-        overflow-x: auto;
-      }
-
-      .hero-grid,
-      .service-layout,
-      .checklist-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .service-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .process {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .nav { min-height: auto; padding: 14px 0; flex-wrap: wrap; }
+      .nav-links { width: 100%; overflow-x: auto; order: 3; }
+      .hero-grid, .about-grid, .service-layout, .documents-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 400px; }
+      .quick-grid { grid-template-columns: 1fr; }
+      .quick-card { border-right: 0; border-bottom: 1px solid var(--line); }
+      .service-panel { grid-template-columns: 1fr; }
+      .process { grid-template-columns: repeat(2,1fr); }
+      .contact-grid { gap: 25px; }
     }
-
-    @media (max-width: 620px) {
-      .shell {
-        width: min(100% - 28px, var(--max));
-      }
-
-      .nav-links a:not(.nav-cta) {
-        display: none;
-      }
-
-      .nav-cta,
-      .button {
-        width: 100%;
-      }
-
-      .hero-actions,
-      .process {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .guide-list li,
-      .tab-button,
-      .contact-row {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 62px 0;
-      }
+    @media (max-width: 650px) {
+      .shell { width: min(var(--max), calc(100% - 28px)); }
+      .topbar-list span:not(:first-child), .topbar-row > span { display: none; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links, .nav-cta, .hero-actions .button { width: 100%; }
+      .brand-logo { width: 58px; }
+      .brand-word { font-size: 1.25rem; }
+      .hero { min-height: 0; }
+      .hero-grid { padding: 65px 0 80px; }
+      h1 { font-size: clamp(3rem,15vw,4.7rem); }
+      .hero-visual { min-height: 350px; }
+      .visual-card { padding: 20px; }
+      .floating-note { right: 5px; bottom: -10px; }
+      .metric-grid { grid-template-columns: 1fr; }
+      .metric:nth-child(n+2) { display: none; }
+      section { padding: 68px 0; }
+      .service-panel, .checklist-panel { padding: 24px; }
+      .process { grid-template-columns: 1fr; }
+      .process-card { min-height: 220px; }
+      .contact-grid { padding: 65px 0; }
     }
-
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 1ms !important;
-      }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 1ms !important; }
     }
   </style>
 </head>
-<body>
+<body id="top">
+  <div class="topbar">
+    <div class="shell topbar-row">
+      <div class="topbar-list">
+        <span><strong>India-focused</strong> tax and compliance support</span>
+        <span>Mon-Sat · 9:30 AM-6:30 PM</span>
+      </div>
+      <span>contact@esyton.in</span>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="shell nav">
-      <a class="brand" href="#top" aria-label="Esyton Insights LLP home">
-        <span class="brand-mark" aria-hidden="true">e</span>
+      <a class="brand" href="#top" aria-label="Esyton Insights home">
+        <svg class="brand-logo" viewBox="0 0 160 86" role="img" aria-label="Leaping rabbit logo">
+          <path fill="currentColor" d="M22 55c10 3 19-2 27-10 7-8 15-15 27-17 13-2 25 3 38 9 8 4 17 6 27 12 5 3 5 8 2 10-4 3-9-2-16-4-16-6-29-4-42 1-13 5-25 13-39 13-9 0-15-4-18-7-3-4-1-9 4-7zm71-28c-8-7-14-14-17-23 10 2 20 10 25 20l5 12-13-9zm16-1c-2-9-2-16 1-24 8 7 13 17 12 28l-2 8-11-12z"/>
+          <path d="M12 76c38-14 86-15 137-2" fill="none" stroke="#c5983d" stroke-width="4" stroke-linecap="round"/>
+        </svg>
         <span>
-          <span class="brand-name">esyton</span>
-          <span class="brand-entity">Insights LLP</span>
+          <span class="brand-word">esyton</span>
+          <span class="brand-sub">Insights LLP</span>
         </span>
       </a>
-
       <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#documents">Documents</a>
         <a href="#process">Process</a>
-        <a href="#faq">FAQ</a>
-        <a class="button button-primary nav-cta" href="#contact">Start your filing</a>
+        <a class="button button-navy nav-cta" href="#contact">Get assistance</a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
-        <div class="reveal">
-          <p class="eyebrow">Income Tax Filing &bull; Accounting &bull; GST &bull; Trademarks</p>
-          <h1 id="hero-title">Income tax filing, made <span>clear and manageable</span>.</h1>
-          <p class="hero-copy">
-            Esyton Insights LLP assists individuals, salaried taxpayers, professionals, businesses and entities with income tax return filing, tax-related follow-up and organised documentation. Accounting, GST and trademark services support your wider compliance needs.
-          </p>
+        <div>
+          <p class="eyebrow">Tax clarity for confident decisions</p>
+          <h1 id="hero-title">Move your finances <span>forward.</span></h1>
+          <p class="hero-copy">Income tax filing, accounting, GST and trademark assistance built around clear advice, organised records and dependable follow-through.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Begin your ITR enquiry</a>
-            <a class="button button-secondary" href="#documents">View filing documents</a>
+            <a class="button button-gold" href="mailto:contact@esyton.in?subject=Tax%20and%20Compliance%20Enquiry">Start an enquiry</a>
+            <a class="button button-outline" href="#services">Explore services</a>
+          </div>
+          <div class="hero-trust">
+            <span>Structured review</span>
+            <span>Practical guidance</span>
+            <span>Responsive support</span>
           </div>
         </div>
 
-        <aside class="guidance-card reveal" aria-label="Guidance summary">
-          <div class="guidance-head">
-            <h2>Your filing, in three clear stages</h2>
-            <p>A practical approach to preparing and completing your income tax return.</p>
+        <div class="hero-visual" aria-label="Tax filing overview illustration">
+          <div class="visual-card">
+            <div class="visual-top">
+              <div><small>Filing overview</small><strong>Records organised</strong></div>
+              <span class="status">On track</span>
+            </div>
+            <div class="chart" aria-hidden="true">
+              <span class="bar" style="height:35%"></span><span class="bar" style="height:55%"></span>
+              <span class="bar" style="height:48%"></span><span class="bar" style="height:72%"></span>
+              <span class="bar" style="height:63%"></span><span class="bar" style="height:92%"></span>
+            </div>
+            <div class="metric-grid">
+              <div class="metric"><span>Review</span><strong>AIS & 26AS</strong></div>
+              <div class="metric"><span>Records</span><strong>Reconciled</strong></div>
+              <div class="metric"><span>Next step</span><strong>File ITR</strong></div>
+            </div>
           </div>
-          <ul class="guide-list">
-            <li>
-              <span class="guide-icon">1</span>
-              <span><strong>Understand your income</strong><span>Review salary, business, professional, property, investment and other income relevant to your return.</span></span>
-            </li>
-            <li>
-              <span class="guide-icon">2</span>
-              <span><strong>Organise your records</strong><span>Bring together Form 16, AIS, Form 26AS, bank details, deduction proofs and applicable supporting documents.</span></span>
-            </li>
-            <li>
-              <span class="guide-icon">3</span>
-              <span><strong>Review and file</strong><span>Resolve information gaps, review the return details and complete filing within the applicable timeline.</span></span>
-            </li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section id="about" aria-labelledby="about-title">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="section-kicker">Tax-first assistance</p>
-          <h2 id="about-title">Focused support for accurate, timely income tax filing.</h2>
-          <p>
-            Income tax filing can involve more than entering figures in a form. Income must be classified,
-            available tax information should be reconciled, deductions require supporting records, and the
-            completed return should reflect the taxpayer's actual financial position.
-          </p>
-          <p>
-            Esyton helps turn that work into a structured process. Where the matter also involves books of
-            account, GST records or business documentation, the connected services can be handled together.
-          </p>
+          <div class="floating-note"><strong>Clear at every stage.</strong><span>Know what is needed, what is pending and what happens next.</span></div>
         </div>
       </div>
     </section>
 
-    <section id="services" aria-labelledby="services-title">
+    <div class="quick-strip shell">
+      <div class="quick-grid">
+        <a class="quick-card" href="#services"><span class="quick-icon">%</span><span><h3>Income Tax Assistance</h3><p>Return preparation, filing review and applicable follow-up support.</p></span></a>
+        <a class="quick-card" href="#services"><span class="quick-icon">₹</span><span><h3>Connected Compliance</h3><p>Accounting and GST records aligned with your filing requirements.</p></span></a>
+        <a class="quick-card" href="#contact"><span class="quick-icon">→</span><span><h3>Speak With Esyton</h3><p>Share your taxpayer type, financial year and current requirement.</p></span></a>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="shell about-grid">
+        <div class="about-art reveal">
+          <div class="about-number">01</div>
+          <p>One coordinated place for tax, books, GST and business documentation.</p>
+        </div>
+        <div class="reveal">
+          <div class="section-heading">
+            <p class="section-kicker">About Esyton</p>
+            <h2>Careful work. Clear communication. Practical outcomes.</h2>
+            <p>Financial compliance becomes easier when the information is organised and the next step is understood. Esyton brings a structured, tax-first approach to individuals, professionals and businesses.</p>
+          </div>
+          <div class="about-points">
+            <div class="about-point"><b>01</b><span><strong>Understand the requirement</strong><span>We begin with your profile, income sources, records and timeline.</span></span></div>
+            <div class="about-point"><b>02</b><span><strong>Resolve information gaps</strong><span>Available documents are reviewed and missing details are identified early.</span></span></div>
+            <div class="about-point"><b>03</b><span><strong>Complete the work</strong><span>Your filing or compliance task moves forward with a clear review path.</span></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
       <div class="shell">
         <div class="section-heading reveal">
-          <p class="section-kicker">Our services</p>
-          <h2 id="services-title">Income tax first, with connected compliance support.</h2>
-          <p>
-            Start with your income tax return or tax concern. Add accounting, GST or trademark assistance where your personal or business requirements call for it.
-          </p>
+          <p class="section-kicker">Our expertise</p>
+          <h2>Tax-first support with connected business services.</h2>
+          <p>Choose a service to see how Esyton can help organise the records, review the details and prepare the matter for completion.</p>
         </div>
-
         <div class="service-layout reveal">
           <div class="tabs" role="tablist" aria-label="Service categories">
-            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-service="tax">
-              <span class="tab-icon">%</span>
-              <span><strong>Income Tax</strong><span>ITR filing and tax assistance</span></span>
-            </button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="accounts">
-              <span class="tab-icon">Rs</span>
-              <span><strong>Accounting</strong><span>Books, ledgers and statements</span></span>
-            </button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="gst">
-              <span class="tab-icon">G</span>
-              <span><strong>GST</strong><span>Registration, returns and records</span></span>
-            </button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="trademark">
-              <span class="tab-icon">TM</span>
-              <span><strong>Trademarks</strong><span>Application assistance</span></span>
-            </button>
+            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-service="tax"><span class="tab-icon">%</span><span><strong>Income Tax</strong><span>ITR filing and review</span></span></button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="accounts"><span class="tab-icon">₹</span><span><strong>Accounting</strong><span>Books and statements</span></span></button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="gst"><span class="tab-icon">G</span><span><strong>GST</strong><span>Registration and returns</span></span></button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="trademark"><span class="tab-icon">TM</span><span><strong>Trademarks</strong><span>Application assistance</span></span></button>
           </div>
-
-          <article class="service-panel" id="servicePanel">
+          <article class="service-panel" aria-live="polite">
             <div class="panel-copy">
               <h3 id="serviceTitle">Income tax return filing assistance</h3>
-              <p id="serviceText">
-                Assistance with preparing and filing income tax returns using the financial and tax information applicable to your profile.
-              </p>
-              <ul class="feature-list" id="serviceFeatures">
-                <li><span class="check">&#10003;</span><span>ITR filing for salaried individuals, professionals, proprietors and eligible entities.</span></li>
-                <li><span class="check">&#10003;</span><span>Review of AIS, TIS, Form 26AS, Form 16 and available income records.</span></li>
-                <li><span class="check">&#10003;</span><span>Assistance with revised or belated returns and tax notice documentation, where applicable.</span></li>
-              </ul>
+              <p id="serviceText">Assistance with preparing and filing income tax returns using the financial and tax information applicable to your profile.</p>
+              <ul class="feature-list" id="serviceFeatures"></ul>
             </div>
-            <aside class="side-note" aria-label="Selected service guidance notes">
-              <div class="note-box"><span>Useful for</span><strong id="serviceWhen">Annual filing or an unresolved return</strong></div>
-              <div class="note-box"><span>Key records</span><strong id="servicePrep">PAN, AIS, Form 26AS and income proofs</strong></div>
-              <div class="note-box"><span>Service focus</span><strong id="serviceOutcome">A reviewed, filing-ready return</strong></div>
+            <aside class="side-note">
+              <div class="note-box"><span>Useful for</span><strong id="serviceWhen"></strong></div>
+              <div class="note-box"><span>Key records</span><strong id="servicePrep"></strong></div>
+              <div class="note-box"><span>Service focus</span><strong id="serviceOutcome"></strong></div>
             </aside>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="documents" class="soft-band" aria-labelledby="documents-title">
-      <div class="shell checklist-grid">
+    <section id="documents">
+      <div class="shell documents-grid">
         <div class="section-heading reveal">
-          <p class="section-kicker">ITR document checklist</p>
-          <h2 id="documents-title">Prepare the records relevant to your return.</h2>
-          <p>
-            Select the profile closest to yours. The checklist highlights the core information
-            commonly required to review income and begin return preparation.
-          </p>
-          <div class="client-type" role="tablist" aria-label="Client profile">
+          <p class="section-kicker">Document checklist</p>
+          <h2>Arrive prepared. Move faster.</h2>
+          <p>Select the profile closest to yours for a practical list of the records commonly needed to begin an income tax review.</p>
+          <div class="client-type" role="tablist" aria-label="Taxpayer profile">
             <button class="active" type="button" data-client="business">Business / LLP / Company</button>
             <button type="button" data-client="professional">Professional / Consultant</button>
             <button type="button" data-client="individual">Individual taxpayer</button>
           </div>
         </div>
-
-        <article class="checklist-panel reveal">
-          <h3 id="docTitle">For a business, LLP or company</h3>
-          <p id="docIntro">
-            Prepare records covering business income, expenses, taxes, books of account and prior filings.
-          </p>
-          <ul class="doc-list" id="docList">
-            <li><span class="check">&#10003;</span><span>PAN, entity details and previous income tax return</span></li>
-            <li><span class="check">&#10003;</span><span>AIS, TIS, Form 26AS, TDS certificates and tax challans</span></li>
-            <li><span class="check">&#10003;</span><span>Books of account, trial balance, ledgers and financial statements</span></li>
-            <li><span class="check">&#10003;</span><span>Bank statements, sales records, purchase bills and expense details</span></li>
-            <li><span class="check">&#10003;</span><span>Details of loans, assets, investments and statutory filings relevant to the return</span></li>
-          </ul>
+        <article class="checklist-panel reveal" aria-live="polite">
+          <h3 id="docTitle"></h3><p id="docIntro"></p><ul class="doc-list" id="docList"></ul>
         </article>
       </div>
     </section>
 
-    <section id="process" aria-labelledby="process-title">
+    <section id="process" class="process-band">
       <div class="shell">
         <div class="section-heading reveal">
           <p class="section-kicker">How it works</p>
-          <h2 id="process-title">A straightforward route to a completed return.</h2>
-          <p>
-            Each engagement begins with your taxpayer profile and records, then moves through review,
-            clarification and filing.
-          </p>
+          <h2>A straightforward route from records to completion.</h2>
+          <p>Each engagement follows a clear sequence, with questions and missing information identified before the final filing step.</p>
         </div>
         <div class="process reveal">
-          <article class="process-card">
-            <h3>Share your requirement</h3>
-            <p>Tell us your taxpayer type, relevant financial year, income sources and any filing deadline or notice.</p>
-          </article>
-          <article class="process-card">
-            <h3>Submit your records</h3>
-            <p>Provide the tax statements, income details, bank information and supporting documents applicable to your return.</p>
-          </article>
-          <article class="process-card">
-            <h3>Review and clarify</h3>
-            <p>The available information is checked for consistency, and questions or missing records are identified before filing.</p>
-          </article>
-          <article class="process-card">
-            <h3>Complete the filing</h3>
-            <p>The return is prepared for review and filing, followed by acknowledgement and any applicable next steps.</p>
-          </article>
+          <article class="process-card"><h3>Share your requirement</h3><p>Tell us your taxpayer type, financial year, income sources and any deadline or notice.</p></article>
+          <article class="process-card"><h3>Submit your records</h3><p>Provide the tax statements, bank information and supporting documents relevant to the work.</p></article>
+          <article class="process-card"><h3>Review and clarify</h3><p>The available information is checked for consistency and any gaps are identified.</p></article>
+          <article class="process-card"><h3>Complete the filing</h3><p>The matter is prepared for review and completion, followed by the applicable next steps.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="soft-band" aria-labelledby="faq-title">
+    <section id="faq">
       <div class="shell">
-        <div class="section-heading reveal">
-          <p class="section-kicker">Common questions</p>
-          <h2 id="faq-title">Frequently Asked Questions</h2>
-          <p>Quick answers about filing assistance and connected services.</p>
-        </div>
+        <div class="section-heading reveal"><p class="section-kicker">Common questions</p><h2>Frequently asked questions.</h2></div>
         <div class="faq-grid reveal">
-          <details>
-            <summary>Who can seek income tax filing assistance?</summary>
-            <p>Salaried individuals, pensioners, professionals, proprietors, businesses and eligible entities can share their filing requirement for review.</p>
-          </details>
-          <details>
-            <summary>Can you assist when I have multiple sources of income?</summary>
-            <p>Yes. Share details and supporting records for salary, professional or business income, house property, capital gains, interest and other applicable sources.</p>
-          </details>
-          <details>
-            <summary>Can accounting work be handled along with the return?</summary>
-            <p>Yes. Where filing depends on updated books, bank reconciliation, ledgers or financial statements, accounting assistance can be included in the scope.</p>
-          </details>
-          <details>
-            <summary>Do you also assist with GST and trademarks?</summary>
-            <p>Yes. GST registration and return-related assistance, as well as trademark application support, are available as connected services.</p>
-          </details>
-          <details>
-            <summary>What should I include in my first email?</summary>
-            <p>Mention your taxpayer type, financial year, main income sources, the service required and any deadline or notice involved.</p>
-          </details>
+          <details><summary>Who can seek income tax filing assistance?</summary><p>Salaried individuals, pensioners, professionals, proprietors, businesses and eligible entities can share their filing requirement for review.</p></details>
+          <details><summary>Can you assist with multiple sources of income?</summary><p>Yes. Share records for salary, professional or business income, house property, capital gains, interest and other applicable sources.</p></details>
+          <details><summary>Can accounting work be handled with the return?</summary><p>Yes. Where filing depends on updated books, bank reconciliation, ledgers or financial statements, accounting assistance can be included.</p></details>
+          <details><summary>Do you also assist with GST and trademarks?</summary><p>Yes. GST registration and return assistance, along with trademark application support, are available as connected services.</p></details>
         </div>
       </div>
     </section>
 
-    <section id="contact" aria-labelledby="contact-title">
+    <section id="contact" class="contact">
       <div class="shell contact-grid">
-        <div class="section-heading reveal">
-          <p class="section-kicker">ITR enquiry</p>
-          <h2 id="contact-title">Start your income tax filing enquiry.</h2>
-          <p>
-            Email your taxpayer type, financial year, income sources and the assistance you need.
-            Include any applicable filing deadline or notice date so the requirement can be understood promptly.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="mailto:contact@esyton.in?subject=Income%20Tax%20Filing%20Enquiry">Send an ITR enquiry</a>
-            <a class="button button-secondary" href="#documents">Check required documents</a>
-          </div>
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Start the conversation</p>
+          <h2>Let’s bring clarity to your next filing.</h2>
+          <p>Email your taxpayer type, financial year, income sources and the assistance you need. Include any filing deadline or notice date.</p>
+          <div class="hero-actions"><a class="button button-gold" href="mailto:contact@esyton.in?subject=Income%20Tax%20Filing%20Enquiry">Send an enquiry</a></div>
         </div>
-
         <aside class="contact-panel reveal">
           <h3>Write to Esyton</h3>
-          <div class="contact-list">
-            <div class="contact-row">
-              <span class="mini-icon">@</span>
-              <span><strong>Email</strong><a href="mailto:contact@esyton.in">contact@esyton.in</a></span>
-            </div>
-          </div>
-          <div class="notice">
-            <p>For a faster initial review, include your PAN category, financial year, nature of income and a short description of the filing or tax issue.</p>
-          </div>
+          <div class="contact-row"><span class="mini-icon">@</span><span><strong>Email</strong><a href="mailto:contact@esyton.in">contact@esyton.in</a></span></div>
+          <div class="notice">For a faster initial review, include your PAN category, financial year, nature of income and a short description of the issue.</div>
         </aside>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="shell footer-row">
-      <span>2026 Esyton Insights LLP. All rights reserved.</span>
-      <span>Income Tax Filing &bull; Accounting &bull; GST &bull; Trademarks</span>
-    </div>
+    <div class="shell footer-row"><span>© 2026 Esyton Insights LLP. All rights reserved.</span><span>Income Tax · Accounting · GST · Trademarks</span></div>
   </footer>
 
   <script>
-    const serviceGuidance = {
+    const services = {
       tax: {
         title: "Income tax return filing assistance",
         text: "Assistance with preparing and filing income tax returns using the financial and tax information applicable to your profile.",
         when: "Annual filing or an unresolved return",
         prep: "PAN, AIS, Form 26AS and income proofs",
         outcome: "A reviewed, filing-ready return",
-        features: [
-          "ITR filing for salaried individuals, professionals, proprietors and eligible entities.",
-          "Review of AIS, TIS, Form 26AS, Form 16 and available income records.",
-          "Assistance with revised or belated returns and tax notice documentation, where applicable."
-        ]
+        features: ["ITR filing for salaried individuals, professionals, proprietors and eligible entities.", "Review of AIS, TIS, Form 26AS, Form 16 and available income records.", "Assistance with revised or belated returns and tax notice documentation, where applicable."]
       },
       accounts: {
         title: "Accounting and bookkeeping assistance",
@@ -1147,11 +479,7 @@
         when: "Books need preparation or review",
         prep: "Bank statements, invoices and ledgers",
         outcome: "Updated, organised accounting records",
-        features: [
-          "Bookkeeping and ledger maintenance for businesses and professionals.",
-          "Bank, customer, supplier and expense reconciliation.",
-          "Trial balance and financial statement preparation support."
-        ]
+        features: ["Bookkeeping and ledger maintenance for businesses and professionals.", "Bank, customer, supplier and expense reconciliation.", "Trial balance and financial statement preparation support."]
       },
       gst: {
         title: "GST registration and return assistance",
@@ -1159,11 +487,7 @@
         when: "GST registration or returns are due",
         prep: "Registration data, invoices and returns",
         outcome: "Organised GST filing information",
-        features: [
-          "GST registration and amendment assistance.",
-          "Sales and purchase data review for return preparation.",
-          "Support with GST return records and reconciliation."
-        ]
+        features: ["GST registration and amendment assistance.", "Sales and purchase data review for return preparation.", "Support with GST return records and reconciliation."]
       },
       trademark: {
         title: "Trademark application assistance",
@@ -1171,99 +495,62 @@
         when: "A name, logo or brand needs protection",
         prep: "Applicant, brand and usage details",
         outcome: "Application-ready trademark information",
-        features: [
-          "Preliminary organisation of trademark and applicant details.",
-          "Assistance with class selection and application information.",
-          "Support with documentation and application follow-up."
-        ]
+        features: ["Preliminary organisation of trademark and applicant details.", "Assistance with class selection and application information.", "Support with documentation and application follow-up."]
       }
     };
 
-    const documentGuidance = {
-      business: {
-        title: "For a business, LLP or company",
-        intro: "Prepare records covering business income, expenses, taxes, books of account and prior filings.",
-        items: [
-          "PAN, entity details and previous income tax return",
-          "AIS, TIS, Form 26AS, TDS certificates and tax challans",
-          "Books of account, trial balance, ledgers and financial statements",
-          "Bank statements, sales records, purchase bills and expense details",
-          "Details of loans, assets, investments and statutory filings relevant to the return"
-        ]
-      },
-      professional: {
-        title: "For a professional or consultant",
-        intro: "Prepare records covering professional receipts, work-related expenses, taxes paid and applicable deductions.",
-        items: [
-          "PAN, Aadhaar and previous income tax return",
-          "AIS, TIS, Form 26AS, TDS certificates and advance tax challans",
-          "Client invoices, fee receipts and business bank statements",
-          "Details of professional expenses, assets and applicable loans",
-          "Investment, deduction, capital gain and other income records"
-        ]
-      },
-      individual: {
-        title: "For an individual taxpayer",
-        intro: "Collect records covering salary or pension, other income, investments, deductions and taxes already credited.",
-        items: [
-          "PAN, Aadhaar, Form 16 and previous income tax return",
-          "AIS, TIS, Form 26AS, interest certificates and bank statements",
-          "Investment and deduction proofs applicable to the chosen tax regime",
-          "Capital gains, property, foreign asset or other income details, where applicable",
-          "Tax challans and any income tax communication received"
-        ]
-      }
+    const documents = {
+      business: { title: "For a business, LLP or company", intro: "Prepare records covering business income, expenses, taxes, books of account and prior filings.", items: ["PAN, entity details and previous income tax return", "AIS, TIS, Form 26AS, TDS certificates and tax challans", "Books of account, trial balance, ledgers and financial statements", "Bank statements, sales records, purchase bills and expense details", "Details of loans, assets, investments and relevant statutory filings"] },
+      professional: { title: "For a professional or consultant", intro: "Prepare records covering professional receipts, work-related expenses, taxes paid and applicable deductions.", items: ["PAN, Aadhaar and previous income tax return", "AIS, TIS, Form 26AS, TDS certificates and tax challans", "Client invoices, fee receipts and business bank statements", "Details of professional expenses, assets and applicable loans", "Investment, deduction, capital gain and other income records"] },
+      individual: { title: "For an individual taxpayer", intro: "Collect records covering salary or pension, other income, investments, deductions and taxes already credited.", items: ["PAN, Aadhaar, Form 16 and previous income tax return", "AIS, TIS, Form 26AS, interest certificates and bank statements", "Investment and deduction proofs applicable to the chosen tax regime", "Capital gains, property, foreign asset or other income details", "Tax challans and any income tax communication received"] }
     };
 
-    document.querySelectorAll(".tab-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        const data = serviceGuidance[button.dataset.service];
-        document.querySelectorAll(".tab-button").forEach((tab) => {
-          tab.classList.toggle("active", tab === button);
-          tab.setAttribute("aria-selected", tab === button ? "true" : "false");
-        });
-        document.getElementById("serviceTitle").textContent = data.title;
-        document.getElementById("serviceText").textContent = data.text;
-        document.getElementById("serviceWhen").textContent = data.when;
-        document.getElementById("servicePrep").textContent = data.prep;
-        document.getElementById("serviceOutcome").textContent = data.outcome;
-        document.getElementById("serviceFeatures").innerHTML = data.features
-          .map((feature) => `<li><span class="check">&#10003;</span><span>${feature}</span></li>`)
-          .join("");
-      });
-    });
+    function renderService(key) {
+      const data = services[key];
+      document.getElementById("serviceTitle").textContent = data.title;
+      document.getElementById("serviceText").textContent = data.text;
+      document.getElementById("serviceWhen").textContent = data.when;
+      document.getElementById("servicePrep").textContent = data.prep;
+      document.getElementById("serviceOutcome").textContent = data.outcome;
+      document.getElementById("serviceFeatures").innerHTML = data.features.map(item => `<li><span class="check">✓</span><span>${item}</span></li>`).join("");
+    }
 
-    document.querySelectorAll("[data-client]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const data = documentGuidance[button.dataset.client];
-        document.querySelectorAll("[data-client]").forEach((item) => item.classList.toggle("active", item === button));
-        document.getElementById("docTitle").textContent = data.title;
-        document.getElementById("docIntro").textContent = data.intro;
-        document.getElementById("docList").innerHTML = data.items
-          .map((item) => `<li><span class="check">&#10003;</span><span>${item}</span></li>`)
-          .join("");
-      });
-    });
+    function renderDocuments(key) {
+      const data = documents[key];
+      document.getElementById("docTitle").textContent = data.title;
+      document.getElementById("docIntro").textContent = data.intro;
+      document.getElementById("docList").innerHTML = data.items.map(item => `<li><span class="check">✓</span><span>${item}</span></li>`).join("");
+    }
 
-    const revealItems = [...document.querySelectorAll(".reveal")];
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
+    document.querySelectorAll("[data-service]").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll("[data-service]").forEach(item => {
+        item.classList.toggle("active", item === button);
+        item.setAttribute("aria-selected", item === button ? "true" : "false");
       });
-    }, { threshold: 0.14 });
-    revealItems.forEach((item) => revealObserver.observe(item));
+      renderService(button.dataset.service);
+    }));
+
+    document.querySelectorAll("[data-client]").forEach(button => button.addEventListener("click", () => {
+      document.querySelectorAll("[data-client]").forEach(item => item.classList.toggle("active", item === button));
+      renderDocuments(button.dataset.client);
+    }));
+
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    }), { threshold: .12 });
+    reveals.forEach(item => observer.observe(item));
 
     const navLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
-    const sections = navLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
-    function updateActiveNav() {
-      let current = "";
-      sections.forEach((section) => {
-        if (section.getBoundingClientRect().top <= 130) current = `#${section.id}`;
-      });
-      navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === current));
-    }
-    addEventListener("scroll", updateActiveNav, { passive: true });
-    updateActiveNav();
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    addEventListener("scroll", () => {
+      let current = "#top";
+      sections.forEach(section => { if (section.getBoundingClientRect().top <= 135) current = `#${section.id}`; });
+      navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === current));
+    }, { passive: true });
+
+    renderService("tax");
+    renderDocuments("business");
   </script>
 </body>
 </html>
