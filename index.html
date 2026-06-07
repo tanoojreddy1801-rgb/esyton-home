@@ -163,13 +163,16 @@
 
     .services { background: var(--soft); }
     .service-layout { display: grid; grid-template-columns: 290px 1fr; gap: 22px; }
-    .tabs { display: grid; gap: 3px; align-content: start; }
-    .tab-button { min-height: 78px; display: grid; grid-template-columns: 42px 1fr; gap: 13px; align-items: center; padding: 14px; border: 0; border-left: 4px solid transparent; background: #fff; text-align: left; cursor: pointer; }
-    .tab-button:hover, .tab-button.active { border-left-color: var(--yellow); color: #fff; background: var(--navy); }
-    .tab-icon { width: 42px; height: 42px; display: grid; place-items: center; color: var(--navy); background: var(--yellow); font-weight: 900; }
-    .tab-button strong, .tab-button span { display: block; }
-    .tab-button span span { color: #7a8792; font-size: .76rem; }
-    .tab-button.active span span, .tab-button:hover span span { color: #c8d7e3; }
+    
+    /* Corrected Tabs styling removing the visual boxes and side bars */
+    .tabs { display: grid; gap: 12px; align-content: start; }
+    .tab-button { display: block; padding: 14px 20px; border: 0; background: transparent; text-align: left; cursor: pointer; transition: color .2s ease; }
+    .tab-button:hover, .tab-button.active { color: var(--navy); background: transparent; }
+    .tab-button strong { display: block; font-size: 1.2rem; font-weight: 700; color: var(--muted); }
+    .tab-button span { display: block; margin-top: 4px; color: #7a8792; font-size: .88rem; }
+    .tab-button.active strong { color: var(--navy); }
+    .tab-button:hover strong { color: var(--navy-2); }
+
     .service-panel { min-height: 480px; display: grid; grid-template-columns: 1fr 270px; gap: 35px; padding: 38px; background: #fff; box-shadow: 0 15px 40px rgba(6,47,89,.08); }
     .panel-copy h3 { margin-bottom: 15px; color: var(--navy); font-size: 2.15rem; line-height: 1.08; }
     .panel-copy p { color: var(--muted); }
@@ -246,7 +249,7 @@
       .brand-word { font-size: 1.25rem; }
       .hero { min-height: 0; }
       .hero-grid { padding: 65px 0 80px; }
-      h1 { font-size: clamp(3rem,15vw,4.7rem); }
+      .html h1 { font-size: clamp(3rem,15vw,4.7rem); }
       .hero-visual { min-height: 350px; }
       .visual-card { padding: 20px; }
       .floating-note { right: 5px; bottom: -10px; }
@@ -375,10 +378,10 @@
         </div>
         <div class="service-layout reveal">
           <div class="tabs" role="tablist" aria-label="Service categories">
-            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-service="tax"><span class="tab-icon">%</span><span><strong>Income Tax</strong><span>ITR filing and review</span></span></button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="accounts"><span class="tab-icon">₹</span><span><strong>Accounting</strong><span>Books and statements</span></span></button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="gst"><span class="tab-icon">G</span><span><strong>GST</strong><span>Registration and returns</span></span></button>
-            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="trademark"><span class="tab-icon">TM</span><span><strong>Trademarks</strong><span>Application assistance</span></span></button>
+            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-service="tax"><strong>Income Tax</strong><span>ITR filing and review</span></button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="accounts"><strong>Accounting</strong><span>Books and statements</span></button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="gst"><strong>GST</strong><span>Registration and returns</span></button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-service="trademark"><strong>Trademarks</strong><span>Application assistance</span></button>
           </div>
           <article class="service-panel" aria-live="polite">
             <div class="panel-copy">
