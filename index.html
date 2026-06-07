@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -68,8 +67,10 @@
     .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
     .brand { display: inline-flex; align-items: center; gap: 0; color: var(--navy); transition: opacity .2s; }
     .brand:hover { opacity: .85; }
-    .brand-logo { height: 52px; width: auto; max-width: 200px; object-fit: contain; transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
-    .brand:hover .brand-logo { transform: scale(1.04); }
+    
+    /* Increased dimensions for enhanced branding prominence */
+    .brand-logo { height: 62px; width: auto; max-width: 240px; object-fit: contain; transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+    .brand:hover .brand-logo { transform: scale(1.03); }
     .nav-links { display: flex; align-items: center; gap: 3px; }
     .nav-links a {
       padding: 10px 13px;
@@ -93,6 +94,14 @@
     .nav-links a:not(.nav-cta):hover::after,
     .nav-links a.active::after { transform: scaleX(1); }
     .nav-links a.active { color: var(--navy); }
+    
+    .nav-links a.nav-cta {
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-links a.nav-cta::after { display: none; }
 
     /* ─── BUTTONS ─── */
     .button {
@@ -132,7 +141,7 @@
     /* ─── HERO ─── */
     .hero {
       position: relative;
-      min-height: 690px;
+      min-height: 600px;
       display: grid;
       align-items: center;
       overflow: hidden;
@@ -166,78 +175,18 @@
       0%, 100% { transform: scale(1); opacity: .13; }
       50% { transform: scale(1.06); opacity: .18; }
     }
-    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.08fr .92fr; gap: 65px; align-items: center; padding: 90px 0 96px; }
+    
+    .hero-grid { position: relative; z-index: 1; display: block; max-width: 820px; margin-inline: auto; text-align: center; padding: 110px 0 125px; }
     .eyebrow, .section-kicker { color: var(--gold); font-size: .75rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; }
-    .eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; color: var(--yellow); }
-    .eyebrow::before { content: ""; width: 44px; height: 2px; background: var(--yellow); }
-    h1 { max-width: 720px; margin-bottom: 22px; font-size: clamp(3rem, 5.8vw, 5.8rem); line-height: .96; letter-spacing: -.03em; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px; color: var(--yellow); }
+    .eyebrow::before, .eyebrow::after { content: ""; width: 34px; height: 2px; background: var(--yellow); }
+    h1 { max-width: 100%; margin-bottom: 24px; font-size: clamp(3rem, 5.8vw, 5.4rem); line-height: 1.02; letter-spacing: -.02em; }
     h1 span { color: var(--yellow); }
-    .hero-copy { max-width: 620px; color: #ccdae6; font-size: 1.08rem; font-weight: 400; line-height: 1.72; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 34px; }
-    .hero-trust { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 36px; color: #a8bfcf; font-size: .83rem; font-weight: 600; }
+    .hero-copy { max-width: 680px; margin-inline: auto; color: #ccdae6; font-size: 1.15rem; font-weight: 400; line-height: 1.75; }
+    .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 38px; }
+    .hero-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin-top: 42px; color: #a8bfcf; font-size: .86rem; font-weight: 600; }
     .hero-trust span { display: flex; align-items: center; gap: 8px; }
     .hero-trust span::before { content: "✓"; width: 20px; height: 20px; display: grid; place-items: center; color: var(--navy-3); background: var(--yellow); font-size: .65rem; font-weight: 900; border-radius: 50%; flex-shrink: 0; }
-
-    /* ─── HERO VISUAL ─── */
-    .hero-visual { position: relative; min-height: 460px; display: grid; place-items: center; }
-    .visual-card {
-      position: relative;
-      z-index: 2;
-      width: min(100%, 460px);
-      padding: 28px;
-      color: var(--ink);
-      background: #fff;
-      box-shadow: 0 35px 90px rgba(0,0,0,.32);
-      border-top: 4px solid var(--yellow);
-      transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .4s ease;
-    }
-    .visual-card:hover { transform: translateY(-6px); box-shadow: 0 50px 110px rgba(0,0,0,.38); }
-    .visual-top { display: flex; justify-content: space-between; align-items: start; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
-    .visual-top small { display: block; color: var(--muted); font-weight: 700; text-transform: uppercase; font-size: .67rem; letter-spacing: .12em; }
-    .visual-top strong { display: block; margin-top: 5px; color: var(--navy); font-size: 1.38rem; font-family: 'Playfair Display', serif; }
-    .status { padding: 7px 11px; color: #1e5c1a; background: #e6f7e3; font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; border-radius: 2px; }
-    .chart { height: 150px; display: flex; align-items: end; gap: 11px; padding: 24px 4px 10px; border-bottom: 1px solid var(--line); }
-    .bar {
-      flex: 1;
-      min-height: 18px;
-      background: var(--navy);
-      border-radius: 2px 2px 0 0;
-      transition: height .6s cubic-bezier(.34,1.56,.64,1), opacity .3s;
-      animation: bar-rise .8s cubic-bezier(.34,1.56,.64,1) both;
-    }
-    .bar:nth-child(1) { animation-delay: .05s; }
-    .bar:nth-child(2) { animation-delay: .1s; background: var(--gold); }
-    .bar:nth-child(3) { animation-delay: .15s; }
-    .bar:nth-child(4) { animation-delay: .2s; }
-    .bar:nth-child(5) { animation-delay: .25s; background: var(--gold); }
-    .bar:nth-child(6) { animation-delay: .3s; }
-    @keyframes bar-rise {
-      from { transform: scaleY(0); transform-origin: bottom; }
-      to { transform: scaleY(1); transform-origin: bottom; }
-    }
-    .metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; padding-top: 20px; }
-    .metric { padding: 13px; background: var(--soft); transition: background .2s; cursor: default; }
-    .metric:hover { background: #e8eef3; }
-    .metric span { display: block; color: var(--muted); font-size: .63rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-    .metric strong { display: block; margin-top: 5px; color: var(--navy); font-size: .97rem; font-weight: 700; }
-    .floating-note {
-      position: absolute;
-      z-index: 3;
-      right: -18px;
-      bottom: 22px;
-      width: 210px;
-      padding: 20px;
-      color: var(--navy-3);
-      background: var(--yellow);
-      box-shadow: var(--shadow);
-      animation: float-note 4s ease-in-out infinite;
-    }
-    @keyframes float-note {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-    .floating-note strong { display: block; font-size: 1rem; font-family: 'Playfair Display', serif; margin-bottom: 5px; }
-    .floating-note span { font-size: .77rem; font-weight: 500; line-height: 1.5; }
 
     /* ─── QUICK STRIP ─── */
     .quick-strip { position: relative; z-index: 4; margin-top: -38px; }
@@ -340,7 +289,6 @@
     .services { background: var(--soft); }
     .service-layout { display: grid; grid-template-columns: 295px 1fr; gap: 22px; }
     
-    /* Corrected Tabs styling removing boxes and containers */
     .tabs { display: grid; gap: 12px; align-content: start; }
     .tab-button {
       display: block;
@@ -565,8 +513,7 @@
     @media (max-width: 980px) {
       .nav { min-height: auto; padding: 14px 0; flex-wrap: wrap; }
       .nav-links { width: 100%; overflow-x: auto; order: 3; }
-      .hero-grid, .about-grid, .service-layout, .documents-grid, .contact-grid { grid-template-columns: 1fr; }
-      .hero-visual { min-height: 400px; }
+      .about-grid, .service-layout, .documents-grid, .contact-grid { grid-template-columns: 1fr; }
       .quick-grid { grid-template-columns: 1fr; }
       .quick-card { border-right: 0; border-bottom: 1px solid var(--line); }
       .service-panel { grid-template-columns: 1fr; }
@@ -578,15 +525,10 @@
       .topbar-list span:not(:first-child), .topbar-row > span { display: none; }
       .nav-links a:not(.nav-cta) { display: none; }
       .nav-links, .nav-cta, .hero-actions .button { width: 100%; }
-      .brand-logo { height: 40px; }
+      .brand-logo { height: 48px; }
       .hero { min-height: 0; }
       .hero-grid { padding: 68px 0 84px; }
       h1 { font-size: clamp(2.8rem,14vw,4.5rem); }
-      .hero-visual { min-height: 360px; }
-      .visual-card { padding: 20px; }
-      .floating-note { right: 5px; bottom: -10px; }
-      .metric-grid { grid-template-columns: 1fr; }
-      .metric:nth-child(n+2) { display: none; }
       section { padding: 70px 0; }
       .service-panel, .checklist-panel { padding: 24px; }
       .process { grid-template-columns: 1fr; }
@@ -600,6 +542,7 @@
 </head>
 <body id="top">
 
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="shell topbar-row">
       <div class="topbar-list">
@@ -610,6 +553,7 @@
     </div>
   </div>
 
+  <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <div class="shell nav">
       <a class="brand" href="#top" aria-label="Esyton Insights home">
@@ -634,6 +578,7 @@
 
   <main>
 
+    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div>
@@ -650,35 +595,10 @@
             <span>Responsive support</span>
           </div>
         </div>
-
-        <div class="hero-visual" aria-label="Tax filing overview illustration">
-          <div class="visual-card">
-            <div class="visual-top">
-              <div><small>Filing overview</small><strong>Records organised</strong></div>
-              <span class="status">On track</span>
-            </div>
-            <div class="chart" aria-hidden="true">
-              <span class="bar" style="height:34%"></span>
-              <span class="bar" style="height:56%"></span>
-              <span class="bar" style="height:49%"></span>
-              <span class="bar" style="height:73%"></span>
-              <span class="bar" style="height:62%"></span>
-              <span class="bar" style="height:94%"></span>
-            </div>
-            <div class="metric-grid">
-              <div class="metric"><span>Review</span><strong>AIS & 26AS</strong></div>
-              <div class="metric"><span>Records</span><strong>Reconciled</strong></div>
-              <div class="metric"><span>Next step</span><strong>File ITR</strong></div>
-            </div>
-          </div>
-          <div class="floating-note">
-            <strong>Clear at every stage.</strong>
-            <span>Know what is needed, what is pending and what happens next.</span>
-          </div>
-        </div>
       </div>
     </section>
 
+    <!-- QUICK STRIP -->
     <div class="quick-strip shell">
       <div class="quick-grid">
         <a class="quick-card" href="#services">
@@ -705,6 +625,7 @@
       </div>
     </div>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="shell about-grid">
         <div class="about-art reveal">
@@ -744,6 +665,7 @@
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services" class="services">
       <div class="shell">
         <div class="section-heading reveal">
@@ -782,6 +704,7 @@
       </div>
     </section>
 
+    <!-- DOCUMENTS -->
     <section id="documents">
       <div class="shell documents-grid">
         <div class="section-heading reveal">
@@ -802,6 +725,7 @@
       </div>
     </section>
 
+    <!-- PROCESS -->
     <section id="process" class="process-band">
       <div class="shell">
         <div class="section-heading reveal">
@@ -830,6 +754,7 @@
       </div>
     </section>
 
+    <!-- FAQ -->
     <section id="faq">
       <div class="shell">
         <div class="section-heading reveal">
@@ -861,6 +786,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="shell contact-grid">
         <div class="contact-copy reveal">
@@ -894,6 +820,7 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="shell footer-row">
       <span>© 2026 Esyton Insights LLP. All rights reserved.</span>
