@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Client Enquiry Form</title>
+  <title>Client Enquiry Form — Invincibles Co</title>
   <meta name="description" content="Secure client registration and document upload portal for Invincibles Co.">
   <meta name="theme-color" content="#062f59">
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
@@ -43,6 +43,32 @@
     img, svg { display: block; max-width: 100%; }
     h1, h2, h3, h4, p { margin-top: 0; }
     :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+    /* ─── PAGE TRANSITION OVERLAY ─── */
+    .page-transition-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: var(--navy-3);
+      background-image: linear-gradient(rgba(7, 31, 54, 0.88), rgba(6, 47, 89, 0.92)), url('./motion-effect.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.6s ease, visibility 0.6s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+    }
+    .page-transition-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.05);
+    }
+    .page-transition-overlay.fade-in {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      pointer-events: all;
+    }
 
     /* Typography */
     h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
@@ -176,7 +202,8 @@
 </head>
 <body>
 
-  <!-- TOPBAR -->
+  <div class="page-transition-overlay" id="transitionOverlay"></div>
+
   <div class="topbar">
     <div class="shell topbar-row">
       <span><strong>India-focused</strong> tax and compliance support</span>
@@ -184,14 +211,13 @@
     </div>
   </div>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="shell nav">
-      <a class="brand" href="./index.html" aria-label="Esyton home">
+      <a class="brand transition-trigger" href="./index.html" aria-label="Esyton home">
         <img class="brand-logo" src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights LLP" width="160" height="60">
       </a>
       <div class="nav-right">
-        <a class="button button-outline" style="min-height:38px; padding:0 14px; font-size:.8rem;" href="./index.html">← Back to Home</a>
+        <a class="button button-outline transition-trigger" style="min-height:38px; padding:0 14px; font-size:.8rem;" href="./index.html">← Back to Home</a>
       </div>
     </div>
   </header>
@@ -199,7 +225,6 @@
   <main class="shell">
     <div class="main-grid">
       
-      <!-- LEFT COLUMN: SIDE INFORMATION -->
       <section class="panel">
         <span class="section-kicker">Taxpayer Portal</span>
         <h1>Client Details</h1>
@@ -216,14 +241,12 @@
         </div>
       </section>
 
-      <!-- RIGHT COLUMN: ENQUIRY ENTRY ELEMENT -->
       <section class="panel panel-accent" id="submissionPanel">
         <span class="section-kicker">Enquiry Form</span>
         <h2>Filing Details</h2>
         <p class="subtle">Fields marked with <span class="required">*</span> are required unless they turn off automatically.</p>
 
         <form id="clientForm" action="https://formsubmit.co/invinciblescotax@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
-          <!-- FormSubmit Options -->
           <input type="hidden" name="_subject" value="New ITR Client Enquiry - Invincibles Co">
           <input type="hidden" name="_template" value="box">
           <input type="hidden" name="_captcha" value="false">
@@ -296,7 +319,6 @@
           <div id="statusMessage" class="status-message" role="alert" aria-live="polite"></div>
         </form>
 
-        <!-- DATA RULES MAP TABLE -->
         <div class="table-wrap">
           <table>
             <thead>
@@ -366,14 +388,9 @@
       statusMessage.className = type ? `status-message ${type}` : "status-message";
     }
 
-    function normalizePan() {
-      pan.value = pan.value.toUpperCase().replace(/\s/g, "");
-    }
-
-    function formatBytes(bytes) {
-      return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
-    }
-
+    // [All validation logic remains exactly intact...]
+    function normalizePan() { pan.value = pan.value.toUpperCase().replace(/\s/g, ""); }
+    function formatBytes(bytes) { return `${(bytes / 1024 / 1024).toFixed(2)} MB`; }
     function dedupeKey() {
       const cleanPan = pan.disabled ? "" : pan.value.trim().toUpperCase();
       const cleanPb = pbNumber.disabled ? "" : pbNumber.value.trim();
@@ -381,163 +398,79 @@
       if (!cleanPan && !cleanPb && !cleanMobile) return "";
       return `${localDuplicatePrefix}${cleanPan}|${cleanPb}|${cleanMobile}`;
     }
-
     function setFieldEnabled(field, enabled, requiredWhenEnabled = true) {
-      field.disabled = !enabled;
-      field.required = enabled && requiredWhenEnabled;
-      if (!enabled) {
-        field.value = "";
-      }
+      field.disabled = !enabled; field.required = enabled && requiredWhenEnabled; if (!enabled) field.value = "";
     }
-
     function syncStatusFields() {
       const isOthers = clientStatus.value === "Others";
       disabledForOthers.forEach((field) => setFieldEnabled(field, !isOthers));
-      setFieldEnabled(mobile, true);
-      setFieldEnabled(email, true);
-      documents.disabled = false;
-      documents.required = false;
+      setFieldEnabled(mobile, true); setFieldEnabled(email, true); documents.disabled = false; documents.required = false;
       syncEmployerFields();
-
-      if (isOthers) {
-        setStatus("For non-individual taxpayers, the PAN, employer type, and PB/ID numbers are turned off. Mobile number and email remain active.", "warning");
-      } else if (statusMessage.textContent.includes("For non-individual taxpayers")) {
-        setStatus("", "");
-      }
+      if (isOthers) { setStatus("For non-individual taxpayers, the PAN, employer type, and PB/ID numbers are turned off. Mobile number and email remain active.", "warning"); }
+      else if (statusMessage.textContent.includes("For non-individual taxpayers")) { setStatus("", ""); }
     }
-
-    function syncEmployerFields() {
-      if (clientStatus.value === "Others") {
-        setFieldEnabled(pbNumber, false);
-        return;
-      }
-      const needsPb = pbRequiredEmployers.has(employerCategory.value);
-      setFieldEnabled(pbNumber, needsPb);
-    }
-
-    function renderFileList() {
-      fileList.innerHTML = "";
-      Array.from(documents.files).forEach((file) => {
-        const item = document.createElement("li");
-        const name = document.createElement("span");
-        const size = document.createElement("strong");
-        name.textContent = file.name;
-        size.textContent = formatBytes(file.size);
-        item.append(name, size);
-        fileList.appendChild(item);
-      });
-    }
-
-    function validateFiles() {
-      const files = Array.from(documents.files);
-      if (files.length === 0) return "";
-      if (files.length > maxFiles) return "Too many files selected. You can upload a maximum of 20 documents.";
-
-      for (const file of files) {
-        const extension = file.name.split(".").pop().toLowerCase();
-        if (!allowedExtensions.has(extension)) {
-          return `The file ${file.name} is not allowed. Please use PDF, JPG, JPEG, or PNG formats only.`;
-        }
-        if (file.size > maxFileBytes) {
-          return `The file ${file.name} is too large (${formatBytes(file.size)}). Each individual document must be 1 MB or less.`;
-        }
-      }
-      return "";
-    }
-
+    function syncEmployerFields() { if (clientStatus.value === "Others") { setFieldEnabled(pbNumber, false); return; } const needsPb = pbRequiredEmployers.has(employerCategory.value); setFieldEnabled(pbNumber, needsPb); }
+    function renderFileList() { fileList.innerHTML = ""; Array.from(documents.files).forEach((file) => { const item = document.createElement("li"); const name = document.createElement("span"); const size = document.createElement("strong"); name.textContent = file.name; size.textContent = formatBytes(file.size); item.append(name, size); fileList.appendChild(item); }); }
+    function validateFiles() { const files = Array.from(documents.files); if (files.length === 0) return ""; if (files.length > maxFiles) return "Too many files selected. You can upload a maximum of 20 documents."; for (const file of files) { const extension = file.name.split(".").pop().toLowerCase(); if (!allowedExtensions.has(extension)) { return `The file ${file.name} is not allowed. Please use PDF, JPG, JPEG, or PNG formats only.`; } if (file.size > maxFileBytes) { return `The file ${file.name} is too large (${formatBytes(file.size)}). Each individual document must be 1 MB or less.`; } } return ""; }
+    
     function validateForm() {
-      const name = document.getElementById("clientName").value.trim();
-      const status = clientStatus.value;
-
-      if (!name) return "Please enter your name.";
-      if (!status) return "Please choose your taxpayer status.";
-
-      if (!mobileRule.test(mobile.value)) {
-        return "Please enter a valid 10-digit mobile number using numbers only.";
-      }
-
-      if (!emailRule.test(email.value.trim())) {
-        return "Please enter a valid email address.";
-      }
-
+      const name = document.getElementById("clientName").value.trim(); const status = clientStatus.value;
+      if (!name) return "Please enter your name."; if (!status) return "Please choose your taxpayer status.";
+      if (!mobileRule.test(mobile.value)) return "Please enter a valid 10-digit mobile number using numbers only.";
+      if (!emailRule.test(email.value.trim())) return "Please enter a valid email address.";
       if (status !== "Others") {
-        normalizePan();
-
-        if (!panRule.test(pan.value)) {
-          return "Please check your PAN format: it should have 5 letters, P as the 4th letter, 4 numbers, and 1 final letter.";
-        }
-
-        if (status === "Individual" && pan.value.charAt(3) !== "P") {
-          return "For Individuals, the 4th letter of your PAN must be P.";
-        }
-
-        if (!employerCategory.value) {
-          return "Please select your employer type.";
-        }
-
-        if (!pbNumber.disabled) {
-          if (!pbNumber.value.trim()) return "Please enter your PB No / ID No.";
-          if (!pbRule.test(pbNumber.value.trim())) {
-            return "Your PB / ID number can only have numbers and symbols, no letters allowed.";
-          }
-        }
+        normalizePan(); if (!panRule.test(pan.value)) return "Please check your PAN format: it should have 5 letters, P as the 4th letter, 4 numbers, and 1 final letter.";
+        if (status === "Individual" && pan.value.charAt(3) !== "P") return "For Individuals, the 4th letter of your PAN must be P.";
+        if (!employerCategory.value) return "Please select your employer type.";
+        if (!pbNumber.disabled) { if (!pbNumber.value.trim()) return "Please enter your PB No / ID No."; if (!pbRule.test(pbNumber.value.trim())) return "Your PB / ID number can only have numbers and symbols, no letters allowed."; }
       }
-
-      const duplicateKey = dedupeKey();
-      if (duplicateKey && localStorage.getItem(duplicateKey)) {
-        return "This information was already submitted from this browser session previously.";
-      }
-
+      const duplicateKey = dedupeKey(); if (duplicateKey && localStorage.getItem(duplicateKey)) return "This information was already submitted from this browser session previously.";
       return validateFiles();
     }
 
     pan.addEventListener("input", normalizePan);
-    mobile.addEventListener("input", () => {
-      mobile.value = mobile.value.replace(/\D/g, "").slice(0, 10);
-    });
-    pbNumber.addEventListener("input", () => {
-      pbNumber.value = pbNumber.value.replace(/[A-Za-z]/g, "");
-    });
+    mobile.addEventListener("input", () => { mobile.value = mobile.value.replace(/\D/g, "").slice(0, 10); });
+    pbNumber.addEventListener("input", () => { pbNumber.value = pbNumber.value.replace(/[A-Za-z]/g, ""); });
     clientStatus.addEventListener("change", syncStatusFields);
     employerCategory.addEventListener("change", syncEmployerFields);
-    documents.addEventListener("change", () => {
-      renderFileList();
-      const fileError = validateFiles();
-      setStatus(fileError, fileError ? "error" : "");
-    });
-
-    form.addEventListener("reset", () => {
-      setTimeout(() => {
-        syncStatusFields();
-        fileList.innerHTML = "";
-        setStatus("", "");
-      });
-    });
+    documents.addEventListener("change", () => { renderFileList(); const fileError = validateFiles(); setStatus(fileError, fileError ? "error" : ""); });
+    form.addEventListener("reset", () => { setTimeout(() => { syncStatusFields(); fileList.innerHTML = ""; setStatus("", ""); }); });
 
     form.addEventListener("submit", (event) => {
       const validationError = validateForm();
-      if (validationError) {
-        event.preventDefault();
-        setStatus(validationError, "error");
-        return;
-      }
-
+      if (validationError) { event.preventDefault(); setStatus(validationError, "error"); return; }
       const duplicateKey = dedupeKey();
-      submitButton.disabled = true;
-      if (duplicateKey) {
-        localStorage.setItem(duplicateKey, new Date().toISOString());
-      }
-
+      if (duplicateKey) { localStorage.setItem(duplicateKey, new Date().toISOString()); }
+      
+      // Let submission trigger natively, formsubmit handles the thank-you navigation route.
       setStatus("All checks passed. Opening secure connection to email your details...", "success");
     });
 
     syncStatusFields();
 
-    // ADDRESS BAR MASK: Instantly hides the .html extension when the client lands on this page
+    // ADDRESS BAR MASK
     if (window.location.pathname.endsWith('.html')) {
       const cleanUrl = window.location.pathname.replace(/\.html$/, '');
       window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
+
+    // ─── MOTION EFFECT ENGINE ───
+    const overlay = document.getElementById("transitionOverlay");
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => { overlay.classList.add("fade-out"); }, 100);
+    });
+
+    document.querySelectorAll(".transition-trigger").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const targetUrl = this.getAttribute("href");
+        if (targetUrl && targetUrl.startsWith("./") && !targetUrl.startsWith("#")) {
+          e.preventDefault();
+          overlay.classList.remove("fade-out");
+          overlay.classList.add("fade-in");
+          setTimeout(() => { window.location.href = targetUrl; }, 1500);
+        }
+      });
+    });
   </script>
 </body>
 </html>
