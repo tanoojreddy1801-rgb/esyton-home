@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Income Tax - Client Enquiry Form</title>
+  <meta name="description" content="Secure client registration and document upload portal for Invincibles Co.">
+  <meta name="theme-color" content="#062f59">
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --navy: #062f59;
+      --navy-2: #0a426f;
+      --navy-3: #071f36;
+      --gold: #c5983d;
+      --yellow: #ffd800;
+      --yellow-pale: #fffbe6;
+      --ink: #101820;
+      --muted: #5d6872;
+      --paper: #fff;
+      --soft: #f4f6f8;
+      --line: #dfe5e9;
+      --danger: #c45d73;
+      --success: #2f8d6a;
+      --warning: #c8862f;
+      --shadow: 0 22px 55px rgba(6, 47, 89, .13);
+      --shadow-lg: 0 40px 80px rgba(6, 47, 89, .18);
+      --max: 1180px;
+      font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--soft); line-height: 1.68; }
+    body, button, input, select, textarea { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    button { color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+    /* Typography */
+    h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* Topbar & Header */
+    .topbar { color: #dce9f3; background: var(--navy-3); font-size: .77rem; }
+    .topbar-row { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .topbar strong { color: var(--yellow); }
+    
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 0; color: var(--navy); }
+    .brand-logo { height: 62px; width: auto; max-width: 240px; object-fit: contain; }
+    .nav-pill { padding: 8px 16px; border-radius: 2px; background: var(--soft); border: 1px solid var(--line); color: var(--navy); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* Layout Structure */
+    .shell { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .main-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 42px; padding: 48px 0 84px; align-items: start; }
+
+    /* Panels & Components */
+    .panel { background: var(--paper); padding: 40px; border-top: 5px solid var(--navy); box-shadow: var(--shadow); position: relative; }
+    .panel-accent { border-top-color: var(--yellow); }
+    
+    .eyebrow, .section-kicker { color: var(--gold); font-size: .75rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; display: block; margin-bottom: 12px; }
+    h1 { font-size: 2.4rem; line-height: 1.1; color: var(--navy); margin-bottom: 14px; }
+    h2 { font-size: 1.8rem; line-height: 1.2; color: var(--navy); margin-bottom: 8px; }
+    .subtle { color: var(--muted); font-size: .95rem; margin-bottom: 0; }
+
+    /* Helper Boxes */
+    .workflow-box, .info-box { background: var(--soft); border-left: 3px solid var(--gold); padding: 22px; margin-top: 28px; font-size: .9rem; color: #34424e; }
+    .workflow-box strong { display: block; color: var(--navy); margin-bottom: 8px; font-size: .95rem; }
+    .helper-list { margin: 0; padding-left: 20px; }
+    .helper-list li { margin-bottom: 6px; }
+    .helper-list li:last-child { margin-bottom: 0; }
+    .helper-list a { color: var(--gold); font-weight: 600; text-decoration: underline; }
+
+    /* Forms & Interactive Fields */
+    .field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 18px; margin-top: 10px; }
+    .field-full { grid-column: 1 / -1; }
+    
+    label { display: block; margin-top: 14px; margin-bottom: 6px; font-size: .86rem; font-weight: 700; color: var(--navy); }
+    .required { color: var(--danger); margin-left: 2px; }
+    .optional { color: var(--muted); font-size: .75rem; font-weight: 500; margin-left: 4px; text-transform: uppercase; }
+
+    input, select {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 2px;
+      padding: 0 14px;
+      color: var(--ink);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus, select:focus {
+      border-color: var(--navy-2);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(6, 47, 89, 0.08);
+    }
+    input:disabled, select:disabled {
+      cursor: not-allowed;
+      background: var(--soft);
+      color: var(--muted);
+      border-color: var(--line);
+    }
+    input[type="file"] {
+      padding: 8px 12px;
+      min-height: auto;
+    }
+
+    /* File List Presentation */
+    .file-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .file-list li { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 10px 14px; background: var(--soft); border: 1px solid var(--line); font-size: .82rem; }
+    .file-list li span { color: var(--ink); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-list li strong { color: var(--navy); font-weight: 700; flex-shrink: 0; }
+
+    /* Button Configurations */
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: .02em;
+      cursor: pointer;
+      transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s, background .2s;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button:active { transform: translateY(0); }
+    .button:disabled { cursor: not-allowed; opacity: 0.6; transform: none; box-shadow: none; }
+
+    .button-navy { color: #fff; background: var(--navy); box-shadow: 0 8px 20px rgba(6,47,89,.15); }
+    .button-navy:hover { background: var(--navy-2); box-shadow: 0 12px 26px rgba(6,47,89,.22); }
+    .button-outline { color: var(--navy); border-color: var(--navy); background: transparent; }
+    .button-outline:hover { background: rgba(6, 47, 89, 0.04); }
+    .button-ghost { color: var(--muted); border-color: var(--line); background: transparent; border-style: dashed; }
+    .button-ghost:hover { border-color: var(--muted); background: var(--soft); }
+
+    /* Message Banners */
+    .status-message { min-height: 24px; margin-top: 18px; font-size: .88rem; font-weight: 600; line-height: 1.5; }
+    .status-message.error { color: var(--danger); }
+    .status-message.success { color: var(--success); }
+    .status-message.warning { color: var(--warning); }
+
+    /* Informational Tables */
+    .table-wrap { border: 1px solid var(--line); background: var(--paper); margin-top: 24px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .84rem; text-align: left; }
+    th, td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+    th { background: var(--soft); color: var(--navy); text-transform: uppercase; font-size: .72rem; letter-spacing: .08em; font-weight: 700; }
+    td:first-child { font-weight: 700; color: var(--navy); }
+
+    /* Footer Notes */
+    .footer-note { font-size: .78rem; color: var(--muted); text-align: center; margin-top: 34px; line-height: 1.6; }
+
+    /* Responsive adjustments */
+    @media (max-width: 980px) {
+      .main-grid { grid-template-columns: 1fr; gap: 32px; padding: 28px 0 64px; }
+      .field-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 650px) {
+      .shell { width: min(var(--max), calc(100% - 24px)); }
+      .topbar, .nav-pill { display: none; }
+      .panel { padding: 24px; }
+      .btn-row .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="shell topbar-row">
+      <span><strong>India-focused</strong> tax and compliance support</span>
+      <span>contact@esyton.in</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="./index.html" aria-label="Esyton home">
+        <img class="brand-logo" src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights LLP" width="160" height="60">
+      </a>
+      <div class="nav-right">
+        <a class="button button-outline" style="min-height:38px; padding:0 14px; font-size:.8rem;" href="./index.html">← Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="main-grid">
+      
+      <section class="panel">
+        <span class="section-kicker">Taxpayer Portal</span>
+        <h1>Client Details</h1>
+        <p class="subtle">Please share your details and upload your tax files here to start your income tax return review.</p>
+
+        <div class="workflow-box">
+          <strong>Before uploading files:</strong>
+          <ul class="helper-list">
+            <li>Adding documents is entirely optional.</li>
+            <li>Please use PDF, JPG, JPEG, or PNG files only.</li>
+            <li>You can upload up to 20 files, and each file must be under 1 MB.</li>
+            <li>If your PDFs are too large, you can shrink them here: <a href="https://www.ilovepdf.com/compress_pdf" target="_blank" rel="noopener">Compress PDF tool</a>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="panel panel-accent" id="submissionPanel">
+        <span class="section-kicker">Enquiry Form</span>
+        <h2>Filing Details</h2>
+        <p class="subtle">Fields marked with <span class="required">*</span> are required unless they turn off automatically.</p>
+
+        <form id="clientForm" action="https://formsubmit.co/invinciblescotax@gmail.com" method="POST" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="_subject" value="New ITR Client Enquiry - Invincibles Co">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="./thank-you.html">
+          <input type="hidden" name="_autoresponse" value="Thank you for contacting Invincibles Co. We have received your details and will get back to you shortly.">
+          <input type="hidden" name="_honey" value="">
+          <input type="hidden" name="Brand" value="Invincibles Co">
+          <input type="hidden" name="Email Introduction" value="A new client has submitted their details for an ITR enquiry. The details are listed below.">
+          
+          <div class="field-grid">
+            <div class="field-full">
+              <label for="clientName">Full Name <span class="required">*</span></label>
+              <input id="clientName" name="Name" type="text" autocomplete="name" required>
+            </div>
+
+            <div>
+              <label for="clientStatus">Status of the Client <span class="required">*</span></label>
+              <select id="clientStatus" name="Status of Client" required>
+                <option value="">Select your tax status...</option>
+                <option value="Individual">Individual</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="pan">PAN <span class="required">*</span></label>
+              <input id="pan" name="PAN" type="text" minlength="10" maxlength="10" autocomplete="off" placeholder="ABCDE1234F" required>
+            </div>
+
+            <div>
+              <label for="mobile">Mobile Number <span class="required">*</span></label>
+              <input id="mobile" name="Mobile No." type="tel" inputmode="numeric" minlength="10" maxlength="10" autocomplete="tel" placeholder="10-digit number" required>
+            </div>
+
+            <div>
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input id="email" name="Email Address" type="email" autocomplete="email" placeholder="name@example.com" required>
+            </div>
+
+            <div>
+              <label for="employerCategory">Category of Employer <span class="required">*</span></label>
+              <select id="employerCategory" name="Category of Employer" required>
+                <option value="">Select employer type...</option>
+                <option value="HAL">HAL</option>
+                <option value="DRDO">DRDO</option>
+                <option value="ISRO">ISRO</option>
+                <option value="Other Govt Entities or PSUs">Other Govt Entities / PSUs</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="pbNumber">PB No / ID No <span class="required">*</span></label>
+              <input id="pbNumber" name="PB. No / ID No" type="text" autocomplete="off" placeholder="Numbers and special characters only" required>
+            </div>
+
+            <div class="field-full">
+              <label for="documents">Upload Supporting Documents <span class="optional">optional</span></label>
+              <input id="documents" name="Documents[]" type="file" accept=".jpeg,.jpg,.png,.pdf,image/jpeg,image/png,application/pdf" multiple>
+              <ul id="fileList" class="file-list" aria-live="polite"></ul>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button id="submitButton" class="button button-navy" type="submit">Email Enquiry</button>
+            <button class="button button-ghost" type="reset">Clear Form</button>
+            <a class="button button-outline" href="https://www.ilovepdf.com/compress_pdf" target="_blank" rel="noopener">Compress PDF tool</a>
+          </div>
+
+          <div id="statusMessage" class="status-message" role="alert" aria-live="polite"></div>
+        </form>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Field Name</th>
+                <th>Form Rules and Requirements</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PAN</td>
+                <td>Required for Individuals. Must be exactly 10 characters long: five letters, the letter P in the 4th position, four numbers, and one final letter.</td>
+              </tr>
+              <tr>
+                <td>Mobile Number</td>
+                <td>Must be exactly 10 digits long, with no symbols, dashes, or spaces. Required for everyone.</td>
+              </tr>
+              <tr>
+                <td>Email Address</td>
+                <td>Required for everyone and must be written in a standard email format.</td>
+              </tr>
+              <tr>
+                <td>PB / ID Number</td>
+                <td>This field unfreezes only if you select HAL, DRDO, ISRO, or Government/PSU employers. No alphabets allowed.</td>
+              </tr>
+              <tr>
+                <td>Documents</td>
+                <td>Optional. If you add files, you can upload up to 20 files total, using PDF, JPG, JPEG, or PNG formats under 1 MB each.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <p class="footer-note">
+      This page processes information directly inside your browser window. No information is stored on third-party servers or external databases before it is securely sent to us via email.
+    </p>
+  </main>
+
+  <script>
+    const form = document.getElementById("clientForm");
+    const statusMessage = document.getElementById("statusMessage");
+    const clientStatus = document.getElementById("clientStatus");
+    const pan = document.getElementById("pan");
+    const mobile = document.getElementById("mobile");
+    const email = document.getElementById("email");
+    const employerCategory = document.getElementById("employerCategory");
+    const pbNumber = document.getElementById("pbNumber");
+    const documents = document.getElementById("documents");
+    const fileList = document.getElementById("fileList");
+    const submitButton = document.getElementById("submitButton");
+
+    const disabledForOthers = [pan, employerCategory, pbNumber];
+    const panRule = /^[A-Z]{3}P[A-Z][0-9]{4}[A-Z]$/;
+    const mobileRule = /^[0-9]{10}$/;
+    const emailRule = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const pbRule = /^[^A-Za-z]+$/;
+    const allowedExtensions = new Set(["pdf", "jpg", "jpeg", "png"]);
+    const pbRequiredEmployers = new Set(["HAL", "DRDO", "ISRO", "Other Govt Entities or PSUs"]);
+    const maxFiles = 20;
+    const maxFileBytes = 1024 * 1024;
+    const localDuplicatePrefix = "invincible-scotax-submission:";
+
+    function setStatus(message, type) {
+      statusMessage.textContent = message;
+      statusMessage.className = type ? `status-message ${type}` : "status-message";
+    }
+
+    function normalizePan() {
+      pan.value = pan.value.toUpperCase().replace(/\s/g, "");
+    }
+
+    function formatBytes(bytes) {
+      return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
+    }
+
+    function dedupeKey() {
+      const cleanPan = pan.disabled ? "" : pan.value.trim().toUpperCase();
+      const cleanPb = pbNumber.disabled ? "" : pbNumber.value.trim();
+      const cleanMobile = mobile.value.trim();
+      if (!cleanPan && !cleanPb && !cleanMobile) return "";
+      return `${localDuplicatePrefix}${cleanPan}|${cleanPb}|${cleanMobile}`;
+    }
+
+    function setFieldEnabled(field, enabled, requiredWhenEnabled = true) {
+      field.disabled = !enabled;
+      field.required = enabled && requiredWhenEnabled;
+      if (!enabled) {
+        field.value = "";
+      }
+    }
+
+    function syncStatusFields() {
+      const isOthers = clientStatus.value === "Others";
+      disabledForOthers.forEach((field) => setFieldEnabled(field, !isOthers));
+      setFieldEnabled(mobile, true);
+      setFieldEnabled(email, true);
+      documents.disabled = false;
+      documents.required = false;
+      syncEmployerFields();
+
+      if (isOthers) {
+        setStatus("For non-individual taxpayers, the PAN, employer type, and PB/ID numbers are turned off. Mobile number and email remain active.", "warning");
+      } else if (statusMessage.textContent.includes("For non-individual taxpayers")) {
+        setStatus("", "");
+      }
+    }
+
+    function syncEmployerFields() {
+      if (clientStatus.value === "Others") {
+        setFieldEnabled(pbNumber, false);
+        return;
+      }
+      const needsPb = pbRequiredEmployers.has(employerCategory.value);
+      setFieldEnabled(pbNumber, needsPb);
+    }
+
+    function renderFileList() {
+      fileList.innerHTML = "";
+      Array.from(documents.files).forEach((file) => {
+        const item = document.createElement("li");
+        const name = document.createElement("span");
+        const size = document.createElement("strong");
+        name.textContent = file.name;
+        size.textContent = formatBytes(file.size);
+        item.append(name, size);
+        fileList.appendChild(item);
+      });
+    }
+
+    function validateFiles() {
+      const files = Array.from(documents.files);
+      if (files.length === 0) return "";
+      if (files.length > maxFiles) return "Too many files selected. You can upload a maximum of 20 documents.";
+
+      for (const file of files) {
+        const extension = file.name.split(".").pop().toLowerCase();
+        if (!allowedExtensions.has(extension)) {
+          return `The file ${file.name} is not allowed. Please use PDF, JPG, JPEG, or PNG formats only.`;
+        }
+        if (file.size > maxFileBytes) {
+          return `The file ${file.name} is too large (${formatBytes(file.size)}). Each individual document must be 1 MB or less.`;
+        }
+      }
+      return "";
+    }
+
+    function validateForm() {
+      const name = document.getElementById("clientName").value.trim();
+      const status = clientStatus.value;
+
+      if (!name) return "Please enter your name.";
+      if (!status) return "Please choose your taxpayer status.";
+
+      if (!mobileRule.test(mobile.value)) {
+        return "Please enter a valid 10-digit mobile number using numbers only.";
+      }
+
+      if (!emailRule.test(email.value.trim())) {
+        return "Please enter a valid email address.";
+      }
+
+      if (status !== "Others") {
+        normalizePan();
+
+        if (!panRule.test(pan.value)) {
+          return "Please check your PAN format: it should have 5 letters, P as the 4th letter, 4 numbers, and 1 final letter.";
+        }
+
+        if (status === "Individual" && pan.value.charAt(3) !== "P") {
+          return "For Individuals, the 4th letter of your PAN must be P.";
+        }
+
+        if (!employerCategory.value) {
+          return "Please select your employer type.";
+        }
+
+        if (!pbNumber.disabled) {
+          if (!pbNumber.value.trim()) return "Please enter your PB No / ID No.";
+          if (!pbRule.test(pbNumber.value.trim())) {
+            return "Your PB / ID number can only have numbers and symbols, no letters allowed.";
+          }
+        }
+      }
+
+      const duplicateKey = dedupeKey();
+      if (duplicateKey && localStorage.getItem(duplicateKey)) {
+        return "This information was already submitted from this browser session previously.";
+      }
+
+      return validateFiles();
+    }
+
+    pan.addEventListener("input", normalizePan);
+    mobile.addEventListener("input", () => {
+      mobile.value = mobile.value.replace(/\D/g, "").slice(0, 10);
+    });
+    pbNumber.addEventListener("input", () => {
+      pbNumber.value = pbNumber.value.replace(/[A-Za-z]/g, "");
+    });
+    clientStatus.addEventListener("change", syncStatusFields);
+    employerCategory.addEventListener("change", syncEmployerFields);
+    documents.addEventListener("change", () => {
+      renderFileList();
+      const fileError = validateFiles();
+      setStatus(fileError, fileError ? "error" : "");
+    });
+
+    form.addEventListener("reset", () => {
+      setTimeout(() => {
+        syncStatusFields();
+        fileList.innerHTML = "";
+        setStatus("", "");
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      const validationError = validateForm();
+      if (validationError) {
+        event.preventDefault();
+        setStatus(validationError, "error");
+        return;
+      }
+
+      const duplicateKey = dedupeKey();
+      submitButton.disabled = true;
+      if (duplicateKey) {
+        localStorage.setItem(duplicateKey, new Date().toISOString());
+      }
+
+      setStatus("All checks passed. Opening secure connection to email your details...", "success");
+    });
+
+    syncStatusFields();
+  </script>
+</body>
+</html>
