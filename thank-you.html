@@ -30,14 +30,15 @@
     * { box-sizing: border-box; }
     body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: var(--ink); background: var(--soft); }
     
-    /* ─── PAGE TRANSITION OVERLAY ─── */
+   /* ─── PAGE TRANSITION OVERLAY ─── */
     .page-transition-overlay {
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background-color: var(--navy-3);
-      background-image: linear-gradient(rgba(7, 31, 54, 0.85), rgba(6, 47, 89, 0.9)), url('./motion-effect.jpg');
-      background-size: cover;
+      background-color: #ffffff;
+      background-image: url('./motion-effect.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center;
       opacity: 1;
       visibility: visible;
@@ -119,7 +120,7 @@
   <main class="panel">
     <div class="badge-mark" aria-hidden="true">✓</div>
     <h1>Enquiry Submitted</h1>
-    <p>Thank you. Your details have been securely sent over to Invincibles Co. We will look through everything you provided and reach back out to you very soon.</p>
+    <p>Thank you. Your details have been securely sent over to Esyton. We will look through everything you provided and reach back out to you very soon.</p>
     <a class="button transition-link" href="./index.html">Submit Another Enquiry</a>
   </main>
 
