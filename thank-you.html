@@ -30,6 +30,32 @@
     * { box-sizing: border-box; }
     body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: var(--ink); background: var(--soft); }
     
+    /* ─── PAGE TRANSITION OVERLAY ─── */
+    .page-transition-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: var(--navy-3);
+      background-image: linear-gradient(rgba(7, 31, 54, 0.88), rgba(6, 47, 89, 0.92)), url('./motion-effect.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.6s ease, visibility 0.6s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+    }
+    .page-transition-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.05);
+    }
+    .page-transition-overlay.fade-in {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      pointer-events: all;
+    }
+
     .panel {
       width: min(580px, 100%);
       padding: 52px 40px;
@@ -37,6 +63,8 @@
       border-top: 5px solid var(--success);
       box-shadow: var(--shadow-lg);
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .badge-mark {
@@ -85,19 +113,39 @@
 </head>
 <body>
 
+  <div class="page-transition-overlay" id="transitionOverlay"></div>
+
   <main class="panel">
     <div class="badge-mark" aria-hidden="true">✓</div>
     <h1>Enquiry Submitted</h1>
     <p>Thank you. Your details have been securely sent over to Invincibles Co. We will look through everything you provided and reach back out to you very soon.</p>
-    <a class="button" href="./index.html">Submit Another Enquiry</a>
+    <a class="button transition-trigger" href="./index.html">Submit Another Enquiry</a>
   </main>
 
   <script>
-    // ADDRESS BAR MASK: Instantly hides the .html extension when the client lands here
+    // ADDRESS BAR MASK
     if (window.location.pathname.endsWith('.html')) {
       const cleanUrl = window.location.pathname.replace(/\.html$/, '');
       window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
+
+    // ─── MOTION EFFECT ENGINE ───
+    const overlay = document.getElementById("transitionOverlay");
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => { overlay.classList.add("fade-out"); }, 100);
+    });
+
+    document.querySelectorAll(".transition-trigger").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const targetUrl = this.getAttribute("href");
+        if (targetUrl && targetUrl.startsWith("./") && !targetUrl.startsWith("#")) {
+          e.preventDefault();
+          overlay.classList.remove("fade-out");
+          overlay.classList.add("fade-in");
+          setTimeout(() => { window.location.href = targetUrl; }, 1500);
+        }
+      });
+    });
   </script>
 </body>
 </html>
