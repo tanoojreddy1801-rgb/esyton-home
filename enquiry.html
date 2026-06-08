@@ -44,7 +44,7 @@
     h1, h2, h3, h4, p { margin-top: 0; }
     :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 
-    /* ─── PAGE TRANSITION OVERLAY ─── */
+    /* Page Transition Overlay */
     .page-transition-overlay {
       position: fixed;
       inset: 0;
@@ -233,7 +233,7 @@
         <p class="subtle">Fields marked with <span class="required">*</span> are required unless they turn off automatically.</p>
 
         <form id="clientForm" action="https://formsubmit.co/connect@esyton.com" method="POST" enctype="multipart/form-data" novalidate>
-          <!-- FormSubmit System Options -->
+          <!-- FormSubmit Configuration -->
           <input type="hidden" name="_subject" value="New ITR Client Enquiry - Invincibles Co">
           <input type="hidden" name="_template" value="box">
           <input type="hidden" name="_captcha" value="false">
@@ -491,7 +491,6 @@
       const duplicateKey = dedupeKey();
       if (duplicateKey) { localStorage.setItem(duplicateKey, new Date().toISOString()); }
       
-      // Let submission route naturally through to FormSubmit endpoint safely
       setStatus("All checks passed. Opening secure connection to email your details...", "success");
     });
 
@@ -522,7 +521,7 @@
           
           setTimeout(() => {
             window.location.href = destination;
-          }, 1500); // 1.5 Second Frame Hold
+          }, 1500);
         }
       });
     });
