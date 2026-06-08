@@ -36,18 +36,18 @@
       inset: 0;
       z-index: 9999;
       background-color: var(--navy-3);
-      background-image: linear-gradient(rgba(7, 31, 54, 0.88), rgba(6, 47, 89, 0.92)), url('./motion-effect.jpg');
+      background-image: linear-gradient(rgba(7, 31, 54, 0.85), rgba(6, 47, 89, 0.9)), url('./motion-effect.jpg');
       background-size: cover;
       background-position: center;
       opacity: 1;
       visibility: visible;
-      transition: opacity 0.6s ease, visibility 0.6s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       pointer-events: none;
     }
     .page-transition-overlay.fade-out {
       opacity: 0;
       visibility: hidden;
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
     .page-transition-overlay.fade-in {
       opacity: 1;
@@ -113,13 +113,14 @@
 </head>
 <body>
 
+  <!-- MOTION LAYER -->
   <div class="page-transition-overlay" id="transitionOverlay"></div>
 
   <main class="panel">
     <div class="badge-mark" aria-hidden="true">✓</div>
     <h1>Enquiry Submitted</h1>
     <p>Thank you. Your details have been securely sent over to Invincibles Co. We will look through everything you provided and reach back out to you very soon.</p>
-    <a class="button transition-trigger" href="./index.html">Submit Another Enquiry</a>
+    <a class="button transition-link" href="./index.html">Submit Another Enquiry</a>
   </main>
 
   <script>
@@ -129,20 +130,26 @@
       window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
 
-    // ─── MOTION EFFECT ENGINE ───
+    // ─── MOTION TRANSITION CONTROLLER ───
     const overlay = document.getElementById("transitionOverlay");
+    
     window.addEventListener("DOMContentLoaded", () => {
-      setTimeout(() => { overlay.classList.add("fade-out"); }, 100);
+      setTimeout(() => {
+        overlay.classList.add("fade-out");
+      }, 150);
     });
 
-    document.querySelectorAll(".transition-trigger").forEach(link => {
+    document.querySelectorAll(".transition-link").forEach(link => {
       link.addEventListener("click", function(e) {
-        const targetUrl = this.getAttribute("href");
-        if (targetUrl && targetUrl.startsWith("./") && !targetUrl.startsWith("#")) {
+        const destination = this.getAttribute("href");
+        if (destination && (destination.includes(".html") || destination.startsWith("./"))) {
           e.preventDefault();
           overlay.classList.remove("fade-out");
           overlay.classList.add("fade-in");
-          setTimeout(() => { window.location.href = targetUrl; }, 1500);
+          
+          setTimeout(() => {
+            window.location.href = destination;
+          }, 1500); // 1.5 Second Frame Hold
         }
       });
     });
