@@ -46,18 +46,18 @@
       inset: 0;
       z-index: 9999;
       background-color: var(--navy-3);
-      background-image: linear-gradient(rgba(7, 31, 54, 0.88), rgba(6, 47, 89, 0.92)), url('./motion-effect.jpg');
+      background-image: linear-gradient(rgba(7, 31, 54, 0.85), rgba(6, 47, 89, 0.9)), url('./motion-effect.jpg');
       background-size: cover;
       background-position: center;
       opacity: 1;
       visibility: visible;
-      transition: opacity 0.6s ease, visibility 0.6s ease, transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       pointer-events: none;
     }
     .page-transition-overlay.fade-out {
       opacity: 0;
       visibility: hidden;
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
     .page-transition-overlay.fade-in {
       opacity: 1;
@@ -567,8 +567,10 @@
 </head>
 <body id="top">
 
+  <!-- MOTION LAYER -->
   <div class="page-transition-overlay" id="transitionOverlay"></div>
 
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="shell topbar-row">
       <div class="topbar-list">
@@ -579,9 +581,10 @@
     </div>
   </div>
 
+  <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <div class="shell nav">
-      <a class="brand transition-trigger" href="#top" aria-label="Esyton Insights home">
+      <a class="brand transition-link" href="./index.html" aria-label="Esyton Insights home">
         <img
           class="brand-logo"
           src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg"
@@ -596,13 +599,14 @@
         <a href="#services">Services</a>
         <a href="#documents">Documents</a>
         <a href="#process">Process</a>
-        <a class="button button-navy nav-cta transition-trigger" href="./enquiry.html">Get assistance</a>
+        <a class="button button-navy nav-cta transition-link" href="./enquiry.html">Get assistance</a>
       </nav>
     </div>
   </header>
 
   <main>
 
+    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div>
@@ -610,7 +614,7 @@
           <h1 id="hero-title">Smarter finances. <span>Simpler compliance.</span></h1>
           <p class="hero-copy">Dependable income tax filing, clean bookkeeping, GST compliance and trademark assistance — structured around your timeline, organised from day one.</p>
           <div class="hero-actions">
-            <a class="button button-gold transition-trigger" href="./enquiry.html">Start an enquiry</a>
+            <a class="button button-gold transition-link" href="./enquiry.html">Start an enquiry</a>
             <a class="button button-outline" href="#services">Explore services</a>
           </div>
           <div class="hero-trust">
@@ -622,6 +626,7 @@
       </div>
     </section>
 
+    <!-- QUICK STRIP -->
     <div class="quick-strip shell">
       <div class="quick-grid">
         <a class="quick-card" href="#services">
@@ -638,7 +643,7 @@
             <p>Accounting and GST records kept aligned with your filing requirements, all in one place.</p>
           </span>
         </a>
-        <a class="quick-card transition-trigger" href="./enquiry.html">
+        <a class="quick-card transition-link" href="./enquiry.html">
           <span class="quick-icon">→</span>
           <span>
             <h3>Speak With Esyton</h3>
@@ -648,6 +653,7 @@
       </div>
     </div>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="shell about-grid">
         <div class="about-art reveal">
@@ -687,6 +693,7 @@
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services" class="services">
       <div class="shell">
         <div class="section-heading reveal">
@@ -725,6 +732,7 @@
       </div>
     </section>
 
+    <!-- DOCUMENTS -->
     <section id="documents">
       <div class="shell documents-grid">
         <div class="section-heading reveal">
@@ -745,6 +753,7 @@
       </div>
     </section>
 
+    <!-- PROCESS -->
     <section id="process" class="process-band">
       <div class="shell">
         <div class="section-heading reveal">
@@ -773,6 +782,7 @@
       </div>
     </section>
 
+    <!-- FAQ -->
     <section id="faq">
       <div class="shell">
         <div class="section-heading reveal">
@@ -804,6 +814,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="shell contact-grid">
         <div class="contact-copy reveal">
@@ -811,7 +822,7 @@
           <h2>Let's bring clarity to your next filing.</h2>
           <p>Email your taxpayer type, financial year, income sources and the nature of assistance required. Include any filing deadline, notice date or urgency to help us prioritise.</p>
           <div class="hero-actions">
-            <a class="button button-gold transition-trigger" href="./enquiry.html">Send an enquiry</a>
+            <a class="button button-gold transition-link" href="./enquiry.html">Send an enquiry</a>
           </div>
         </div>
         <aside class="contact-panel reveal">
@@ -837,6 +848,7 @@
 
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="shell footer-row">
       <span>© 2026 Esyton Insights LLP. All rights reserved.</span>
@@ -989,30 +1001,26 @@
       window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
 
-    // ─── MOTION EFFECT ENGINE ───
+    // ─── MOTION TRANSITION CONTROLLER ───
     const overlay = document.getElementById("transitionOverlay");
     
-    // Page load exit effect
     window.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         overlay.classList.add("fade-out");
-      }, 100);
+      }, 150);
     });
 
-    // Capture links and apply the motion transition delay
-    document.querySelectorAll(".transition-trigger").forEach(link => {
+    document.querySelectorAll(".transition-link").forEach(link => {
       link.addEventListener("click", function(e) {
-        const targetUrl = this.getAttribute("href");
-        // Only run on standard relative internal page links
-        if (targetUrl && targetUrl.startsWith("./") && !targetUrl.startsWith("#")) {
+        const destination = this.getAttribute("href");
+        if (destination && (destination.includes(".html") || destination.startsWith("./"))) {
           e.preventDefault();
           overlay.classList.remove("fade-out");
           overlay.classList.add("fade-in");
           
-          // Custom engineered 1.5 seconds delay for presentation view
           setTimeout(() => {
-            window.location.href = targetUrl;
-          }, 1500);
+            window.location.href = destination;
+          }, 1500); // 1.5 Second Motion Frame Duration
         }
       });
     });
