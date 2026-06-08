@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Submission Received — Invincibles Co</title>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --navy: #062f59;
+      --navy-2: #0a426f;
+      --navy-3: #071f36;
+      --gold: #c5983d;
+      --yellow: #ffd800;
+      --ink: #101820;
+      --muted: #5d6872;
+      --paper: #fff;
+      --soft: #f4f6f8;
+      --line: #dfe5e9;
+      --success: #2f8d6a;
+      --shadow-lg: 0 40px 80px rgba(6, 47, 89, .18);
+      font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: var(--ink); background: var(--soft); }
+    
+    .panel {
+      width: min(580px, 100%);
+      padding: 52px 40px;
+      background: var(--paper);
+      border-top: 5px solid var(--success);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .badge-mark {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--success);
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 900;
+      box-shadow: 0 12px 28px rgba(47, 141, 106, 0.25);
+      animation: pop-entry 0.45s cubic-bezier(.34,1.56,.64,1) both;
+    }
+
+    h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.2rem; color: var(--navy); margin-bottom: 14px; }
+    p { color: var(--muted); font-size: .96rem; line-height: 1.65; margin: 0 0 32px; }
+
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      color: var(--navy-3);
+      background: var(--yellow);
+      border: 1px solid transparent;
+      border-radius: 2px;
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: .04em;
+      text-decoration: none;
+      box-shadow: 0 12px 26px rgba(255,216,0,.25);
+      transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s, background .2s;
+    }
+    .button:hover { transform: translateY(-3px); background: #ffe53a; box-shadow: 0 18px 36px rgba(255,216,0,.35); }
+    .button:active { transform: translateY(-1px); }
+
+    @keyframes pop-entry {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="panel">
+    <div class="badge-mark" aria-hidden="true">✓</div>
+    <h1>Enquiry Submitted</h1>
+    <p>Thank you. Your details have been securely sent over to Invincibles Co. We will look through everything you provided and reach back out to you very soon.</p>
+    <a class="button" href="./index.html">Submit Another Enquiry</a>
+  </main>
+
+  <script>
+    // ADDRESS BAR MASK: Instantly hides the .html extension when the client lands here
+    if (window.location.pathname.endsWith('.html')) {
+      const cleanUrl = window.location.pathname.replace(/\.html$/, '');
+      window.history.replaceState(null, '', cleanUrl + window.location.search);
+    }
+  </script>
+</body>
+</html>
