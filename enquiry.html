@@ -44,7 +44,7 @@
     h1, h2, h3, h4, p { margin-top: 0; }
     :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 
-    /* Page Transition Overlay */
+    /* ─── PAGE TRANSITION OVERLAY ─── */
     .page-transition-overlay {
       position: fixed;
       inset: 0;
@@ -74,7 +74,7 @@
     .shell { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
     .main-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 42px; padding: 48px 0 84px; align-items: start; }
 
-    /* Panels & Typography */
+    /* Panels & Components */
     .panel { background: var(--paper); padding: 40px; border-top: 5px solid var(--navy); box-shadow: var(--shadow); position: relative; }
     .panel-accent { border-top-color: var(--yellow); }
     
@@ -83,14 +83,15 @@
     h2 { font-size: 1.8rem; line-height: 1.2; color: var(--navy); margin-bottom: 8px; }
     .subtle { color: var(--muted); font-size: .95rem; margin-bottom: 0; }
 
-    /* Info Blocks */
+    /* Helper Boxes */
     .workflow-box, .info-box { background: var(--soft); border-left: 3px solid var(--gold); padding: 22px; margin-top: 28px; font-size: .9rem; color: #34424e; }
     .workflow-box strong { display: block; color: var(--navy); margin-bottom: 8px; font-size: .95rem; }
     .helper-list { margin: 0; padding-left: 20px; }
     .helper-list li { margin-bottom: 6px; }
+    .helper-list li:last-child { margin-bottom: 0; }
     .helper-list a { color: var(--gold); font-weight: 600; text-decoration: underline; }
 
-    /* Form Fields Styling */
+    /* Forms & Interactive Fields */
     .field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 18px; margin-top: 10px; }
     .field-full { grid-column: 1 / -1; }
     
@@ -119,15 +120,18 @@
       color: var(--muted);
       border-color: var(--line);
     }
-    input[type="file"] { padding: 8px 12px; min-height: auto; }
+    input[type="file"] {
+      padding: 8px 12px;
+      min-height: auto;
+    }
 
-    /* Attached Files Display */
+    /* File List Presentation */
     .file-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
     .file-list li { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 10px 14px; background: var(--soft); border: 1px solid var(--line); font-size: .82rem; }
     .file-list li span { color: var(--ink); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .file-list li strong { color: var(--navy); font-weight: 700; flex-shrink: 0; }
 
-    /* Action Buttons Layout */
+    /* Button Configurations */
     .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
     .button {
       min-height: 48px;
@@ -154,21 +158,23 @@
     .button-ghost { color: var(--muted); border-color: var(--line); background: transparent; border-style: dashed; }
     .button-ghost:hover { border-color: var(--muted); background: var(--soft); }
 
-    /* Statuses */
+    /* Message Banners */
     .status-message { min-height: 24px; margin-top: 18px; font-size: .88rem; font-weight: 600; line-height: 1.5; }
     .status-message.error { color: var(--danger); }
     .status-message.success { color: var(--success); }
     .status-message.warning { color: var(--warning); }
 
-    /* Table Formatting */
+    /* Informational Mapping Tables */
     .table-wrap { border: 1px solid var(--line); background: var(--paper); margin-top: 24px; overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: .84rem; text-align: left; }
     th, td { padding: 12px 16px; border-bottom: 1px solid var(--line); }
     th { background: var(--soft); color: var(--navy); text-transform: uppercase; font-size: .72rem; letter-spacing: .08em; font-weight: 700; }
     td:first-child { font-weight: 700; color: var(--navy); }
 
+    /* Footer Note Declarations */
     .footer-note { font-size: .78rem; color: var(--muted); text-align: center; margin-top: 34px; line-height: 1.6; }
 
+    /* Media Adaptive Layout Queries */
     @media (max-width: 980px) {
       .main-grid { grid-template-columns: 1fr; gap: 32px; padding: 28px 0 64px; }
       .field-grid { grid-template-columns: 1fr; }
@@ -183,10 +189,8 @@
 </head>
 <body>
 
-  <!-- MOTION LAYER -->
   <div class="page-transition-overlay" id="transitionOverlay"></div>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="shell topbar-row">
       <span><strong>India-focused</strong> tax and compliance support</span>
@@ -194,7 +198,6 @@
     </div>
   </div>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="shell nav">
       <a class="brand transition-link" href="./index.html" aria-label="Esyton home">
@@ -209,7 +212,6 @@
   <main class="shell">
     <div class="main-grid">
       
-      <!-- LEFT COLUMN: SIDE INFORMATION -->
       <section class="panel">
         <span class="section-kicker">Taxpayer Portal</span>
         <h1>Client Details</h1>
@@ -226,22 +228,21 @@
         </div>
       </section>
 
-      <!-- RIGHT COLUMN: ENQUIRY ENTRY ELEMENT -->
       <section class="panel panel-accent" id="submissionPanel">
         <span class="section-kicker">Enquiry Form</span>
         <h2>Filing Details</h2>
         <p class="subtle">Fields marked with <span class="required">*</span> are required unless they turn off automatically.</p>
 
         <form id="clientForm" action="https://formsubmit.co/connect@esyton.com" method="POST" enctype="multipart/form-data" novalidate>
-          <!-- FormSubmit Configuration -->
           <input type="hidden" name="_subject" value="New ITR Client Enquiry - Invincibles Co">
           <input type="hidden" name="_template" value="box">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_next" value="./thank-you.html">
+          <input type="hidden" name="_next" value="https://tanoojreddy1801-rgb.github.io/esyton-home/thank-you.html">
           <input type="hidden" name="_autoresponse" value="Thank you for contacting Invincibles Co. We have received your details and will get back to you shortly.">
           <input type="hidden" name="_honey" value="">
           <input type="hidden" name="Brand" value="Invincibles Co">
           <input type="hidden" name="Email Introduction" value="A new client has submitted their details for an ITR enquiry. The details are listed below.">
+          <input type="hidden" name="_url" value="https://tanoojreddy1801-rgb.github.io/esyton-home/enquiry.html">
           
           <div class="field-grid">
             <div class="field-full">
@@ -306,7 +307,6 @@
           <div id="statusMessage" class="status-message" role="alert" aria-live="polite"></div>
         </form>
 
-        <!-- DATA RULES MAP TABLE -->
         <div class="table-wrap">
           <table>
             <thead>
