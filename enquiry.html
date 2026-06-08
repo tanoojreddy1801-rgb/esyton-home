@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Client Enquiry Form — Invincibles Co</title>
-  <meta name="description" content="Secure client registration and document upload portal for Invincibles Co.">
+  <title>Client Enquiry Form</title>
+  <meta name="description" content="Secure client registration and document upload portal for esyton.">
   <meta name="theme-color" content="#062f59">
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="precontact" href="https://fonts.googleapis.com">
+  <link rel="precontact" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
@@ -44,20 +44,22 @@
     h1, h2, h3, h4, p { margin-top: 0; }
     :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 
-    /* ─── PAGE TRANSITION OVERLAY ─── */
+/* ─── PAGE TRANSITION OVERLAY ─── */
     .page-transition-overlay {
       position: fixed;
       inset: 0;
       z-index: 9999;
-      background-color: var(--navy-3);
-      background-image: linear-gradient(rgba(7, 31, 54, 0.85), rgba(6, 47, 89, 0.9)), url('./motion-effect.jpg');
-      background-size: cover;
+      background-color: #ffffff;
+      background-image: url('./motion-effect.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center;
       opacity: 1;
       visibility: visible;
       transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       pointer-events: none;
     }
+    
     .page-transition-overlay.fade-out {
       opacity: 0;
       visibility: hidden;
@@ -244,14 +246,14 @@
         <h2>Filing Details</h2>
         <p class="subtle">Fields marked with <span class="required">*</span> are required unless they turn off automatically.</p>
 
-        <form id="clientForm" action="https://formsubmit.co/connect@esyton.com" method="POST" enctype="multipart/form-data" novalidate>
-          <input type="hidden" name="_subject" value="New ITR Client Enquiry - Invincibles Co">
+        <form id="clientForm" action="https://formsubmit.co/contact@esyton.com" method="POST" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="_subject" value="New ITR Client Enquiry - esyton">
           <input type="hidden" name="_template" value="box">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_next" value="https://tanoojreddy1801-rgb.github.io/esyton-home/thank-you.html">
-          <input type="hidden" name="_autoresponse" value="Thank you for contacting Invincibles Co. We have received your details and will get back to you shortly.">
+          <input type="hidden" name="_autoresponse" value="Thank you for contacting esyton. We have received your details and will get back to you shortly.">
           <input type="hidden" name="_honey" value="">
-          <input type="hidden" name="Brand" value="Invincibles Co">
+          <input type="hidden" name="Brand" value="esyton">
           <input type="hidden" name="Email Introduction" value="A new client has submitted their details for an ITR enquiry. The details are listed below.">
           
           <div class="field-grid">
@@ -441,7 +443,7 @@
       if (validationError) { event.preventDefault(); setStatus(validationError, "error"); return; }
       const duplicateKey = dedupeKey();
       if (duplicateKey) { localStorage.setItem(duplicateKey, new Date().toISOString()); }
-      setStatus("All checks passed. Opening secure connection to email your details...", "success");
+      setStatus("All checks passed. Opening secure contaction to email your details...", "success");
     });
 
     syncStatusFields();
