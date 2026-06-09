@@ -565,6 +565,65 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 1ms !important; animation-duration: 1ms !important; }
     }
+
+    /* ─── TOOLS NAV DROPDOWN ─── */
+    .nav-tools {
+      position: relative;
+    }
+    .nav-tools-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 13px;
+      color: #34424e;
+      font-size: .86rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: none;
+      border: none;
+      position: relative;
+    }
+    .nav-tools-btn:hover { color: var(--navy); }
+    .nav-tools-btn::after { display: none !important; }
+    .caret { font-size: .6rem; transition: transform .2s; display: inline-block; }
+    .nav-tools:hover .caret { transform: rotate(180deg); }
+    .tools-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 230px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--yellow);
+      box-shadow: 0 18px 40px rgba(6,47,89,.14);
+      z-index: 50;
+    }
+    .nav-tools:hover .tools-dropdown,
+    .nav-tools:focus-within .tools-dropdown { display: block; }
+    .tools-dropdown a {
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px !important;
+      color: var(--ink) !important;
+      font-size: .84rem !important;
+      font-weight: 600 !important;
+      border-bottom: 1px solid var(--line);
+      transition: background .18s, color .18s !important;
+    }
+    .tools-dropdown a:last-child { border-bottom: 0; }
+    .tools-dropdown a::after { display: none !important; }
+    .tools-dropdown a:hover { background: var(--soft); color: var(--navy) !important; }
+    .tool-icon {
+      width: 28px; height: 28px;
+      display: grid; place-items: center;
+      background: var(--yellow);
+      color: var(--navy-3);
+      font-weight: 900;
+      font-size: .72rem;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body id="top">
@@ -601,6 +660,25 @@
         <a href="#services">Services</a>
         <a href="#documents">Documents</a>
         <a href="#process">Process</a>
+        <div class="nav-tools" role="navigation" aria-label="Internal tools">
+          <button class="nav-tools-btn" aria-haspopup="true">
+            Internal Tools <span class="caret">▼</span>
+          </button>
+          <div class="tools-dropdown" role="menu">
+            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/viper.html" role="menuitem">
+              <span class="tool-icon">V</span>
+              <span>V.I.P.E.R<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span>
+            </a>
+            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/timesheet.html" role="menuitem">
+              <span class="tool-icon">T</span>
+              <span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span>
+            </a>
+            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/computax.html" role="menuitem">
+              <span class="tool-icon">C</span>
+              <span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal redirect</small></span>
+            </a>
+          </div>
+        </div>
         <a class="button button-navy nav-cta transition-link" href="./enquiry.html">Get assistance</a>
       </nav>
     </div>
