@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TIMO</title>
+
+  <style>
+    :root {
+      --navy: #062f59;
+      --navy-2: #0a426f;
+      --navy-3: #071f36;
+      --gold: #c5983d;
+      --yellow: #ffd800;
+      --yellow-pale: #fffbe6;
+      --ink: #101820;
+      --muted: #5d6872;
+      --paper: #fff;
+      --soft: #f4f6f8;
+      --line: #dfe5e9;
+      --success: #2f8d6a;
+      --danger: #c45d73;
+      --shadow: 0 22px 55px rgba(6, 47, 89, .13);
+      --shadow-lg: 0 40px 80px rgba(6, 47, 89, .18);
+      --shadow-sm: 0 8px 24px rgba(6, 47, 89, .08);
+      font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100vh; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; color: var(--ink); background: var(--soft); line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    h1, h2, h3, p { margin-top: 0; }
+    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+    .app-shell { position: relative; z-index: 1; }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: sticky; top: 0; z-index: 25;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0 32px; min-height: 78px;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 4px 30px rgba(6,47,89,.08);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--navy); text-decoration: none; }
+    .brand-mark { height: 52px; width: auto; object-fit: contain; }
+    .brand-logo-esyton { height: 56px; width: auto; max-width: 200px; object-fit: contain; }
+    .brand-text { display: flex; flex-direction: column; gap: 3px; }
+    .logo { font-size: 22px; line-height: 1; font-weight: 800; letter-spacing: .3px; color: var(--navy); }
+    .logo-sub { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; }
+    .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .nav-pill { padding: 7px 14px; background: var(--soft); border: 1px solid var(--line); color: var(--muted); font-size: 13px; font-weight: 700; }
+    .nav-pill.role-pill { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
+    .nav-btn { height: 40px; padding: 0 18px; border: 1px solid var(--line); cursor: pointer; font: inherit; font-weight: 700; font-size: .84rem; color: var(--ink); background: var(--paper); transition: background .2s, border-color .2s, color .2s; }
+    .nav-btn:hover { background: var(--soft); border-color: var(--navy); color: var(--navy); }
+    .nav-btn.logout { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .nav-btn.logout:hover { background: var(--navy-2); }
+    /* Tools dropdown */
+    .nav-tools { position: relative; }
+    .nav-tools-btn { display: flex; align-items: center; gap: 5px; padding: 7px 14px; color: var(--muted); font-size: .83rem; font-weight: 700; cursor: pointer; background: var(--soft); border: 1px solid var(--line); font: inherit; transition: color .2s, border-color .2s; }
+    .nav-tools-btn:hover { color: var(--navy); border-color: var(--navy); }
+    .caret { font-size: .55rem; transition: transform .2s; display: inline-block; }
+    .nav-tools:hover .caret { transform: rotate(180deg); }
+    .tools-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 235px; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--yellow); box-shadow: 0 18px 40px rgba(6,47,89,.14); z-index: 50; }
+    .nav-tools:hover .tools-dropdown, .nav-tools:focus-within .tools-dropdown { display: block; }
+    .tools-dropdown a { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: var(--ink); font-size: .84rem; font-weight: 600; border-bottom: 1px solid var(--line); transition: background .18s, color .18s; }
+    .tools-dropdown a:last-child { border-bottom: 0; }
+    .tools-dropdown a:hover { background: var(--soft); color: var(--navy); }
+    .tool-icon { width: 28px; height: 28px; display: grid; place-items: center; background: var(--yellow); color: var(--navy-3); font-weight: 900; font-size: .72rem; flex-shrink: 0; }
+    .tool-icon.active { background: var(--navy); color: var(--yellow); }
+
+    /* ─── CONTAINER / PANEL ─── */
+    .container { max-width: 1380px; margin: 0 auto; padding: 32px 28px 52px; }
+    .panel { position: relative; background: var(--paper); border: 1px solid var(--line); border-top: 5px solid var(--yellow); padding: 32px; margin-bottom: 20px; overflow: hidden; box-shadow: var(--shadow); }
+    .panel.hero-login { max-width: 520px; margin: 56px auto 0; }
+
+    /* ─── SECTION HEAD ─── */
+    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 14px; margin-bottom: 20px; }
+    .section-head-left { display: flex; flex-direction: column; gap: 6px; }
+    h1, h2 { margin: 0; }
+    h1 { font-size: 1.85rem; font-weight: 800; color: var(--navy); }
+    h2 { font-size: 1.3rem; font-weight: 800; color: var(--navy); }
+    .subtle { color: var(--muted); font-size: .88rem; line-height: 1.55; margin: 0; }
+
+    /* ─── CHIP ─── */
+    .chip { padding: 6px 13px; background: var(--yellow-pale); border: 1px solid rgba(197,152,61,.3); color: var(--navy); font-size: 12px; font-weight: 800; white-space: nowrap; }
+
+    /* ─── FORM ELEMENTS ─── */
+    input, select, textarea, button { font: inherit; }
+    input, select, textarea { width: 100%; min-height: 48px; border: 1px solid var(--line); background: var(--paper); padding: 0 14px; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s; border-radius: 0; }
+    textarea { min-height: 92px; resize: vertical; padding: 13px 14px; line-height: 1.45; }
+    input:focus, select:focus, textarea:focus { border-color: var(--navy-2); box-shadow: 0 0 0 3px rgba(6,47,89,.07); }
+    input:disabled, textarea:disabled, select:disabled { color: var(--muted); background: var(--soft); cursor: not-allowed; }
+
+    /* ─── BUTTONS ─── */
+    button { height: 46px; padding: 0 20px; border: none; cursor: pointer; font-weight: 700; font-size: .88rem; transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s, background .2s; white-space: nowrap; }
+    button:hover { transform: translateY(-2px); }
+    button:active { transform: translateY(0); }
+    button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+    .btn-primary { color: var(--navy-3); background: var(--yellow); box-shadow: 0 8px 24px rgba(255,216,0,.2); }
+    .btn-primary:hover { background: #ffe53a; box-shadow: 0 14px 32px rgba(255,216,0,.3); }
+    .btn-secondary { color: var(--ink); background: var(--paper); border: 1px solid var(--line); }
+    .btn-secondary:hover { background: var(--soft); border-color: var(--navy); }
+    .btn-export { color: #fff; background: var(--navy); box-shadow: 0 8px 24px rgba(6,47,89,.18); }
+    .btn-export:hover { background: var(--navy-2); box-shadow: 0 14px 32px rgba(6,47,89,.25); }
+    .btn-danger { color: #fff; background: var(--danger); }
+
+    /* ─── ACTION ROW ─── */
+    .action-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+
+    /* ─── STATUS ─── */
+    .status-message { margin-top: 14px; min-height: 20px; font-size: .86rem; font-weight: 700; }
+    .status-message.error { color: var(--danger); }
+    .status-message.success { color: var(--success); }
+    .status-banner { margin-bottom: 12px; min-height: 0; }
+    .banner-edit { padding: 12px 18px; background: var(--yellow-pale); border-left: 4px solid var(--gold); color: #5d4b1b; font-size: .87rem; font-weight: 600; }
+
+    /* ─── SUMMARY GRID ─── */
+    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 18px; }
+    .summary-card { padding: 20px; background: var(--soft); border: 1px solid var(--line); border-bottom: 3px solid var(--yellow); transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
+    .summary-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+    .summary-label { color: var(--muted); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; }
+    .summary-value { font-size: 2rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .summary-note { margin-top: 8px; color: var(--muted); font-size: .76rem; }
+
+    /* ─── FORM GRID ─── */
+    .form-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .form-grid .wide { grid-column: span 2; }
+    .form-grid .full { grid-column: 1 / -1; }
+
+    /* ─── TOOLBAR ─── */
+    .toolbar { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(140px, 0.7fr)) auto; gap: 12px; align-items: center; margin-bottom: 16px; }
+
+    /* ─── TABLE ─── */
+    .list-table-wrap { overflow-x: auto; border: 1px solid var(--line); margin-top: 18px; }
+    .list-table { width: 100%; min-width: 1100px; border-collapse: collapse; }
+    .list-table th, .list-table td { padding: 13px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: .86rem; }
+    .list-table th { background: var(--soft); color: var(--navy); font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 700; }
+    .list-table tr:last-child td { border-bottom: 0; }
+    .list-table tr:hover td { background: var(--soft); }
+
+    /* ─── BADGES ─── */
+    .badge { display: inline-flex; align-items: center; padding: 4px 9px; font-size: .75rem; font-weight: 800; white-space: nowrap; background: var(--soft); color: var(--navy); border: 1px solid var(--line); }
+    .badge.sks { background: #e7f9f1; color: #2f9970; border-color: #b6e8d2; }
+    .badge.invincibles { background: #f1ebff; color: #7d58c5; border-color: #d4c6f4; }
+    .badge.break { background: var(--yellow-pale); color: #8a6b00; border-color: rgba(197,152,61,.3); }
+    .badge.idle { background: #fff0f3; color: #c06b87; border-color: #f4c6d2; }
+
+    /* ─── STAGE BADGES (VIPER) ─── */
+    .stage-badge { display: inline-flex; align-items: center; padding: 4px 9px; font-size: .75rem; font-weight: 800; white-space: nowrap; border: 1px solid transparent; }
+    .stage-client { background: #e8f3ff; color: #2359a0; border-color: #b8d4f4; }
+    .stage-partial { background: var(--yellow-pale); color: #8a6b00; border-color: rgba(197,152,61,.3); }
+    .stage-full { background: #e7f9f1; color: #2f9970; border-color: #b6e8d2; }
+    .stage-initiated { background: #f1ebff; color: #7d58c5; border-color: #d4c6f4; }
+    .stage-progress { background: #e3f8ff; color: #1b7a9e; border-color: #a8dff4; }
+    .stage-approval { background: #fff0f3; color: #c06b87; border-color: #f4c6d2; }
+    .stage-adminwait { background: #fff4e2; color: #9a5a00; border-color: #f4d9a0; }
+    .stage-completed { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
+
+    /* ─── EMPTY STATE ─── */
+    .empty-state { padding: 40px 18px; text-align: center; font-weight: 600; color: var(--muted); border: 1px dashed var(--line); background: var(--soft); margin-top: 18px; }
+
+    /* ─── INDIVIDUAL LAYOUT (TIMO) ─── */
+    .individual-layout { display: grid; grid-template-columns: minmax(240px, 0.8fr) 1.2fr; gap: 16px; margin-top: 16px; }
+    .user-profile, .activity-breakdown { background: var(--soft); border: 1px solid var(--line); padding: 20px; }
+    .profile-title { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .profile-row, .breakdown-row { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; font-size: .86rem; }
+    .profile-label, .breakdown-label { color: var(--muted); font-weight: 700; }
+    .profile-value, .breakdown-value { font-weight: 800; color: var(--navy); text-align: right; }
+    .map-link { color: var(--navy-2); font-weight: 800; text-decoration: underline; }
+
+    /* ─── PANE LAYOUT (VIPER) ─── */
+    .pane-layout { display: grid; grid-template-columns: 340px 1fr; gap: 16px; margin-top: 18px; }
+    .pane-list { border: 1px solid var(--line); overflow: hidden; }
+    .pane-detail { border: 1px solid var(--line); }
+    .pane-item { padding: 16px 18px; border-bottom: 1px solid var(--line); cursor: pointer; transition: background .18s; }
+    .pane-item:hover { background: var(--soft); }
+    .pane-item.active { background: var(--yellow-pale); border-left: 4px solid var(--gold); padding-left: 14px; }
+    .pane-detail-inner { padding: 24px; }
+    .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 18px 0; }
+    .detail-box { background: var(--soft); border: 1px solid var(--line); padding: 14px; }
+    .detail-label { color: var(--muted); font-size: .72rem; margin-bottom: 6px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+
+    /* ─── VIPER META ─── */
+    .pending-title, .client-name { font-size: 1.02rem; font-weight: 800; color: var(--navy); }
+    .client-pan, .pending-meta, .muted { color: var(--muted); font-size: .82rem; }
+    .meta { display: grid; gap: 9px; margin: 16px 0; font-size: .86rem; }
+    .meta-row { display: grid; grid-template-columns: 108px 1fr; gap: 8px; }
+    .meta-label { color: var(--muted); font-weight: 700; }
+
+    /* ─── CHART (VIPER) ─── */
+    .chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+    .chart-card { background: var(--soft); border: 1px solid var(--line); border-bottom: 3px solid var(--yellow); padding: 18px; }
+    .chart-title { font-size: .76rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px; }
+    .chart-bar-wrap { display: grid; gap: 8px; }
+    .chart-bar-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; font-size: .82rem; }
+    .chart-bar-bg { height: 6px; background: var(--line); margin-top: 4px; }
+    .chart-bar-fill { height: 6px; background: var(--yellow); transition: width .4s ease; }
+
+    /* ─── FILTERS (VIPER) ─── */
+    .filters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+    .search-wrap { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+    .toolbar-right { display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
+
+    /* ─── INFO BOX (COMPUTAX) ─── */
+    .info-box { margin-top: 20px; padding: 16px 18px; background: var(--soft); border-left: 4px solid var(--gold); color: #5d4b1b; font-size: .88rem; line-height: 1.65; }
+
+    /* ─── HIDDEN ─── */
+    .hidden { display: none !important; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1180px) {
+      .form-grid, .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-grid .wide { grid-column: 1 / -1; }
+      .toolbar { grid-template-columns: 1fr 1fr; }
+      .individual-layout { grid-template-columns: 1fr; }
+      .pane-layout { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
+      .chart-grid, .filters-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .container { padding: 16px 14px 32px; }
+      .navbar { padding: 14px 18px; min-height: auto; }
+      .form-grid, .summary-grid, .toolbar, .chart-grid, .filters-grid { grid-template-columns: 1fr; }
+      .panel { padding: 20px; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
+    }
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</head>
+
+<body>
+  <div class="app-shell">
+    <div class="navbar">
+      <div class="brand">
+        <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" class="brand-mark" alt="Esyton Insights LLP" />
+        <div class="brand-text">
+          <span class="logo">T.I.M.O</span>
+          <span class="logo-sub">Tracking, Insights, Management &amp; Optimization</span>
+        </div>
+      </div>
+      <div class="nav-right">
+        <div class="nav-tools" role="navigation" aria-label="Internal tools">
+          <button class="nav-tools-btn" aria-haspopup="true">Other Tools <span class="caret">▼</span></button>
+          <div class="tools-dropdown" role="menu">
+            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/viper.html" role="menuitem">
+              <span class="tool-icon">V</span>
+              <span>V.I.P.E.R<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span>
+            </a>
+            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/timesheet.html" role="menuitem">
+              <span class="tool-icon active">T</span>
+              <span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span>
+            </a>
+            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/computax.html" role="menuitem">
+              <span class="tool-icon">C</span>
+              <span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal</small></span>
+            </a>
+          </div>
+        </div>
+        <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/index.html" class="nav-btn">← Esyton Home</a>
+        <div id="navUser" class="nav-pill hidden"></div>
+        <div id="navRole" class="nav-pill role-pill hidden"></div>
+        <button id="navLogout" class="nav-btn logout hidden" onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="loginDiv" class="panel hero-login">
+        <div class="section-head">
+          <div class="section-head-left">
+            <h1>Hello Team. Greetings of the day!!!</h1>
+            <div class="subtle">Login as a user to submit timesheets, or as admin to review all user activity.</div>
+          </div>
+          <div class="chip">Secure Login</div>
+        </div>
+
+        <input id="loginEmail" type="email" placeholder="Email" autocomplete="username" />
+        <br /><br />
+        <input id="loginPass" type="password" placeholder="Password" autocomplete="current-password" />
+        <br /><br />
+        <button id="loginBtn" class="btn-primary" onclick="login()">Login</button>
+        <div id="loginStatus" class="status-message"></div>
+      </div>
+
+      <div id="appDiv" class="hidden">
+        <div id="attendancePanel" class="panel hidden">
+          <div class="section-head">
+            <div class="section-head-left">
+              <h2>Attendance</h2>
+              <div class="subtle">Mark attendance only from within 200 meters of the approved office coordinates.</div>
+            </div>
+            <div class="chip"></div>
+          </div>
+
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="summary-label">Allowed Radius</div>
+              <div class="summary-value">200 m</div>
+              <div class="summary-note">From approved office point</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">Current Date</div>
+              <div id="attendanceDate" class="summary-value" style="font-size:24px;">-</div>
+              <div class="summary-note"></div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">Current Time</div>
+              <div id="attendanceTime" class="summary-value" style="font-size:24px;">-</div>
+              <div class="summary-note">Captured on submit</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label"></div>
+              <div class="summary-value"></div>
+              <div class="summary-note"></div>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button id="attendanceBtn" class="btn-primary" onclick="markAttendance()">Mark In Attendance</button>
+            <button id="attendanceOutBtn" class="btn-secondary" onclick="markOutAttendance()">Mark Out Attendance</button>
+          </div>
+          <div id="attendanceStatus" class="status-message"></div>
+        </div>
+
+        <div id="userPanel" class="panel hidden">
+          <div class="section-head">
+            <div class="section-head-left">
+              <h2>Timesheet Entry</h2>
+              <div class="subtle">Date defaults to today. You can edit it only up to two previous days and never beyond today.</div>
+            </div>
+            <div class="chip" id="dateRuleChip">Current Day Entry</div>
+          </div>
+
+          <div class="form-grid" style="margin-top:14px;">
+            <input id="entryDate" type="date" required />
+            <input id="startTime" type="time" required />
+            <input id="endTime" type="time" required />
+            <select id="activityType" required onchange="handleActivityChange()">
+              <option value="">Select Activity</option>
+              <option>SKS Work</option>
+              <option>InvinciblesCo Work</option>
+              <option>Lunch or, snacks</option>
+              <option>Idle time</option>
+            </select>
+            <textarea id="activityReport" class="full" placeholder="Report the work or activity for this period" required></textarea>
+          </div>
+
+          <div class="action-row">
+            <button id="submitBtn" class="btn-primary" onclick="submitTimesheet()">Submit Timesheet</button>
+            <button class="btn-secondary" onclick="resetTimesheetForm()">Reset</button>
+          </div>
+          <div id="entryStatus" class="status-message"></div>
+        </div>
+
+        <div id="historyPanel" class="panel hidden">
+          <div class="section-head">
+            <div class="section-head-left">
+              <h2>My Activity History</h2>
+              <div class="subtle">Your submitted timesheet records appear here immediately after saving.</div>
+            </div>
+            <div class="chip" id="myCountChip">0 Entries</div>
+          </div>
+          <div id="myTimesheetList"></div>
+        </div>
+
+        <div id="adminPanel" class="panel hidden">
+          <div class="section-head">
+            <div class="section-head-left">
+              <h2>Admin Attendance Dashboard</h2>
+              <div class="subtle">Review user attendance with marked date, time, coordinates, distance from approved point, and Google Maps links.</div>
+            </div>
+            <div class="chip" id="attendanceCountChip">0 Attendance Logs</div>
+          </div>
+
+          <div id="adminAttendanceList"></div>
+
+          <div class="section-head">
+            <div class="section-head-left">
+              <h2>Admin Timesheet Dashboard</h2>
+              <div class="subtle">Review user-wise activity, time periods, dates, work type, and submitted reports.</div>
+            </div>
+            <div class="chip" id="adminCountChip">0 Records</div>
+          </div>
+
+          <div class="toolbar">
+            <input id="search" placeholder="Search by user, email, activity, report..." />
+            <input id="filterDate" type="date" onchange="applyFiltersAndRender()" />
+            <select id="filterActivity" onchange="applyFiltersAndRender()">
+              <option value="">All Activities</option>
+              <option>SKS Work</option>
+              <option>InvinciblesCo Work</option>
+              <option>Lunch or, snacks</option>
+              <option>Idle time</option>
+            </select>
+            <select id="sortBy" onchange="applyFiltersAndRender()">
+              <option value="latest">Sort: Latest</option>
+              <option value="oldest">Sort: Oldest</option>
+              <option value="user">Sort: User A-Z</option>
+              <option value="duration">Sort: Longest Duration</option>
+            </select>
+            <button class="btn-secondary" onclick="clearFilters()">Clear</button>
+          </div>
+
+          <div class="action-row">
+            <button class="btn-export" onclick="exportExcel()">Excel</button>
+            <button class="btn-export" onclick="exportPDF()">PDF</button>
+          </div>
+
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="summary-label">Visible Records</div>
+              <div id="sumTotal" class="summary-value">0</div>
+              <div class="summary-note">After filters</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">Total Hours</div>
+              <div id="sumHours" class="summary-value">0.00</div>
+              <div class="summary-note">Visible duration</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">Users</div>
+              <div id="sumUsers" class="summary-value">0</div>
+              <div class="summary-note">Distinct submitters</div>
+            </div>
+            <div class="summary-card">
+              <div class="summary-label">SKS Entries</div>
+              <div id="sumSks" class="summary-value">0</div>
+              <div class="summary-note">Report-to-office periods</div>
+            </div>
+          </div>
+
+          <div class="section-head" style="margin-top:22px;">
+            <div class="section-head-left">
+              <h2>Individual User Data</h2>
+              <div class="subtle">Select a user to see that person's totals, activity split, latest submission, and full related timesheet data.</div>
+            </div>
+            <select id="userSelect" onchange="renderIndividualUser()" style="max-width:360px;">
+              <option value="">Select User</option>
+            </select>
+          </div>
+
+          <div id="individualUserPanel"></div>
+
+          <div id="adminTimesheetList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    emailjs.init("oCSNm-4jMM9RJpB35");
+  </script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import {
+      getFirestore,
+      doc,
+      getDoc,
+      setDoc,
+      deleteDoc,
+      onSnapshot,
+      collection,
+      query,
+      where
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCsxAw40sFLw00PtEas3cvzRMEjkDZ9NJE",
+      authDomain: "client-tracker-tool-5bdf6.firebaseapp.com",
+      projectId: "client-tracker-tool-5bdf6"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const loginDiv = document.getElementById("loginDiv");
+    const appDiv = document.getElementById("appDiv");
+    const attendancePanel = document.getElementById("attendancePanel");
+    const userPanel = document.getElementById("userPanel");
+    const historyPanel = document.getElementById("historyPanel");
+    const adminPanel = document.getElementById("adminPanel");
+    const loginBtn = document.getElementById("loginBtn");
+    const loginStatus = document.getElementById("loginStatus");
+    const entryStatus = document.getElementById("entryStatus");
+    const navUser = document.getElementById("navUser");
+    const navRole = document.getElementById("navRole");
+    const navLogout = document.getElementById("navLogout");
+    const searchInput = document.getElementById("search");
+    const userSelect = document.getElementById("userSelect");
+    const individualUserPanel = document.getElementById("individualUserPanel");
+    const attendanceStatus = document.getElementById("attendanceStatus");
+
+    const SKS_REPORT_TEXT = "Report to Thanmayi or, Tanooj regarding this period";
+    const OFFICE_LATITUDE = 12.961008904288512;
+    const OFFICE_LONGITUDE = 77.66556954232873;
+    const ATTENDANCE_RADIUS_METERS = 200;
+    const ATTENDANCE_RETENTION_DAYS = 7;
+    let currentUserId = "";
+    let currentUserEmail = "";
+    let currentUserName = "";
+    let currentRole = "";
+    let allTimesheets = [];
+    let displayedTimesheets = [];
+    let allAttendance = [];
+    let selectedUserEmail = "";
+    let unsubscribeTimesheets = null;
+    let unsubscribeAttendance = null;
+
+    function setLoginStatus(message = "", type = "") {
+      loginStatus.textContent = message;
+      loginStatus.className = "status-message" + (type ? ` ${type}` : "");
+    }
+
+    function setEntryStatus(message = "", type = "") {
+      entryStatus.textContent = message;
+      entryStatus.className = "status-message" + (type ? ` ${type}` : "");
+    }
+
+    function setAttendanceStatus(message = "", type = "") {
+      attendanceStatus.textContent = message;
+      attendanceStatus.className = "status-message" + (type ? ` ${type}` : "");
+    }
+
+    function setLoginLoading(isLoading) {
+      loginBtn.disabled = isLoading;
+      loginBtn.textContent = isLoading ? "Signing In..." : "Login";
+    }
+
+    function getISODateInIST(date = new Date()) {
+      const parts = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Asia/Kolkata",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).formatToParts(date);
+      const lookup = Object.fromEntries(parts.map(part => [part.type, part.value]));
+      return `${lookup.year}-${lookup.month}-${lookup.day}`;
+    }
+
+    function getTodayISOFromIST() {
+      return getISODateInIST();
+    }
+
+    function getMinEntryDate() {
+      const date = new Date(`${getTodayISOFromIST()}T00:00:00`);
+      date.setDate(date.getDate() - 2);
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    function getISTTime() {
+      return new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+    }
+
+    function getISTTimeOnly() {
+      return new Date().toLocaleTimeString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+    }
+
+    function updateAttendanceClock() {
+      const dateEl = document.getElementById("attendanceDate");
+      const timeEl = document.getElementById("attendanceTime");
+      if (!dateEl || !timeEl) return;
+      dateEl.textContent = getTodayISOFromIST();
+      timeEl.textContent = getISTTimeOnly();
+    }
+
+    function degreesToRadians(value) {
+      return value * Math.PI / 180;
+    }
+
+    function getDistanceMeters(lat1, lon1, lat2, lon2) {
+      const earthRadiusMeters = 6371000;
+      const deltaLat = degreesToRadians(lat2 - lat1);
+      const deltaLon = degreesToRadians(lon2 - lon1);
+      const a =
+        Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2) +
+        Math.cos(degreesToRadians(lat1)) *
+        Math.cos(degreesToRadians(lat2)) *
+        Math.sin(deltaLon / 2) *
+        Math.sin(deltaLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return earthRadiusMeters * c;
+    }
+
+    function getGoogleMapsUrl(latitude, longitude) {
+      return `https://www.google.com/maps?q=${encodeURIComponent(latitude + "," + longitude)}`;
+    }
+
+    function getDailyAttendanceId(date = getTodayISOFromIST()) {
+      return `${currentUserEmail}_${date}`.replace(/[^a-zA-Z0-9_-]/g, "_");
+    }
+
+    function getLocationOnce() {
+      return new Promise((resolve, reject) => {
+        if (!navigator.geolocation) {
+          reject(new Error("Location is not available in this browser."));
+          return;
+        }
+
+        navigator.geolocation.getCurrentPosition(resolve, reject, {
+          enableHighAccuracy: true,
+          timeout: 15000,
+          maximumAge: 0
+        });
+      });
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function isAdmin() {
+      return currentRole === "admin";
+    }
+
+    function getInputValue(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function getDurationMinutes(date, startTime, endTime) {
+      const start = new Date(`${date}T${startTime}:00`);
+      const end = new Date(`${date}T${endTime}:00`);
+      return Math.round((end - start) / 60000);
+    }
+
+    function formatDuration(minutes = 0) {
+      const safeMinutes = Math.max(0, Number(minutes) || 0);
+      const hours = Math.floor(safeMinutes / 60);
+      const mins = safeMinutes % 60;
+      return `${hours}h ${String(mins).padStart(2, "0")}m`;
+    }
+
+    function getActivityClass(activity) {
+      if (activity === "SKS Work") return "sks";
+      if (activity === "InvinciblesCo Work") return "invincibles";
+      if (activity === "Lunch or, snacks") return "break";
+      if (activity === "Idle time") return "idle";
+      return "";
+    }
+
+    function activityBadge(activity) {
+      return `<span class="badge ${getActivityClass(activity)}">${escapeHtml(activity || "-")}</span>`;
+    }
+
+    async function getRoleByEmail(email) {
+      const ref = doc(db, "roles", email.toLowerCase());
+      const snap = await getDoc(ref);
+      if (!snap.exists()) return null;
+      return snap.data();
+    }
+
+    function setDateLimits() {
+      const dateInput = document.getElementById("entryDate");
+      dateInput.min = getMinEntryDate();
+      dateInput.max = getTodayISOFromIST();
+      dateInput.value = getTodayISOFromIST();
+      document.getElementById("dateRuleChip").textContent = `${dateInput.min} to ${dateInput.max}`;
+    }
+
+    window.handleActivityChange = () => {
+      const activity = document.getElementById("activityType").value;
+      const report = document.getElementById("activityReport");
+
+      if (activity === "SKS Work") {
+        report.value = SKS_REPORT_TEXT;
+        report.disabled = true;
+      } else {
+        if (report.value === SKS_REPORT_TEXT) report.value = "";
+        report.disabled = false;
+        report.placeholder = "Report the work or activity for this period";
+      }
+    };
+
+    window.resetTimesheetForm = (keepStatus = false) => {
+      setDateLimits();
+      document.getElementById("startTime").value = "";
+      document.getElementById("endTime").value = "";
+      document.getElementById("activityType").value = "";
+      document.getElementById("activityReport").value = "";
+      document.getElementById("activityReport").disabled = false;
+      if (!keepStatus) setEntryStatus("");
+    };
+
+    window.markAttendance = async () => {
+      const btn = document.getElementById("attendanceBtn");
+      try {
+        btn.disabled = true;
+        btn.textContent = "Checking Location...";
+        setAttendanceStatus("Please allow location access when the browser asks.", "success");
+
+        const position = await getLocationOnce();
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const accuracy = position.coords.accuracy;
+        const distanceMeters = getDistanceMeters(latitude, longitude, OFFICE_LATITUDE, OFFICE_LONGITUDE);
+
+        if (distanceMeters > ATTENDANCE_RADIUS_METERS) {
+          setAttendanceStatus(
+            `Attendance denied. You are ${Math.round(distanceMeters)} meters away from the approved location.`,
+            "error"
+          );
+          return;
+        }
+
+        const now = new Date();
+        const expiresAt = new Date(now.getTime() + ATTENDANCE_RETENTION_DAYS * 24 * 60 * 60 * 1000);
+        const date = getTodayISOFromIST();
+        const time = getISTTimeOnly();
+        const id = getDailyAttendanceId(date);
+
+        await setDoc(doc(db, "attendance", id), {
+          id,
+          userId: currentUserId,
+          userEmail: currentUserEmail,
+          userName: currentUserName || currentUserEmail,
+          date,
+          markInTime: time,
+          markInAt: getISTTime(),
+          markInAtMillis: now.getTime(),
+          markInLatitude: latitude,
+          markInLongitude: longitude,
+          markInAccuracyMeters: Number(accuracy.toFixed(2)),
+          markInDistanceMeters: Number(distanceMeters.toFixed(2)),
+          markInMapUrl: getGoogleMapsUrl(latitude, longitude),
+          status: "open",
+          officeLatitude: OFFICE_LATITUDE,
+          officeLongitude: OFFICE_LONGITUDE,
+          allowedRadiusMeters: ATTENDANCE_RADIUS_METERS,
+          expiresAt,
+          expiresAtMillis: expiresAt.getTime()
+        }, { merge: true });
+
+        setAttendanceStatus(
+          `Attendance marked successfully. Distance from office point: ${Math.round(distanceMeters)} meters.`,
+          "success"
+        );
+      } catch (error) {
+        const message = error.code === "permission-denied"
+          ? "Firebase permission denied. Add attendance rules in Firestore, then try again."
+          : (error.message || "Unable to mark attendance.");
+        setAttendanceStatus(message, "error");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Mark In Attendance";
+      }
+    };
+
+    window.markOutAttendance = async () => {
+      const btn = document.getElementById("attendanceOutBtn");
+      try {
+        btn.disabled = true;
+        btn.textContent = "Checking Location...";
+        setAttendanceStatus("Please allow location access to mark out.", "success");
+
+        const date = getTodayISOFromIST();
+        const attendanceRef = doc(db, "attendance", getDailyAttendanceId(date));
+        const attendanceSnap = await getDoc(attendanceRef);
+
+        if (!attendanceSnap.exists() || !attendanceSnap.data().markInAt) {
+          setAttendanceStatus("Please mark in attendance first before marking out.", "error");
+          return;
+        }
+
+        if (attendanceSnap.data().markOutAt) {
+          setAttendanceStatus("Mark out attendance is already recorded for today.", "error");
+          return;
+        }
+
+        const position = await getLocationOnce();
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const accuracy = position.coords.accuracy;
+        const distanceMeters = getDistanceMeters(latitude, longitude, OFFICE_LATITUDE, OFFICE_LONGITUDE);
+
+        if (distanceMeters > ATTENDANCE_RADIUS_METERS) {
+          setAttendanceStatus(
+            `Mark out denied. You are ${Math.round(distanceMeters)} meters away from the approved location.`,
+            "error"
+          );
+          return;
+        }
+
+        const now = new Date();
+        await setDoc(attendanceRef, {
+          markOutTime: getISTTimeOnly(),
+          markOutAt: getISTTime(),
+          markOutAtMillis: now.getTime(),
+          markOutLatitude: latitude,
+          markOutLongitude: longitude,
+          markOutAccuracyMeters: Number(accuracy.toFixed(2)),
+          markOutDistanceMeters: Number(distanceMeters.toFixed(2)),
+          markOutMapUrl: getGoogleMapsUrl(latitude, longitude),
+          status: "closed",
+          updatedAtMillis: now.getTime()
+        }, { merge: true });
+
+        setAttendanceStatus(
+          `Mark out recorded successfully. Distance from office point: ${Math.round(distanceMeters)} meters.`,
+          "success"
+        );
+      } catch (error) {
+        const message = error.code === "permission-denied"
+          ? "Firebase permission denied. Update attendance rules to allow users to read/update their own attendance."
+          : (error.message || "Unable to mark out attendance.");
+        setAttendanceStatus(message, "error");
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "Mark Out Attendance";
+      }
+    };
+
+    function validateTimesheet() {
+      const date = getInputValue("entryDate");
+      const startTime = getInputValue("startTime");
+      const endTime = getInputValue("endTime");
+      const activity = document.getElementById("activityType").value;
+      const report = getInputValue("activityReport");
+
+      if (!date || !startTime || !endTime || !activity || !report) {
+        setEntryStatus("Please fill every field before submitting.", "error");
+        return null;
+      }
+
+      if (date < getMinEntryDate() || date > getTodayISOFromIST()) {
+        setEntryStatus("Date can be today or up to two previous days only.", "error");
+        return null;
+      }
+
+      const durationMinutes = getDurationMinutes(date, startTime, endTime);
+      if (durationMinutes <= 0) {
+        setEntryStatus("End time must be after start time for the selected date.", "error");
+        return null;
+      }
+
+      return { date, startTime, endTime, activity, report, durationMinutes };
+    }
+
+    window.submitTimesheet = async () => {
+      const data = validateTimesheet();
+      if (!data) return;
+
+      const id = `${currentUserEmail}_${data.date}_${data.startTime}_${Date.now()}`
+        .replace(/[^a-zA-Z0-9_-]/g, "_");
+
+      const payload = {
+        id,
+        userId: currentUserId,
+        userEmail: currentUserEmail,
+        userName: currentUserName || currentUserEmail,
+        date: data.date,
+        startTime: data.startTime,
+        endTime: data.endTime,
+        durationMinutes: data.durationMinutes,
+        activity: data.activity,
+        report: data.activity === "SKS Work" ? SKS_REPORT_TEXT : data.report,
+        submittedAt: getISTTime(),
+        submittedAtISO: getTodayISOFromIST()
+      };
+
+      try {
+        document.getElementById("submitBtn").disabled = true;
+        await setDoc(doc(db, "timesheets", id), payload);
+        setEntryStatus("Timesheet submitted successfully.", "success");
+        resetTimesheetForm(true);
+      } catch (error) {
+        const message = error.code === "permission-denied"
+          ? "Firebase permission denied. Update Firestore rules for the timesheets collection, then submit again."
+          : (error.message || "Unable to submit timesheet.");
+        setEntryStatus(message, "error");
+      } finally {
+        document.getElementById("submitBtn").disabled = false;
+      }
+    };
+
+    function buildTableHtml(data, includeUser) {
+      if (!data.length) {
+        return `<div class="empty-state">No timesheet records found.</div>`;
+      }
+
+      return `
+        <div class="list-table-wrap">
+          <table class="list-table">
+            <thead>
+              <tr>
+                ${includeUser ? "<th>User</th><th>Email</th>" : ""}
+                <th>Date</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Duration</th>
+                <th>Activity</th>
+                <th>Report</th>
+                <th>Submitted At</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${data.map(row => `
+                <tr>
+                  ${includeUser ? `<td>${escapeHtml(row.userName || "-")}</td><td>${escapeHtml(row.userEmail || "-")}</td>` : ""}
+                  <td>${escapeHtml(row.date || "-")}</td>
+                  <td>${escapeHtml(row.startTime || "-")}</td>
+                  <td>${escapeHtml(row.endTime || "-")}</td>
+                  <td>${escapeHtml(formatDuration(row.durationMinutes))}</td>
+                  <td>${activityBadge(row.activity)}</td>
+                  <td>${escapeHtml(row.report || "-")}</td>
+                  <td>${escapeHtml(row.submittedAt || "-")}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderTable(targetId, data, includeUser) {
+      document.getElementById(targetId).innerHTML = buildTableHtml(data, includeUser);
+    }
+
+    function getActiveAttendanceRows() {
+      const now = Date.now();
+      return allAttendance.filter(row => !row.expiresAtMillis || Number(row.expiresAtMillis) > now);
+    }
+
+    async function deleteExpiredAttendance() {
+      if (!isAdmin()) return;
+
+      const now = Date.now();
+      const expiredRows = allAttendance.filter(row => row.id && Number(row.expiresAtMillis) <= now);
+      await Promise.all(expiredRows.map(row => deleteDoc(doc(db, "attendance", row.id)).catch(() => null)));
+    }
+
+    function renderAttendanceTable() {
+      if (!isAdmin()) return;
+
+      const rows = getActiveAttendanceRows().sort((a, b) =>
+        (Number(b.markInAtMillis) || Number(b.markedAtMillis) || 0) - (Number(a.markInAtMillis) || Number(a.markedAtMillis) || 0)
+      );
+      document.getElementById("attendanceCountChip").textContent = `${rows.length} Attendance Logs`;
+
+      if (!rows.length) {
+        document.getElementById("adminAttendanceList").innerHTML =
+          `<div class="empty-state">No active attendance logs found. Logs older than one week are hidden and cleaned up.</div>`;
+        return;
+      }
+
+      document.getElementById("adminAttendanceList").innerHTML = `
+        <div class="list-table-wrap">
+          <table class="list-table">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Mark In</th>
+                <th>In Coordinates</th>
+                <th>In Distance</th>
+                <th>In Map</th>
+                <th>Mark Out</th>
+                <th>Out Coordinates</th>
+                <th>Out Distance</th>
+                <th>Out Map</th>
+                <th>Status</th>
+                <th>Expires</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map(row => `
+                <tr>
+                  <td>${escapeHtml(row.userName || "-")}</td>
+                  <td>${escapeHtml(row.userEmail || "-")}</td>
+                  <td>${escapeHtml(row.date || "-")}</td>
+                  <td>${escapeHtml(row.markInTime || row.time || "-")}</td>
+                  <td>${escapeHtml(row.markInLatitude || row.latitude || "-")}, ${escapeHtml(row.markInLongitude || row.longitude || "-")}</td>
+                  <td>${escapeHtml(Math.round(Number(row.markInDistanceMeters ?? row.distanceMeters) || 0))} m</td>
+                  <td><a class="map-link" href="${escapeHtml(row.markInMapUrl || row.mapUrl || getGoogleMapsUrl(row.markInLatitude || row.latitude, row.markInLongitude || row.longitude))}" target="_blank" rel="noopener">Open In</a></td>
+                  <td>${escapeHtml(row.markOutTime || "-")}</td>
+                  <td>${row.markOutLatitude ? `${escapeHtml(row.markOutLatitude)}, ${escapeHtml(row.markOutLongitude)}` : "-"}</td>
+                  <td>${row.markOutDistanceMeters ? `${escapeHtml(Math.round(Number(row.markOutDistanceMeters)))} m` : "-"}</td>
+                  <td>${row.markOutMapUrl ? `<a class="map-link" href="${escapeHtml(row.markOutMapUrl)}" target="_blank" rel="noopener">Open Out</a>` : "-"}</td>
+                  <td>${escapeHtml(row.status || (row.markOutAt ? "closed" : "open"))}</td>
+                  <td>${escapeHtml(row.expiresAt ? new Date(row.expiresAt.seconds ? row.expiresAt.seconds * 1000 : row.expiresAt).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }) : "-")}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function updateAdminSummary(data) {
+      const totalMinutes = data.reduce((sum, row) => sum + (Number(row.durationMinutes) || 0), 0);
+      const users = new Set(data.map(row => row.userEmail).filter(Boolean));
+      const sksEntries = data.filter(row => row.activity === "SKS Work").length;
+
+      document.getElementById("sumTotal").textContent = data.length;
+      document.getElementById("sumHours").textContent = (totalMinutes / 60).toFixed(2);
+      document.getElementById("sumUsers").textContent = users.size;
+      document.getElementById("sumSks").textContent = sksEntries;
+      document.getElementById("adminCountChip").textContent = `${data.length} Records`;
+    }
+
+    function getUserSummaries() {
+      const summaries = new Map();
+
+      allTimesheets.forEach(row => {
+        const email = row.userEmail || "";
+        if (!email) return;
+
+        if (!summaries.has(email)) {
+          summaries.set(email, {
+            email,
+            name: row.userName || email,
+            entries: 0,
+            minutes: 0,
+            latestKey: ""
+          });
+        }
+
+        const summary = summaries.get(email);
+        summary.name = row.userName || summary.name;
+        summary.entries += 1;
+        summary.minutes += Number(row.durationMinutes) || 0;
+        const key = `${row.date || ""} ${row.startTime || ""}`;
+        if (key > summary.latestKey) summary.latestKey = key;
+      });
+
+      return Array.from(summaries.values())
+        .sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    function updateUserSelect() {
+      if (!userSelect) return;
+
+      const users = getUserSummaries();
+      const currentValue = selectedUserEmail || userSelect.value;
+      userSelect.innerHTML = `<option value="">Select User</option>` + users.map(user => `
+        <option value="${escapeHtml(user.email)}">
+          ${escapeHtml(user.name)} (${escapeHtml(user.email)}) - ${user.entries} entries
+        </option>
+      `).join("");
+
+      if (users.some(user => user.email === currentValue)) {
+        userSelect.value = currentValue;
+        selectedUserEmail = currentValue;
+      } else {
+        userSelect.value = "";
+        selectedUserEmail = "";
+      }
+    }
+
+    function getActivityStats(rows) {
+      return ["SKS Work", "InvinciblesCo Work", "Lunch or, snacks", "Idle time"].map(activity => {
+        const activityRows = rows.filter(row => row.activity === activity);
+        const minutes = activityRows.reduce((sum, row) => sum + (Number(row.durationMinutes) || 0), 0);
+        return { activity, count: activityRows.length, minutes };
+      });
+    }
+
+    window.renderIndividualUser = () => {
+      if (!isAdmin() || !individualUserPanel) return;
+
+      selectedUserEmail = userSelect.value;
+
+      if (!selectedUserEmail) {
+        individualUserPanel.innerHTML = `<div class="empty-state">Select a user above to view individual related timesheet data.</div>`;
+        return;
+      }
+
+      const rows = applySort(allTimesheets.filter(row => row.userEmail === selectedUserEmail));
+      const totalMinutes = rows.reduce((sum, row) => sum + (Number(row.durationMinutes) || 0), 0);
+      const firstRow = rows[0] || {};
+      const latest = [...rows].sort((a, b) =>
+        `${b.date || ""} ${b.startTime || ""}`.localeCompare(`${a.date || ""} ${a.startTime || ""}`)
+      )[0] || {};
+      const dates = new Set(rows.map(row => row.date).filter(Boolean));
+      const activityStats = getActivityStats(rows);
+
+      individualUserPanel.innerHTML = `
+        <div class="individual-layout">
+          <div class="user-profile">
+            <div class="profile-title">${escapeHtml(firstRow.userName || selectedUserEmail)}</div>
+            <div class="subtle">${escapeHtml(selectedUserEmail)}</div>
+            <div class="profile-row">
+              <span class="profile-label">Total Entries</span>
+              <span class="profile-value">${rows.length}</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Total Hours</span>
+              <span class="profile-value">${(totalMinutes / 60).toFixed(2)}</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Active Dates</span>
+              <span class="profile-value">${dates.size}</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Latest Date</span>
+              <span class="profile-value">${escapeHtml(latest.date || "-")}</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Latest Time</span>
+              <span class="profile-value">${escapeHtml(latest.startTime || "-")} - ${escapeHtml(latest.endTime || "-")}</span>
+            </div>
+            <div class="profile-row">
+              <span class="profile-label">Latest Activity</span>
+              <span class="profile-value">${escapeHtml(latest.activity || "-")}</span>
+            </div>
+          </div>
+
+          <div class="activity-breakdown">
+            <div class="profile-title">Activity Breakdown</div>
+            <div class="subtle">Counts and time spent for the selected user.</div>
+            ${activityStats.map(item => `
+              <div class="breakdown-row">
+                <span class="breakdown-label">${activityBadge(item.activity)}</span>
+                <span class="breakdown-value">${item.count} entries / ${formatDuration(item.minutes)}</span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+
+        <div style="margin-top:16px;">
+          ${buildTableHtml(rows, false)}
+        </div>
+      `;
+    };
+
+    function applySort(data) {
+      const sortBy = document.getElementById("sortBy")?.value || "latest";
+      const sorted = [...data];
+
+      if (sortBy === "oldest") {
+        sorted.sort((a, b) => `${a.date || ""} ${a.startTime || ""}`.localeCompare(`${b.date || ""} ${b.startTime || ""}`));
+      } else if (sortBy === "user") {
+        sorted.sort((a, b) => (a.userName || a.userEmail || "").localeCompare(b.userName || b.userEmail || ""));
+      } else if (sortBy === "duration") {
+        sorted.sort((a, b) => (Number(b.durationMinutes) || 0) - (Number(a.durationMinutes) || 0));
+      } else {
+        sorted.sort((a, b) => `${b.date || ""} ${b.startTime || ""}`.localeCompare(`${a.date || ""} ${a.startTime || ""}`));
+      }
+
+      return sorted;
+    }
+
+    window.applyFiltersAndRender = () => {
+      if (!isAdmin()) {
+        const mine = applySort(allTimesheets);
+        document.getElementById("myCountChip").textContent = `${mine.length} Entries`;
+        renderTable("myTimesheetList", mine, false);
+        return;
+      }
+
+      const q = searchInput.value.toLowerCase().trim();
+      const filterDate = document.getElementById("filterDate").value;
+      const filterActivity = document.getElementById("filterActivity").value;
+
+      let data = allTimesheets.filter(row => {
+        const haystack = [
+          row.userName,
+          row.userEmail,
+          row.activity,
+          row.report,
+          row.date,
+          row.startTime,
+          row.endTime
+        ].join(" ").toLowerCase();
+
+        return (!q || haystack.includes(q)) &&
+          (!filterDate || row.date === filterDate) &&
+          (!filterActivity || row.activity === filterActivity);
+      });
+
+      data = applySort(data);
+      displayedTimesheets = data;
+      updateAdminSummary(data);
+      updateUserSelect();
+      renderIndividualUser();
+      renderTable("adminTimesheetList", data, true);
+    };
+
+    window.clearFilters = () => {
+      searchInput.value = "";
+      document.getElementById("filterDate").value = "";
+      document.getElementById("filterActivity").value = "";
+      document.getElementById("sortBy").value = "latest";
+      applyFiltersAndRender();
+    };
+
+    function loadTimesheets() {
+      if (unsubscribeTimesheets) unsubscribeTimesheets();
+      const ref = isAdmin()
+        ? collection(db, "timesheets")
+        : query(collection(db, "timesheets"), where("userEmail", "==", currentUserEmail));
+
+      unsubscribeTimesheets = onSnapshot(ref, snapshot => {
+        allTimesheets = [];
+        snapshot.forEach(item => allTimesheets.push(item.data()));
+        applyFiltersAndRender();
+      });
+    }
+
+    function loadAttendance() {
+      if (unsubscribeAttendance) unsubscribeAttendance();
+
+      if (!isAdmin()) {
+        allAttendance = [];
+        return;
+      }
+
+      unsubscribeAttendance = onSnapshot(collection(db, "attendance"), async snapshot => {
+        allAttendance = [];
+        snapshot.forEach(item => allAttendance.push(item.data()));
+        renderAttendanceTable();
+        await deleteExpiredAttendance();
+      });
+    }
+
+    window.login = async () => {
+      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      const password = document.getElementById("loginPass").value;
+
+      if (!email || !password) {
+        setLoginStatus("Please enter both email and password.", "error");
+        return;
+      }
+
+      try {
+        setLoginLoading(true);
+        setLoginStatus("Checking your access...", "success");
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        setLoginStatus(error.message || "Login failed.", "error");
+        setLoginLoading(false);
+      }
+    };
+
+    window.logout = async () => {
+      if (unsubscribeTimesheets) {
+        unsubscribeTimesheets();
+        unsubscribeTimesheets = null;
+      }
+      if (unsubscribeAttendance) {
+        unsubscribeAttendance();
+        unsubscribeAttendance = null;
+      }
+      await signOut(auth);
+    };
+
+    window.exportExcel = () => {
+      const formatted = displayedTimesheets.map((row, index) => ({
+        "Sl. No.": index + 1,
+        "User": row.userName,
+        "Email": row.userEmail,
+        "Date": row.date,
+        "Start Time": row.startTime,
+        "End Time": row.endTime,
+        "Duration": formatDuration(row.durationMinutes),
+        "Duration Minutes": row.durationMinutes,
+        "Activity": row.activity,
+        "Report": row.report,
+        "Submitted At": row.submittedAt
+      }));
+
+      const ws = XLSX.utils.json_to_sheet(formatted);
+      const wb = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, "Timesheet Report");
+      XLSX.writeFile(wb, "Timesheet_Report.xlsx");
+    };
+
+    window.exportPDF = () => {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF("landscape");
+      const headers = [["Sl.No", "User", "Email", "Date", "Start", "End", "Duration", "Activity", "Report", "Submitted"]];
+      const rows = displayedTimesheets.map((row, index) => [
+        index + 1,
+        row.userName || "",
+        row.userEmail || "",
+        row.date || "",
+        row.startTime || "",
+        row.endTime || "",
+        formatDuration(row.durationMinutes),
+        row.activity || "",
+        row.report || "",
+        row.submittedAt || ""
+      ]);
+
+      pdf.autoTable({ head: headers, body: rows, styles: { fontSize: 8 } });
+      pdf.save("Timesheet_Report.pdf");
+    };
+
+    onAuthStateChanged(auth, async (user) => {
+      try {
+        if (!user) {
+          currentUserEmail = "";
+          currentUserId = "";
+          currentUserName = "";
+          currentRole = "";
+          allTimesheets = [];
+          displayedTimesheets = [];
+          allAttendance = [];
+          selectedUserEmail = "";
+
+          if (unsubscribeTimesheets) unsubscribeTimesheets();
+          unsubscribeTimesheets = null;
+          if (unsubscribeAttendance) unsubscribeAttendance();
+          unsubscribeAttendance = null;
+
+          loginDiv.classList.remove("hidden");
+          appDiv.classList.add("hidden");
+          attendancePanel.classList.add("hidden");
+          userPanel.classList.add("hidden");
+          historyPanel.classList.add("hidden");
+          adminPanel.classList.add("hidden");
+          navUser.classList.add("hidden");
+          navRole.classList.add("hidden");
+          navLogout.classList.add("hidden");
+          setLoginLoading(false);
+          return;
+        }
+
+        currentUserEmail = user.email.toLowerCase();
+        currentUserId = user.uid;
+        const roleData = await getRoleByEmail(currentUserEmail);
+
+        if (!roleData) {
+          setLoginStatus("Role record not found in Firestore.", "error");
+          await signOut(auth);
+          return;
+        }
+
+        if (roleData.active !== true) {
+          setLoginStatus("This account is inactive.", "error");
+          await signOut(auth);
+          return;
+        }
+
+        currentRole = String(roleData.role || "").toLowerCase();
+        currentUserName = roleData.name || user.displayName || currentUserEmail;
+
+        if (currentRole !== "admin" && currentRole !== "user") {
+          setLoginStatus("Invalid role configured. Use admin or user.", "error");
+          await signOut(auth);
+          return;
+        }
+
+        navUser.textContent = currentUserName;
+        navRole.textContent = currentRole === "admin" ? "Admin Workspace" : "User Workspace";
+        navRole.classList.toggle("role-pill", currentRole === "admin");
+        navUser.classList.remove("hidden");
+        navRole.classList.remove("hidden");
+        navLogout.classList.remove("hidden");
+
+        loginDiv.classList.add("hidden");
+        appDiv.classList.remove("hidden");
+        attendancePanel.classList.toggle("hidden", isAdmin());
+        userPanel.classList.toggle("hidden", isAdmin());
+        historyPanel.classList.toggle("hidden", isAdmin());
+        adminPanel.classList.toggle("hidden", !isAdmin());
+
+        setDateLimits();
+        updateAttendanceClock();
+        loadTimesheets();
+        loadAttendance();
+        setLoginLoading(false);
+        setLoginStatus("");
+      } catch (error) {
+        setLoginStatus(error.message || "Login flow failed.", "error");
+        setLoginLoading(false);
+      }
+    });
+
+    ["loginEmail", "loginPass"].forEach((id) => {
+      document.getElementById(id).addEventListener("keydown", (event) => {
+        if (event.key === "Enter") login();
+      });
+    });
+
+    searchInput.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") applyFiltersAndRender();
+    });
+
+    resetTimesheetForm();
+  </script>
+</body>
+</html>
