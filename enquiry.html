@@ -89,6 +89,7 @@
     .workflow-box strong { display: block; color: var(--navy); margin-bottom: 8px; font-size: .95rem; }
     .helper-list { margin: 0; padding-left: 20px; }
     .helper-list li { margin-bottom: 6px; }
+    .helper-list li:last-child { margin-bottom: 0; }
     .helper-list a { color: var(--gold); font-weight: 600; text-decoration: underline; }
 
     /* Forms & Interactive Fields */
@@ -189,6 +190,20 @@
     .tools-dropdown a:hover { background: var(--soft); color: var(--navy) !important; }
     .tool-icon { width: 28px; height: 28px; display: grid; place-items: center; background: var(--yellow); color: var(--navy-3); font-weight: 900; font-size: .72rem; flex-shrink: 0; }
 
+    /* Header & Topbar alignment with index.html */
+    .topbar { color: #dce9f3; background: var(--navy-3); font-size: .77rem; }
+    .topbar-row { min-height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .topbar-list { display: flex; gap: 24px; align-items: center; }
+    .topbar strong { color: var(--yellow); }
+    
+    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); transition: box-shadow .3s ease; }
+    .site-header.scrolled { box-shadow: 0 4px 30px rgba(6,47,89,.1); }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 0; color: var(--navy); transition: opacity .2s; }
+    .brand:hover { opacity: .85; }
+    .brand-logo { height: 62px; width: auto; max-width: 240px; object-fit: contain; transition: transform .35s cubic-bezier(.34,1.56,.64,1); }
+    .brand:hover .brand-logo { transform: scale(1.03); }
+
     @media (max-width: 980px) {
       .main-grid { grid-template-columns: 1fr; gap: 32px; padding: 28px 0 64px; }
       .field-grid { grid-template-columns: 1fr; }
@@ -203,16 +218,22 @@
 </head>
 <body>
 
+  <!-- MOTION LAYER -->
   <div class="page-transition-overlay" id="transitionOverlay"></div>
 
+  <!-- TOPBAR -->
   <div class="topbar">
     <div class="shell topbar-row">
-      <span><strong>India-focused</strong> tax and compliance support</span>
-      <span>contact@esyton.in</span>
+      <div class="topbar-list">
+        <span><strong>India-focused</strong> tax and compliance support</span>
+        <span>Mon–Sat · 9:30 AM – 6:30 PM IST</span>
+      </div>
+      <span>connect@esyton.com</span>
     </div>
   </div>
 
-  <header class="site-header">
+  <!-- HEADER -->
+  <header class="site-header" id="siteHeader">
     <div class="shell nav">
       <a class="brand transition-link" href="./index.html" aria-label="Esyton home">
         <img class="brand-logo" src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights LLP" width="160" height="60">
@@ -234,6 +255,7 @@
   <main class="shell">
     <div class="main-grid">
       
+      <!-- LEFT COLUMN: SIDE INFORMATION -->
       <section class="panel">
         <span class="section-kicker">Taxpayer Portal</span>
         <h1>Client Details</h1>
@@ -249,6 +271,7 @@
         </div>
       </section>
 
+      <!-- RIGHT COLUMN: ENQUIRY ENTRY ELEMENT -->
       <section class="panel panel-accent" id="submissionPanel">
         <span class="section-kicker">Enquiry Form</span>
         <h2>Filing Details</h2>
