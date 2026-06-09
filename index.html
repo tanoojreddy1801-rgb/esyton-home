@@ -8,8 +8,8 @@
   <meta name="theme-color" content="#062f59">
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
-  <link rel="precontact" href="https://fonts.googleapis.com">
-  <link rel="precontact" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -40,7 +40,7 @@
     h1, h2, h3, p { margin-top: 0; }
     :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 
-/* ─── PAGE TRANSITION OVERLAY ─── */
+    /* ─── PAGE TRANSITION OVERLAY ─── */
     .page-transition-overlay {
       position: fixed;
       inset: 0;
@@ -55,7 +55,6 @@
       transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       pointer-events: none;
     }
-    
     .page-transition-overlay.fade-out {
       opacity: 0;
       visibility: hidden;
@@ -567,92 +566,39 @@
     }
 
     /* ─── TOOLS NAV DROPDOWN ─── */
-    .nav-tools {
-      position: relative;
-    }
-    .nav-tools-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding: 10px 13px;
-      color: #34424e;
-      font-size: .86rem;
-      font-weight: 600;
-      cursor: pointer;
-      background: none;
-      border: none;
-      position: relative;
-    }
+    .nav-tools { position: relative; }
+    .nav-tools-btn { display: flex; align-items: center; gap: 5px; padding: 10px 13px; color: #34424e; font-size: .86rem; font-weight: 600; cursor: pointer; background: none; border: none; position: relative; }
     .nav-tools-btn:hover { color: var(--navy); }
     .nav-tools-btn::after { display: none !important; }
     .caret { font-size: .6rem; transition: transform .2s; display: inline-block; }
     .nav-tools:hover .caret { transform: rotate(180deg); }
-    .tools-dropdown {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      min-width: 230px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-top: 3px solid var(--yellow);
-      box-shadow: 0 18px 40px rgba(6,47,89,.14);
-      z-index: 50;
-    }
-    .nav-tools:hover .tools-dropdown,
-    .nav-tools:focus-within .tools-dropdown { display: block; }
-    .tools-dropdown a {
-      display: flex !important;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 16px !important;
-      color: var(--ink) !important;
-      font-size: .84rem !important;
-      font-weight: 600 !important;
-      border-bottom: 1px solid var(--line);
-      transition: background .18s, color .18s !important;
-    }
+    .tools-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 230px; background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--yellow); box-shadow: 0 18px 40px rgba(6,47,89,.14); z-index: 50; }
+    .nav-tools:hover .tools-dropdown, .nav-tools:focus-within .tools-dropdown { display: block; }
+    .tools-dropdown a { display: flex !important; align-items: center; gap: 10px; padding: 12px 16px !important; color: var(--ink) !important; font-size: .84rem !important; font-weight: 600 !important; border-bottom: 1px solid var(--line); transition: background .18s, color .18s !important; }
     .tools-dropdown a:last-child { border-bottom: 0; }
     .tools-dropdown a::after { display: none !important; }
     .tools-dropdown a:hover { background: var(--soft); color: var(--navy) !important; }
-    .tool-icon {
-      width: 28px; height: 28px;
-      display: grid; place-items: center;
-      background: var(--yellow);
-      color: var(--navy-3);
-      font-weight: 900;
-      font-size: .72rem;
-      flex-shrink: 0;
-    }
+    .tool-icon { width: 28px; height: 28px; display: grid; place-items: center; background: var(--yellow); color: var(--navy-3); font-weight: 900; font-size: .72rem; flex-shrink: 0; }
   </style>
 </head>
 <body id="top">
 
-  <!-- MOTION LAYER -->
   <div class="page-transition-overlay" id="transitionOverlay"></div>
 
-  <!-- TOPBAR -->
   <div class="topbar">
     <div class="shell topbar-row">
       <div class="topbar-list">
         <span><strong>India-focused</strong> tax and compliance support</span>
         <span>Mon–Sat · 9:30 AM – 6:30 PM IST</span>
       </div>
-      <span>contact@esyton.com</span>
+      <span>connect@esyton.com</span>
     </div>
   </div>
 
-  <!-- HEADER -->
   <header class="site-header" id="siteHeader">
     <div class="shell nav">
       <a class="brand transition-link" href="./index.html" aria-label="Esyton Insights home">
-        <img
-          class="brand-logo"
-          src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg"
-          alt="Esyton Insights LLP"
-          width="160"
-          height="60"
-        >
+        <img class="brand-logo" src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights LLP" width="160" height="60">
       </a>
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#top">Home</a>
@@ -661,22 +607,11 @@
         <a href="#documents">Documents</a>
         <a href="#process">Process</a>
         <div class="nav-tools" role="navigation" aria-label="Internal tools">
-          <button class="nav-tools-btn" aria-haspopup="true">
-            Internal Tools <span class="caret">▼</span>
-          </button>
+          <button class="nav-tools-btn" aria-haspopup="true">Internal Tools <span class="caret">▼</span></button>
           <div class="tools-dropdown" role="menu">
-            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/viper.html" role="menuitem">
-              <span class="tool-icon">V</span>
-              <span>V.I.P.E.R<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span>
-            </a>
-            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/timesheet.html" role="menuitem">
-              <span class="tool-icon">T</span>
-              <span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span>
-            </a>
-            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/computax.html" role="menuitem">
-              <span class="tool-icon">C</span>
-              <span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal redirect</small></span>
-            </a>
+            <a class="transition-link" href="./viper.html" role="menuitem"><span class="tool-icon">V</span><span>V.I.P.E.R<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span></a>
+            <a class="transition-link" href="./timesheet.html" role="menuitem"><span class="tool-icon">T</span><span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span></a>
+            <a class="transition-link" href="./computax.html" role="menuitem"><span class="tool-icon">C</span><span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal redirect</small></span></a>
           </div>
         </div>
         <a class="button button-navy nav-cta transition-link" href="./enquiry.html">Get assistance</a>
@@ -685,8 +620,6 @@
   </header>
 
   <main>
-
-    <!-- HERO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div>
@@ -706,7 +639,6 @@
       </div>
     </section>
 
-    <!-- QUICK STRIP -->
     <div class="quick-strip shell">
       <div class="quick-grid">
         <a class="quick-card" href="#services">
@@ -719,7 +651,7 @@
         <a class="quick-card" href="#services">
           <span class="quick-icon">₹</span>
           <span>
-            <h3>contacted Compliance</h3>
+            <h3>Connected Compliance</h3>
             <p>Accounting and GST records kept aligned with your filing requirements, all in one place.</p>
           </span>
         </a>
@@ -733,7 +665,6 @@
       </div>
     </div>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="shell about-grid">
         <div class="about-art reveal">
@@ -773,12 +704,11 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
     <section id="services" class="services">
       <div class="shell">
         <div class="section-heading reveal">
           <span class="section-kicker">Our expertise</span>
-          <h2>Tax-first support with contacted business services.</h2>
+          <h2>Tax-first support with connected business services.</h2>
           <p>Select a service area to see how Esyton organises the records, reviews the details and prepares your matter for completion.</p>
         </div>
         <div class="service-layout reveal">
@@ -812,7 +742,6 @@
       </div>
     </section>
 
-    <!-- DOCUMENTS -->
     <section id="documents">
       <div class="shell documents-grid">
         <div class="section-heading reveal">
@@ -833,7 +762,6 @@
       </div>
     </section>
 
-    <!-- PROCESS -->
     <section id="process" class="process-band">
       <div class="shell">
         <div class="section-heading reveal">
@@ -862,7 +790,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq">
       <div class="shell">
         <div class="section-heading reveal">
@@ -894,7 +821,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="contact">
       <div class="shell contact-grid">
         <div class="contact-copy reveal">
@@ -911,7 +837,7 @@
             <span class="mini-icon">@</span>
             <span>
               <strong>Email</strong>
-              <a href="mailto:contact@esyton.com">contact@esyton.com</a>
+              <a href="mailto:connect@esyton.com">connect@esyton.com</a>
             </span>
           </div>
           <div class="contact-row">
@@ -925,10 +851,8 @@
         </aside>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="shell footer-row">
       <span>© 2026 Esyton Insights LLP. All rights reserved.</span>
@@ -1054,14 +978,12 @@
       renderDocuments(btn.dataset.client);
     }));
 
-    // Scroll reveal
     const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(entries => entries.forEach(e => {
       if (e.isIntersecting) e.target.classList.add("visible");
     }), { threshold: .12 });
     reveals.forEach(el => observer.observe(el));
 
-    // Active nav
     const navLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
     const sections = navLinks.map(l => document.querySelector(l.getAttribute("href"))).filter(Boolean);
     const header = document.getElementById("siteHeader");
@@ -1075,19 +997,16 @@
     renderService("tax");
     renderDocuments("business");
 
-    // ADDRESS BAR MASK
+    // ADDRESS BAR EXTENSION MASK
     if (window.location.pathname.endsWith('/index.html')) {
       const cleanUrl = window.location.pathname.replace(/index\.html$/, '');
       window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
 
-    // ─── MOTION TRANSITION CONTROLLER ───
+    // MOTION ENGINE
     const overlay = document.getElementById("transitionOverlay");
-    
     window.addEventListener("DOMContentLoaded", () => {
-      setTimeout(() => {
-        overlay.classList.add("fade-out");
-      }, 150);
+      setTimeout(() => { overlay.classList.add("fade-out"); }, 150);
     });
 
     document.querySelectorAll(".transition-link").forEach(link => {
@@ -1097,10 +1016,7 @@
           e.preventDefault();
           overlay.classList.remove("fade-out");
           overlay.classList.add("fade-in");
-          
-          setTimeout(() => {
-            window.location.href = destination;
-          }, 1500); // 1.5 Second Motion Frame Duration
+          setTimeout(() => { window.location.href = destination; }, 1500);
         }
       });
     });
