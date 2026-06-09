@@ -217,7 +217,7 @@
     .client-pan, .pending-meta, .muted { color: var(--muted); font-size: .82rem; }
     .meta { display: grid; gap: 9px; margin: 16px 0; font-size: .86rem; }
     .meta-row { display: grid; grid-template-columns: 108px 1fr; gap: 8px; }
-    .meta-label { color: var(--muted); font-weight: 700; }
+    .meta-row .meta-label { color: var(--muted); font-weight: 700; }
 
     /* ─── CHART (VIPER) ─── */
     .chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
@@ -259,7 +259,7 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
     }
-</style>
+  </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -387,7 +387,7 @@
 
           <div class="action-row">
             <button id="submitBtn" class="btn-primary" onclick="submitTimesheet()">Submit Timesheet</button>
-            <button class="btn-secondary" onclick="resetTimesheetForm()">Reset</button>
+            <button class="button button-ghost" type="reset" onclick="resetTimesheetForm()">Reset</button>
           </div>
           <div id="entryStatus" class="status-message"></div>
         </div>
@@ -655,13 +655,12 @@
       });
     }
 
-    //
     function escapeHtml(value) {
       return String(value ?? "")
         .replace(/&/g, "&")
         .replace(/</g, "<")
         .replace(/>/g, ">")
-        .replace(/"/g, """)
+        .replace(/"/g, '"')
         .replace(/'/g, "'");
     }
 
@@ -1190,7 +1189,7 @@
       } else if (sortBy === "duration") {
         sorted.sort((a, b) => (Number(b.durationMinutes) || 0) - (Number(a.durationMinutes) || 0));
       } else {
-        sorted.sort((a, b) => `${b.date || ""} ${b.startTime || ""}`.localeCompare(`${a.date || ""} ${a.startTime || ""}`));
+        sorted.sort((a, b) => `${b.date || ""} ${b.startTime || ""}`.localeCompare(`${b.date || ""} ${b.startTime || ""}`));
       }
 
       return sorted;
