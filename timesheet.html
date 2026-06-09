@@ -33,6 +33,34 @@
     img, svg { display: block; max-width: 100%; }
     h1, h2, h3, p { margin-top: 0; }
     :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+    
+    /* ─── PAGE TRANSITION OVERLAY ─── */
+    .page-transition-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background-color: #ffffff;
+      background-image: url('./motion-effect.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      pointer-events: none;
+    }
+    .page-transition-overlay.fade-out {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.03);
+    }
+    .page-transition-overlay.fade-in {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      pointer-events: all;
+    }
+
     .app-shell { position: relative; z-index: 1; }
 
     /* ─── NAVBAR ─── */
@@ -54,7 +82,7 @@
     .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .nav-pill { padding: 7px 14px; background: var(--soft); border: 1px solid var(--line); color: var(--muted); font-size: 13px; font-weight: 700; }
     .nav-pill.role-pill { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
-    .nav-btn { height: 40px; padding: 0 18px; border: 1px solid var(--line); cursor: pointer; font: inherit; font-weight: 700; font-size: .84rem; color: var(--ink); background: var(--paper); transition: background .2s, border-color .2s, color .2s; }
+    .nav-btn { height: 40px; padding: 0 18px; border: 1px solid var(--line); cursor: pointer; font: inherit; font-weight: 700; font-size: .84rem; color: var(--ink); background: var(--paper); transition: background .2s, border-color .2s, color .2s; display: inline-flex; align-items: center; text-decoration: none; }
     .nav-btn:hover { background: var(--soft); border-color: var(--navy); color: var(--navy); }
     .nav-btn.logout { background: var(--navy); color: #fff; border-color: var(--navy); }
     .nav-btn.logout:hover { background: var(--navy-2); }
@@ -217,7 +245,7 @@
       .form-grid .wide { grid-column: 1 / -1; }
       .toolbar { grid-template-columns: 1fr 1fr; }
       .individual-layout { grid-template-columns: 1fr; }
-      .pane-layout { grid-template-columns: 1fr; }
+      .adminPanel { grid-template-columns: 1fr; }
       .detail-grid { grid-template-columns: 1fr; }
       .chart-grid, .filters-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -240,34 +268,36 @@
 </head>
 
 <body>
+  <div class="page-transition-overlay" id="transitionOverlay"></div>
+
   <div class="app-shell">
     <div class="navbar">
       <div class="brand">
         <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" class="brand-mark" alt="Esyton Insights LLP" />
         <div class="brand-text">
           <span class="logo">T.I.M.O</span>
-          <span class="logo-sub">Tracking, Insights, Management &amp; Optimization</span>
+          <span class="logo-sub">Tracking, Insights, Management & Optimization</span>
         </div>
       </div>
       <div class="nav-right">
         <div class="nav-tools" role="navigation" aria-label="Internal tools">
           <button class="nav-tools-btn" aria-haspopup="true">Other Tools <span class="caret">▼</span></button>
           <div class="tools-dropdown" role="menu">
-            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/viper.html" role="menuitem">
+            <a class="transition-link" href="./viper.html" role="menuitem">
               <span class="tool-icon">V</span>
               <span>V.I.P.E.R<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span>
             </a>
-            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/timesheet.html" role="menuitem">
+            <a class="transition-link" href="./timesheet.html" role="menuitem">
               <span class="tool-icon active">T</span>
               <span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span>
             </a>
-            <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/computax.html" role="menuitem">
+            <a class="transition-link" href="./computax.html" role="menuitem">
               <span class="tool-icon">C</span>
               <span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal</small></span>
             </a>
           </div>
         </div>
-        <a href="https://tanoojreddy1801-rgb.github.io/esyton-home/index.html" class="nav-btn">← Esyton Home</a>
+        <a href="./index.html" class="nav-btn transition-link">← Esyton Home</a>
         <div id="navUser" class="nav-pill hidden"></div>
         <div id="navRole" class="nav-pill role-pill hidden"></div>
         <button id="navLogout" class="nav-btn logout hidden" onclick="logout()">Logout</button>
@@ -625,13 +655,14 @@
       });
     }
 
+    //
     function escapeHtml(value) {
       return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
+        .replace(/&/g, "&")
+        .replace(/</g, "<")
+        .replace(/>/g, ">")
+        .replace(/"/g, """)
+        .replace(/'/g, "'");
     }
 
     function isAdmin() {
@@ -1403,6 +1434,36 @@
     });
 
     resetTimesheetForm();
+
+    // ADDRESS BAR EXTENSION MASK
+    if (window.location.pathname.endsWith('.html')) {
+      const cleanUrl = window.location.pathname.replace(/\.html$/, '');
+      window.history.replaceState(null, '', cleanUrl + window.location.search);
+    }
+
+    // ─── MOTION TRANSITION CONTROLLER ───
+    const overlay = document.getElementById("transitionOverlay");
+    
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        overlay.classList.add("fade-out");
+      }, 150);
+    });
+
+    document.querySelectorAll(".transition-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const destination = this.getAttribute("href");
+        if (destination && (destination.includes(".html") || destination.startsWith("./"))) {
+          e.preventDefault();
+          overlay.classList.remove("fade-out");
+          overlay.classList.add("fade-in");
+          
+          setTimeout(() => {
+            window.location.href = destination;
+          }, 1500); 
+        }
+      });
+    });
   </script>
 </body>
 </html>
