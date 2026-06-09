@@ -30,7 +30,7 @@
     * { box-sizing: border-box; }
     body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: var(--ink); background: var(--soft); }
     
-   /* ─── PAGE TRANSITION OVERLAY ─── */
+    /* ─── PAGE TRANSITION OVERLAY ─── */
     .page-transition-overlay {
       position: fixed;
       inset: 0;
@@ -114,7 +114,6 @@
 </head>
 <body>
 
-  <!-- MOTION LAYER -->
   <div class="page-transition-overlay" id="transitionOverlay"></div>
 
   <main class="panel">
@@ -125,19 +124,16 @@
   </main>
 
   <script>
-    // ADDRESS BAR MASK
+    // ADDRESS BAR EXTENSION MASK
     if (window.location.pathname.endsWith('.html')) {
       const cleanUrl = window.location.pathname.replace(/\.html$/, '');
       window.history.replaceState(null, '', cleanUrl + window.location.search);
     }
 
-    // ─── MOTION TRANSITION CONTROLLER ───
+    // MOTION ENGINE
     const overlay = document.getElementById("transitionOverlay");
-    
     window.addEventListener("DOMContentLoaded", () => {
-      setTimeout(() => {
-        overlay.classList.add("fade-out");
-      }, 150);
+      setTimeout(() => { overlay.classList.add("fade-out"); }, 150);
     });
 
     document.querySelectorAll(".transition-link").forEach(link => {
@@ -147,10 +143,7 @@
           e.preventDefault();
           overlay.classList.remove("fade-out");
           overlay.classList.add("fade-in");
-          
-          setTimeout(() => {
-            window.location.href = destination;
-          }, 1500); // 1.5 Second Frame Hold
+          setTimeout(() => { window.location.href = destination; }, 1500);
         }
       });
     });
