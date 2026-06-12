@@ -1,0 +1,537 @@
+#refundApp {
+  --bg-1: #f8fbff;
+  --bg-2: #eef5ff;
+  --bg-3: #f9fcff;
+  --surface: rgba(255, 255, 255, 0.8);
+  --text: #24324a;
+  --text-soft: #60708d;
+  --line: rgba(186, 205, 232, 0.45);
+  --primary: #5b8def;
+  --primary-2: #7fb3ff;
+  --teal: #57c6c2;
+  --danger: #c45d73;
+  --success: #2f8d6a;
+  --warning: #c8862f;
+  --shadow-lg: 0 24px 60px rgba(115, 149, 199, 0.18);
+  --shadow-sm: 0 8px 20px rgba(122, 152, 199, 0.1);
+}
+
+#refundApp {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(168, 202, 255, 0.26), transparent 28%),
+    radial-gradient(circle at 100% 10%, rgba(126, 215, 193, 0.22), transparent 24%),
+    radial-gradient(circle at 70% 100%, rgba(246, 183, 200, 0.18), transparent 24%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 52%, var(--bg-3) 100%);
+  overflow-x: hidden;
+}
+
+#refundApp .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 26px;
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(201, 216, 238, 0.45);
+  box-shadow: 0 8px 24px rgba(141, 169, 207, 0.08);
+}
+
+#refundApp .brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#refundApp .brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.65)),
+    linear-gradient(135deg, var(--primary), var(--teal));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+#refundApp .brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #3b67b7;
+  font-size: 15px;
+}
+
+#refundApp .brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#refundApp .logo {
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #4d7fe5, #61b7d5, #4d7fe5);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+#refundApp .logo-sub {
+  color: var(--text-soft);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+#refundApp .nav-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#refundApp .nav-pill {
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(197, 214, 238, 0.5);
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+#refundApp .container {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 28px 22px 40px;
+}
+
+#refundApp .hero-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 520px) minmax(320px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+#refundApp .panel {
+  position: relative;
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  padding: 26px;
+  overflow: hidden;
+}
+
+#refundApp .panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, rgba(91,141,239,0.85), rgba(87,198,194,0.75), rgba(246,183,200,0.7));
+}
+
+#refundApp .section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+#refundApp .section-head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#refundApp h1, #refundApp h2, #refundApp h3, #refundApp h4, #refundApp p {
+  margin-top: 0;
+}
+
+#refundApp h1 {
+  margin-bottom: 0;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+#refundApp h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#refundApp .subtle {
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#refundApp .chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(246,250,255,0.75));
+  border: 1px solid rgba(197, 214, 238, 0.55);
+  color: #5f7396;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+}
+
+#refundApp label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+#refundApp input, #refundApp select, #refundApp button {
+  font: inherit;
+}
+
+#refundApp input, #refundApp select {
+  width: 100%;
+  height: 48px;
+  border: 1px solid rgba(190, 208, 233, 0.62);
+  background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(248,251,255,0.92));
+  border-radius: 16px;
+  padding: 0 14px;
+  color: var(--text);
+  outline: none;
+  transition: 0.22s ease;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.78);
+  margin-bottom: 16px;
+}
+
+#refundApp input:focus, #refundApp select:focus {
+  border-color: rgba(91,141,239,0.78);
+  box-shadow:
+    0 0 0 4px rgba(126, 177, 255, 0.14),
+    0 10px 24px rgba(141, 175, 224, 0.12);
+}
+
+#refundApp .btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+#refundApp .btn-primary, #refundApp .btn-secondary, #refundApp .btn-ghost {
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#refundApp .btn-primary {
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, #5b8def, #78adff);
+  box-shadow: var(--shadow-sm);
+}
+
+#refundApp .btn-secondary {
+  border: 1px solid rgba(197, 214, 238, 0.7);
+  background: rgba(255,255,255,0.76);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#refundApp .btn-ghost {
+  border: 1px dashed rgba(91,141,239,0.45);
+  background: rgba(248, 251, 255, 0.76);
+  color: var(--primary);
+}
+
+#refundApp .btn-primary:hover, #refundApp .btn-secondary:hover, #refundApp .btn-ghost:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+#refundApp .status-message {
+  margin-top: 14px;
+  min-height: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#refundApp .status-message.error { color: var(--danger); }
+#refundApp .status-message.success { color: var(--success); }
+#refundApp .status-message.warning { color: var(--warning); }
+
+#refundApp .info-box, #refundApp .safe-box, #refundApp .workflow-box {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(197, 214, 238, 0.55);
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+#refundApp .workflow-box {
+  background: linear-gradient(180deg, rgba(247,251,255,0.94), rgba(235,245,255,0.92));
+}
+
+#refundApp .safe-box {
+  background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(242,248,255,0.92));
+}
+
+#refundApp .helper-list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+#refundApp .result-shell {
+  display: grid;
+  gap: 18px;
+}
+
+#refundApp .status-card {
+  display: none;
+  border-radius: 22px;
+  border: 1px solid rgba(197, 214, 238, 0.65);
+  background: rgba(255,255,255,0.84);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+#refundApp .status-card.active {
+  display: block;
+}
+
+#refundApp .status-card-head {
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(180deg, rgba(245,249,255,0.98), rgba(236,244,255,0.92));
+  border-bottom: 1px solid rgba(197, 214, 238, 0.55);
+}
+
+#refundApp .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+#refundApp .badge.processing {
+  color: #8d6123;
+  background: rgba(250, 220, 170, 0.35);
+}
+
+#refundApp .badge.completed {
+  color: #216b51;
+  background: rgba(164, 225, 202, 0.32);
+}
+
+#refundApp .badge.hold {
+  color: #8f5a6c;
+  background: rgba(242, 196, 211, 0.34);
+}
+
+#refundApp .badge.unknown {
+  color: #4f6385;
+  background: rgba(206, 220, 243, 0.45);
+}
+
+#refundApp .status-card-body {
+  padding: 20px;
+  display: grid;
+  gap: 18px;
+}
+
+#refundApp .status-summary {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+#refundApp .facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+#refundApp .fact {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(247, 250, 255, 0.95);
+  border: 1px solid rgba(197, 214, 238, 0.55);
+}
+
+#refundApp .fact-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+  margin-bottom: 6px;
+}
+
+#refundApp .fact-value {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+#refundApp .timeline {
+  display: grid;
+  gap: 10px;
+}
+
+#refundApp .timeline-row {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+  padding: 12px 0;
+  border-top: 1px dashed rgba(190, 208, 233, 0.7);
+}
+
+#refundApp .timeline-row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+#refundApp .timeline-dot {
+  width: 12px;
+  height: 12px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--teal));
+  box-shadow: 0 0 0 5px rgba(126, 177, 255, 0.14);
+  flex: none;
+}
+
+#refundApp .timeline-copy strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#refundApp .empty-state {
+  padding: 34px 20px;
+  border-radius: 22px;
+  border: 1px dashed rgba(188, 207, 232, 0.9);
+  background: rgba(255,255,255,0.55);
+  text-align: center;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+#refundApp .split-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+#refundApp .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(140px, 1fr));
+  gap: 14px;
+}
+
+#refundApp .table-wrap {
+  border-radius: 18px;
+  border: 1px solid rgba(197, 214, 238, 0.55);
+  overflow: auto;
+  background: rgba(255,255,255,0.82);
+}
+
+#refundApp table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+#refundApp th, #refundApp td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(197, 214, 238, 0.35);
+  text-align: left;
+}
+
+#refundApp th {
+  background: rgba(243, 248, 255, 0.96);
+  color: var(--text-soft);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.45px;
+}
+
+#refundApp code {
+  background: rgba(241, 247, 255, 0.95);
+  padding: 2px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(197, 214, 238, 0.45);
+}
+
+#refundApp .hidden {
+  display: none !important;
+}
+
+#refundApp .footer-note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@media (max-width: 980px)  {
+  #refundApp .hero-grid, #refundApp .split-grid, #refundApp .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px)  {
+  #refundApp .container { padding: 16px 14px 28px; }
+  #refundApp .navbar { padding: 14px; }
+  #refundApp .panel { padding: 18px; }
+  #refundApp .section-head {
+    align-items: start;
+    flex-direction: column;
+  }
+  #refundApp .facts {
+    grid-template-columns: 1fr;
+  }
+  #refundApp .status-card-head {
+    align-items: start;
+    flex-direction: column;
+  }
+  #refundApp .btn-row {
+    flex-direction: column;
+  }
+  #refundApp .btn-primary, #refundApp .btn-secondary, #refundApp .btn-ghost {
+    width: 100%;
+  }
+}
