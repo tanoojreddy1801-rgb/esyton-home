@@ -205,7 +205,7 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
     }
-</style>
+  </style>
   <link rel="stylesheet" href="refund-styles.css">
 </head>
 <body>
@@ -236,128 +236,136 @@
     </div>
 
     <div id="refundApp">
-  <main class="container">
-    <div class="hero-grid">
-      <section class="panel">
-        <div class="section-head">
-          <div class="section-head-left">
-            <h1 id="pageTitle">Track Your Refund</h1>
-            <div id="pageSubtitle" class="subtle">Enter PAN and assessment year to fetch the latest office-published status from the central dataset.</div>
-          </div>
-          <div id="backendChip" class="chip">Updated on real-time</div>
-        </div>
-
-        <div class="section-head">
-          <div class="section-head-left">
-            <h3 id="languageTitle">Choose Language</h3>
-            <div id="languageSubtitle" class="subtle">Switch the client portal between English, Kannada, Telugu, and Hindi.</div>
-          </div>
-        </div>
-
-        <div class="btn-row">
-          <button class="btn-ghost language-btn" type="button" data-lang="en">English</button>
-          <button class="btn-ghost language-btn" type="button" data-lang="kn">Kannada</button>
-          <button class="btn-ghost language-btn" type="button" data-lang="te">Telugu</button>
-          <button class="btn-ghost language-btn" type="button" data-lang="hi">Hindi</button>
-        </div>
-
-        <form id="clientLookupForm">
-          <label id="panLabel" for="pan">PAN</label>
-          <input id="pan" name="pan" type="text" maxlength="10" placeholder="ABCDE1234F" autocomplete="off">
-
-          <label id="assessmentYearLabel" for="assessmentYear">Assessment Year</label>
-          <select id="assessmentYear" name="assessmentYear">
-            <option id="assessmentYearPlaceholder" value="">Select assessment year</option>
-            <option value="2020-21">AY 2020-21</option>
-            <option value="2021-22">AY 2021-22</option>
-            <option value="2022-23">AY 2022-23</option>
-            <option value="2023-24">AY 2023-24</option>
-            <option value="2024-25">AY 2024-25</option>
-            <option value="2025-26">AY 2025-26</option>
-            <option value="2026-27">AY 2026-27</option>
-          </select>
-
-          <div class="btn-row">
-            <button class="btn-primary" type="submit" id="checkStatusBtn">Check status</button>
-            <button class="btn-secondary" type="button" id="sampleFillBtn">Use sample PAN</button>
-          </div>
-        </form>
-
-        <div id="lookupMessage" class="status-message" aria-live="polite"></div>
-
-        <div class="workflow-box">
-          <strong id="workflowTitle">How this works:</strong>
-          <ul class="helper-list">
-            <li id="workflowItem1">Office staff upload the latest Excel on the secure office page.</li>
-            <li id="workflowItem2">The workbook is parsed and its rows are published into Firebase Firestore.</li>
-            <li id="workflowItem3">This client page queries the latest centralized record by PAN and assessment year.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="panel result-shell">
-        <div class="section-head">
-          <div class="section-head-left">
-            <h2 id="summaryTitle">Status Summary</h2>
-            <div id="summarySubtitle" class="subtle">A cleaner, client-friendly explanation generated from the uploaded office dataset.</div>
-          </div>
-          <div id="dataSourceChip" class="chip">Awaiting lookup</div>
-        </div>
-
-        <div id="emptyState" class="empty-state">
-          Enter the PAN and assessment year to fetch the latest published refund record.
-        </div>
-
-        <article id="resultCard" class="status-card" aria-live="polite">
-          <div class="status-card-head">
-            <div>
-              <div id="recordLabel" class="subtle">Refund Record</div>
-              <h3 id="resultTitle">AY 2025-26</h3>
+      <main class="container">
+        <div class="hero-grid">
+          <section class="panel">
+            <div class="section-head">
+              <div class="section-head-left">
+                <h1 id="pageTitle">Track Your Refund</h1>
+                <div id="pageSubtitle" class="subtle">Enter PAN and assessment year to fetch the latest office-published status from the central dataset.</div>
+              </div>
+              <div id="backendChip" class="chip">Updated on real-time</div>
             </div>
-            <div id="resultBadge" class="badge unknown">Status pending</div>
-          </div>
 
-          <div class="status-card-body">
-            <div id="resultSummary" class="status-summary"></div>
-
-            <div class="facts">
-              <div class="fact">
-                <div id="factNameLabel" class="fact-label">Client Name</div>
-                <div id="factName" class="fact-value">-</div>
-              </div>
-              <div class="fact">
-                <div id="factPanLabel" class="fact-label">PAN</div>
-                <div id="factPan" class="fact-value">-</div>
-              </div>
-              <div class="fact">
-                <div id="factCodeLabel" class="fact-label">Code No</div>
-                <div id="factCode" class="fact-value">-</div>
-              </div>
-              <div class="fact">
-                <div id="factRefundLabel" class="fact-label">Refund Amount</div>
-                <div id="factRefund" class="fact-value">-</div>
+            <div class="section-head">
+              <div class="section-head-left">
+                <h3 id="languageTitle">Choose Language</h3>
+                <div id="languageSubtitle" class="subtle">Switch the client portal between English, Kannada, Telugu, and Hindi.</div>
               </div>
             </div>
 
-            <div>
-              <h3 id="meaningTitle">What this usually means</h3>
-              <div id="timeline" class="timeline"></div>
+            <div class="btn-row">
+              <button class="btn-ghost language-btn" type="button" data-lang="en">English</button>
+              <button class="btn-ghost language-btn" type="button" data-lang="kn">Kannada</button>
+              <button class="btn-ghost language-btn" type="button" data-lang="te">Telugu</button>
+              <button class="btn-ghost language-btn" type="button" data-lang="hi">Hindi</button>
             </div>
-          </div>
-        </article>
 
-        <div class="info-box">
-          <strong id="datasetFreshnessLabel">Dataset freshness:</strong>
-          <span id="datasetMetaText">Waiting for latest dataset metadata.</span>
+            <form id="clientLookupForm">
+              <label id="panLabel" for="pan">PAN</label>
+              <input id="pan" name="pan" type="text" maxlength="10" placeholder="ABCDE1234F" autocomplete="off">
+
+              <label id="assessmentYearLabel" for="assessmentYear">Assessment Year</label>
+              <select id="assessmentYear" name="assessmentYear">
+                <option id="assessmentYearPlaceholder" value="">Select assessment year</option>
+                <option value="2020-21">AY 2020-21</option>
+                <option value="2021-22">AY 2021-22</option>
+                <option value="2022-23">AY 2022-23</option>
+                <option value="2023-24">AY 2023-24</option>
+                <option value="2024-25">AY 2024-25</option>
+                <option value="2025-26">AY 2025-26</option>
+                <option value="2026-27">AY 2026-27</option>
+              </select>
+
+              <div class="btn-row">
+                <button class="btn-primary" type="submit" id="checkStatusBtn">Check status</button>
+                <button class="btn-secondary" type="button" id="sampleFillBtn">Use sample PAN</button>
+              </div>
+            </form>
+
+            <div id="lookupMessage" class="status-message" aria-live="polite"></div>
+
+            <div class="workflow-box">
+              <strong id="workflowTitle">How this works:</strong>
+              <ul class="helper-list">
+                <li id="workflowItem1">Office staff upload the latest Excel on the secure office page.</li>
+                <li id="workflowItem2">The workbook is parsed and its rows are published into Firebase Firestore.</li>
+                <li id="workflowItem3">This client page queries the latest centralized record by PAN and assessment year.</li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="panel result-shell">
+            <div class="section-head">
+              <div class="section-head-left">
+                <h2 id="summaryTitle">Status Summary</h2>
+                <div id="summarySubtitle" class="subtle">A cleaner, client-friendly explanation generated from the uploaded office dataset.</div>
+              </div>
+              <div id="dataSourceChip" class="chip">Awaiting lookup</div>
+            </div>
+
+            <div id="emptyState" class="empty-state">
+              Enter the PAN and assessment year to fetch the latest published refund record.
+            </div>
+
+            <article id="resultCard" class="status-card" aria-live="polite">
+              <div class="status-card-head">
+                <div>
+                  <div id="recordLabel" class="subtle">Refund Record</div>
+                  <h3 id="resultTitle">AY 2025-26</h3>
+                </div>
+                <div id="resultBadge" class="badge unknown">Status pending</div>
+              </div>
+
+              <div class="status-card-body">
+                <div id="resultSummary" class="status-summary"></div>
+
+                <div class="facts">
+                  <div class="fact">
+                    <div id="factNameLabel" class="fact-label">Client Name</div>
+                    <div id="factName" class="fact-value">-</div>
+                  </div>
+                  <div class="fact">
+                    <div id="factPanLabel" class="fact-label">PAN</div>
+                    <div id="factPan" class="fact-value">-</div>
+                  </div>
+                  <div class="fact">
+                    <div id="factCodeLabel" class="fact-label">Code No</div>
+                    <div id="factCode" class="fact-value">-</div>
+                  </div>
+                  <div class="fact">
+                    <div id="factRefundLabel" class="fact-label">Refund Amount</div>
+                    <div id="factRefund" class="fact-value">-</div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 id="meaningTitle">What this usually means</h3>
+                  <div id="timeline" class="timeline"></div>
+                </div>
+              </div>
+            </article>
+
+            <div class="info-box">
+              <strong id="datasetFreshnessLabel">Dataset freshness:</strong>
+              <span id="datasetMetaText">Waiting for latest dataset metadata.</span>
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
-  </main>
+      </main>
     </div>
   </div>
 
   <script type="module" src="refund-client.js"></script>
   <script>
+    // ─── ADDRESS BAR EXTENSION MASK ───
+    if (window.location.pathname.endsWith('/refund-status.html')) {
+      window.history.replaceState(
+        null, '',
+        window.location.pathname.replace('refund-status.html', 'refund-status') + window.location.search
+      );
+    }
+
     // ─── MOTION TRANSITION CONTROLLER ───
     const overlay = document.getElementById("transitionOverlay");
 
