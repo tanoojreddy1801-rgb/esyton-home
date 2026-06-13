@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>V.I.P.E.R</title>
+  <title>V.I.P.E.R | Esyton</title>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -20,20 +24,31 @@
       --soft: #f4f6f8;
       --line: #dfe5e9;
       --success: #2f8d6a;
+      --success-bg: #e7f9f1;
+      --success-line: #b6e8d2;
       --danger: #c45d73;
+      --danger-bg: #fff0f3;
+      --danger-line: #f4c6d2;
+      --warning: #8a6b00;
       --shadow: 0 22px 55px rgba(6, 47, 89, .13);
       --shadow-lg: 0 40px 80px rgba(6, 47, 89, .18);
       --shadow-sm: 0 8px 24px rgba(6, 47, 89, .08);
-      font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { margin: 0; min-height: 100vh; font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; color: var(--ink); background: var(--soft); line-height: 1.65; }
-    a { color: inherit; text-decoration: none; }
-    img, svg { display: block; max-width: 100%; }
-    h1, h2, h3, p { margin-top: 0; }
-    :focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
-    
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--soft);
+      overflow-x: hidden;
+    }
+
+    h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
+
     /* ─── PAGE TRANSITION OVERLAY ─── */
     .page-transition-overlay {
       position: fixed;
@@ -49,178 +64,352 @@
       transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
       pointer-events: none;
     }
-    .page-transition-overlay.fade-out {
-      opacity: 0;
-      visibility: hidden;
-      transform: scale(1.03);
-    }
-    .page-transition-overlay.fade-in {
-      opacity: 1;
-      visibility: visible;
-      transform: scale(1);
-      pointer-events: all;
-    }
+    .page-transition-overlay.fade-out { opacity: 0; visibility: hidden; transform: scale(1.03); }
+    .page-transition-overlay.fade-in { opacity: 1; visibility: visible; transform: scale(1); pointer-events: all; }
 
     .app-shell { position: relative; z-index: 1; }
-    .navbar { position: sticky; top: 0; z-index: 25; display: flex; justify-content: space-between; align-items: center; padding: 0 32px; min-height: 78px; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 4px 30px rgba(6,47,89,.08); }
-    .brand { display: flex; align-items: center; gap: 12px; color: var(--navy); text-decoration: none; }
-    .brand-mark { height: 52px; width: auto; object-fit: contain; }
-    .brand-text { display: flex; flex-direction: column; gap: 3px; }
-    .logo { font-size: 22px; line-height: 1; font-weight: 800; letter-spacing: .3px; color: var(--navy); }
-    .logo-sub { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .4px; text-transform: uppercase; }
+
+    /* ─── NAVBAR ─── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 25;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 26px;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+      box-shadow: 0 4px 18px rgba(6,47,89,.06);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--navy); transition: opacity .2s; }
+    .brand:hover { opacity: .85; }
+    .brand-mark { height: 46px; width: auto; max-width: 150px; object-fit: contain; }
+    .brand-text { display: flex; flex-direction: column; gap: 2px; }
+    .logo {
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: .5px;
+      font-family: 'Playfair Display', Georgia, serif;
+      background: linear-gradient(90deg, var(--navy), var(--gold), var(--navy));
+      background-size: 200% auto;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: shimmer 6s linear infinite;
+    }
+    .logo-sub { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
     .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-    .nav-pill { padding: 7px 14px; background: var(--soft); border: 1px solid var(--line); color: var(--muted); font-size: 13px; font-weight: 700; }
-    .nav-pill.role-pill { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
-    .nav-btn { height: 40px; padding: 0 18px; border: 1px solid var(--line); cursor: pointer; font: inherit; font-weight: 700; font-size: .84rem; color: var(--ink); background: var(--paper); transition: background .2s, border-color .2s, color .2s; display: inline-flex; align-items: center; text-decoration: none; }
-    .nav-btn:hover { background: var(--soft); border-color: var(--navy); color: var(--navy); }
-    .nav-btn.logout { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .nav-btn.logout:hover { background: var(--navy-2); }
+
+    .nav-pill {
+      padding: 10px 14px;
+      background: var(--yellow-pale);
+      border: 1px solid rgba(197,152,61,.3);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .nav-btn, .nav-tools-btn {
+      height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      font-size: .86rem;
+      color: var(--ink);
+      background: #fff;
+      transition: transform .2s ease, box-shadow .2s ease, color .2s ease, border-color .2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-btn:hover, .nav-tools-btn:hover { color: var(--navy); border-color: #aac0d0; transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
     .nav-tools { position: relative; }
-    .nav-tools-btn { display: flex; align-items: center; gap: 5px; padding: 7px 14px; color: var(--muted); font-size: .83rem; font-weight: 700; cursor: pointer; background: var(--soft); border: 1px solid var(--line); font: inherit; transition: color .2s, border-color .2s; }
-    .nav-tools-btn:hover { color: var(--navy); border-color: var(--navy); }
-    .caret { font-size: .55rem; transition: transform .2s; display: inline-block; }
+    .caret { font-size: .6rem; transition: transform .2s; display: inline-block; }
     .nav-tools:hover .caret { transform: rotate(180deg); }
-    .tools-dropdown { display: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 235px; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--yellow); box-shadow: 0 18px 40px rgba(6,47,89,.14); z-index: 50; }
+    .tools-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 230px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--yellow);
+      box-shadow: 0 18px 40px rgba(6,47,89,.14);
+      z-index: 50;
+    }
     .nav-tools:hover .tools-dropdown, .nav-tools:focus-within .tools-dropdown { display: block; }
-    .tools-dropdown a { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: var(--ink); font-size: .84rem; font-weight: 600; border-bottom: 1px solid var(--line); transition: background .18s, color .18s; }
+    .tools-dropdown a {
+      display: flex !important;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px !important;
+      color: var(--ink) !important;
+      font-size: .84rem !important;
+      font-weight: 600 !important;
+      border-bottom: 1px solid var(--line);
+      text-decoration: none;
+      transition: background .18s, color .18s !important;
+    }
     .tools-dropdown a:last-child { border-bottom: 0; }
-    .tools-dropdown a:hover { background: var(--soft); color: var(--navy); }
+    .tools-dropdown a:hover { background: var(--soft); color: var(--navy) !important; }
     .tool-icon { width: 28px; height: 28px; display: grid; place-items: center; background: var(--yellow); color: var(--navy-3); font-weight: 900; font-size: .72rem; flex-shrink: 0; }
     .tool-icon.active { background: var(--navy); color: var(--yellow); }
-    .container { max-width: 1380px; margin: 0 auto; padding: 32px 28px 52px; }
-    .panel { position: relative; background: var(--paper); border: 1px solid var(--line); border-top: 5px solid var(--yellow); padding: 32px; margin-bottom: 20px; overflow: hidden; box-shadow: var(--shadow); }
-    .panel.hero-login { max-width: 520px; margin: 56px auto 0; }
-    .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 14px; margin-bottom: 20px; }
+
+    /* ─── LAYOUT ─── */
+    .container { max-width: 1380px; margin: 0 auto; padding: 28px 22px 40px; }
+
+    .panel {
+      position: relative;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--yellow);
+      box-shadow: var(--shadow);
+      padding: 26px;
+      margin-bottom: 22px;
+    }
+
+    .hero-login { max-width: 520px; margin: 50px auto 0; padding-top: 34px; }
+
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 14px; margin-bottom: 16px; }
     .section-head-left { display: flex; flex-direction: column; gap: 6px; }
-    h1, h2 { margin: 0; }
-    h1 { font-size: 1.85rem; font-weight: 800; color: var(--navy); }
-    h2 { font-size: 1.3rem; font-weight: 800; color: var(--navy); }
-    .subtle { color: var(--muted); font-size: .88rem; line-height: 1.55; margin: 0; }
-    .chip { padding: 6px 13px; background: var(--yellow-pale); border: 1px solid rgba(197,152,61,.3); color: var(--navy); font-size: 12px; font-weight: 800; white-space: nowrap; }
-    input, select, textarea, button { font: inherit; }
-    input, select, textarea { width: 100%; min-height: 48px; border: 1px solid var(--line); background: var(--paper); padding: 0 14px; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s; border-radius: 0; }
-    textarea { min-height: 92px; resize: vertical; padding: 13px 14px; line-height: 1.45; }
-    input:focus, select:focus, textarea:focus { border-color: var(--navy-2); box-shadow: 0 0 0 3px rgba(6,47,89,.07); }
-    input:disabled, textarea:disabled, select:disabled { color: var(--muted); background: var(--soft); cursor: not-allowed; }
-    button { height: 46px; padding: 0 20px; border: none; cursor: pointer; font-weight: 700; font-size: .88rem; transition: transform .2s cubic-bezier(.34,1.56,.64,1), box-shadow .2s, background .2s; white-space: nowrap; }
-    button:hover { transform: translateY(-2px); }
+
+    h1, h2 { margin: 0; color: var(--navy); }
+    h1 { font-size: 28px; font-weight: 800; }
+    h2 { font-size: 22px; font-weight: 800; }
+
+    .subtle { color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+    .chip {
+      padding: 7px 13px;
+      background: var(--yellow-pale);
+      border: 1px solid rgba(197,152,61,.3);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* ─── FORM LAYOUT ─── */
+    .form-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .toolbar { display: grid; grid-template-columns: 1.5fr .8fr auto; gap: 12px; align-items: center; margin-bottom: 14px; }
+    .search-wrap { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+    .toolbar-right { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+    .filters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px; }
+
+    /* ─── FORM CONTROLS ─── */
+    input, select, button { font: inherit; }
+    input, select {
+      width: 100%;
+      height: 48px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 0 14px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus, select:focus { border-color: var(--navy-2); box-shadow: 0 0 0 3px rgba(6,47,89,.07); }
+    input:disabled { color: #98a3ad; background: var(--soft); cursor: not-allowed; }
+
+    /* ─── BUTTONS ─── */
+    button {
+      height: 46px;
+      padding: 0 18px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: .86rem;
+      letter-spacing: .02em;
+      position: relative;
+      overflow: hidden;
+      transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
     button:active { transform: translateY(0); }
-    button:disabled { opacity: .55; cursor: not-allowed; transform: none; }
-    .btn-primary { color: var(--navy-3); background: var(--yellow); box-shadow: 0 8px 24px rgba(255,216,0,.2); }
-    .btn-primary:hover { background: #ffe53a; box-shadow: 0 14px 32px rgba(255,216,0,.3); }
-    .btn-secondary { color: var(--ink); background: var(--paper); border: 1px solid var(--line); }
-    .btn-secondary:hover { background: var(--soft); border-color: var(--navy); }
-    .btn-export { color: #fff; background: var(--navy); box-shadow: 0 8px 24px rgba(6,47,89,.18); }
-    .btn-export:hover { background: var(--navy-2); }
-    .btn-danger { color: #fff; background: var(--danger); }
-    .action-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
-    .status-message { margin-top: 14px; min-height: 20px; font-size: .86rem; font-weight: 700; }
+
+    .btn-primary, .btn-export {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::before, .btn-export::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,.13);
+      transform: translateX(-100%) skewX(-15deg);
+      transition: transform .4s ease;
+    }
+    .btn-primary:hover::before, .btn-export:hover::before { transform: translateX(110%) skewX(-15deg); }
+    .btn-primary:hover, .btn-export:hover, .btn-secondary:hover, .btn-edit:hover, .btn-success:hover, .btn-danger:hover, .btn-view:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary { color: #fff; background: var(--navy); box-shadow: 0 12px 26px rgba(6,47,89,.22); }
+    .btn-primary:hover { background: var(--navy-2); box-shadow: 0 18px 36px rgba(6,47,89,.3); }
+
+    .btn-secondary { color: var(--ink); background: #fff; border: 1px solid var(--line); }
+    .btn-secondary:hover { color: var(--navy); border-color: #aac0d0; box-shadow: var(--shadow-sm); }
+
+    .btn-export { color: var(--navy-3); background: var(--yellow); box-shadow: 0 12px 26px rgba(255,216,0,.25); }
+    .btn-export:hover { background: #ffe53a; box-shadow: 0 18px 36px rgba(255,216,0,.35); }
+
+    .btn-edit { color: #fff; background: var(--gold); box-shadow: 0 10px 22px rgba(197,152,61,.28); }
+    .btn-edit:hover { background: #b3873a; box-shadow: 0 16px 30px rgba(197,152,61,.35); }
+
+    .btn-success { color: #fff; background: var(--success); box-shadow: 0 10px 22px rgba(47,141,106,.25); }
+    .btn-success:hover { background: #267a5b; }
+
+    .btn-danger { color: #fff; background: var(--danger); box-shadow: 0 10px 22px rgba(196,93,115,.25); }
+    .btn-danger:hover { background: #b04c63; }
+
+    .btn-view.active { color: #fff; background: var(--navy); box-shadow: 0 10px 22px rgba(6,47,89,.22); }
+
+    .action-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+
+    /* ─── STATUS MESSAGES ─── */
+    .status-banner {
+      margin-top: 12px;
+      padding: 12px 14px;
+      display: none;
+      font-size: 13px;
+      font-weight: 700;
+      background: var(--yellow-pale);
+      color: #5d4b1b;
+      border-left: 4px solid var(--gold);
+    }
+    .status-banner.editing { display: block; }
+
+    .status-message { margin-top: 12px; min-height: 20px; font-size: 13px; font-weight: 700; }
     .status-message.error { color: var(--danger); }
     .status-message.success { color: var(--success); }
-    .status-banner { margin-bottom: 12px; min-height: 0; }
-    .banner-edit { padding: 12px 18px; background: var(--yellow-pale); border-left: 4px solid var(--gold); color: #5d4b1b; font-size: .87rem; font-weight: 600; }
-    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 18px; }
-    .summary-card { padding: 20px; background: var(--soft); border: 1px solid var(--line); border-bottom: 3px solid var(--yellow); transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s; }
-    .summary-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
-    .summary-label { color: var(--muted); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; margin-bottom: 10px; }
-    .summary-value { font-size: 2rem; font-weight: 900; color: var(--navy); line-height: 1; }
-    .summary-note { margin-top: 8px; color: var(--muted); font-size: .76rem; }
-    .form-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .form-grid .wide { grid-column: span 2; }
-    .form-grid .full { grid-column: 1 / -1; }
-    .toolbar { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(140px, 0.7fr)) auto; gap: 12px; align-items: center; margin-bottom: 16px; }
-    .list-table-wrap { overflow-x: auto; border: 1px solid var(--line); margin-top: 18px; }
-    .list-table { width: 100%; min-width: 1100px; border-collapse: collapse; }
-    .list-table th, .list-table td { padding: 13px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: .86rem; }
-    .list-table th { background: var(--soft); color: var(--navy); font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 700; }
-    .list-table tr:last-child td { border-bottom: 0; }
+
+    /* ─── SUMMARY CARDS ─── */
+    .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; }
+
+    .summary-card, .chart-card, .card, .pending-card, .list-table-wrap, .pane-list, .pane-detail, .empty-state {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .summary-card { border-top: 4px solid var(--yellow); padding: 18px; }
+    .summary-label { color: var(--muted); font-size: 12px; margin-bottom: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+    .summary-value { font-size: 28px; font-weight: 800; color: var(--navy); }
+    .summary-note { margin-top: 6px; color: var(--muted); font-size: 12px; }
+
+    /* ─── CHARTS ─── */
+    .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    .chart-card { padding: 18px; }
+    .chart-label { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+    .bar-track { height: 16px; width: 100%; background: var(--soft); border: 1px solid var(--line); overflow: hidden; }
+    .bar-fill { height: 100%; transition: width .3s ease; }
+    .bar-fill.pending { background: var(--gold); }
+    .bar-fill.completed { background: var(--success); }
+    .chart-meta { display: flex; justify-content: space-between; margin-top: 10px; color: var(--muted); font-size: 13px; font-weight: 700; }
+
+    /* ─── CARDS ─── */
+    .pending-grid, .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 14px; }
+    .pending-card, .card { padding: 18px; border-top: 4px solid var(--yellow); }
+    .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .pending-title, .client-name { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .client-pan, .pending-meta, .muted { color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+    .meta { display: grid; gap: 9px; margin: 16px 0; font-size: 14px; }
+    .meta-row { display: grid; grid-template-columns: 118px 1fr; gap: 8px; }
+    .meta-label { color: var(--muted); font-weight: 700; }
+
+    /* ─── STAGE BADGES ─── */
+    .stage-badge { display: inline-flex; align-items: center; padding: 6px 12px; font-size: 11px; font-weight: 800; letter-spacing: .02em; border: 1px solid; white-space: nowrap; }
+    .stage-client    { background: var(--soft); color: var(--navy); border-color: var(--line); }
+    .stage-partial   { background: var(--yellow-pale); color: var(--warning); border-color: rgba(197,152,61,.3); }
+    .stage-full      { background: var(--yellow-pale); color: var(--gold); border-color: rgba(197,152,61,.3); }
+    .stage-initiated { background: var(--soft); color: var(--navy-2); border-color: var(--line); }
+    .stage-progress  { background: #eef5ff; color: var(--navy-2); border-color: #cfe0f2; }
+    .stage-approval  { background: var(--danger-bg); color: var(--danger); border-color: var(--danger-line); }
+    .stage-adminwait { background: var(--yellow-pale); color: var(--warning); border-color: rgba(197,152,61,.3); }
+    .stage-completed { background: var(--success-bg); color: var(--success); border-color: var(--success-line); }
+
+    /* ─── TABLE ─── */
+    .list-table-wrap { overflow-x: auto; margin-top: 16px; }
+    .list-table { width: 100%; min-width: 1280px; border-collapse: collapse; }
+    .list-table th, .list-table td { padding: 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 14px; }
+    .list-table th { background: var(--soft); color: var(--navy); text-transform: uppercase; font-size: 11px; letter-spacing: .06em; font-weight: 800; }
     .list-table tr:hover td { background: #fafbfc; }
-    .badge { display: inline-flex; align-items: center; padding: 4px 9px; font-size: .75rem; font-weight: 800; white-space: nowrap; background: var(--soft); color: var(--navy); border: 1px solid var(--line); }
-    .badge.sks { background: #e7f9f1; color: #2f9970; border-color: #b6e8d2; }
-    .badge.invincibles { background: #f1ebff; color: #7d58c5; border-color: #d4c6f4; }
-    .badge.break { background: var(--yellow-pale); color: #8a6b00; border-color: rgba(197,152,61,.3); }
-    .badge.idle { background: #fff0f3; color: #c06b87; border-color: #f4c6d2; }
-    .stage-badge { display: inline-flex; align-items: center; padding: 4px 9px; font-size: .75rem; font-weight: 800; white-space: nowrap; border: 1px solid transparent; }
-    .stage-client { background: #e8f3ff; color: #2359a0; border-color: #b8d4f4; }
-    .stage-partial { background: var(--yellow-pale); color: #8a6b00; border-color: rgba(197,152,61,.3); }
-    .stage-full { background: #e7f9f1; color: #2f9970; border-color: #b6e8d2; }
-    .stage-initiated { background: #f1ebff; color: #7d58c5; border-color: #d4c6f4; }
-    .stage-progress { background: #e3f8ff; color: #1b7a9e; border-color: #a8dff4; }
-    .stage-approval { background: #fff0f3; color: #c06b87; border-color: #f4c6d2; }
-    .stage-adminwait { background: #fff4e2; color: #9a5a00; border-color: #f4d9a0; }
-    .stage-completed { background: var(--navy); color: var(--yellow); border-color: var(--navy); }
-    .empty-state { padding: 40px 18px; text-align: center; font-weight: 600; color: var(--muted); border: 1px dashed var(--line); background: var(--soft); margin-top: 18px; }
-    .individual-layout { display: grid; grid-template-columns: minmax(240px, 0.8fr) 1.2fr; gap: 16px; margin-top: 16px; }
-    .user-profile, .activity-breakdown { background: var(--soft); border: 1px solid var(--line); padding: 20px; }
-    .profile-title { font-size: 1.05rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
-    .profile-row, .breakdown-row { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 12px; margin-top: 12px; font-size: .86rem; }
-    .profile-label, .breakdown-label { color: var(--muted); font-weight: 700; }
-    .profile-value, .breakdown-value { font-weight: 800; color: var(--navy); text-align: right; }
-    .map-link { color: var(--navy-2); font-weight: 800; text-decoration: underline; }
+
+    /* ─── PANE VIEW ─── */
     .pane-layout { display: grid; grid-template-columns: 340px 1fr; gap: 16px; margin-top: 18px; }
-    .pane-list { border: 1px solid var(--line); overflow: hidden; }
-    .pane-detail { border: 1px solid var(--line); }
+    .pane-list, .pane-detail { overflow: hidden; }
     .pane-item { padding: 16px 18px; border-bottom: 1px solid var(--line); cursor: pointer; transition: background .18s; }
     .pane-item:hover { background: var(--soft); }
-    .pane-item.active { background: var(--yellow-pale); border-left: 4px solid var(--gold); padding-left: 14px; }
+    .pane-item.active { background: var(--yellow-pale); border-left: 4px solid var(--yellow); padding-left: 14px; }
     .pane-detail-inner { padding: 24px; }
     .detail-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 18px 0; }
     .detail-box { background: var(--soft); border: 1px solid var(--line); padding: 14px; }
-    .detail-label { color: var(--muted); font-size: .72rem; margin-bottom: 6px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
-    .pending-title, .client-name { font-size: 1.02rem; font-weight: 800; color: var(--navy); }
-    .client-pan, .pending-meta, .muted { color: var(--muted); font-size: .82rem; }
-    .meta { display: grid; gap: 9px; margin: 16px 0; font-size: .86rem; }
-    .meta-row { display: grid; grid-template-columns: 108px 1fr; gap: 8px; }
-    .meta-label { color: var(--muted); font-weight: 700; }
-    .chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
-    .chart-card { background: var(--soft); border: 1px solid var(--line); border-bottom: 3px solid var(--yellow); padding: 18px; }
-    .chart-title { font-size: .76rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 14px; }
-    .chart-bar-wrap { display: grid; gap: 8px; }
-    .chart-bar-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; font-size: .82rem; }
-    .chart-bar-bg { height: 6px; background: var(--line); margin-top: 4px; }
-    .chart-bar-fill { height: 6px; background: var(--yellow); transition: width .4s ease; }
-    .filters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
-    .search-wrap { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
-    .toolbar-right { display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
-    .info-box { margin-top: 20px; padding: 16px 18px; background: var(--soft); border-left: 4px solid var(--gold); color: #5d4b1b; font-size: .88rem; line-height: 1.65; }
+    .detail-label { color: var(--muted); font-size: 11px; margin-bottom: 6px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; }
+
+    .empty-state { padding: 34px 18px; text-align: center; font-weight: 600; color: var(--muted); margin-top: 18px; border: 1px dashed var(--line); background: var(--soft); box-shadow: none; }
+
     .hidden { display: none !important; }
+
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 1180px) {
-      .form-grid, .summary-grid { grid-template-columns: repeat(2, 1fr); }
-      .form-grid .wide { grid-column: 1 / -1; }
-      .toolbar { grid-template-columns: 1fr 1fr; }
-      .individual-layout, .pane-layout { grid-template-columns: 1fr; }
-      .detail-grid, .chart-grid, .filters-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-grid, .summary-grid, .filters-grid, .chart-grid { grid-template-columns: repeat(2, 1fr); }
+      .toolbar { grid-template-columns: 1fr; }
+      .search-wrap { grid-template-columns: 1fr; }
+      .toolbar-right { justify-content: flex-start; }
+      .pane-layout { grid-template-columns: 1fr; }
+      .detail-grid { grid-template-columns: 1fr; }
     }
+
     @media (max-width: 700px) {
-      .container { padding: 16px 14px 32px; }
-      .navbar { padding: 14px 18px; min-height: auto; flex-wrap: wrap; gap: 10px; }
-      .form-grid, .summary-grid, .toolbar, .chart-grid, .filters-grid { grid-template-columns: 1fr; }
-      .panel { padding: 20px; }
+      .container { padding: 16px 14px 28px; }
+      .navbar { padding: 14px; flex-wrap: wrap; gap: 10px; }
+      .form-grid, .summary-grid, .filters-grid, .chart-grid { grid-template-columns: 1fr; }
+      .panel { padding: 18px; }
       .section-head { align-items: flex-start; flex-direction: column; }
     }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
     }
-</style>
+  </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
+
 <body>
   <div class="page-transition-overlay" id="transitionOverlay"></div>
 
   <div class="app-shell">
     <div class="navbar">
-      <div class="brand">
+      <a class="brand transition-link" href="./index.html" aria-label="Esyton Insights home">
         <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" class="brand-mark" alt="Esyton Insights LLP" />
         <div class="brand-text">
           <span class="logo">V.I.P.E.R</span>
           <span class="logo-sub">Vault for Income, Profit &amp; Equity Records</span>
         </div>
-      </div>
+      </a>
+
       <div class="nav-right">
+        <div id="navRole" class="nav-pill hidden"></div>
+        <div id="navPending" class="nav-pill hidden"></div>
+        <button id="navLogout" class="nav-btn hidden" onclick="logout()">Logout</button>
         <div class="nav-tools" role="navigation" aria-label="Internal tools">
           <button class="nav-tools-btn" aria-haspopup="true">Other Tools <span class="caret">▼</span></button>
           <div class="tools-dropdown" role="menu">
@@ -231,9 +420,6 @@
           </div>
         </div>
         <a href="./index.html" class="nav-btn transition-link">← Esyton Home</a>
-        <div id="navRole" class="nav-pill role-pill hidden"></div>
-        <div id="navPending" class="nav-pill hidden"></div>
-        <button id="navLogout" class="nav-btn logout hidden" onclick="logout()">Logout</button>
       </div>
     </div>
 
@@ -271,7 +457,7 @@
           <div class="section-head">
             <div class="section-head-left">
               <h2>Client Entry</h2>
-              <div class="subtle">All fields are mandatory before saving a client.</div>
+              <div class="subtle">All fields are mandatory before saving a client. PB No is required only for HAL clients.</div>
             </div>
             <div class="chip" id="workspaceChip">Workspace</div>
           </div>
@@ -280,16 +466,23 @@
 
           <div class="form-grid" style="margin-top:14px;">
             <input id="name" placeholder="Name" required />
+
+            <select id="halType" onchange="handleHalTypeChange()" required>
+              <option value="">HAL / Non-HAL</option>
+              <option value="HAL">HAL</option>
+              <option value="Non-HAL">Non-HAL</option>
+            </select>
+
             <input id="pb" placeholder="PB No" required />
-            <input id="pan" placeholder="PAN" required />
-            <input id="mobile" placeholder="Mobile" required />
-            <input id="email" placeholder="Email" required />
+            <input id="pan" placeholder="PAN" maxlength="10" required />
+            <input id="mobile" placeholder="Mobile" maxlength="10" required />
+            <input id="email" type="email" placeholder="Email" required />
 
             <select id="itr" onchange="setFee()" required>
               <option value="">Select ITR</option>
               <option value="ITR1">ITR-1</option>
-              <option value="ITR2">ITR-2/3/4</option>
-              <option value="CONSULT">Consultation</option>
+              <option value="ITR2">ITR-2</option>
+              <option value="ITR34">ITR-3/4</option>
             </select>
 
             <input id="fee" readonly placeholder="Fee" required />
@@ -330,7 +523,7 @@
 
           <div class="toolbar">
             <div class="search-wrap">
-              <input id="search" placeholder="Search by name, PAN, mobile or email..." />
+              <input id="search" placeholder="Search by name, PAN, mobile, email, HAL or Non-HAL..." />
               <button id="searchBtn" class="btn-primary" type="button">Search</button>
             </div>
 
@@ -487,12 +680,10 @@
       return new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
     }
 
-    //
     function getTodayISOFromIST() {
       return new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })).toISOString().slice(0, 10);
     }
 
-    //
     function escapeHtml(value) {
       return String(value ?? "")
         .replace(/&/g, "&amp;")
@@ -554,6 +745,60 @@
       ).join("");
     }
 
+    function normalizeItrLabel(itr) {
+      if (itr === "ITR1") return "ITR-1";
+      if (itr === "ITR2") return "ITR-2";
+      if (itr === "ITR34") return "ITR-3/4";
+      return itr || "-";
+    }
+
+    function getClientHalType(client = {}) {
+      return client.halType || client.customerType || client.halStatus || (client.pb ? "HAL" : "Non-HAL");
+    }
+
+    function getFeeForSelection(halType, itr) {
+      if (itr === "ITR1" && halType === "HAL") return 999;
+      if (itr === "ITR1" && halType === "Non-HAL") return 1499;
+      if (itr === "ITR2" && halType === "HAL") return 1499;
+      if (itr === "ITR2" && halType === "Non-HAL") return 1999;
+      if (itr === "ITR34") return 2499;
+      return "";
+    }
+
+    function validatePAN(pan) {
+      const cleanPan = pan.toUpperCase();
+
+      if (cleanPan.length !== 10) {
+        alert("PAN must be exactly 10 characters long.");
+        return false;
+      }
+
+      if (!/^[A-Z]{5}/.test(cleanPan)) {
+        alert("PAN first 5 characters must be alphabets only.");
+        return false;
+      }
+
+      if (cleanPan.charAt(3) !== "P") {
+        alert("Contact Thanmayi or, Tanooj for Non Individual filings");
+        return false;
+      }
+
+      if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(cleanPan)) {
+        alert("PAN format is invalid. Correct format is 5 alphabets, 4 numbers, and 1 alphabet.");
+        return false;
+      }
+
+      return true;
+    }
+
+    function validateMobile(mobile) {
+      if (!/^[0-9]{10}$/.test(mobile)) {
+        alert("Mobile number must be exactly 10 digits and numbers only.");
+        return false;
+      }
+      return true;
+    }
+
     async function getRoleByEmail(email) {
       const ref = doc(db, "roles", email.toLowerCase());
       const snap = await getDoc(ref);
@@ -585,6 +830,7 @@
 
     function resetFormFields() {
       setInputValue("name", "");
+      setInputValue("halType", "");
       setInputValue("pb", "");
       setInputValue("pan", "");
       setInputValue("mobile", "");
@@ -593,12 +839,15 @@
       setInputValue("fee", "");
       setInputValue("payment", "");
       setInputValue("stage", "");
+      document.getElementById("pb").disabled = false;
+      document.getElementById("pb").required = true;
     }
 
     function validateMandatoryFields() {
       const name = getInputValue("name");
+      const halType = document.getElementById("halType").value;
       const pb = getInputValue("pb");
-      const pan = getInputValue("pan");
+      const pan = getInputValue("pan").toUpperCase();
       const mobile = getInputValue("mobile");
       const email = getInputValue("email");
       const itr = document.getElementById("itr").value;
@@ -606,10 +855,19 @@
       const payment = document.getElementById("payment").value;
       const stage = document.getElementById("stage").value;
 
-      if (!name || !pb || !pan || !mobile || !email || !itr || !fee || !payment || !stage) {
+      if (!name || !halType || !pan || !mobile || !email || !itr || !fee || !payment || !stage) {
         alert("All fields are mandatory. Please fill every field before saving.");
         return false;
       }
+
+      if (halType === "HAL" && !pb) {
+        alert("PB No is mandatory for HAL clients.");
+        return false;
+      }
+
+      if (!validatePAN(pan)) return false;
+      if (!validateMobile(mobile)) return false;
+
       return true;
     }
 
@@ -688,6 +946,7 @@
               <div>${stageBadge(c.stage)}</div>
               <div class="pending-meta">
                 PAN: ${escapeHtml(c.pan || "-")}<br>
+                HAL / Non-HAL: ${escapeHtml(getClientHalType(c) || "-")}<br>
                 Requested By: ${escapeHtml(c.completionRequestedBy || "-")}<br>
                 Requested At: ${escapeHtml(c.completionRequestedAt || "-")}<br>
                 Previous Stage: ${escapeHtml(c.previousStageBeforeApproval || "-")}
@@ -716,11 +975,12 @@
               </div>
 
               <div class="meta">
+                <div class="meta-row"><div class="meta-label">HAL / Non-HAL</div><div>${escapeHtml(getClientHalType(c) || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">PAN</div><div>${escapeHtml(c.pan || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">PB No</div><div>${escapeHtml(c.pb || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">Mobile</div><div>${escapeHtml(c.mobile || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">Email</div><div>${escapeHtml(c.email || "-")}</div></div>
-                <div class="meta-row"><div class="meta-label">ITR</div><div>${escapeHtml(c.itr || "-")}</div></div>
+                <div class="meta-row"><div class="meta-label">ITR</div><div>${escapeHtml(normalizeItrLabel(c.itr))}</div></div>
                 <div class="meta-row"><div class="meta-label">Fee</div><div>₹${escapeHtml(c.fee || 0)}</div></div>
                 <div class="meta-row"><div class="meta-label">Payment</div><div>${escapeHtml(c.payment || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">Created</div><div>${escapeHtml(c.createdAt || "-")}</div></div>
@@ -747,6 +1007,8 @@
             <thead>
               <tr>
                 <th>Name</th>
+                <th>HAL / Non-HAL</th>
+                <th>PB No</th>
                 <th>PAN</th>
                 <th>Mobile</th>
                 <th>Email</th>
@@ -762,10 +1024,12 @@
               ${data.map(c => `
                 <tr>
                   <td>${escapeHtml(c.name || "-")}</td>
+                  <td>${escapeHtml(getClientHalType(c) || "-")}</td>
+                  <td>${escapeHtml(c.pb || "-")}</td>
                   <td>${escapeHtml(c.pan || "-")}</td>
                   <td>${escapeHtml(c.mobile || "-")}</td>
                   <td>${escapeHtml(c.email || "-")}</td>
-                  <td>${escapeHtml(c.itr || "-")}</td>
+                  <td>${escapeHtml(normalizeItrLabel(c.itr))}</td>
                   <td>₹${escapeHtml(c.fee || 0)}</td>
                   <td>${stageBadge(c.stage)}</td>
                   <td>${escapeHtml(c.createdAt || "-")}</td>
@@ -798,6 +1062,7 @@
               <div class="pane-item ${c.pan === selectedPanePan ? "active" : ""}" onclick="selectPaneClient('${escapeHtml(c.pan)}')">
                 <div><strong>${escapeHtml(c.name || "-")}</strong></div>
                 <div class="muted">${escapeHtml(c.pan || "-")}</div>
+                <div class="muted">${escapeHtml(getClientHalType(c) || "-")}</div>
                 <div style="margin-top:8px;">${stageBadge(c.stage)}</div>
               </div>
             `).join("")}
@@ -805,15 +1070,16 @@
 
           <div class="pane-detail">
             <div class="pane-detail-inner">
-              <h2 style="font-size:28px; margin-bottom:12px;">${escapeHtml(selectedClient.name || "-")}</h2>
+              <h2 style="font-size:24px; margin-bottom:12px;">${escapeHtml(selectedClient.name || "-")}</h2>
               <div>${stageBadge(selectedClient.stage)}</div>
 
               <div class="detail-grid">
+                <div class="detail-box"><div class="detail-label">HAL / Non-HAL</div><div>${escapeHtml(getClientHalType(selectedClient) || "-")}</div></div>
                 <div class="detail-box"><div class="detail-label">PAN</div><div>${escapeHtml(selectedClient.pan || "-")}</div></div>
                 <div class="detail-box"><div class="detail-label">PB No</div><div>${escapeHtml(selectedClient.pb || "-")}</div></div>
                 <div class="detail-box"><div class="detail-label">Mobile</div><div>${escapeHtml(selectedClient.mobile || "-")}</div></div>
                 <div class="detail-box"><div class="detail-label">Email</div><div>${escapeHtml(selectedClient.email || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">ITR Type</div><div>${escapeHtml(selectedClient.itr || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">ITR Type</div><div>${escapeHtml(normalizeItrLabel(selectedClient.itr))}</div></div>
                 <div class="detail-box"><div class="detail-label">Fee</div><div>₹${escapeHtml(selectedClient.fee || 0)}</div></div>
                 <div class="detail-box"><div class="detail-label">Payment</div><div>${escapeHtml(selectedClient.payment || "-")}</div></div>
                 <div class="detail-box"><div class="detail-label">Created By</div><div>${escapeHtml(selectedClient.createdBy || "-")}</div></div>
@@ -845,15 +1111,19 @@
     }
 
     function fillForm(client) {
+      const halType = getClientHalType(client);
       setInputValue("name", client.name);
+      setInputValue("halType", halType);
       setInputValue("pb", client.pb);
       setInputValue("pan", client.pan);
       setInputValue("mobile", client.mobile);
       setInputValue("email", client.email);
-      setInputValue("itr", client.itr);
+      setInputValue("itr", client.itr === "ITR2/3/4" ? "ITR34" : client.itr);
       setInputValue("fee", client.fee);
       setInputValue("payment", client.payment || "");
       setInputValue("stage", getDropdownStage(client.stage || ""));
+      handleHalTypeChange();
+      setFee();
     }
 
     function applyFiltersAndRender() {
@@ -863,11 +1133,14 @@
       const stageFilter = document.getElementById("stageFilter").value;
 
       let data = allClients.filter(c => {
+        const halType = getClientHalType(c);
+
         const matchesSearch =
           (c.name || "").toLowerCase().includes(q) ||
           (c.pan || "").toLowerCase().includes(q) ||
           (c.mobile || "").toLowerCase().includes(q) ||
-          (c.email || "").toLowerCase().includes(q);
+          (c.email || "").toLowerCase().includes(q) ||
+          (halType || "").toLowerCase().includes(q);
 
         const createdISO = c.createdAtISO || toISODateFromStored(c.createdAt);
         const completedISO = c.completedAtISO || toISODateFromStored(c.completedAt);
@@ -957,13 +1230,29 @@
       await signOut(auth);
     };
 
+    window.handleHalTypeChange = () => {
+      const halType = document.getElementById("halType").value;
+      const pbField = document.getElementById("pb");
+
+      if (halType === "Non-HAL") {
+        pbField.value = "";
+        pbField.disabled = true;
+        pbField.required = false;
+        pbField.placeholder = "PB No disabled for Non-HAL";
+      } else {
+        pbField.disabled = false;
+        pbField.required = true;
+        pbField.placeholder = "PB No";
+      }
+
+      setFee();
+    };
+
     window.setFee = () => {
+      const halType = document.getElementById("halType").value;
       const itr = document.getElementById("itr").value;
       const feeField = document.getElementById("fee");
-      if (itr === "ITR1") feeField.value = 849;
-      else if (itr === "ITR2") feeField.value = 1349;
-      else if (itr === "CONSULT") feeField.value = 199;
-      else feeField.value = "";
+      feeField.value = getFeeForSelection(halType, itr);
     };
 
     window.resetForm = () => {
@@ -983,7 +1272,8 @@
       if (!validateMandatoryFields()) return;
 
       const name = getInputValue("name");
-      const pb = getInputValue("pb");
+      const halType = document.getElementById("halType").value;
+      const pb = halType === "Non-HAL" ? "" : getInputValue("pb");
       const pan = getInputValue("pan").toUpperCase();
       const mobile = getInputValue("mobile");
       const email = getInputValue("email");
@@ -1004,6 +1294,7 @@
 
       const data = {
         name,
+        halType,
         pb,
         pan,
         mobile,
@@ -1049,7 +1340,15 @@
       await setDoc(ref, data, { merge: true });
 
       if (!exists && data.stage === "Client registration at office") {
-        emailjs.send("service_ns9w7qv", "template_87k6k2w", { name, pan, mobile, itr, fee });
+        emailjs.send("service_ns9w7qv", "template_87k6k2w", {
+          name,
+          halType,
+          pb,
+          pan,
+          mobile,
+          itr: normalizeItrLabel(itr),
+          fee
+        });
       }
 
       alert(exists ? "Client updated successfully" : "Client saved successfully");
@@ -1162,11 +1461,12 @@
       const formatted = displayedClients.map((c, i) => ({
         "Sl. No.": i + 1,
         "Name": c.name,
+        "HAL / Non-HAL": getClientHalType(c),
         "PB No.": c.pb,
         "PAN": c.pan,
         "Mobile Number": c.mobile,
         "Mail Address": c.email,
-        "Type of ITR": c.itr,
+        "Type of ITR": normalizeItrLabel(c.itr),
         "Fees": c.fee,
         "Status": c.stage,
         "Created By": c.createdBy,
@@ -1185,14 +1485,24 @@
       const pdf = new jsPDF("landscape");
 
       const headers = [[
-        "Sl.No", "Name", "PB", "PAN", "Mobile", "Email",
+        "Sl.No", "Name", "HAL/Non-HAL", "PB", "PAN", "Mobile", "Email",
         "ITR", "Fees", "Status", "Created By", "Created", "Completed"
       ]];
 
       const rows = displayedClients.map((c, i) => [
-        i + 1, c.name || "", c.pb || "", c.pan || "", c.mobile || "",
-        c.email || "", c.itr || "", c.fee || "", c.stage || "",
-        c.createdBy || "", c.createdAt || "", c.completedAt || ""
+        i + 1,
+        c.name || "",
+        getClientHalType(c) || "",
+        c.pb || "",
+        c.pan || "",
+        c.mobile || "",
+        c.email || "",
+        normalizeItrLabel(c.itr),
+        c.fee || "",
+        c.stage || "",
+        c.createdBy || "",
+        c.createdAt || "",
+        c.completedAt || ""
       ]);
 
       pdf.autoTable({ head: headers, body: rows });
@@ -1275,21 +1585,32 @@
       });
     });
 
+    document.getElementById("pan").addEventListener("input", (e) => {
+      e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
+    });
+
+    document.getElementById("pan").addEventListener("blur", (e) => {
+      const pan = e.target.value.trim().toUpperCase();
+      if (pan && pan.length >= 4 && pan.charAt(3) !== "P") {
+        alert("Contact Thanmayi or, Tanooj for Non Individual filings");
+      }
+    });
+
+    document.getElementById("mobile").addEventListener("input", (e) => {
+      e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
+    });
+
     searchInput.addEventListener("keydown", (e) => {
       if (e.key === "Enter") applyFiltersAndRender();
     });
 
     searchBtn.addEventListener("click", applyFiltersAndRender);
+  </script>
 
-    // ADDRESS BAR EXTENSION MASK
-    if (window.location.pathname.endsWith('.html')) {
-      const cleanUrl = window.location.pathname.replace(/\.html$/, '');
-      window.history.replaceState(null, '', cleanUrl + window.location.search);
-    }
-
+  <script>
     // ─── MOTION TRANSITION CONTROLLER ───
     const overlay = document.getElementById("transitionOverlay");
-    
+
     window.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         overlay.classList.add("fade-out");
@@ -1303,10 +1624,10 @@
           e.preventDefault();
           overlay.classList.remove("fade-out");
           overlay.classList.add("fade-in");
-          
+
           setTimeout(() => {
             window.location.href = destination;
-          }, 1500); 
+          }, 1500);
         }
       });
     });
