@@ -474,6 +474,7 @@
               <option value="ITR1">ITR-1</option>
               <option value="ITR2">ITR-2</option>
               <option value="ITR34">ITR-3/4</option>
+              <option value="consultation">Consultation</option>
             </select>
 
             <input id="fee" readonly placeholder="Fee" required />
@@ -740,6 +741,7 @@
       if (itr === "ITR1") return "ITR-1";
       if (itr === "ITR2") return "ITR-2";
       if (itr === "ITR34") return "ITR-3/4";
+      if (itr === "consultation") return "Consultation";
       return itr || "-";
     }
 
@@ -748,6 +750,7 @@
     }
 
     function getFeeForSelection(halType, itr) {
+      if (itr === "consultation") return 199;
       if (itr === "ITR1" && halType === "HAL") return 999;
       if (itr === "ITR1" && halType === "Non-HAL") return 1499;
       if (itr === "ITR2" && halType === "HAL") return 1499;
@@ -947,7 +950,7 @@
                 <button class="btn-danger" onclick="rejectCompletion('${escapeHtml(c.pan)}')">Reject</button>
               </div>
             </div>
-          `).join("")}
+           `).join("")}
         </div>
       `;
     }
@@ -986,7 +989,7 @@
                 <button class="btn-edit" onclick="editClient('${escapeHtml(c.pan)}')">Edit Client</button>
               </div>
             </div>
-          `).join("")}
+           `).join("")}
         </div>
       `;
     }
@@ -1035,7 +1038,7 @@
                     </div>
                   </td>
                 </tr>
-              `).join("")}
+               `).join("")}
             </tbody>
           </table>
         </div>
@@ -1056,7 +1059,7 @@
                 <div class="muted">${escapeHtml(getClientHalType(c) || "-")}</div>
                 <div style="margin-top:8px;">${stageBadge(c.stage)}</div>
               </div>
-            `).join("")}
+             `).join("")}
           </div>
 
           <div class="pane-detail">
