@@ -84,7 +84,7 @@
       border-bottom: 1px solid var(--line);
       box-shadow: 0 4px 18px rgba(6,47,89,.06);
     }
-    .brand { display: flex; align-items: center; gap: 12px; color: var(--navy); transition: opacity .2s; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--navy); text-decoration: none; transition: opacity .2s; }
     .brand:hover { opacity: .85; }
     .brand-mark { height: 46px; width: auto; max-width: 150px; object-fit: contain; }
     .brand-text { display: flex; flex-direction: column; gap: 2px; }
@@ -94,18 +94,9 @@
       font-weight: 900;
       letter-spacing: .5px;
       font-family: 'Playfair Display', Georgia, serif;
-      background: linear-gradient(90deg, var(--navy), var(--gold), var(--navy));
-      background-size: 200% auto;
-      color: transparent;
-      background-clip: text;
-      -webkit-background-clip: text;
-      animation: shimmer 6s linear infinite;
+      color: var(--navy);
     }
     .logo-sub { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
-    @keyframes shimmer {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
 
     .nav-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
@@ -398,7 +389,7 @@
 
   <div class="app-shell">
     <div class="navbar">
-      <a class="brand transition-link" href="./index.html" aria-label="Esyton Insights home">
+      <a class="brand transition-link" href="./" aria-label="Esyton Insights home">
         <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" class="brand-mark" alt="Esyton Insights LLP" />
         <div class="brand-text">
           <span class="logo">V.I.P.E.R</span>
@@ -413,13 +404,13 @@
         <div class="nav-tools" role="navigation" aria-label="Internal tools">
           <button class="nav-tools-btn" aria-haspopup="true">Other Tools <span class="caret">▼</span></button>
           <div class="tools-dropdown" role="menu">
-            <a class="transition-link" href="./viper.html" role="menuitem"><span class="tool-icon active">V</span><span>V.I.P.E.R<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span></a>
-            <a class="transition-link" href="./timesheet.html" role="menuitem"><span class="tool-icon">T</span><span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span></a>
-            <a class="transition-link" href="./computax.html" role="menuitem"><span class="tool-icon">C</span><span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal</small></span></a>
-            <a class="transition-link" href="./refund-status.html" role="menuitem"><span class="tool-icon">R</span><span>Refund Status<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span></a>
+            <a class="transition-link" href="./viper" role="menuitem"><span class="tool-icon active">V</span><span>V.I.P.E.R<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span></a>
+            <a class="transition-link" href="./timesheet" role="menuitem"><span class="tool-icon">T</span><span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span></a>
+            <a class="transition-link" href="./computax" role="menuitem"><span class="tool-icon">C</span><span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal</small></span></a>
+            <a class="transition-link" href="./refund-status" role="menuitem"><span class="tool-icon">R</span><span>Refund Status<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span></a>
           </div>
         </div>
-        <a href="./index.html" class="nav-btn transition-link">← Esyton Home</a>
+        <a href="./" class="nav-btn transition-link">← Esyton Home</a>
       </div>
     </div>
 
@@ -1608,6 +1599,40 @@
   </script>
 
   <script>
+    // ─── CLEAN URL HELPERS ───
+    // Pages still live on disk as .html files (index.html, viper.html, ...),
+    // but every link in the markup above now points to a clean path
+    // (e.g. "./", "./viper"). These two helpers translate between the two
+    // without changing any other behaviour.
+
+    // Turn a clean link into the real file the browser should load.
+    function resolveRealPath(href) {
+      if (!href) return href;
+      if (/^https?:\/\//i.test(href)) return href;   // external links untouched
+      if (/\.[a-z0-9]+($|[?#])/i.test(href)) return href; // already has an extension
+
+      if (href.endsWith("/")) return href + "index.html";
+      if (href === ".") return "./index.html";
+      return href + ".html";
+    }
+
+    // After the real .html file has loaded, quietly tidy the address bar so
+    // it matches the clean link style (no .html / index.html visible).
+    (function cleanAddressBar() {
+      const { pathname, search, hash } = window.location;
+      let cleanPath = pathname;
+
+      if (/\/index\.html$/i.test(cleanPath)) {
+        cleanPath = cleanPath.replace(/index\.html$/i, "");
+      } else if (/\.html$/i.test(cleanPath)) {
+        cleanPath = cleanPath.replace(/\.html$/i, "");
+      }
+
+      if (cleanPath !== pathname) {
+        history.replaceState(null, "", cleanPath + search + hash);
+      }
+    })();
+
     // ─── MOTION TRANSITION CONTROLLER ───
     const overlay = document.getElementById("transitionOverlay");
 
@@ -1620,13 +1645,13 @@
     document.querySelectorAll(".transition-link").forEach(link => {
       link.addEventListener("click", function(e) {
         const destination = this.getAttribute("href");
-        if (destination && (destination.includes(".html") || destination.startsWith("./"))) {
+        if (destination && (destination.includes(".html") || destination.startsWith("./") || destination.startsWith("/"))) {
           e.preventDefault();
           overlay.classList.remove("fade-out");
           overlay.classList.add("fade-in");
 
           setTimeout(() => {
-            window.location.href = destination;
+            window.location.href = resolveRealPath(destination);
           }, 1500);
         }
       });
