@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +50,6 @@
 
     h1, h2 { font-family: 'Playfair Display', Georgia, serif; }
 
-    /* ─── PAGE TRANSITION OVERLAY ─── */
     .page-transition-overlay {
       position: fixed;
       inset: 0;
@@ -69,7 +69,6 @@
 
     .app-shell { position: relative; z-index: 1; }
 
-    /* ─── NAVBAR ─── */
     .navbar {
       position: sticky;
       top: 0;
@@ -160,7 +159,6 @@
     .tool-icon { width: 28px; height: 28px; display: grid; place-items: center; background: var(--yellow); color: var(--navy-3); font-weight: 900; font-size: .72rem; flex-shrink: 0; }
     .tool-icon.active { background: var(--navy); color: var(--yellow); }
 
-    /* ─── LAYOUT ─── */
     .container { max-width: 1380px; margin: 0 auto; padding: 28px 22px 40px; }
 
     .panel {
@@ -194,14 +192,12 @@
       white-space: nowrap;
     }
 
-    /* ─── FORM LAYOUT ─── */
     .form-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
     .toolbar { display: grid; grid-template-columns: 1.5fr .8fr auto; gap: 12px; align-items: center; margin-bottom: 14px; }
     .search-wrap { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
     .toolbar-right { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
     .filters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 8px; }
 
-    /* ─── FORM CONTROLS ─── */
     input, select, button { font: inherit; }
     input, select {
       width: 100%;
@@ -216,7 +212,15 @@
     input:focus, select:focus { border-color: var(--navy-2); box-shadow: 0 0 0 3px rgba(6,47,89,.07); }
     input:disabled { color: #98a3ad; background: var(--soft); cursor: not-allowed; }
 
-    /* ─── BUTTONS ─── */
+    /* Auto-ID field special styling */
+    input.auto-id {
+      color: var(--navy);
+      font-weight: 800;
+      background: var(--yellow-pale);
+      border-color: rgba(197,152,61,.4);
+      cursor: not-allowed;
+    }
+
     button {
       height: 46px;
       padding: 0 18px;
@@ -270,7 +274,6 @@
 
     .action-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
 
-    /* ─── STATUS MESSAGES ─── */
     .status-banner {
       margin-top: 12px;
       padding: 12px 14px;
@@ -287,7 +290,6 @@
     .status-message.error { color: var(--danger); }
     .status-message.success { color: var(--success); }
 
-    /* ─── SUMMARY CARDS ─── */
     .summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; }
 
     .summary-card, .chart-card, .card, .pending-card, .list-table-wrap, .pane-list, .pane-detail, .empty-state {
@@ -301,7 +303,6 @@
     .summary-value { font-size: 28px; font-weight: 800; color: var(--navy); }
     .summary-note { margin-top: 6px; color: var(--muted); font-size: 12px; }
 
-    /* ─── CHARTS ─── */
     .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
     .chart-card { padding: 18px; }
     .chart-label { font-size: 13px; color: var(--muted); margin-bottom: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
@@ -311,7 +312,6 @@
     .bar-fill.completed { background: var(--success); }
     .chart-meta { display: flex; justify-content: space-between; margin-top: 10px; color: var(--muted); font-size: 13px; font-weight: 700; }
 
-    /* ─── CARDS ─── */
     .pending-grid, .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; margin-top: 14px; }
     .pending-card, .card { padding: 18px; border-top: 4px solid var(--yellow); }
     .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
@@ -322,7 +322,6 @@
     .meta-row { display: grid; grid-template-columns: 118px 1fr; gap: 8px; }
     .meta-label { color: var(--muted); font-weight: 700; }
 
-    /* ─── STAGE BADGES ─── */
     .stage-badge { display: inline-flex; align-items: center; padding: 6px 12px; font-size: 11px; font-weight: 800; letter-spacing: .02em; border: 1px solid; white-space: nowrap; }
     .stage-client    { background: var(--soft); color: var(--navy); border-color: var(--line); }
     .stage-partial   { background: var(--yellow-pale); color: var(--warning); border-color: rgba(197,152,61,.3); }
@@ -333,14 +332,12 @@
     .stage-adminwait { background: var(--yellow-pale); color: var(--warning); border-color: rgba(197,152,61,.3); }
     .stage-completed { background: var(--success-bg); color: var(--success); border-color: var(--success-line); }
 
-    /* ─── TABLE ─── */
     .list-table-wrap { overflow-x: auto; margin-top: 16px; }
-    .list-table { width: 100%; min-width: 1280px; border-collapse: collapse; }
+    .list-table { width: 100%; min-width: 1380px; border-collapse: collapse; }
     .list-table th, .list-table td { padding: 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; font-size: 14px; }
     .list-table th { background: var(--soft); color: var(--navy); text-transform: uppercase; font-size: 11px; letter-spacing: .06em; font-weight: 800; }
     .list-table tr:hover td { background: #fafbfc; }
 
-    /* ─── PANE VIEW ─── */
     .pane-layout { display: grid; grid-template-columns: 340px 1fr; gap: 16px; margin-top: 18px; }
     .pane-list, .pane-detail { overflow: hidden; }
     .pane-item { padding: 16px 18px; border-bottom: 1px solid var(--line); cursor: pointer; transition: background .18s; }
@@ -353,9 +350,28 @@
 
     .empty-state { padding: 34px 18px; text-align: center; font-weight: 600; color: var(--muted); margin-top: 18px; border: 1px dashed var(--line); background: var(--soft); box-shadow: none; }
 
+    /* ESY ID badge inside table/cards */
+    .esy-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--navy);
+      color: var(--yellow);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+    .pb-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--soft);
+      color: var(--navy-2);
+      border: 1px solid var(--line);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
     .hidden { display: none !important; }
 
-    /* ─── RESPONSIVE ─── */
     @media (max-width: 1180px) {
       .form-grid, .summary-grid, .filters-grid, .chart-grid { grid-template-columns: repeat(2, 1fr); }
       .toolbar { grid-template-columns: 1fr; }
@@ -408,6 +424,7 @@
             <a class="transition-link" href="./timesheet" role="menuitem"><span class="tool-icon">T</span><span>T.I.M.O<br><small style="font-weight:400;color:var(--muted);">Timesheet tracker</small></span></a>
             <a class="transition-link" href="./computax" role="menuitem"><span class="tool-icon">C</span><span>Computax<br><small style="font-weight:400;color:var(--muted);">Tax portal</small></span></a>
             <a class="transition-link" href="./refund-status" role="menuitem"><span class="tool-icon">R</span><span>Refund Status<br><small style="font-weight:400;color:var(--muted);">Client tracker</small></span></a>
+            <a class="transition-link" href="./track" role="menuitem"><span class="tool-icon" style="background:var(--success);color:#fff;">S</span><span>File Tracker<br><small style="font-weight:400;color:var(--muted);">Client self-service</small></span></a>
           </div>
         </div>
         <a href="./" class="nav-btn transition-link">← Esyton Home</a>
@@ -415,6 +432,7 @@
     </div>
 
     <div class="container">
+      <!-- LOGIN -->
       <div id="loginDiv" class="panel hero-login">
         <div class="section-head">
           <div class="section-head-left">
@@ -423,7 +441,6 @@
           </div>
           <div class="chip">Secure Login</div>
         </div>
-
         <input id="loginEmail" type="email" placeholder="Email" />
         <br /><br />
         <input id="loginPass" type="password" placeholder="Password" />
@@ -432,7 +449,10 @@
         <div id="loginStatus" class="status-message"></div>
       </div>
 
+      <!-- APP -->
       <div id="appDiv" class="hidden">
+
+        <!-- APPROVAL PANEL (admin only) -->
         <div id="approvalPanel" class="panel hidden">
           <div class="section-head">
             <div class="section-head-left">
@@ -444,11 +464,12 @@
           <div id="pendingList"></div>
         </div>
 
+        <!-- CLIENT ENTRY -->
         <div class="panel" id="entryPanel">
           <div class="section-head">
             <div class="section-head-left">
               <h2>Client Entry</h2>
-              <div class="subtle">All fields are mandatory before saving a client. PB No is required only for HAL clients.</div>
+              <div class="subtle">All fields are mandatory. HAL clients require a PB No. Non-HAL clients receive an auto-generated ESY ID.</div>
             </div>
             <div class="chip" id="workspaceChip">Workspace</div>
           </div>
@@ -464,7 +485,9 @@
               <option value="Non-HAL">Non-HAL</option>
             </select>
 
+            <!-- PB No for HAL; auto ESY-XXXX for Non-HAL -->
             <input id="pb" placeholder="PB No" required />
+
             <input id="pan" placeholder="PAN" maxlength="10" required />
             <input id="mobile" placeholder="Mobile" maxlength="10" required />
             <input id="email" type="email" placeholder="Email" required />
@@ -504,6 +527,7 @@
           </div>
         </div>
 
+        <!-- DASHBOARD -->
         <div class="panel">
           <div class="section-head">
             <div class="section-head-left">
@@ -515,7 +539,7 @@
 
           <div class="toolbar">
             <div class="search-wrap">
-              <input id="search" placeholder="Search by name, PAN, mobile, email, HAL or Non-HAL..." />
+              <input id="search" placeholder="Search by name, PAN, mobile, email, PB No, ESY ID, HAL or Non-HAL..." />
               <button id="searchBtn" class="btn-primary" type="button">Search</button>
             </div>
 
@@ -586,7 +610,6 @@
                 <span id="pendingPercent">0%</span>
               </div>
             </div>
-
             <div class="chart-card">
               <div class="chart-label">Completed Clients</div>
               <div class="bar-track">
@@ -612,7 +635,10 @@
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-    import { getFirestore, doc, setDoc, onSnapshot, collection, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import {
+      getFirestore, doc, setDoc, onSnapshot, collection,
+      getDoc, getDocs, query, orderBy, limit, runTransaction
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyCsxAw40sFLw00PtEas3cvzRMEjkDZ9NJE",
@@ -624,28 +650,29 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
 
-    const loginDiv = document.getElementById("loginDiv");
-    const appDiv = document.getElementById("appDiv");
-    const loginBtn = document.getElementById("loginBtn");
-    const loginStatus = document.getElementById("loginStatus");
-    const navRole = document.getElementById("navRole");
-    const navPending = document.getElementById("navPending");
-    const navLogout = document.getElementById("navLogout");
+    // ─── DOM refs ───
+    const loginDiv      = document.getElementById("loginDiv");
+    const appDiv        = document.getElementById("appDiv");
+    const loginBtn      = document.getElementById("loginBtn");
+    const loginStatus   = document.getElementById("loginStatus");
+    const navRole       = document.getElementById("navRole");
+    const navPending    = document.getElementById("navPending");
+    const navLogout     = document.getElementById("navLogout");
     const approvalPanel = document.getElementById("approvalPanel");
-    const pendingList = document.getElementById("pendingList");
-    const approvalChip = document.getElementById("approvalChip");
+    const pendingList   = document.getElementById("pendingList");
+    const approvalChip  = document.getElementById("approvalChip");
     const workspaceChip = document.getElementById("workspaceChip");
     const dashboardChip = document.getElementById("dashboardChip");
-    const searchInput = document.getElementById("search");
-    const searchBtn = document.getElementById("searchBtn");
+    const searchInput   = document.getElementById("search");
+    const searchBtn     = document.getElementById("searchBtn");
 
-    let currentUserEmail = "";
-    let currentRole = "";
-    let allClients = [];
-    let displayedClients = [];
-    let currentView = "card";
-    let selectedPanePan = null;
-    let editingPan = null;
+    let currentUserEmail  = "";
+    let currentRole       = "";
+    let allClients        = [];
+    let displayedClients  = [];
+    let currentView       = "card";
+    let selectedPanePan   = null;
+    let editingPan        = null;
     let unsubscribeClients = null;
 
     const editableStages = [
@@ -658,49 +685,30 @@
       "Completed"
     ];
 
-    function setLoginStatus(message = "", type = "") {
-      loginStatus.textContent = message;
+    // ─── HELPERS ───
+    function setLoginStatus(msg = "", type = "") {
+      loginStatus.textContent = msg;
       loginStatus.className = "status-message" + (type ? ` ${type}` : "");
     }
-
-    function setLoginLoading(isLoading) {
-      loginBtn.disabled = isLoading;
-      loginBtn.textContent = isLoading ? "Signing In..." : "Login";
+    function setLoginLoading(loading) {
+      loginBtn.disabled = loading;
+      loginBtn.textContent = loading ? "Signing In..." : "Login";
     }
-
     function getISTTime() {
       return new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
     }
-
     function getTodayISOFromIST() {
       return new Date(new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" })).toISOString().slice(0, 10);
     }
-
     function escapeHtml(value) {
       return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#39;");
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
     }
-
-    function getInputValue(id) {
-      return document.getElementById(id).value.trim();
-    }
-
-    function setInputValue(id, value) {
-      document.getElementById(id).value = value || "";
-    }
-
-    function isAdmin() {
-      return currentRole === "admin";
-    }
-
-    function isCompleted(client) {
-      return (client.stage || "") === "Completed";
-    }
-
+    function getInputValue(id) { return document.getElementById(id).value.trim(); }
+    function setInputValue(id, value) { document.getElementById(id).value = value || ""; }
+    function isAdmin() { return currentRole === "admin"; }
+    function isCompleted(client) { return (client.stage || "") === "Completed"; }
     function getPendingRequests() {
       return allClients.filter(c =>
         c.completionRequested === true ||
@@ -712,31 +720,27 @@
     function getStageClass(stage) {
       switch (stage) {
         case "Client registration at office": return "stage-client";
-        case "Partial submission by client": return "stage-partial";
-        case "Full submission by client": return "stage-full";
-        case "Work initiated at office": return "stage-initiated";
-        case "In progress": return "stage-progress";
-        case "For client approval": return "stage-approval";
-        case "Waiting for admin approval": return "stage-adminwait";
-        case "Completed": return "stage-completed";
+        case "Partial submission by client":  return "stage-partial";
+        case "Full submission by client":     return "stage-full";
+        case "Work initiated at office":      return "stage-initiated";
+        case "In progress":                   return "stage-progress";
+        case "For client approval":           return "stage-approval";
+        case "Waiting for admin approval":    return "stage-adminwait";
+        case "Completed":                     return "stage-completed";
         default: return "stage-client";
       }
     }
-
     function stageBadge(stage) {
       return `<span class="stage-badge ${getStageClass(stage)}">${escapeHtml(stage || "-")}</span>`;
     }
-
     function getDropdownStage(stage) {
       return stage === "Waiting for admin approval" ? "Completed" : stage;
     }
-
     function stageOptions(selectedStage) {
-      return editableStages.map(stage =>
-        `<option value="${escapeHtml(stage)}" ${selectedStage === stage ? "selected" : ""}>${escapeHtml(stage)}</option>`
+      return editableStages.map(s =>
+        `<option value="${escapeHtml(s)}" ${selectedStage === s ? "selected" : ""}>${escapeHtml(s)}</option>`
       ).join("");
     }
-
     function normalizeItrLabel(itr) {
       if (itr === "ITR1") return "ITR-1";
       if (itr === "ITR2") return "ITR-2";
@@ -744,57 +748,62 @@
       if (itr === "consultation") return "Consultation";
       return itr || "-";
     }
-
     function getClientHalType(client = {}) {
-      return client.halType || client.customerType || client.halStatus || (client.pb ? "HAL" : "Non-HAL");
+      return client.halType || client.customerType || client.halStatus || (client.pb && !client.pb.startsWith("ESY-") ? "HAL" : "Non-HAL");
     }
-
     function getFeeForSelection(halType, itr) {
       if (itr === "consultation") return 199;
-      if (itr === "ITR1" && halType === "HAL") return 999;
-      if (itr === "ITR1" && halType === "Non-HAL") return 1499;
-      if (itr === "ITR2" && halType === "HAL") return 1499;
-      if (itr === "ITR2" && halType === "Non-HAL") return 1999;
+      if (itr === "ITR1"  && halType === "HAL")     return 999;
+      if (itr === "ITR1"  && halType === "Non-HAL") return 1499;
+      if (itr === "ITR2"  && halType === "HAL")     return 1499;
+      if (itr === "ITR2"  && halType === "Non-HAL") return 1999;
       if (itr === "ITR34") return 2499;
       return "";
     }
 
+    // ─── PB / ESY ID display helper ───
+    function clientIdBadge(client) {
+      const halType = getClientHalType(client);
+      const id = client.pb || "-";
+      if (halType === "Non-HAL") return `<span class="esy-badge">${escapeHtml(id)}</span>`;
+      return `<span class="pb-badge">${escapeHtml(id)}</span>`;
+    }
+    function clientIdLabel(client) {
+      const halType = getClientHalType(client);
+      return halType === "Non-HAL" ? "ESY ID" : "PB No";
+    }
+
+    // ─── AUTO ESY-XXXX ID GENERATION ───
+    // Uses a Firestore counter doc: meta/esyCounter  { lastNumber: N }
+    async function generateEsyId() {
+      const counterRef = doc(db, "meta", "esyCounter");
+      let newNumber = 1;
+      await runTransaction(db, async (tx) => {
+        const snap = await tx.get(counterRef);
+        if (snap.exists()) {
+          newNumber = (snap.data().lastNumber || 0) + 1;
+        }
+        tx.set(counterRef, { lastNumber: newNumber }, { merge: true });
+      });
+      // Format: ESY-0001 … ESY-9999
+      const padded = String(newNumber).padStart(4, "0");
+      return `ESY-${padded}`;
+    }
+
     function validatePAN(pan) {
       const cleanPan = pan.toUpperCase();
-
-      if (cleanPan.length !== 10) {
-        alert("PAN must be exactly 10 characters long.");
-        return false;
-      }
-
-      if (!/^[A-Z]{5}/.test(cleanPan)) {
-        alert("PAN first 5 characters must be alphabets only.");
-        return false;
-      }
-
-      if (cleanPan.charAt(3) !== "P") {
-        alert("Contact Thanmayi or, Tanooj for Non Individual filings");
-        return false;
-      }
-
-      if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(cleanPan)) {
-        alert("PAN format is invalid. Correct format is 5 alphabets, 4 numbers, and 1 alphabet.");
-        return false;
-      }
-
+      if (cleanPan.length !== 10) { alert("PAN must be exactly 10 characters long."); return false; }
+      if (!/^[A-Z]{5}/.test(cleanPan)) { alert("PAN first 5 characters must be alphabets only."); return false; }
+      if (cleanPan.charAt(3) !== "P") { alert("Contact Thanmayi or, Tanooj for Non Individual filings"); return false; }
+      if (!/^[A-Z]{5}[0-9]{4}[A-Z]$/.test(cleanPan)) { alert("PAN format is invalid. Correct format is 5 alphabets, 4 numbers, and 1 alphabet."); return false; }
       return true;
     }
-
     function validateMobile(mobile) {
-      if (!/^[0-9]{10}$/.test(mobile)) {
-        alert("Mobile number must be exactly 10 digits and numbers only.");
-        return false;
-      }
+      if (!/^[0-9]{10}$/.test(mobile)) { alert("Mobile number must be exactly 10 digits and numbers only."); return false; }
       return true;
     }
-
     async function getRoleByEmail(email) {
-      const ref = doc(db, "roles", email.toLowerCase());
+      const ref  = doc(db, "roles", email.toLowerCase());
       const snap = await getDoc(ref);
       if (!snap.exists()) return null;
       return snap.data();
@@ -808,9 +817,8 @@
 
     function setEditMode(client) {
       editingPan = client?.pan || null;
-      const banner = document.getElementById("editBanner");
+      const banner  = document.getElementById("editBanner");
       const saveBtn = document.getElementById("saveBtn");
-
       if (editingPan) {
         banner.classList.add("editing");
         banner.textContent = `Editing client: ${client.name || "-"} (${client.pan || "-"})`;
@@ -823,45 +831,37 @@
     }
 
     function resetFormFields() {
-      setInputValue("name", "");
-      setInputValue("halType", "");
-      setInputValue("pb", "");
-      setInputValue("pan", "");
-      setInputValue("mobile", "");
-      setInputValue("email", "");
-      setInputValue("itr", "");
-      setInputValue("fee", "");
-      setInputValue("payment", "");
-      setInputValue("stage", "");
-      document.getElementById("pb").disabled = false;
-      document.getElementById("pb").required = true;
+      ["name","halType","pan","mobile","email","itr","fee","payment","stage"].forEach(id => setInputValue(id, ""));
+      const pbField = document.getElementById("pb");
+      pbField.value       = "";
+      pbField.disabled    = false;
+      pbField.required    = true;
+      pbField.placeholder = "PB No";
+      pbField.classList.remove("auto-id");
     }
 
     function validateMandatoryFields() {
-      const name = getInputValue("name");
+      const name    = getInputValue("name");
       const halType = document.getElementById("halType").value;
-      const pb = getInputValue("pb");
-      const pan = getInputValue("pan").toUpperCase();
-      const mobile = getInputValue("mobile");
-      const email = getInputValue("email");
-      const itr = document.getElementById("itr").value;
-      const fee = document.getElementById("fee").value;
+      const pb      = getInputValue("pb");
+      const pan     = getInputValue("pan").toUpperCase();
+      const mobile  = getInputValue("mobile");
+      const email   = getInputValue("email");
+      const itr     = document.getElementById("itr").value;
+      const fee     = document.getElementById("fee").value;
       const payment = document.getElementById("payment").value;
-      const stage = document.getElementById("stage").value;
+      const stage   = document.getElementById("stage").value;
 
       if (!name || !halType || !pan || !mobile || !email || !itr || !fee || !payment || !stage) {
         alert("All fields are mandatory. Please fill every field before saving.");
         return false;
       }
-
       if (halType === "HAL" && !pb) {
         alert("PB No is mandatory for HAL clients.");
         return false;
       }
-
       if (!validatePAN(pan)) return false;
       if (!validateMobile(mobile)) return false;
-
       return true;
     }
 
@@ -870,36 +870,32 @@
       if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return value;
       const match = String(value).match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
       if (!match) return "";
-      const day = match[1].padStart(2, "0");
-      const month = match[2].padStart(2, "0");
-      const year = match[3];
-      return `${year}-${month}-${day}`;
+      return `${match[3]}-${match[2].padStart(2,"0")}-${match[1].padStart(2,"0")}`;
     }
 
     function updateSummary(data) {
-      const total = data.length;
+      const total     = data.length;
       const completed = data.filter(isCompleted).length;
-      const pending = total - completed;
-      const completedPercent = total ? Math.round((completed / total) * 100) : 0;
-      const pendingPercent = total ? 100 - completedPercent : 0;
+      const pending   = total - completed;
+      const compPct   = total ? Math.round((completed / total) * 100) : 0;
+      const pendPct   = total ? 100 - compPct : 0;
 
-      document.getElementById("sumTotal").textContent = total;
-      document.getElementById("sumPending").textContent = pending;
+      document.getElementById("sumTotal").textContent     = total;
+      document.getElementById("sumPending").textContent   = pending;
       document.getElementById("sumCompleted").textContent = completed;
-      document.getElementById("sumRate").textContent = completedPercent + "%";
+      document.getElementById("sumRate").textContent      = compPct + "%";
 
-      document.getElementById("pendingBar").style.width = pendingPercent + "%";
-      document.getElementById("completedBar").style.width = completedPercent + "%";
-      document.getElementById("pendingCount").textContent = `${pending} clients`;
+      document.getElementById("pendingBar").style.width    = pendPct + "%";
+      document.getElementById("completedBar").style.width  = compPct + "%";
+      document.getElementById("pendingCount").textContent   = `${pending} clients`;
       document.getElementById("completedCount").textContent = `${completed} clients`;
-      document.getElementById("pendingPercent").textContent = `${pendingPercent}%`;
-      document.getElementById("completedPercent").textContent = `${completedPercent}%`;
+      document.getElementById("pendingPercent").textContent  = `${pendPct}%`;
+      document.getElementById("completedPercent").textContent = `${compPct}%`;
     }
 
     function applySort(data) {
       const sortBy = document.getElementById("sortBy").value;
       const sorted = [...data];
-
       if (sortBy === "name") {
         sorted.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
       } else if (sortBy === "completed") {
@@ -913,16 +909,12 @@
           return bDate.localeCompare(aDate);
         });
       }
-
       return sorted;
     }
 
+    // ─── RENDER: PENDING REQUESTS ───
     function renderPendingRequests() {
-      if (!isAdmin()) {
-        approvalPanel.classList.add("hidden");
-        return;
-      }
-
+      if (!isAdmin()) { approvalPanel.classList.add("hidden"); return; }
       approvalPanel.classList.remove("hidden");
       const pending = getPendingRequests();
       approvalChip.textContent = `${pending.length} Pending`;
@@ -939,7 +931,7 @@
               <div class="pending-title">${escapeHtml(c.name || "-")}</div>
               <div>${stageBadge(c.stage)}</div>
               <div class="pending-meta">
-                PAN: ${escapeHtml(c.pan || "-")}<br>
+                ${clientIdLabel(c)}: ${clientIdBadge(c)}<br>
                 HAL / Non-HAL: ${escapeHtml(getClientHalType(c) || "-")}<br>
                 Requested By: ${escapeHtml(c.completionRequestedBy || "-")}<br>
                 Requested At: ${escapeHtml(c.completionRequestedAt || "-")}<br>
@@ -947,14 +939,14 @@
               </div>
               <div class="action-row">
                 <button class="btn-success" onclick="approveCompletion('${escapeHtml(c.pan)}')">Approve</button>
-                <button class="btn-danger" onclick="rejectCompletion('${escapeHtml(c.pan)}')">Reject</button>
+                <button class="btn-danger"  onclick="rejectCompletion('${escapeHtml(c.pan)}')">Reject</button>
               </div>
             </div>
-           `).join("")}
-        </div>
-      `;
+          `).join("")}
+        </div>`;
     }
 
+    // ─── RENDER: CARD VIEW ───
     function renderCardView(data) {
       document.getElementById("list").innerHTML = `
         <div class="cards-grid">
@@ -967,11 +959,10 @@
                 </div>
                 <div>${stageBadge(c.stage)}</div>
               </div>
-
               <div class="meta">
                 <div class="meta-row"><div class="meta-label">HAL / Non-HAL</div><div>${escapeHtml(getClientHalType(c) || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">PAN</div><div>${escapeHtml(c.pan || "-")}</div></div>
-                <div class="meta-row"><div class="meta-label">PB No</div><div>${escapeHtml(c.pb || "-")}</div></div>
+                <div class="meta-row"><div class="meta-label">${escapeHtml(clientIdLabel(c))}</div><div>${clientIdBadge(c)}</div></div>
                 <div class="meta-row"><div class="meta-label">Mobile</div><div>${escapeHtml(c.mobile || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">Email</div><div>${escapeHtml(c.email || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">ITR</div><div>${escapeHtml(normalizeItrLabel(c.itr))}</div></div>
@@ -980,20 +971,17 @@
                 <div class="meta-row"><div class="meta-label">Created</div><div>${escapeHtml(c.createdAt || "-")}</div></div>
                 <div class="meta-row"><div class="meta-label">Completed</div><div>${escapeHtml(c.completedAt || "-")}</div></div>
               </div>
-
               <div class="action-row">
-                <select id="stage_${escapeHtml(c.pan)}">
-                  ${stageOptions(getDropdownStage(c.stage))}
-                </select>
+                <select id="stage_${escapeHtml(c.pan)}">${stageOptions(getDropdownStage(c.stage))}</select>
                 <button class="btn-primary" onclick="updateStage('${escapeHtml(c.pan)}')">Update Stage</button>
-                <button class="btn-edit" onclick="editClient('${escapeHtml(c.pan)}')">Edit Client</button>
+                <button class="btn-edit"    onclick="editClient('${escapeHtml(c.pan)}')">Edit Client</button>
               </div>
             </div>
-           `).join("")}
-        </div>
-      `;
+          `).join("")}
+        </div>`;
     }
 
+    // ─── RENDER: LIST VIEW ───
     function renderListView(data) {
       document.getElementById("list").innerHTML = `
         <div class="list-table-wrap">
@@ -1002,7 +990,7 @@
               <tr>
                 <th>Name</th>
                 <th>HAL / Non-HAL</th>
-                <th>PB No</th>
+                <th>PB No / ESY ID</th>
                 <th>PAN</th>
                 <th>Mobile</th>
                 <th>Email</th>
@@ -1019,7 +1007,7 @@
                 <tr>
                   <td>${escapeHtml(c.name || "-")}</td>
                   <td>${escapeHtml(getClientHalType(c) || "-")}</td>
-                  <td>${escapeHtml(c.pb || "-")}</td>
+                  <td>${clientIdBadge(c)}</td>
                   <td>${escapeHtml(c.pan || "-")}</td>
                   <td>${escapeHtml(c.mobile || "-")}</td>
                   <td>${escapeHtml(c.email || "-")}</td>
@@ -1030,24 +1018,22 @@
                   <td>${escapeHtml(c.completedAt || "-")}</td>
                   <td>
                     <div class="action-row">
-                      <select id="stage_${escapeHtml(c.pan)}">
-                        ${stageOptions(getDropdownStage(c.stage))}
-                      </select>
+                      <select id="stage_${escapeHtml(c.pan)}">${stageOptions(getDropdownStage(c.stage))}</select>
                       <button class="btn-primary" onclick="updateStage('${escapeHtml(c.pan)}')">Update</button>
-                      <button class="btn-edit" onclick="editClient('${escapeHtml(c.pan)}')">Edit</button>
+                      <button class="btn-edit"    onclick="editClient('${escapeHtml(c.pan)}')">Edit</button>
                     </div>
                   </td>
                 </tr>
-               `).join("")}
+              `).join("")}
             </tbody>
           </table>
-        </div>
-      `;
+        </div>`;
     }
 
+    // ─── RENDER: PANE VIEW ───
     function renderPaneView(data) {
-      const selectedClient = data.find(c => c.pan === selectedPanePan) || data[0];
-      selectedPanePan = selectedClient.pan;
+      const sel = data.find(c => c.pan === selectedPanePan) || data[0];
+      selectedPanePan = sel.pan;
 
       document.getElementById("list").innerHTML = `
         <div class="pane-layout">
@@ -1056,42 +1042,36 @@
               <div class="pane-item ${c.pan === selectedPanePan ? "active" : ""}" onclick="selectPaneClient('${escapeHtml(c.pan)}')">
                 <div><strong>${escapeHtml(c.name || "-")}</strong></div>
                 <div class="muted">${escapeHtml(c.pan || "-")}</div>
-                <div class="muted">${escapeHtml(getClientHalType(c) || "-")}</div>
+                <div class="muted">${escapeHtml(getClientHalType(c) || "-")} · ${clientIdBadge(c)}</div>
                 <div style="margin-top:8px;">${stageBadge(c.stage)}</div>
               </div>
-             `).join("")}
+            `).join("")}
           </div>
-
           <div class="pane-detail">
             <div class="pane-detail-inner">
-              <h2 style="font-size:24px; margin-bottom:12px;">${escapeHtml(selectedClient.name || "-")}</h2>
-              <div>${stageBadge(selectedClient.stage)}</div>
-
+              <h2 style="font-size:24px; margin-bottom:12px;">${escapeHtml(sel.name || "-")}</h2>
+              <div>${stageBadge(sel.stage)}</div>
               <div class="detail-grid">
-                <div class="detail-box"><div class="detail-label">HAL / Non-HAL</div><div>${escapeHtml(getClientHalType(selectedClient) || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">PAN</div><div>${escapeHtml(selectedClient.pan || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">PB No</div><div>${escapeHtml(selectedClient.pb || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">Mobile</div><div>${escapeHtml(selectedClient.mobile || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">Email</div><div>${escapeHtml(selectedClient.email || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">ITR Type</div><div>${escapeHtml(normalizeItrLabel(selectedClient.itr))}</div></div>
-                <div class="detail-box"><div class="detail-label">Fee</div><div>₹${escapeHtml(selectedClient.fee || 0)}</div></div>
-                <div class="detail-box"><div class="detail-label">Payment</div><div>${escapeHtml(selectedClient.payment || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">Created By</div><div>${escapeHtml(selectedClient.createdBy || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">Created At</div><div>${escapeHtml(selectedClient.createdAt || "-")}</div></div>
-                <div class="detail-box"><div class="detail-label">Completed At</div><div>${escapeHtml(selectedClient.completedAt || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">HAL / Non-HAL</div><div>${escapeHtml(getClientHalType(sel) || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">PAN</div><div>${escapeHtml(sel.pan || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">${escapeHtml(clientIdLabel(sel))}</div><div>${clientIdBadge(sel)}</div></div>
+                <div class="detail-box"><div class="detail-label">Mobile</div><div>${escapeHtml(sel.mobile || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">Email</div><div>${escapeHtml(sel.email || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">ITR Type</div><div>${escapeHtml(normalizeItrLabel(sel.itr))}</div></div>
+                <div class="detail-box"><div class="detail-label">Fee</div><div>₹${escapeHtml(sel.fee || 0)}</div></div>
+                <div class="detail-box"><div class="detail-label">Payment</div><div>${escapeHtml(sel.payment || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">Created By</div><div>${escapeHtml(sel.createdBy || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">Created At</div><div>${escapeHtml(sel.createdAt || "-")}</div></div>
+                <div class="detail-box"><div class="detail-label">Completed At</div><div>${escapeHtml(sel.completedAt || "-")}</div></div>
               </div>
-
               <div class="action-row">
-                <select id="stage_${escapeHtml(selectedClient.pan)}">
-                  ${stageOptions(getDropdownStage(selectedClient.stage))}
-                </select>
-                <button class="btn-primary" onclick="updateStage('${escapeHtml(selectedClient.pan)}')">Update Stage</button>
-                <button class="btn-edit" onclick="editClient('${escapeHtml(selectedClient.pan)}')">Edit Client</button>
+                <select id="stage_${escapeHtml(sel.pan)}">${stageOptions(getDropdownStage(sel.stage))}</select>
+                <button class="btn-primary" onclick="updateStage('${escapeHtml(sel.pan)}')">Update Stage</button>
+                <button class="btn-edit"    onclick="editClient('${escapeHtml(sel.pan)}')">Edit Client</button>
               </div>
             </div>
           </div>
-        </div>
-      `;
+        </div>`;
     }
 
     function renderClients(data) {
@@ -1106,44 +1086,59 @@
 
     function fillForm(client) {
       const halType = getClientHalType(client);
-      setInputValue("name", client.name);
+      setInputValue("name",    client.name);
       setInputValue("halType", halType);
-      setInputValue("pb", client.pb);
-      setInputValue("pan", client.pan);
-      setInputValue("mobile", client.mobile);
-      setInputValue("email", client.email);
-      setInputValue("itr", client.itr === "ITR2/3/4" ? "ITR34" : client.itr);
-      setInputValue("fee", client.fee);
+      setInputValue("pan",     client.pan);
+      setInputValue("mobile",  client.mobile);
+      setInputValue("email",   client.email);
+      setInputValue("itr",     client.itr === "ITR2/3/4" ? "ITR34" : client.itr);
+      setInputValue("fee",     client.fee);
       setInputValue("payment", client.payment || "");
-      setInputValue("stage", getDropdownStage(client.stage || ""));
-      handleHalTypeChange();
+      setInputValue("stage",   getDropdownStage(client.stage || ""));
+
+      // Restore PB/ESY field
+      const pbField = document.getElementById("pb");
+      pbField.value = client.pb || "";
+
+      if (halType === "Non-HAL") {
+        pbField.disabled    = true;
+        pbField.required    = false;
+        pbField.placeholder = "Auto-assigned ESY ID";
+        pbField.classList.add("auto-id");
+      } else {
+        pbField.disabled    = false;
+        pbField.required    = true;
+        pbField.placeholder = "PB No";
+        pbField.classList.remove("auto-id");
+      }
+
       setFee();
     }
 
     function applyFiltersAndRender() {
-      const q = searchInput.value.toLowerCase().trim();
-      const createdDateFilter = document.getElementById("createdDateFilter").value;
+      const q                   = searchInput.value.toLowerCase().trim();
+      const createdDateFilter   = document.getElementById("createdDateFilter").value;
       const completedDateFilter = document.getElementById("completedDateFilter").value;
-      const stageFilter = document.getElementById("stageFilter").value;
+      const stageFilter         = document.getElementById("stageFilter").value;
 
       let data = allClients.filter(c => {
-        const halType = getClientHalType(c);
-
-        const matchesSearch =
-          (c.name || "").toLowerCase().includes(q) ||
-          (c.pan || "").toLowerCase().includes(q) ||
+        const halType    = getClientHalType(c);
+        const matchSearch =
+          (c.name   || "").toLowerCase().includes(q) ||
+          (c.pan    || "").toLowerCase().includes(q) ||
           (c.mobile || "").toLowerCase().includes(q) ||
-          (c.email || "").toLowerCase().includes(q) ||
-          (halType || "").toLowerCase().includes(q);
+          (c.email  || "").toLowerCase().includes(q) ||
+          (c.pb     || "").toLowerCase().includes(q) ||
+          (halType  || "").toLowerCase().includes(q);
 
-        const createdISO = c.createdAtISO || toISODateFromStored(c.createdAt);
+        const createdISO   = c.createdAtISO   || toISODateFromStored(c.createdAt);
         const completedISO = c.completedAtISO || toISODateFromStored(c.completedAt);
 
-        const matchesCreatedDate = !createdDateFilter || createdISO === createdDateFilter;
-        const matchesCompletedDate = !completedDateFilter || completedISO === completedDateFilter;
-        const matchesStage = !stageFilter || (c.stage || "") === stageFilter;
+        const matchCreated   = !createdDateFilter   || createdISO   === createdDateFilter;
+        const matchCompleted = !completedDateFilter || completedISO === completedDateFilter;
+        const matchStage     = !stageFilter         || (c.stage || "") === stageFilter;
 
-        return matchesSearch && matchesCreatedDate && matchesCompletedDate && matchesStage;
+        return matchSearch && matchCreated && matchCompleted && matchStage;
       });
 
       data = applySort(data);
@@ -1159,10 +1154,7 @@
     }
 
     function updatePendingNav() {
-      if (!isAdmin()) {
-        navPending.classList.add("hidden");
-        return;
-      }
+      if (!isAdmin()) { navPending.classList.add("hidden"); return; }
       const count = getPendingRequests().length;
       navPending.textContent = `Pending Requests: ${count}`;
       navPending.classList.remove("hidden");
@@ -1177,7 +1169,7 @@
       });
     }
 
-    function buildCompletionRequest(existingData = {}, fallbackPreviousStage = "For client approval") {
+    function buildCompletionRequest(existingData = {}, fallback = "For client approval") {
       return {
         stage: "Waiting for admin approval",
         completionRequested: true,
@@ -1193,34 +1185,27 @@
           existingData.stage !== "Waiting for admin approval" &&
           existingData.stage !== "Completed"
             ? existingData.stage
-            : (existingData.previousStageBeforeApproval || fallbackPreviousStage)
+            : (existingData.previousStageBeforeApproval || fallback)
       };
     }
 
+    // ─── GLOBAL FUNCTIONS ───
     window.login = async () => {
-      const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+      const email    = document.getElementById("loginEmail").value.trim().toLowerCase();
       const password = document.getElementById("loginPass").value;
-
-      if (!email || !password) {
-        setLoginStatus("Please enter both email and password.", "error");
-        return;
-      }
-
+      if (!email || !password) { setLoginStatus("Please enter both email and password.", "error"); return; }
       try {
         setLoginLoading(true);
         setLoginStatus("Checking your access...", "success");
         await signInWithEmailAndPassword(auth, email, password);
-      } catch (error) {
-        setLoginStatus(error.message || "Login failed.", "error");
+      } catch (err) {
+        setLoginStatus(err.message || "Login failed.", "error");
         setLoginLoading(false);
       }
     };
 
     window.logout = async () => {
-      if (unsubscribeClients) {
-        unsubscribeClients();
-        unsubscribeClients = null;
-      }
+      if (unsubscribeClients) { unsubscribeClients(); unsubscribeClients = null; }
       await signOut(auth);
     };
 
@@ -1229,24 +1214,34 @@
       const pbField = document.getElementById("pb");
 
       if (halType === "Non-HAL") {
-        pbField.value = "";
-        pbField.disabled = true;
-        pbField.required = false;
-        pbField.placeholder = "PB No disabled for Non-HAL";
-      } else {
-        pbField.disabled = false;
-        pbField.required = true;
+        // Only auto-fill if not editing (editing already has an ESY ID)
+        if (!editingPan) {
+          pbField.value = "Generating…";
+        }
+        pbField.disabled    = true;
+        pbField.required    = false;
+        pbField.placeholder = "Auto-assigned ESY ID";
+        pbField.classList.add("auto-id");
+      } else if (halType === "HAL") {
+        if (!editingPan) pbField.value = "";
+        pbField.disabled    = false;
+        pbField.required    = true;
         pbField.placeholder = "PB No";
+        pbField.classList.remove("auto-id");
+      } else {
+        if (!editingPan) pbField.value = "";
+        pbField.disabled    = false;
+        pbField.required    = true;
+        pbField.placeholder = "PB No";
+        pbField.classList.remove("auto-id");
       }
-
       setFee();
     };
 
     window.setFee = () => {
-      const halType = document.getElementById("halType").value;
-      const itr = document.getElementById("itr").value;
-      const feeField = document.getElementById("fee");
-      feeField.value = getFeeForSelection(halType, itr);
+      const halType  = document.getElementById("halType").value;
+      const itr      = document.getElementById("itr").value;
+      document.getElementById("fee").value = getFeeForSelection(halType, itr);
     };
 
     window.resetForm = () => {
@@ -1265,19 +1260,18 @@
     window.saveClient = async () => {
       if (!validateMandatoryFields()) return;
 
-      const name = getInputValue("name");
+      const name    = getInputValue("name");
       const halType = document.getElementById("halType").value;
-      const pb = halType === "Non-HAL" ? "" : getInputValue("pb");
-      const pan = getInputValue("pan").toUpperCase();
-      const mobile = getInputValue("mobile");
-      const email = getInputValue("email");
-      const itr = document.getElementById("itr").value;
-      const fee = document.getElementById("fee").value;
+      const pan     = getInputValue("pan").toUpperCase();
+      const mobile  = getInputValue("mobile");
+      const email   = getInputValue("email");
+      const itr     = document.getElementById("itr").value;
+      const fee     = document.getElementById("fee").value;
       const payment = document.getElementById("payment").value;
-      let stage = document.getElementById("stage").value;
+      const stage   = document.getElementById("stage").value;
 
-      const ref = doc(db, "clients", pan);
-      const snap = await getDoc(ref);
+      const ref    = doc(db, "clients", pan);
+      const snap   = await getDoc(ref);
       const exists = snap.exists();
       const existingData = snap.data() || {};
 
@@ -1286,42 +1280,51 @@
         if (!proceed) return;
       }
 
+      // Determine PB field value
+      let pb = "";
+      if (halType === "HAL") {
+        pb = getInputValue("pb");
+      } else {
+        // Non-HAL: reuse existing ESY ID or generate new one
+        if (exists && existingData.pb && existingData.pb.startsWith("ESY-")) {
+          pb = existingData.pb;
+        } else if (editingPan && existingData.pb && existingData.pb.startsWith("ESY-")) {
+          pb = existingData.pb;
+        } else {
+          pb = await generateEsyId();
+          // Show it in the field
+          document.getElementById("pb").value = pb;
+        }
+      }
+
       const data = {
-        name,
-        halType,
-        pb,
-        pan,
-        mobile,
-        email,
-        itr,
-        fee: Number(fee),
-        payment,
-        stage,
-        createdBy: existingData.createdBy || currentUserEmail,
-        createdAt: existingData.createdAt || getISTTime(),
+        name, halType, pb, pan, mobile, email, itr,
+        fee: Number(fee), payment, stage,
+        createdBy:    existingData.createdBy    || currentUserEmail,
+        createdAt:    existingData.createdAt    || getISTTime(),
         createdAtISO: existingData.createdAtISO || getTodayISOFromIST(),
-        completionRequested: existingData.completionRequested || false,
-        completionRequestedBy: existingData.completionRequestedBy || "",
-        completionRequestedAt: existingData.completionRequestedAt || "",
-        approvalStatus: existingData.approvalStatus || "",
-        approvedBy: existingData.approvedBy || "",
-        approvedAt: existingData.approvedAt || "",
+        completionRequested:      existingData.completionRequested      || false,
+        completionRequestedBy:    existingData.completionRequestedBy    || "",
+        completionRequestedAt:    existingData.completionRequestedAt    || "",
+        approvalStatus:           existingData.approvalStatus           || "",
+        approvedBy:               existingData.approvedBy               || "",
+        approvedAt:               existingData.approvedAt               || "",
         previousStageBeforeApproval: existingData.previousStageBeforeApproval || "",
-        completedAt: existingData.completedAt || "",
+        completedAt:    existingData.completedAt    || "",
         completedAtISO: existingData.completedAtISO || ""
       };
 
       if (isAdmin()) {
         if (stage === "Completed") {
-          data.stage = "Completed";
-          data.completionRequested = false;
-          data.completionRequestedBy = "";
-          data.completionRequestedAt = "";
-          data.approvalStatus = "approved";
-          data.approvedBy = currentUserEmail;
-          data.approvedAt = getISTTime();
-          data.completedAt = existingData.completedAt || getISTTime();
-          data.completedAtISO = existingData.completedAtISO || getTodayISOFromIST();
+          data.stage                    = "Completed";
+          data.completionRequested      = false;
+          data.completionRequestedBy    = "";
+          data.completionRequestedAt    = "";
+          data.approvalStatus           = "approved";
+          data.approvedBy               = currentUserEmail;
+          data.approvedAt               = getISTTime();
+          data.completedAt              = existingData.completedAt   || getISTTime();
+          data.completedAtISO           = existingData.completedAtISO || getTodayISOFromIST();
           data.previousStageBeforeApproval = "";
         }
       } else {
@@ -1335,13 +1338,7 @@
 
       if (!exists && data.stage === "Client registration at office") {
         emailjs.send("service_ns9w7qv", "template_87k6k2w", {
-          name,
-          halType,
-          pb,
-          pan,
-          mobile,
-          itr: normalizeItrLabel(itr),
-          fee
+          name, halType, pb, pan, mobile, itr: normalizeItrLabel(itr), fee
         });
       }
 
@@ -1352,22 +1349,21 @@
     window.updateStage = async (pan) => {
       const stageSelect = document.getElementById("stage_" + pan);
       if (!stageSelect) return;
-
       const requestedStage = stageSelect.value;
       const client = allClients.find(c => c.pan === pan) || {};
       const updateData = {};
 
       if (isAdmin()) {
         if (requestedStage === "Completed") {
-          updateData.stage = "Completed";
-          updateData.completionRequested = false;
-          updateData.completionRequestedBy = "";
-          updateData.completionRequestedAt = "";
-          updateData.approvalStatus = "approved";
-          updateData.approvedBy = currentUserEmail;
-          updateData.approvedAt = getISTTime();
-          updateData.completedAt = client.completedAt || getISTTime();
-          updateData.completedAtISO = client.completedAtISO || getTodayISOFromIST();
+          updateData.stage                    = "Completed";
+          updateData.completionRequested      = false;
+          updateData.completionRequestedBy    = "";
+          updateData.completionRequestedAt    = "";
+          updateData.approvalStatus           = "approved";
+          updateData.approvedBy               = currentUserEmail;
+          updateData.approvedAt               = getISTTime();
+          updateData.completedAt              = client.completedAt   || getISTTime();
+          updateData.completedAtISO           = client.completedAtISO || getTodayISOFromIST();
           updateData.previousStageBeforeApproval = "";
         } else {
           updateData.stage = requestedStage;
@@ -1383,7 +1379,6 @@
         alert("Sent for admin approval. Check back after a while.");
         return;
       }
-
       updateData.stage = requestedStage;
       await setDoc(doc(db, "clients", pan), updateData, { merge: true });
       alert("Stage updated successfully");
@@ -1392,7 +1387,6 @@
     window.approveCompletion = async (pan) => {
       const client = allClients.find(c => c.pan === pan);
       if (!client) return;
-
       await setDoc(doc(db, "clients", pan), {
         stage: "Completed",
         completionRequested: false,
@@ -1405,14 +1399,12 @@
         completedAtISO: client.completedAtISO || getTodayISOFromIST(),
         previousStageBeforeApproval: ""
       }, { merge: true });
-
       alert("Completion approved successfully");
     };
 
     window.rejectCompletion = async (pan) => {
       const client = allClients.find(c => c.pan === pan);
       if (!client) return;
-
       await setDoc(doc(db, "clients", pan), {
         stage: client.previousStageBeforeApproval || "In progress",
         completionRequested: false,
@@ -1425,7 +1417,6 @@
         completedAtISO: "",
         previousStageBeforeApproval: ""
       }, { merge: true });
-
       alert("Completion request rejected");
     };
 
@@ -1434,21 +1425,18 @@
       updateViewButtons();
       renderClients(displayedClients);
     };
-
     window.selectPaneClient = (pan) => {
       selectedPanePan = pan;
       renderClients(displayedClients);
     };
-
     window.clearFilters = () => {
       searchInput.value = "";
-      document.getElementById("createdDateFilter").value = "";
+      document.getElementById("createdDateFilter").value  = "";
       document.getElementById("completedDateFilter").value = "";
-      document.getElementById("stageFilter").value = "";
-      document.getElementById("sortBy").value = "latest";
+      document.getElementById("stageFilter").value        = "";
+      document.getElementById("sortBy").value             = "latest";
       applyFiltersAndRender();
     };
-
     window.applyFiltersAndRender = applyFiltersAndRender;
 
     window.exportExcel = () => {
@@ -1456,7 +1444,7 @@
         "Sl. No.": i + 1,
         "Name": c.name,
         "HAL / Non-HAL": getClientHalType(c),
-        "PB No.": c.pb,
+        "PB No / ESY ID": c.pb,
         "PAN": c.pan,
         "Mobile Number": c.mobile,
         "Mail Address": c.email,
@@ -1467,7 +1455,6 @@
         "Created At": c.createdAt,
         "Completed At": c.completedAt
       }));
-
       const ws = XLSX.utils.json_to_sheet(formatted);
       const wb = XLSX.utils.book_new();
       XLSX.utils.book_append_sheet(wb, ws, "Client Report");
@@ -1477,39 +1464,24 @@
     window.exportPDF = () => {
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF("landscape");
-
-      const headers = [[
-        "Sl.No", "Name", "HAL/Non-HAL", "PB", "PAN", "Mobile", "Email",
-        "ITR", "Fees", "Status", "Created By", "Created", "Completed"
-      ]];
-
+      const headers = [["Sl.No","Name","HAL/Non-HAL","PB/ESY ID","PAN","Mobile","Email","ITR","Fees","Status","Created By","Created","Completed"]];
       const rows = displayedClients.map((c, i) => [
-        i + 1,
-        c.name || "",
-        getClientHalType(c) || "",
-        c.pb || "",
-        c.pan || "",
-        c.mobile || "",
-        c.email || "",
-        normalizeItrLabel(c.itr),
-        c.fee || "",
-        c.stage || "",
-        c.createdBy || "",
-        c.createdAt || "",
-        c.completedAt || ""
+        i + 1, c.name || "", getClientHalType(c) || "", c.pb || "", c.pan || "",
+        c.mobile || "", c.email || "", normalizeItrLabel(c.itr), c.fee || "",
+        c.stage || "", c.createdBy || "", c.createdAt || "", c.completedAt || ""
       ]);
-
       pdf.autoTable({ head: headers, body: rows });
       pdf.save("Client_Report.pdf");
     };
 
+    // ─── AUTH STATE ───
     onAuthStateChanged(auth, async (user) => {
       try {
         if (!user) {
-          currentUserEmail = "";
-          currentRole = "";
-          allClients = [];
-          displayedClients = [];
+          currentUserEmail  = "";
+          currentRole       = "";
+          allClients        = [];
+          displayedClients  = [];
           setEditMode(null);
           if (unsubscribeClients) unsubscribeClients();
           unsubscribeClients = null;
@@ -1524,27 +1496,15 @@
           return;
         }
 
-        currentUserEmail = user.email.toLowerCase();
-        const roleData = await getRoleByEmail(currentUserEmail);
+        currentUserEmail  = user.email.toLowerCase();
+        const roleData    = await getRoleByEmail(currentUserEmail);
 
-        if (!roleData) {
-          setLoginStatus("Role record not found in Firestore.", "error");
-          await signOut(auth);
-          return;
-        }
-
-        if (roleData.active !== true) {
-          setLoginStatus("This account is inactive.", "error");
-          await signOut(auth);
-          return;
-        }
+        if (!roleData) { setLoginStatus("Role record not found in Firestore.", "error"); await signOut(auth); return; }
+        if (roleData.active !== true) { setLoginStatus("This account is inactive.", "error"); await signOut(auth); return; }
 
         currentRole = String(roleData.role || "").toLowerCase();
-
         if (currentRole !== "admin" && currentRole !== "user") {
-          setLoginStatus("Invalid role configured.", "error");
-          await signOut(auth);
-          return;
+          setLoginStatus("Invalid role configured.", "error"); await signOut(auth); return;
         }
 
         navRole.textContent = currentRole === "admin" ? "Admin Workspace" : "User Workspace";
@@ -1567,95 +1527,66 @@
         loadClients();
         setLoginLoading(false);
         setLoginStatus("");
-      } catch (error) {
-        setLoginStatus(error.message || "Login flow failed.", "error");
+      } catch (err) {
+        setLoginStatus(err.message || "Login flow failed.", "error");
         setLoginLoading(false);
       }
     });
 
-    ["loginEmail", "loginPass"].forEach((id) => {
-      document.getElementById(id).addEventListener("keydown", (e) => {
-        if (e.key === "Enter") login();
-      });
+    // ─── LISTENERS ───
+    ["loginEmail","loginPass"].forEach(id => {
+      document.getElementById(id).addEventListener("keydown", e => { if (e.key === "Enter") login(); });
     });
 
-    document.getElementById("pan").addEventListener("input", (e) => {
+    document.getElementById("pan").addEventListener("input", e => {
       e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 10);
     });
-
-    document.getElementById("pan").addEventListener("blur", (e) => {
+    document.getElementById("pan").addEventListener("blur", e => {
       const pan = e.target.value.trim().toUpperCase();
       if (pan && pan.length >= 4 && pan.charAt(3) !== "P") {
         alert("Contact Thanmayi or, Tanooj for Non Individual filings");
       }
     });
-
-    document.getElementById("mobile").addEventListener("input", (e) => {
+    document.getElementById("mobile").addEventListener("input", e => {
       e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10);
     });
 
-    searchInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") applyFiltersAndRender();
-    });
-
+    searchInput.addEventListener("keydown", e => { if (e.key === "Enter") applyFiltersAndRender(); });
     searchBtn.addEventListener("click", applyFiltersAndRender);
   </script>
 
   <script>
     // ─── CLEAN URL HELPERS ───
-    // Pages still live on disk as .html files (index.html, viper.html, ...),
-    // but every link in the markup above now points to a clean path
-    // (e.g. "./", "./viper"). These two helpers translate between the two
-    // without changing any other behaviour.
-
-    // Turn a clean link into the real file the browser should load.
     function resolveRealPath(href) {
       if (!href) return href;
-      if (/^https?:\/\//i.test(href)) return href;   // external links untouched
-      if (/\.[a-z0-9]+($|[?#])/i.test(href)) return href; // already has an extension
-
+      if (/^https?:\/\//i.test(href)) return href;
+      if (/\.[a-z0-9]+($|[?#])/i.test(href)) return href;
       if (href.endsWith("/")) return href + "index.html";
       if (href === ".") return "./index.html";
       return href + ".html";
     }
 
-    // After the real .html file has loaded, quietly tidy the address bar so
-    // it matches the clean link style (no .html / index.html visible).
     (function cleanAddressBar() {
       const { pathname, search, hash } = window.location;
       let cleanPath = pathname;
-
-      if (/\/index\.html$/i.test(cleanPath)) {
-        cleanPath = cleanPath.replace(/index\.html$/i, "");
-      } else if (/\.html$/i.test(cleanPath)) {
-        cleanPath = cleanPath.replace(/\.html$/i, "");
-      }
-
-      if (cleanPath !== pathname) {
-        history.replaceState(null, "", cleanPath + search + hash);
-      }
+      if (/\/index\.html$/i.test(cleanPath)) cleanPath = cleanPath.replace(/index\.html$/i, "");
+      else if (/\.html$/i.test(cleanPath))   cleanPath = cleanPath.replace(/\.html$/i, "");
+      if (cleanPath !== pathname) history.replaceState(null, "", cleanPath + search + hash);
     })();
 
-    // ─── MOTION TRANSITION CONTROLLER ───
+    // ─── PAGE TRANSITION ───
     const overlay = document.getElementById("transitionOverlay");
-
     window.addEventListener("DOMContentLoaded", () => {
-      setTimeout(() => {
-        overlay.classList.add("fade-out");
-      }, 150);
+      setTimeout(() => overlay.classList.add("fade-out"), 150);
     });
-
     document.querySelectorAll(".transition-link").forEach(link => {
       link.addEventListener("click", function(e) {
-        const destination = this.getAttribute("href");
-        if (destination && (destination.includes(".html") || destination.startsWith("./") || destination.startsWith("/"))) {
+        const dest = this.getAttribute("href");
+        if (dest && (dest.includes(".html") || dest.startsWith("./") || dest.startsWith("/"))) {
           e.preventDefault();
           overlay.classList.remove("fade-out");
           overlay.classList.add("fade-in");
-
-          setTimeout(() => {
-            window.location.href = resolveRealPath(destination);
-          }, 1500);
+          setTimeout(() => { window.location.href = resolveRealPath(dest); }, 1500);
         }
       });
     });
