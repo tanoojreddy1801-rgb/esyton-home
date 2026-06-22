@@ -1,9 +1,33 @@
 
 <!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  SECURITY NOTE — firebase.json hosting headers                  ║
+  ║  Add the following to your firebase.json "hosting" config to    ║
+  ║  enforce HTTP security headers at the server level:             ║
+  ║                                                                 ║
+  ║  "headers": [{                                                  ║
+  ║    "source": "**",                                              ║
+  ║    "headers": [                                                 ║
+  ║      { "key": "Strict-Transport-Security",                      ║
+  ║        "value": "max-age=31536000; includeSubDomains" },        ║
+  ║      { "key": "X-Frame-Options", "value": "DENY" },            ║
+  ║      { "key": "X-Content-Type-Options", "value": "nosniff" },  ║
+  ║      { "key": "Referrer-Policy",                                ║
+  ║        "value": "strict-origin-when-cross-origin" }            ║
+  ║    ]                                                            ║
+  ║  }]                                                             ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.gstatic.com https://cdn.emailjs.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https://raw.githubusercontent.com data:; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com wss://*.firebaseio.com https://api.emailjs.com; frame-ancestors 'none';" />
   <title>V.I.P.E.R | Esyton</title>
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
@@ -392,6 +416,232 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; }
     }
+
+    /* ─── COMPLIANCE STYLES ─── */
+
+    /* Compliance Footer */
+    .compliance-footer {
+      background: var(--navy-3);
+      color: rgba(255,255,255,.75);
+      padding: 36px 28px 24px;
+      margin-top: 40px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .footer-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+    .footer-section h4 {
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--yellow);
+      font-size: 14px;
+      margin: 0 0 12px;
+      letter-spacing: .04em;
+    }
+    .footer-section p { margin: 0 0 6px; }
+    .footer-section a { color: var(--yellow); text-decoration: none; }
+    .footer-section a:hover { text-decoration: underline; }
+    .footer-bottom {
+      max-width: 1380px;
+      margin: 24px auto 0;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,.5);
+    }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links button {
+      background: none;
+      border: none;
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      height: auto;
+      letter-spacing: .02em;
+      text-decoration: underline;
+    }
+    .footer-links button:hover { color: #fff; transform: none; box-shadow: none; }
+
+    /* Grievance chip in nav */
+    .grievance-nav-btn {
+      height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(197,152,61,.5);
+      cursor: pointer;
+      font: inherit;
+      font-weight: 700;
+      font-size: .82rem;
+      color: var(--navy);
+      background: var(--yellow-pale);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .grievance-nav-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+    /* Modal overlay */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(6,31,54,.72);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .25s, visibility .25s;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+
+    .modal-box {
+      background: #fff;
+      border-top: 5px solid var(--yellow);
+      box-shadow: var(--shadow-lg);
+      max-width: 760px;
+      width: 100%;
+      max-height: 86vh;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(18px);
+      transition: transform .25s ease;
+    }
+    .modal-overlay.open .modal-box { transform: translateY(0); }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 26px 16px;
+      border-bottom: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+    .modal-header h2 { font-size: 20px; margin: 0; color: var(--navy); }
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--muted);
+      height: auto;
+      padding: 4px 8px;
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--navy); transform: none; box-shadow: none; }
+    .modal-body {
+      overflow-y: auto;
+      padding: 24px 26px;
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+    .modal-body h3 {
+      color: var(--navy);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 16px;
+      margin: 22px 0 8px;
+      border-left: 3px solid var(--yellow);
+      padding-left: 10px;
+    }
+    .modal-body h3:first-child { margin-top: 0; }
+    .modal-body p { margin: 0 0 10px; }
+    .modal-body ul { margin: 0 0 10px; padding-left: 20px; }
+    .modal-body ul li { margin-bottom: 4px; }
+    .modal-body .policy-effective {
+      background: var(--yellow-pale);
+      border: 1px solid rgba(197,152,61,.3);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .modal-body .contact-block {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      padding: 14px 18px;
+      margin-top: 10px;
+      border-left: 4px solid var(--yellow);
+    }
+    .modal-body .contact-block strong { color: var(--navy); }
+
+    /* Grievance modal specifics */
+    .grievance-card {
+      background: var(--yellow-pale);
+      border: 1px solid rgba(197,152,61,.35);
+      padding: 20px 22px;
+      margin-bottom: 16px;
+    }
+    .grievance-card .gc-name { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+    .grievance-card .gc-role { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 14px; }
+    .grievance-card .gc-detail { font-size: 14px; line-height: 1.8; }
+    .grievance-card .gc-detail a { color: var(--navy); font-weight: 700; }
+    .sla-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .sla-box { background: #fff; border: 1px solid var(--line); padding: 14px; text-align: center; }
+    .sla-box .sla-num { font-size: 26px; font-weight: 900; color: var(--navy); font-family: 'Playfair Display', Georgia, serif; }
+    .sla-box .sla-label { font-size: 12px; color: var(--muted); font-weight: 700; margin-top: 4px; }
+
+    /* Session timeout banner */
+    .session-warning {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--navy);
+      color: #fff;
+      padding: 16px 20px;
+      border-top: 3px solid var(--yellow);
+      box-shadow: var(--shadow-lg);
+      z-index: 500;
+      font-size: 14px;
+      font-weight: 600;
+      display: none;
+      max-width: 320px;
+    }
+    .session-warning.show { display: block; }
+    .session-warning strong { color: var(--yellow); }
+    .session-warning .sw-actions { margin-top: 12px; display: flex; gap: 10px; }
+    .session-warning .sw-actions button { height: 36px; font-size: 13px; padding: 0 14px; }
+
+    /* Data sensitivity badge on entry panel */
+    .data-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 14px;
+      background: #eef5ff;
+      border: 1px solid #cfe0f2;
+      border-left: 4px solid var(--navy-2);
+      font-size: 12.5px;
+      color: var(--navy-2);
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .data-notice-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+    @media (max-width: 700px) {
+      .footer-inner { grid-template-columns: 1fr; gap: 22px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .sla-grid { grid-template-columns: 1fr; }
+      .modal-box { max-height: 92vh; }
+      .modal-header, .modal-body { padding-left: 18px; padding-right: 18px; }
+      .session-warning { left: 12px; right: 12px; bottom: 12px; max-width: 100%; }
+    }
   </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
@@ -414,6 +664,7 @@
       </a>
 
       <div class="nav-right">
+        <button onclick="openModal('grievanceModal')" class="grievance-nav-btn" title="Grievance Redressal">⚖️ Grievance</button>
         <div id="navRole" class="nav-pill hidden"></div>
         <div id="navPending" class="nav-pill hidden"></div>
         <button id="navLogout" class="nav-btn hidden" onclick="logout()">Logout</button>
@@ -441,9 +692,9 @@
           </div>
           <div class="chip">Secure Login</div>
         </div>
-        <input id="loginEmail" type="email" placeholder="Email" />
+        <input id="loginEmail" type="email" placeholder="Email" autocomplete="username" />
         <br /><br />
-        <input id="loginPass" type="password" placeholder="Password" />
+        <input id="loginPass" type="password" placeholder="Password" autocomplete="new-password" />
         <br /><br />
         <button id="loginBtn" class="btn-primary" onclick="login()">Login</button>
         <div id="loginStatus" class="status-message"></div>
@@ -475,6 +726,11 @@
           </div>
 
           <div id="editBanner" class="status-banner"></div>
+
+          <div class="data-notice">
+            <span class="data-notice-icon">🔒</span>
+            <span>This form collects <strong>Sensitive Personal Data</strong> (PAN, mobile, financial information) covered under the IT Act, 2000 and DPDP Act, 2023. Ensure the client's written consent has been obtained before entry. Data is stored securely on Firebase and accessible only to authorised Esyton Insights LLP personnel.</span>
+          </div>
 
           <div class="form-grid" style="margin-top:14px;">
             <input id="name" placeholder="Name" required />
@@ -554,8 +810,8 @@
               <button id="btnList" class="btn-secondary btn-view" onclick="setViewMode('list')">List View</button>
               <button id="btnCard" class="btn-secondary btn-view active" onclick="setViewMode('card')">Card View</button>
               <button id="btnPane" class="btn-secondary btn-view" onclick="setViewMode('pane')">Pane View</button>
-              <button class="btn-export" onclick="exportExcel()">Excel</button>
-              <button class="btn-export" onclick="exportPDF()">PDF</button>
+              <button class="btn-export" id="exportExcelBtn" onclick="exportExcel()">Excel</button>
+              <button class="btn-export" id="exportPdfBtn" onclick="exportPDF()">PDF</button>
             </div>
           </div>
 
@@ -626,10 +882,339 @@
         </div>
       </div>
     </div>
+  </div><!-- /.app-shell -->
+
+  <!-- ══════════════════════════════════════
+       COMPLIANCE FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="compliance-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-section">
+        <h4>Esyton Insights LLP</h4>
+        <p>V.I.P.E.R is an internal client management platform for authorised team members of Esyton Insights LLP. Unauthorised access is strictly prohibited under the Information Technology Act, 2000.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Grievance Officer</h4>
+        <p><strong style="color:#fff;">Tanooj</strong><br>
+        Esyton Insights LLP<br>
+        📞 <a href="tel:+919010043298">+91 90100 43298</a><br>
+        ✉ <a href="mailto:connect@esyton.com">connect@esyton.com</a></p>
+        <p style="margin-top:8px;font-size:12px;color:rgba(255,255,255,.5);">Response within 24 hrs · Resolution within 15 days</p>
+      </div>
+      <div class="footer-section">
+        <h4>Compliance</h4>
+        <p>This platform operates in compliance with the Information Technology Act, 2000, IT (Amendment) Act 2008, SPDI Rules 2011, IT Intermediary Guidelines 2021, and the Digital Personal Data Protection Act, 2023.</p>
+        <p>Client data is processed only with prior written consent.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Esyton Insights LLP. All rights reserved. Unauthorised access or misuse of data is a punishable offence under Section 43, 66 & 72A of the IT Act, 2000.</span>
+      <div class="footer-links">
+        <button onclick="openModal('privacyModal')">Privacy Policy</button>
+        <button onclick="openModal('grievanceModal')">Grievance Redressal</button>
+        <button onclick="openModal('termsModal')">Terms of Use</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       SESSION TIMEOUT WARNING
+  ══════════════════════════════════════ -->
+  <div class="session-warning" id="sessionWarning" role="alert" aria-live="polite">
+    <strong>⏱ Session Expiring</strong><br>
+    Your session will automatically log out in <strong id="sessionCountdown">5:00</strong> minutes due to inactivity. This protects client data under IT Act security requirements.
+    <div class="sw-actions">
+      <button class="btn-primary" onclick="resetSessionTimer()" style="font-size:13px;">Stay Logged In</button>
+      <button class="btn-secondary" onclick="logout()" style="font-size:13px;">Log Out Now</button>
+    </div>
   </div>
 
+  <!-- ══════════════════════════════════════
+       PRIVACY POLICY MODAL
+  ══════════════════════════════════════ -->
+  <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" onclick="closeModalOnOverlay(event,'privacyModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="privacyTitle">Privacy Policy</h2>
+        <button class="modal-close" onclick="closeModal('privacyModal')" aria-label="Close Privacy Policy">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="policy-effective">Effective Date: 1 January 2025 &nbsp;|&nbsp; Last Reviewed: June 2025 &nbsp;|&nbsp; Governed by: IT Act, 2000 · SPDI Rules, 2011 · DPDP Act, 2023</div>
+
+        <h3>1. About This Policy</h3>
+        <p>This Privacy Policy governs the collection, storage, use, and protection of personal data processed through the V.I.P.E.R (Vault for Income, Profit &amp; Equity Records) platform operated by <strong>Esyton Insights LLP</strong> ("we", "us", "our"). This policy is issued in compliance with the Information Technology Act, 2000, the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011 (SPDI Rules), and the Digital Personal Data Protection Act, 2023 (DPDP Act).</p>
+
+        <h3>2. Data We Collect</h3>
+        <p>V.I.P.E.R processes the following categories of client data entered by authorised Esyton Insights LLP personnel on behalf of clients who have provided written consent:</p>
+        <ul>
+          <li><strong>Identification Data:</strong> Full name, PAN (Permanent Account Number), HAL Employee / ESY ID</li>
+          <li><strong>Contact Data:</strong> Mobile number, email address</li>
+          <li><strong>Financial Data:</strong> Type of Income Tax Return (ITR-1/2/3/4), professional fee charged, payment mode</li>
+          <li><strong>Workflow Data:</strong> Filing stage, timestamps of creation and completion, assigned staff member</li>
+        </ul>
+        <p>We do <strong>not</strong> collect passwords, Aadhaar numbers, bank account details, or any biometric data through this platform.</p>
+
+        <h3>3. Lawful Basis for Processing</h3>
+        <p>All client data in V.I.P.E.R is entered only after obtaining the client's <strong>prior written consent</strong> through Esyton Insights LLP's physical client engagement / onboarding form. This satisfies the consent requirement under Section 7 of the DPDP Act, 2023 and Clause 5 of the SPDI Rules, 2011. No client data is entered into this system without such consent on record.</p>
+
+        <h3>4. Purpose of Data Processing</h3>
+        <p>Data collected is used solely for the following purposes:</p>
+        <ul>
+          <li>Tracking the progress of Income Tax Return filings on behalf of clients</li>
+          <li>Internal workflow management and team coordination</li>
+          <li>Generating reports for internal review and quality assurance</li>
+          <li>Communication with clients regarding their filing status</li>
+        </ul>
+        <p>Data is <strong>not</strong> used for advertising, profiling, sale to third parties, or any purpose outside the above.</p>
+
+        <h3>5. Data Storage &amp; Security</h3>
+        <p>All data is stored on <strong>Google Firebase (Firestore)</strong>, a cloud database service operated by Google LLC, which maintains ISO 27001 and SOC 2 Type II certifications. We implement the following security controls consistent with the SPDI Rules and Section 43A of the IT Act:</p>
+        <ul>
+          <li>Role-based access control — only authenticated, authorised team members can access data</li>
+          <li>Secure HTTPS (TLS) for all data in transit</li>
+          <li>Firebase security rules restricting read/write to authenticated sessions only</li>
+          <li>Automatic session timeout after 30 minutes of inactivity</li>
+          <li>Access logs maintained at the Firebase console level</li>
+        </ul>
+
+        <h3>6. Data Sharing &amp; Third Parties</h3>
+        <p>We do not sell, rent, or trade client personal data. Data may be shared only in the following limited circumstances:</p>
+        <ul>
+          <li><strong>Google Firebase / Google LLC</strong> — as the cloud infrastructure provider, subject to Google's Data Processing Addendum and GDPR-aligned terms</li>
+          <li><strong>EmailJS</strong> — used solely to send automated registration notifications; no sensitive data is transmitted</li>
+          <li><strong>Regulatory / Legal Obligation</strong> — if required by law, court order, or a government authority under applicable Indian law</li>
+        </ul>
+
+        <h3>7. Data Retention</h3>
+        <p>Client data is retained for a period of <strong>7 years</strong> from the date of completion of the filing, consistent with requirements under the Income Tax Act, 1961. After this period, data will be securely deleted. Clients may request earlier deletion subject to legal retention obligations.</p>
+
+        <h3>8. Client Rights</h3>
+        <p>Under the DPDP Act, 2023, clients whose data is processed have the following rights:</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request a copy of their personal data held by us</li>
+          <li><strong>Right to Correction:</strong> Request correction of inaccurate or incomplete data</li>
+          <li><strong>Right to Erasure:</strong> Request deletion of data where no legal retention obligation applies</li>
+          <li><strong>Right to Grievance Redressal:</strong> Raise complaints regarding data processing</li>
+        </ul>
+        <p>To exercise any of these rights, contact our Grievance Officer (details below).</p>
+
+        <h3>9. Data Breach Protocol</h3>
+        <p>In the event of a personal data breach, Esyton Insights LLP will: (a) contain and assess the breach immediately; (b) notify affected clients without undue delay; and (c) report to the Data Protection Board of India as required under the DPDP Act, 2023. A breach register is maintained internally.</p>
+
+        <h3>10. Changes to This Policy</h3>
+        <p>This policy may be updated periodically to reflect changes in law or our practices. The effective date at the top of this document will be updated accordingly. Continued use of V.I.P.E.R by team members constitutes acknowledgement of the updated policy.</p>
+
+        <h3>11. Grievance Officer &amp; Contact</h3>
+        <div class="contact-block">
+          <strong>Designated Grievance Officer — IT Act &amp; DPDP Act</strong><br><br>
+          <strong>Name:</strong> Tanooj<br>
+          <strong>Organisation:</strong> Esyton Insights LLP<br>
+          <strong>Phone:</strong> <a href="tel:+919010043298">+91 90100 43298</a><br>
+          <strong>Email:</strong> <a href="mailto:connect@esyton.com">connect@esyton.com</a><br><br>
+          Complaints will be acknowledged within <strong>24 hours</strong> and resolved within <strong>15 working days</strong> as required under Rule 3(11) of the IT Intermediary Guidelines, 2021.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       GRIEVANCE REDRESSAL MODAL
+  ══════════════════════════════════════ -->
+  <div class="modal-overlay" id="grievanceModal" role="dialog" aria-modal="true" aria-labelledby="grievanceTitle" onclick="closeModalOnOverlay(event,'grievanceModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="grievanceTitle">⚖️ Grievance Redressal</h2>
+        <button class="modal-close" onclick="closeModal('grievanceModal')" aria-label="Close Grievance">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>As mandated under <strong>Rule 3(11) of the IT (Intermediary Guidelines &amp; Digital Media Ethics Code) Rules, 2021</strong> and <strong>Section 14 of the DPDP Act, 2023</strong>, Esyton Insights LLP has appointed a Grievance Officer for redressal of any concerns related to data handling, privacy, or platform use.</p>
+
+        <div class="grievance-card">
+          <div class="gc-name">Tanooj</div>
+          <div class="gc-role">Designated Grievance Officer · Esyton Insights LLP</div>
+          <div class="gc-detail">
+            📞 <a href="tel:+919010043298"><strong>+91 90100 43298</strong></a><br>
+            ✉ <a href="mailto:connect@esyton.com"><strong>connect@esyton.com</strong></a><br>
+            🏢 Esyton Insights LLP, India
+          </div>
+        </div>
+
+        <div class="sla-grid">
+          <div class="sla-box">
+            <div class="sla-num">24 hrs</div>
+            <div class="sla-label">Acknowledgement of complaint</div>
+          </div>
+          <div class="sla-box">
+            <div class="sla-num">15 days</div>
+            <div class="sla-label">Resolution of complaint</div>
+          </div>
+        </div>
+
+        <h3>What You Can Raise a Grievance About</h3>
+        <ul>
+          <li>Unauthorised access or misuse of your personal data</li>
+          <li>Incorrect data recorded in the system</li>
+          <li>Request to access, correct, or delete your personal data</li>
+          <li>Suspected data breach or security incident</li>
+          <li>Any violation of the Privacy Policy</li>
+          <li>Concerns about how your consent was obtained or used</li>
+        </ul>
+
+        <h3>How to File a Grievance</h3>
+        <p>Contact the Grievance Officer via phone or email with the following details:</p>
+        <ul>
+          <li>Your full name and contact information</li>
+          <li>Nature of the grievance with relevant details</li>
+          <li>Any supporting information or documents</li>
+        </ul>
+        <p>If your grievance is not resolved to your satisfaction within the specified timeframe, you may escalate to the <strong>Data Protection Board of India</strong> once it is constituted under the DPDP Act, 2023.</p>
+
+        <h3>Legal Framework</h3>
+        <p>This grievance mechanism is established under:</p>
+        <ul>
+          <li>Information Technology Act, 2000 — Section 43, 43A, 72A</li>
+          <li>IT (Intermediary Guidelines) Rules, 2021 — Rule 3(11)</li>
+          <li>Digital Personal Data Protection Act, 2023 — Section 14</li>
+          <li>SPDI Rules, 2011 — Clause 11</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       TERMS OF USE MODAL
+  ══════════════════════════════════════ -->
+  <div class="modal-overlay" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" onclick="closeModalOnOverlay(event,'termsModal')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="termsTitle">Terms of Use</h2>
+        <button class="modal-close" onclick="closeModal('termsModal')" aria-label="Close Terms">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="policy-effective">Effective Date: 1 January 2025 &nbsp;|&nbsp; Applies to: All authorised users of V.I.P.E.R</div>
+
+        <h3>1. Acceptance</h3>
+        <p>By logging into and using V.I.P.E.R, you confirm that you are an authorised employee or partner of Esyton Insights LLP and agree to be bound by these Terms of Use and the Privacy Policy. Unauthorised access is a criminal offence under <strong>Section 66 of the IT Act, 2000</strong>.</p>
+
+        <h3>2. Authorised Use Only</h3>
+        <p>V.I.P.E.R is an internal business tool. You may use it only to perform your designated work functions. You must not:</p>
+        <ul>
+          <li>Access client data for purposes other than your assigned duties</li>
+          <li>Share your login credentials with any other person</li>
+          <li>Export, copy, or transmit client data outside authorised channels</li>
+          <li>Attempt to bypass, tamper with, or circumvent security controls</li>
+          <li>Use the platform from unsecured or public networks without VPN</li>
+        </ul>
+
+        <h3>3. Confidentiality Obligation</h3>
+        <p>All data accessed through V.I.P.E.R is confidential. Disclosure of client information to any unauthorised person is punishable under <strong>Section 72A of the IT Act, 2000</strong> (up to 3 years imprisonment and/or ₹5 lakh fine) and may constitute breach of your employment / partnership agreement.</p>
+
+        <h3>4. Data Entry Responsibility</h3>
+        <p>You are responsible for the accuracy of data you enter. You must ensure that client written consent has been obtained before entering their data. Entering data without consent violates the DPDP Act, 2023 and this organisation's compliance obligations.</p>
+
+        <h3>5. Session Security</h3>
+        <p>Sessions automatically expire after 30 minutes of inactivity to protect client data. Always log out when leaving your workstation. Do not access V.I.P.E.R on shared or public computers.</p>
+
+        <h3>6. Export Controls</h3>
+        <p>Excel and PDF exports contain sensitive personal data. These must be stored securely, not emailed to personal accounts, and deleted once the purpose is served. Exports are subject to the same confidentiality obligations as the platform itself.</p>
+
+        <h3>7. Monitoring</h3>
+        <p>Esyton Insights LLP may monitor access logs and system activity on V.I.P.E.R to ensure security and compliance. By using the platform, you consent to such monitoring.</p>
+
+        <h3>8. Governing Law</h3>
+        <p>These Terms are governed by the laws of India, including the Information Technology Act, 2000, DPDP Act, 2023, and applicable rules thereunder. Disputes shall be subject to the jurisdiction of courts in Hyderabad, Telangana.</p>
+
+        <h3>9. Contact</h3>
+        <div class="contact-block">
+          For any questions about these Terms, contact:<br><br>
+          <strong>Tanooj</strong> | Esyton Insights LLP<br>
+          <a href="tel:+919010043298">+91 90100 43298</a> &nbsp;|&nbsp; <a href="mailto:connect@esyton.com">connect@esyton.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       COMPLIANCE JAVASCRIPT
+  ══════════════════════════════════════ -->
   <script>
-    emailjs.init("oCSNm-4jMM9RJpB35");
+    // ─── MODAL HELPERS ───
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closeModalOnOverlay(e, id) {
+      if (e.target === e.currentTarget) closeModal(id);
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        ['privacyModal','grievanceModal','termsModal'].forEach(closeModal);
+      }
+    });
+
+    // ─── SESSION AUTO-LOGOUT (30 min idle) ───
+    const SESSION_TIMEOUT_MS = 30 * 60 * 1000;
+    const SESSION_WARNING_MS = 25 * 60 * 1000;
+    let sessionTimer, warningTimer, countdownInterval;
+
+    function formatCountdown(ms) {
+      const totalSec = Math.max(0, Math.ceil(ms / 1000));
+      const m = Math.floor(totalSec / 60);
+      const s = totalSec % 60;
+      return `${m}:${s.toString().padStart(2,'0')}`;
+    }
+    function startCountdownDisplay() {
+      const el = document.getElementById('sessionCountdown');
+      let remaining = SESSION_TIMEOUT_MS - SESSION_WARNING_MS;
+      if (el) el.textContent = formatCountdown(remaining);
+      clearInterval(countdownInterval);
+      countdownInterval = setInterval(() => {
+        remaining -= 1000;
+        if (el) el.textContent = formatCountdown(remaining);
+        if (remaining <= 0) clearInterval(countdownInterval);
+      }, 1000);
+    }
+    function showSessionWarning() {
+      document.getElementById('sessionWarning').classList.add('show');
+      startCountdownDisplay();
+    }
+    function hideSessionWarning() {
+      document.getElementById('sessionWarning').classList.remove('show');
+      clearInterval(countdownInterval);
+    }
+    window.resetSessionTimer = function() {
+      clearTimeout(sessionTimer);
+      clearTimeout(warningTimer);
+      hideSessionWarning();
+      const appDiv = document.getElementById('appDiv');
+      if (appDiv && !appDiv.classList.contains('hidden')) {
+        warningTimer = setTimeout(showSessionWarning, SESSION_WARNING_MS);
+        sessionTimer = setTimeout(() => {
+          hideSessionWarning();
+          if (typeof logout === 'function') logout();
+        }, SESSION_TIMEOUT_MS);
+      }
+    };
+    ['mousemove','keydown','click','scroll','touchstart'].forEach(evt => {
+      document.addEventListener(evt, () => {
+        const appDiv = document.getElementById('appDiv');
+        if (appDiv && !appDiv.classList.contains('hidden')) resetSessionTimer();
+      }, { passive: true });
+    });
+    const _appDivEl = document.getElementById('appDiv');
+    if (_appDivEl) {
+      new MutationObserver(() => {
+        if (!_appDivEl.classList.contains('hidden')) {
+          resetSessionTimer();
+        } else {
+          clearTimeout(sessionTimer); clearTimeout(warningTimer); hideSessionWarning();
+        }
+      }).observe(_appDivEl, { attributes: true, attributeFilter: ['class'] });
+    }
   </script>
 
   <script type="module">
@@ -1199,7 +1784,11 @@
         setLoginStatus("Checking your access...", "success");
         await signInWithEmailAndPassword(auth, email, password);
       } catch (err) {
-        setLoginStatus(err.message || "Login failed.", "error");
+        const code = err.code || "";
+        let msg = "Invalid credentials. Please try again.";
+        if (code === "auth/too-many-requests") msg = "Too many failed attempts. Please wait a few minutes and try again.";
+        if (code === "auth/network-request-failed") msg = "Network error. Please check your connection.";
+        setLoginStatus(msg, "error");
         setLoginLoading(false);
       }
     };
@@ -1440,6 +2029,7 @@
     window.applyFiltersAndRender = applyFiltersAndRender;
 
     window.exportExcel = () => {
+      if (!isAdmin()) { alert("Export is restricted to Admin users only."); return; }
       const formatted = displayedClients.map((c, i) => ({
         "Sl. No.": i + 1,
         "Name": c.name,
@@ -1462,6 +2052,7 @@
     };
 
     window.exportPDF = () => {
+      if (!isAdmin()) { alert("Export is restricted to Admin users only."); return; }
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF("landscape");
       const headers = [["Sl.No","Name","HAL/Non-HAL","PB/ESY ID","PAN","Mobile","Email","ITR","Fees","Status","Created By","Created","Completed"]];
@@ -1515,10 +2106,14 @@
           workspaceChip.textContent = "Admin Workspace";
           dashboardChip.textContent = "Admin Dashboard";
           navPending.classList.remove("hidden");
+          document.getElementById("exportExcelBtn").style.display = "";
+          document.getElementById("exportPdfBtn").style.display = "";
         } else {
           workspaceChip.textContent = "User Workspace";
           dashboardChip.textContent = "User Dashboard";
           navPending.classList.add("hidden");
+          document.getElementById("exportExcelBtn").style.display = "none";
+          document.getElementById("exportPdfBtn").style.display = "none";
         }
 
         loginDiv.classList.add("hidden");
@@ -1528,7 +2123,10 @@
         setLoginLoading(false);
         setLoginStatus("");
       } catch (err) {
-        setLoginStatus(err.message || "Login flow failed.", "error");
+        const code = err.code || "";
+        let msg = "Something went wrong. Please refresh and try again.";
+        if (code === "auth/network-request-failed") msg = "Network error. Please check your connection.";
+        setLoginStatus(msg, "error");
         setLoginLoading(false);
       }
     });
