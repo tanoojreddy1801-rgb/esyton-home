@@ -1,24 +1,5 @@
 
 <!DOCTYPE html>
-<!--
-  ╔══════════════════════════════════════════════════════════════════╗
-  ║  SECURITY NOTE — firebase.json hosting headers                  ║
-  ║  Add the following to your firebase.json "hosting" config to    ║
-  ║  enforce HTTP security headers at the server level:             ║
-  ║                                                                 ║
-  ║  "headers": [{                                                  ║
-  ║    "source": "**",                                              ║
-  ║    "headers": [                                                 ║
-  ║      { "key": "Strict-Transport-Security",                      ║
-  ║        "value": "max-age=31536000; includeSubDomains" },        ║
-  ║      { "key": "X-Frame-Options", "value": "DENY" },            ║
-  ║      { "key": "X-Content-Type-Options", "value": "nosniff" },  ║
-  ║      { "key": "Referrer-Policy",                                ║
-  ║        "value": "strict-origin-when-cross-origin" }            ║
-  ║    ]                                                            ║
-  ║  }]                                                             ║
-  ╚══════════════════════════════════════════════════════════════════╝
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -683,7 +664,6 @@
     </div>
 
     <div class="container">
-      <!-- LOGIN -->
       <div id="loginDiv" class="panel hero-login">
         <div class="section-head">
           <div class="section-head-left">
@@ -700,10 +680,8 @@
         <div id="loginStatus" class="status-message"></div>
       </div>
 
-      <!-- APP -->
       <div id="appDiv" class="hidden">
 
-        <!-- APPROVAL PANEL (admin only) -->
         <div id="approvalPanel" class="panel hidden">
           <div class="section-head">
             <div class="section-head-left">
@@ -715,7 +693,6 @@
           <div id="pendingList"></div>
         </div>
 
-        <!-- CLIENT ENTRY -->
         <div class="panel" id="entryPanel">
           <div class="section-head">
             <div class="section-head-left">
@@ -741,7 +718,6 @@
               <option value="Non-HAL">Non-HAL</option>
             </select>
 
-            <!-- PB No for HAL; auto ESY-XXXX for Non-HAL -->
             <input id="pb" placeholder="PB No" required />
 
             <input id="pan" placeholder="PAN" maxlength="10" required />
@@ -783,7 +759,6 @@
           </div>
         </div>
 
-        <!-- DASHBOARD -->
         <div class="panel">
           <div class="section-head">
             <div class="section-head-left">
@@ -882,12 +857,7 @@
         </div>
       </div>
     </div>
-  </div><!-- /.app-shell -->
-
-  <!-- ══════════════════════════════════════
-       COMPLIANCE FOOTER
-  ══════════════════════════════════════ -->
-  <footer class="compliance-footer" role="contentinfo">
+  </div><footer class="compliance-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-section">
         <h4>Esyton Insights LLP</h4>
@@ -917,9 +887,6 @@
     </div>
   </footer>
 
-  <!-- ══════════════════════════════════════
-       SESSION TIMEOUT WARNING
-  ══════════════════════════════════════ -->
   <div class="session-warning" id="sessionWarning" role="alert" aria-live="polite">
     <strong>⏱ Session Expiring</strong><br>
     Your session will automatically log out in <strong id="sessionCountdown">5:00</strong> minutes due to inactivity. This protects client data under IT Act security requirements.
@@ -929,9 +896,6 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       PRIVACY POLICY MODAL
-  ══════════════════════════════════════ -->
   <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle" onclick="closeModalOnOverlay(event,'privacyModal')">
     <div class="modal-box">
       <div class="modal-header">
@@ -1017,9 +981,6 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       GRIEVANCE REDRESSAL MODAL
-  ══════════════════════════════════════ -->
   <div class="modal-overlay" id="grievanceModal" role="dialog" aria-modal="true" aria-labelledby="grievanceTitle" onclick="closeModalOnOverlay(event,'grievanceModal')">
     <div class="modal-box">
       <div class="modal-header">
@@ -1081,9 +1042,6 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       TERMS OF USE MODAL
-  ══════════════════════════════════════ -->
   <div class="modal-overlay" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle" onclick="closeModalOnOverlay(event,'termsModal')">
     <div class="modal-box">
       <div class="modal-header">
@@ -1134,9 +1092,6 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       COMPLIANCE JAVASCRIPT
-  ══════════════════════════════════════ -->
   <script>
     // ─── MODAL HELPERS ───
     function openModal(id) {
@@ -1359,7 +1314,6 @@
     }
 
     // ─── AUTO ESY-XXXX ID GENERATION ───
-    // Uses a Firestore counter doc: meta/esyCounter  { lastNumber: N }
     async function generateEsyId() {
       const counterRef = doc(db, "meta", "esyCounter");
       let newNumber = 1;
@@ -1370,7 +1324,6 @@
         }
         tx.set(counterRef, { lastNumber: newNumber }, { merge: true });
       });
-      // Format: ESY-0001 … ESY-9999
       const padded = String(newNumber).padStart(4, "0");
       return `ESY-${padded}`;
     }
@@ -1439,6 +1392,10 @@
 
       if (!name || !halType || !pan || !mobile || !email || !itr || !fee || !payment || !stage) {
         alert("All fields are mandatory. Please fill every field before saving.");
+        return false;
+      }
+      if (!pb || pb === "Generating…" || pb.startsWith("Error")) {
+        alert("A valid ID must be provided or generated.");
         return false;
       }
       if (halType === "HAL" && !pb) {
@@ -1701,7 +1658,7 @@
     }
 
     function applyFiltersAndRender() {
-      const q                   = searchInput.value.toLowerCase().trim();
+      const q                           = searchInput.value.toLowerCase().trim();
       const createdDateFilter   = document.getElementById("createdDateFilter").value;
       const completedDateFilter = document.getElementById("completedDateFilter").value;
       const stageFilter         = document.getElementById("stageFilter").value;
@@ -1798,14 +1755,20 @@
       await signOut(auth);
     };
 
-    window.handleHalTypeChange = () => {
+    window.handleHalTypeChange = async () => {
       const halType = document.getElementById("halType").value;
       const pbField = document.getElementById("pb");
 
       if (halType === "Non-HAL") {
-        // Only auto-fill if not editing (editing already has an ESY ID)
         if (!editingPan) {
-          pbField.value = "Generating…";
+          try {
+            pbField.value = "Generating…";
+            const newEsyId = await generateEsyId();
+            pbField.value = newEsyId;
+          } catch (err) {
+            console.error("Failed to generate ESY ID:", err);
+            pbField.value = "Error generating ID";
+          }
         }
         pbField.disabled    = true;
         pbField.required    = false;
@@ -1870,18 +1833,14 @@
       }
 
       // Determine PB field value
-      let pb = "";
-      if (halType === "HAL") {
-        pb = getInputValue("pb");
-      } else {
-        // Non-HAL: reuse existing ESY ID or generate new one
+      let pb = getInputValue("pb");
+      if (halType === "Non-HAL") {
         if (exists && existingData.pb && existingData.pb.startsWith("ESY-")) {
           pb = existingData.pb;
         } else if (editingPan && existingData.pb && existingData.pb.startsWith("ESY-")) {
           pb = existingData.pb;
-        } else {
+        } else if (!pb || pb === "Generating…" || pb.startsWith("Error")) {
           pb = await generateEsyId();
-          // Show it in the field
           document.getElementById("pb").value = pb;
         }
       }
