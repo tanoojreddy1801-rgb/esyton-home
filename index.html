@@ -553,7 +553,7 @@
           <p style="font-size:.8rem; color:var(--muted); margin-bottom:20px;">Provide your transaction details to initialize your file setup.</p>
           
           <!-- MODIFIED DIRECT MAIL ROUTER PIECE (Formspree Hook) -->
-          <form id="intakeForm" action="https://formspree.io/connect@esyton.com" method="POST" onsubmit="handleFormSubmission(event)">
+          <form id="intakeForm" action="https://formspree.io/f/mgogaybw" method="POST" onsubmit="handleFormSubmission(event)">
             <div class="form-grid">
               <div class="form-group">
                 <label for="fName">Your Registered/Legal Name *</label>
@@ -638,7 +638,6 @@
   <footer class="site-footer">
     <div class="shell">
       <div class="footer-row">
-        <span>&copy; 2026 Esyton Insights LLP. Professional Digital Records Framework System. All Rights Reserved.</span>
         <div style="display:flex; gap:16px;">
           <a href="#services">Filing Tracks</a>
           <a href="#calculator">Tax Tool</a>
@@ -850,27 +849,57 @@
       }
     }
 
-    // Capture Secure Form Submissions Locally for UI Response State
+    // Submit Intake Form to Formspree via AJAX (keeps the user on-page and shows a styled result)
     function handleFormSubmission(e) {
-      // The browser natively handles the network submission to Formspree, this updates the user interface presentation state cleanly.
-      setTimeout(() => {
-        const container = document.getElementById('queryFormContainer');
-        const name = document.getElementById('fName').value;
-        const track = document.getElementById('fSubject').value;
-        
-        container.innerHTML = `
-          <div style="text-align:center; padding: 40px 20px;">
-            <i class="ti ti-square-rounded-check-filled" style="font-size: 3.5rem; color:#2e7d32; margin-bottom:16px; display:block;"></i>
-            <h4 style="font-size:1.3rem; color:var(--navy); margin-bottom:10px;">Filing Request Transmitted</h4>
-            <p style="font-size:.9rem; color:var(--muted); line-height:1.6; max-width:400px; margin: 0 auto 20px;">
-              Thank you, <strong>${name}</strong>. Your setup data regarding <strong>${track}</strong> has been routed directly to our inbox via secure mail relays.
-            </p>
-            <span style="font-size:.75rem; background: var(--soft); padding: 6px 12px; border-radius:2px; font-weight:600; color:var(--navy);">
-              Intake Reference: ESP-${Math.floor(100000 + Math.random() * 900000)}
-            </span>
-          </div>
-        `;
-      }, 300);
+      e.preventDefault();
+
+      const form = e.target;
+      const container = document.getElementById('queryFormContainer');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const name = document.getElementById('fName').value;
+      const track = document.getElementById('fSubject').value;
+
+      submitBtn.disabled = true;
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="ti ti-loader-2"></i> Sending...';
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then((response) => {
+          if (response.ok) {
+            container.innerHTML = `
+              <div style="text-align:center; padding: 40px 20px;">
+                <i class="ti ti-square-rounded-check-filled" style="font-size: 3.5rem; color:#2e7d32; margin-bottom:16px; display:block;"></i>
+                <h4 style="font-size:1.3rem; color:var(--navy); margin-bottom:10px;">Filing Request Transmitted</h4>
+                <p style="font-size:.9rem; color:var(--muted); line-height:1.6; max-width:400px; margin: 0 auto 20px;">
+                  Thank you, <strong>${name}</strong>. Your setup data regarding <strong>${track}</strong> has been routed directly to our inbox via secure mail relays.
+                </p>
+                <span style="font-size:.75rem; background: var(--soft); padding: 6px 12px; border-radius:2px; font-weight:600; color:var(--navy);">
+                  Intake Reference: ESP-${Math.floor(100000 + Math.random() * 900000)}
+                </span>
+              </div>
+            `;
+          } else {
+            return response.json().then((data) => {
+              throw new Error((data && data.errors && data.errors.map(err => err.message).join(', ')) || 'Submission failed');
+            });
+          }
+        })
+        .catch((error) => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+          let errorBox = document.getElementById('formErrorBox');
+          if (!errorBox) {
+            errorBox = document.createElement('p');
+            errorBox.id = 'formErrorBox';
+            errorBox.style.cssText = 'margin-top:12px; font-size:.82rem; color:#b3261e; text-align:center;';
+            form.appendChild(errorBox);
+          }
+          errorBox.textContent = "Something went wrong sending your request. Please try again, or email us directly at connect@esyton.com.";
+        });
     }
 
     // ADVANCED PRODUCTION ROUTER STRIP ENGINE: MASKING THE .HTML EXTENSION
