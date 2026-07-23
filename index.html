@@ -1,122 +1,1224 @@
-<!DOCTYPE html><html lang="en-IN"><head>  <meta charset="utf-8">  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- SEO OPTIMIZATION ENGAGEMENT MATRIX -->  <title>Esyton | Income Tax Filing, GST, Accounting & Business Support Platform</title>  <meta name="description" content="File your Income Tax Return, manage GST compliance, get business bookkeeping done, incorporate companies or LLPs, and register trademarks online. Practical, non-assurance business support across India.">  <meta name="keywords" content="income tax filing, ITR notice help, GST registration online, bookkeeping services, company incorporation, LLP registration, trademark application, online tax consultant India, business compliance tools">  <meta name="author" content="Esyton Insights LLP">  <meta name="robots" content="index, follow">  <link rel="canonical" href="https://www.esyton.com/">
-  <!-- FONTS & ICONS -->  <link rel="preconnect" href="https://fonts.googleapis.com">  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <style>    :root {      --navy: #062f59;      --navy-2: #0a426f;      --navy-3: #071f36;      --gold: #c5983d;      --yellow: #ffd800;      --yellow-pale: #fffbe6;      --ink: #101820;      --muted: #5d6872;      --paper: #fff;      --soft: #f4f6f8;      --line: #dfe5e9;      --shadow: 0 22px 55px rgba(6, 47, 89, .13);      --max: 1200px;      --ui-font: 'Inter', 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }    html { scroll-behavior: smooth; }    body { font-family: var(--ui-font); color: var(--ink); background: var(--paper); line-height: 1.65; }    a { color: inherit; text-decoration: none; }    button, input, select, textarea { font: inherit; color: inherit; }    h1, h2, h3, h4 { font-family: var(--ui-font); font-weight: 700; color: var(--navy); }
+
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- SEO OPTIMIZATION ENGAGEMENT MATRIX -->
+  <title>Esyton | Income Tax Filing, GST, Accounting & Business Support Platform</title>
+  <meta name="description" content="File your Income Tax Return, manage GST compliance, get business bookkeeping done, incorporate companies or LLPs, and register trademarks online. Practical, non-assurance business support across India.">
+  <meta name="keywords" content="income tax filing, ITR notice help, GST registration online, bookkeeping services, company incorporation, LLP registration, trademark application, online tax consultant India, business compliance tools">
+  <meta name="author" content="Esyton Insights LLP">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.esyton.com/">
+  <link rel="icon" type="image/png" href="data:image/png;base64,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">
+  <!-- FONTS & ICONS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <style>
+    :root {
+      --navy: #062f59;
+      --navy-2: #0a426f;
+      --navy-3: #071f36;
+      --gold: #c5983d;
+      --yellow: #ffd800;
+      --yellow-pale: #fffbe6;
+      --ink: #101820;
+      --muted: #5d6872;
+      --paper: #fff;
+      --soft: #f4f6f8;
+      --line: #dfe5e9;
+      --shadow: 0 22px 55px rgba(6, 47, 89, .13);
+      --max: 1200px;
+      --ui-font: 'Inter', 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    /* CUSTOM RABBIT CURSOR: built from the real logo artwork (cropped, transparent).
+       Default pose everywhere, gold pose over anything clickable. */
+    html, body {
+      cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAFiElEQVR4nO1XTYxb1RX+zn33Pb8f22O/mbE9MyYRmSgtBEgQRE2rqIIFCyRWsGkRrFkgEBKgSFUrlhAhxM8GhLIAKZts2KTqqlJVtYmUqpEKIosQyMwwJBl7PP59fn6/93ThmTCTjPNDhiyQv40t657vfL7nfOe8B4wxxhhjjLEjsGyHfg5ecbcEs7vmK5V9v/u4svvBF4l2XuNPZCQAjOreA880lXsqUQpZ70Kh2Vjp7Kg6APKOpRGBeSiuFuZPEYfNPeXMcV8rupnC7LPSmnhaKv/vC+fPfnrPBW6IK8/urjTSiVOug7/Nuc6Zq+3gSJvLl8IghqkYdlD/03oAwHxXAm+7xBv9ZZom7LmD/zUNrTs1Yf3nm8v9V8I4sQkcmIZl2snK71cvf/Ovu1K1CbdtEmYGM8PMl+bzBfexyvSU99Wl9tFBHNua1FHMZZOCqP9mJ8UBt7jBjZICwFR51rGzxT0eJj4pusXHl1c6hq4RLFO7mJPR+/3Vhc/qtauDDQPdA4HDRKZp0kT1wLsBOa+nSYowCsGCULFxLPVXPx50G8vtTlttjtlJjCjxMFE2m6Xc3IETg8R4yc0k78VJFJDibsYwQUnn86vL3y4NxRFICBBhaIztGH/ijBzZg1JKFOb2v92J9OdTjvx6L3oegKlJzY6CQMX65IfFoqsPTzNYqWE7jHDtRqsQEUB07fNWGDFm+BphSkAco0SKIYhBUpOaINX01FP58sPnq9PeW5HfOSsIPrMytEyuqsnMI9Aye7s9jy3LhJmhC1Gn9tcr33+3ssF7u40wqh4AM7LZnChWf/1SRM6rxHBZCLvVHWSHlSSVKhJCapBSg6YJqDRFogCVJlCKIcTQZEQCpiGRk+EHcXvxz77X9YUQlJusPtaqf3/O73tqsyFvLfA65PN5mizNzgyM6kK97QlDE3I9WDGriMGCFQ/7EFDrrAKgDdsopVKhII28k0HeyZxrdfxf5bOWbC+csXu9Ht+xQCIalmE9yLIsZOYO1Tw/KklNKABiW8JRiYgATqNEsZGCMJ3V/w1v+bn6laX6zdw/oge3Jpkuzximna+EmugIIpfAisEKYLE5BmClFMCAAJMAKSVACiQkAMkQhhAqMAzDyIne0e+uLNVJCLBSo+5ptEmmSyVpFWZ+m+iF1waJ/mwzShF0BwAzUkUQmgbCj+ODmcFEkDpBECBIQimFNFVI0wQCnACQgoQMB7Ho6xMfGYbxeBRFN93Z25a4Or//cGjMne5HiSAkMDW+mITR/yzbKpumfV8cBw1E3slUKavvByCAHcuCrmMpCXtfB/3eD4JIgTQ7k3UfDWH9pRPgEFQcaEITrDgRum5PZfw/9laXvmi31qJRN7hFoGEYKN3/yCseCh/JuHvCUN13Br3GxTQK426vx4ZhwHEcCoKAB4PByLJcD8dxRLby0DFPWW+EYQgiQsoKpGkoOhlfNc6Xm42at13/bhFo2zYVynueHHitr1qrlxu3rWAT3fWzd8NoUkqU5vY+IB33hV4/qmgaIYVxpO2rfTMFOtlcPPeHIAi3YbxpPrp2YDjPaP1n2hp87RC2GJLXvwwXzI095k5Om2Zp/z9qnfhw0QyPp+3Fl9uttWi7s5s00Za9SUQQgiB24H1DCLphJ+fzeW1236E383uf4PlDT9fcYnHL+r3jrBM5m6ozrl3MWdnSZG5akjJnK9NVlQz/uKbr1PX8VqvTbzRafmOt43urLW/QaHbVDTezyb3uZMmEJq12Y6WlNo2dWz4PusWCOLh/V+XA/NTh+ysTTzhZaxIQFMZpt7bauCAMU3U6/Xq9vrYCMGZnyrtyjlk0Jdxi3plzHH23AMu1TnhpeaX9z/OLzdNnv1xcqK2upUPBO/+INsYYY4zxS8L/AQvcj/eHSuFnAAAAAElFTkSuQmCC") 4 4, auto;
+    }
+    a, button, .btn, .console-btn, .nav-cta, .s-link, summary, .console-tab,
+    .nav-tools-btn, select, input[type="submit"], .form-control, .console-input,
+    .console-select, input, textarea {
+      cursor: url("data:image/png;base64,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") 4 4, pointer;
+    }
+    body { font-family: var(--ui-font); color: var(--ink); background: var(--paper); line-height: 1.65; overflow-x: hidden; position: relative; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    h1, h2, h3, h4 { font-family: var(--ui-font); font-weight: 700; color: var(--navy); }
     ::selection { background: var(--yellow); color: var(--navy-3); }
-    a:focus-visible, button:focus-visible, summary:focus-visible,    input:focus-visible, select:focus-visible, textarea:focus-visible {      outline: 2px solid var(--gold);      outline-offset: 2px;      border-radius: 2px;    }
-    @media (prefers-reduced-motion: reduce) {      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }    }
-    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }    @keyframes pulseSoft { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
-    .shell { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
-    /* TOPBAR & HEADER */    .topbar { background: var(--navy-3); color: #dce9f3; font-size: .78rem; padding: 8px 0; }    .topbar-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }    .topbar strong { color: var(--yellow); }
-    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: box-shadow .3s; }    .site-header.scrolled { box-shadow: 0 4px 30px rgba(6,47,89,.08); }    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }    .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--navy); font-size: 1.3rem; letter-spacing: -0.02em; }    .brand-logo { height: 42px; width: auto; transition: transform .35s cubic-bezier(.2,.8,.2,1); }    .brand:hover .brand-logo { transform: scale(1.06) rotate(-1.5deg); }    .nav-links { display: flex; align-items: center; gap: 8px; }    .nav-links a:not(.nav-cta) { position: relative; padding: 8px 14px; font-size: .88rem; font-weight: 600; color: #34424e; border-radius: 4px; transition: background .2s, color .2s; }    .nav-links a:not(.nav-cta)::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 5px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }    .nav-links a:not(.nav-cta):hover { background: var(--soft); color: var(--navy); }    .nav-links a:not(.nav-cta):hover::after { transform: scaleX(1); }
-    /* INTERNAL TOOLS DROPDOWN */    .nav-tools { position: relative; display: inline-block; }    .nav-tools-btn { background: none; border: none; padding: 8px 12px; font-size: .84rem; font-weight: 500; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 4px; border-radius: 4px; transition: background .2s, color .2s; }    .nav-tools-btn:hover { color: var(--navy); background: var(--soft); }    .nav-tools-btn span { display: inline-block; transition: transform .25s ease; }    .nav-tools:hover .nav-tools-btn span, .nav-tools:focus-within .nav-tools-btn span { transform: rotate(180deg); }    .tools-dropdown { display: block; position: absolute; top: 100%; right: 0; background: #fff; min-width: 200px; border: 1px solid var(--line); border-top: 3px solid var(--yellow); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 0 0 4px 4px; z-index: 200; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }    .nav-tools:hover .tools-dropdown, .nav-tools:focus-within .tools-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }    .tools-dropdown a { display: flex !important; flex-direction: column; padding: 10px 16px !important; border-bottom: 1px solid var(--soft); font-size: .8rem !important; font-weight: 500 !important; color: var(--ink) !important; text-align: left; transition: background .18s, padding-left .18s; }    .tools-dropdown a:last-child { border-bottom: none; }    .tools-dropdown a small { color: var(--muted); font-weight: 400; margin-top: 2px; }    .tools-dropdown a:hover { background: var(--soft); color: var(--navy) !important; padding-left: 20px !important; }
-    .nav-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff !important; font-weight: 700; padding: 10px 20px; border-radius: 2px; box-shadow: 0 8px 20px rgba(6,47,89,.15); transition: background .2s, transform .2s, box-shadow .2s; }    .nav-cta:hover { background: var(--navy-2); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(6,47,89,.22); }
-    /* HERO SECTION */    .hero { position: relative; background: linear-gradient(115deg, #041628 0%, #062f59 60%, #0a426f 100%); color: #fff; padding: 90px 0 110px; overflow: hidden; }    .hero h1 { color: #fff; }    .hero::before { content: ''; position: absolute; inset: 0; opacity: .06; background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 40px 40px; }    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; position: relative; z-index: 5; }    .hero-text h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.18; margin-bottom: 20px; letter-spacing: -0.02em; animation: fadeSlideUp .6s ease both; }    .hero-text h1 span { color: var(--yellow); }    .hero-text p { color: #cbdbe7; font-size: 1.05rem; margin-bottom: 30px; max-width: 580px; animation: fadeSlideUp .6s ease .1s both; }    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeSlideUp .6s ease .2s both; }
-    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 26px; font-weight: 700; font-size: .88rem; border-radius: 2px; transition: transform .2s, background .2s, box-shadow .2s; border: 1px solid transparent; cursor: pointer; }    .btn i { transition: transform .2s ease; }    .btn:hover i { transform: translateX(2px); }    .btn:active { transform: translateY(0) scale(.97); }    .btn-gold { background: var(--yellow); color: var(--navy-3); box-shadow: 0 10px 25px rgba(255,216,0,.2); }    .btn-gold:hover { background: #ffe53a; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(255,216,0,.32); }    .btn-outline { border-color: rgba(255,255,255,.4); color: #fff; background: transparent; }    .btn-outline:hover { background: rgba(255,255,255,.08); border-color: #fff; transform: translateY(-2px); }
-    /* CONSOLE SIDE PANEL */    .console-card { background: #fff; border-radius: 4px; box-shadow: 0 30px 70px rgba(0,0,0,.25); padding: 24px; color: var(--ink); border-top: 4px solid var(--gold); animation: fadeSlideUp .6s ease .15s both; }    .console-card h3 { font-size: 1.25rem; color: var(--navy); margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }    .console-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; background: var(--soft); padding: 4px; border-radius: 2px; }    .console-tab { padding: 8px; font-size: .82rem; font-weight: 700; text-align: center; border: 0; background: transparent; border-radius: 2px; color: var(--muted); cursor: pointer; transition: background .18s, color .18s; }    .console-tab.active { background: #fff; color: var(--navy); box-shadow: 0 2px 8px rgba(0,0,0,.05); }    .console-field { margin-bottom: 12px; }    .console-field label { display: block; font-size: .78rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .02em; }    .console-input, .console-select { width: 100%; height: 40px; border: 1px solid var(--line); padding: 0 12px; font-size: .88rem; border-radius: 2px; background: #fff; outline: none; transition: border-color .18s, box-shadow .18s; }    .console-input:hover, .console-select:hover { border-color: var(--gold); }    .console-input:focus, .console-select:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }    .console-btn { width: 100%; background: var(--navy); color: #fff; font-weight: 700; font-size: .9rem; height: 44px; border: 0; border-radius: 2px; margin-top: 8px; transition: background .2s, transform .2s, box-shadow .2s; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }    .console-btn:hover { background: var(--navy-2); box-shadow: 0 8px 20px rgba(6,47,89,.25); }    .console-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; justify-content: center; }    .console-badge { font-size: .68rem; font-weight: 600; background: var(--soft); color: var(--muted); padding: 4px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; }
-    /* CORE SECTIONS */    section { padding: 80px 0; }    .section-alt { background: var(--soft); }    .section-heading { max-width: 700px; margin-bottom: 45px; }    .section-heading span.kicker { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }    .section-heading h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy); line-height: 1.25; margin-bottom: 12px; letter-spacing: -0.01em; }    .section-heading p { color: var(--muted); font-size: .95rem; }
-    /* SERVICES CARDS */    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }    .service-card { background: #fff; border: 1px solid var(--line); border-radius: 3px; padding: 30px; transition: transform .25s, box-shadow .25s, border-color .25s; position: relative; display: flex; flex-direction: column; }    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--gold); }    .s-icon { width: 48px; height: 48px; background: var(--yellow-pale); color: var(--gold); border-radius: 4px; display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 20px; transition: transform .3s, background .3s, color .3s; }    .service-card:hover .s-icon { transform: scale(1.08) rotate(-4deg); background: var(--gold); color: #fff; }    .service-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 12px; font-weight: 700; }    .service-card p { font-size: .9rem; color: var(--muted); margin-bottom: 20px; flex-grow: 1; line-height: 1.55; }    .service-card ul { list-style: none; margin-bottom: 24px; }    .service-card ul li { font-size: .82rem; color: var(--ink); font-weight: 500; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }    .service-card ul li i { color: #2e7d32; font-size: .95rem; }    .s-link { font-size: .85rem; font-weight: 700; color: var(--navy); display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid var(--yellow); width: max-content; padding-bottom: 2px; cursor: pointer; }    .service-card:hover .s-link { color: var(--gold); }
-    /* TAX CALCULATOR SECTION */    .computation-wrapper { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items: start; background: #fff; border: 1px solid var(--line); padding: 32px; border-radius: 4px; }    @media(max-width: 900px) { .computation-wrapper, .hero-grid, .query-layout { grid-template-columns: 1fr !important; } }    .comp-panel-left { display: grid; gap: 20px; }    .comp-block-section { background: var(--soft); padding: 20px; border-radius: 3px; border-left: 3px solid var(--navy); transition: border-left-color .2s; }    .comp-block-section:hover { border-left-color: var(--gold); }    .comp-block-section h4 { font-size: .88rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }    .comp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; margin-bottom: 12px; }    @media(max-width: 600px) { .comp-row { grid-template-columns: 1fr; gap: 4px; } }    .comp-row label { font-size: .82rem; font-weight: 600; color: var(--muted); }    .comp-output-pane { position: sticky; top: 100px; background: var(--navy-3); color: #fff; padding: 28px; border-radius: 4px; border-bottom: 4px solid var(--yellow); }    .comp-output-pane h3 { font-size: 1.3rem; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 10px; color: var(--yellow); }    .v-display { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 20px; letter-spacing: -0.01em; }    .table-scroll-container { width: 100%; overflow-x: auto; margin-bottom: 16px; }    .matrix-table { width: 100%; border-collapse: collapse; font-size: .8rem; min-width: 280px; text-align: left; }    .matrix-table th, .matrix-table td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,.08); }    .matrix-table th { background: rgba(255,255,255,.05); color: var(--yellow); font-weight: 600; }    .matrix-table tr.total-row td { font-weight: 700; color: var(--yellow); border-bottom: 0; font-size: .88rem; }    .comp-advice-text { background: rgba(255,255,255,.04); border-left: 3px solid var(--yellow); padding: 12px; font-size: .78rem; color: #b8cddc; line-height: 1.5; }
+    a:focus-visible, button:focus-visible, summary:focus-visible,
+    input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulseSoft { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .shell { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; position: relative; z-index: 2; }
 
-    /* DYNAMIC INTERACTIVE INTAKE FORM STYLES */    .query-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 50px; align-items: start; }    .query-info h3 { font-size: 1.6rem; color: var(--navy); margin-bottom: 16px; }    
-    /* COUNTER BADGE DESIGN */    .counter-badge { display: inline-flex; align-items: center; gap: 10px; background: #e8f4fd; border: 1px solid #bce0fd; padding: 10px 18px; border-radius: 30px; margin-bottom: 24px; animation: pulseSoft 3s infinite ease-in-out; }    .counter-badge i { font-size: 1.2rem; color: #0288d1; }    .counter-badge-text { font-size: .85rem; font-weight: 700; color: var(--navy); }    .counter-badge-number { font-size: 1.1rem; font-weight: 800; color: var(--navy-2); }
-    .q-channel { display: flex; gap: 16px; align-items: center; padding: 16px; border: 1px solid var(--line); margin-bottom: 12px; border-radius: 2px; background: #fff; }    .q-channel i { font-size: 1.4rem; color: var(--navy); }    .q-channel div strong { display: block; font-size: .9rem; color: var(--navy); }    .q-channel div span { font-size: .85rem; color: var(--muted); }
+    /* SCROLLING RABBIT: margin guide-rail + runner (header logo -> footer logo)
+       Positioning (where on screen) and presentation (scale/opacity pop) are
+       split across two elements so the "emerge" animation is a true hidden
+       -> visible pop rather than a shape sitting overlapped on the logo. */
+    .rabbit-track {
+      position: fixed; top: 0; right: 18px; width: 1px; height: 100vh;
+      background: repeating-linear-gradient(var(--gold) 0 6px, transparent 6px 12px);
+      opacity: .18; pointer-events: none; z-index: 1;
+    }
+    .rabbit-position {
+      position: fixed; top: 0; left: 0; width: 0; height: 0; pointer-events: none; z-index: 999;
+      transform: translate(-9999px, -9999px); /* off-screen until first measured */
+      transition: transform .16s cubic-bezier(.25,.46,.45,.94);
+    }
+    .rabbit-body {
+      width: 36px; height: 36px; margin: -18px 0 0 -18px; /* self-center on the position point */
+      background: #ffffff; border: 2px solid var(--gold); border-radius: 50%;
+      display: grid; place-items: center; color: var(--navy);
+      box-shadow: 0 4px 18px rgba(6, 47, 89, 0.35);
+      opacity: 0; transform: scale(.15);
+      transition: opacity .5s ease, transform .5s cubic-bezier(.34, 1.56, .64, 1);
+    }
+    .rabbit-body svg, .rabbit-body .rabbit-icon-img { width: 24px; height: auto; overflow: visible; display: block; }
+    .rabbit-body.emerged { opacity: 1; transform: scale(1); }
+    /* small pill that names the section the rabbit is currently passing */
+    .rabbit-label {
+      position: fixed; top: 0; left: 0; z-index: 998; pointer-events: none;
+      background: var(--navy); color: #fff; font-size: .68rem; font-weight: 700;
+      letter-spacing: .02em; padding: 5px 12px; border-radius: 20px; white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(6,47,89,.28); border: 1px solid rgba(255,255,255,.08);
+      transform: translate(0, -50%); opacity: 0;
+      transition: opacity .25s ease, transform .16s cubic-bezier(.25,.46,.45,.94);
+    }
+    .rabbit-label.visible { opacity: 1; }
+    @media (max-width: 900px) {
+      /* No safe margin to travel in beside the content on phones, so instead
+         of hiding, pin the rabbit as a small floating badge in the corner -
+         a familiar mobile pattern that can never overlap page content. */
+      .rabbit-track { display: none; }
+      .rabbit-position {
+        top: auto !important; left: auto !important;
+        bottom: 18px; right: 14px;
+        transform: none !important; /* CSS owns the position on mobile, not JS */
+      }
+      .rabbit-label {
+        top: auto !important; left: auto !important;
+        bottom: 60px; right: 14px;
+        transform: none !important;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rabbit-position, .rabbit-track, .rabbit-label { display: none; }
+    }
 
-    .query-form-box { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--navy); padding: 36px; box-shadow: 0 10px 30px rgba(6,47,89,.06); border-radius: 2px; }    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }    @media(max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }    .form-group { margin-bottom: 16px; }    .form-group label { display: block; font-size: .82rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }    .form-control { width: 100%; border: 1px solid var(--line); padding: 10px 14px; font-size: .88rem; border-radius: 2px; outline: none; background: #fff; transition: border-color .18s, box-shadow .18s; }    .form-control:hover { border-color: var(--gold); }    .form-control:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }    textarea.form-control { min-height: 90px; resize: vertical; }    
-    /* PHONE INPUT WITH COUNTRY CODE */    .phone-input-wrap { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 2px; background: #fff; transition: border-color .18s; }    .phone-input-wrap:focus-within { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }    .phone-prefix { background: var(--soft); padding: 10px 12px; font-size: .88rem; font-weight: 600; color: var(--muted); border-right: 1px solid var(--line); }    .phone-input-wrap input { border: none !important; box-shadow: none !important; }
+    /* TOPBAR & HEADER */
+    .topbar { background: var(--navy-3); color: #dce9f3; font-size: .78rem; padding: 8px 0; position: relative; z-index: 101; }
+    .topbar-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .topbar strong { color: var(--yellow); }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: box-shadow .3s; }
+    .site-header.scrolled { box-shadow: 0 4px 30px rgba(6,47,89,.08); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 8px; font-weight: 700; color: var(--navy); font-size: 1.3rem; letter-spacing: -0.02em; }
+    .brand-logo { height: 42px; width: auto; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+    .brand:hover .brand-logo { transform: scale(1.06) rotate(-1.5deg); }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a:not(.nav-cta) { position: relative; padding: 8px 14px; font-size: .88rem; font-weight: 600; color: #34424e; border-radius: 4px; transition: background .2s, color .2s; }
+    .nav-links a:not(.nav-cta)::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 5px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .25s ease; }
+    .nav-links a:not(.nav-cta):hover { background: var(--soft); color: var(--navy); }
+    .nav-links a:not(.nav-cta):hover::after { transform: scaleX(1); }
 
-    /* DYNAMIC CONDITIONAL CONTAINER */    .dynamic-fields-box { background: var(--soft); border-left: 3px solid var(--gold); padding: 20px; border-radius: 2px; margin-bottom: 20px; animation: fadeSlideUp .3s ease both; }    .dynamic-fields-box h4 { font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; color: var(--navy); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+    /* INTERNAL TOOLS DROPDOWN */
+    .nav-tools { position: relative; display: inline-block; }
+    .nav-tools-btn { background: none; border: none; padding: 8px 12px; font-size: .84rem; font-weight: 500; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 4px; border-radius: 4px; transition: background .2s, color .2s; }
+    .nav-tools-btn:hover { color: var(--navy); background: var(--soft); }
+    .nav-tools-btn span { display: inline-block; transition: transform .25s ease; }
+    .nav-tools:hover .nav-tools-btn span, .nav-tools:focus-within .nav-tools-btn span { transform: rotate(180deg); }
+    .tools-dropdown { display: block; position: absolute; top: 100%; right: 0; background: #fff; min-width: 200px; border: 1px solid var(--line); border-top: 3px solid var(--yellow); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-radius: 0 0 4px 4px; z-index: 200; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+    .nav-tools:hover .tools-dropdown, .nav-tools:focus-within .tools-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+    .tools-dropdown a { display: flex !important; flex-direction: column; padding: 10px 16px !important; border-bottom: 1px solid var(--soft); font-size: .8rem !important; font-weight: 500 !important; color: var(--ink) !important; text-align: left; transition: background .18s, padding-left .18s; }
+    .tools-dropdown a:last-child { border-bottom: none; }
+    .tools-dropdown a small { color: var(--muted); font-weight: 400; margin-top: 2px; }
+    .tools-dropdown a:hover { background: var(--soft); color: var(--navy) !important; padding-left: 20px !important; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--navy); color: #fff !important; font-weight: 700; padding: 10px 20px; border-radius: 2px; box-shadow: 0 8px 20px rgba(6,47,89,.15); transition: background .2s, transform .2s, box-shadow .2s; }
+    .nav-cta:hover { background: var(--navy-2); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(6,47,89,.22); }
 
+    /* HERO SECTION */
+    .hero { position: relative; background: linear-gradient(115deg, #041628 0%, #062f59 60%, #0a426f 100%); color: #fff; padding: 90px 0 110px; overflow: hidden; z-index: 2; }
+    .hero h1 { color: #fff; }
+    .hero::before { content: ''; position: absolute; inset: 0; opacity: .06; background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 40px 40px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: center; position: relative; z-index: 5; }
+    .hero-text h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.18; margin-bottom: 20px; letter-spacing: -0.02em; animation: fadeSlideUp .6s ease both; }
+    .hero-text h1 span { color: var(--yellow); }
+    .hero-text p { color: #cbdbe7; font-size: 1.05rem; margin-bottom: 30px; max-width: 580px; animation: fadeSlideUp .6s ease .1s both; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeSlideUp .6s ease .2s both; }
+    .btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 26px; font-weight: 700; font-size: .88rem; border-radius: 2px; transition: transform .2s, background .2s, box-shadow .2s; border: 1px solid transparent; cursor: pointer; }
+    .btn i { transition: transform .2s ease; }
+    .btn:hover i { transform: translateX(2px); }
+    .btn:active { transform: translateY(0) scale(.97); }
+    .btn-gold { background: var(--yellow); color: var(--navy-3); box-shadow: 0 10px 25px rgba(255,216,0,.2); }
+    .btn-gold:hover { background: #ffe53a; transform: translateY(-2px); box-shadow: 0 14px 30px rgba(255,216,0,.32); }
+    .btn-outline { border-color: rgba(255,255,255,.4); color: #fff; background: transparent; }
+    .btn-outline:hover { background: rgba(255,255,255,.08); border-color: #fff; transform: translateY(-2px); }
+
+    /* CONSOLE SIDE PANEL */
+    .console-card { background: #fff; border-radius: 4px; box-shadow: 0 30px 70px rgba(0,0,0,.25); padding: 24px; color: var(--ink); border-top: 4px solid var(--gold); animation: fadeSlideUp .6s ease .15s both; position: relative; z-index: 3; }
+    .console-card h3 { font-size: 1.25rem; color: var(--navy); margin-bottom: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .console-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; background: var(--soft); padding: 4px; border-radius: 2px; }
+    .console-tab { padding: 8px; font-size: .82rem; font-weight: 700; text-align: center; border: 0; background: transparent; border-radius: 2px; color: var(--muted); cursor: pointer; transition: background .18s, color .18s; }
+    .console-tab.active { background: #fff; color: var(--navy); box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .console-field { margin-bottom: 12px; }
+    .console-field label { display: block; font-size: .78rem; font-weight: 700; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .02em; }
+    .console-input, .console-select { width: 100%; height: 40px; border: 1px solid var(--line); padding: 0 12px; font-size: .88rem; border-radius: 2px; background: #fff; outline: none; transition: border-color .18s, box-shadow .18s; }
+    .console-input:hover, .console-select:hover { border-color: var(--gold); }
+    .console-input:focus, .console-select:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }
+    .console-btn { width: 100%; background: var(--navy); color: #fff; font-weight: 700; font-size: .9rem; height: 44px; border: 0; border-radius: 2px; margin-top: 8px; transition: background .2s, transform .2s, box-shadow .2s; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; }
+    .console-btn:hover { background: var(--navy-2); box-shadow: 0 8px 20px rgba(6,47,89,.25); }
+    .console-badge-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; justify-content: center; }
+    .console-badge { font-size: .68rem; font-weight: 600; background: var(--soft); color: var(--muted); padding: 4px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; }
+
+    /* CORE SECTIONS */
+    section { padding: 80px 0; position: relative; z-index: 2; }
+    .section-alt { background: var(--soft); }
+    .section-heading { max-width: 700px; margin-bottom: 45px; }
+    .section-heading span.kicker { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .section-heading h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--navy); line-height: 1.25; margin-bottom: 12px; letter-spacing: -0.01em; }
+    .section-heading p { color: var(--muted); font-size: .95rem; }
+
+    /* SERVICES CARDS */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; position: relative; z-index: 3; }
+    .service-card { background: #fff; border: 1px solid var(--line); border-radius: 3px; padding: 30px; transition: transform .25s, box-shadow .25s, border-color .25s; position: relative; display: flex; flex-direction: column; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--gold); }
+    .s-icon { width: 48px; height: 48px; background: var(--yellow-pale); color: var(--gold); border-radius: 4px; display: grid; place-items: center; font-size: 1.3rem; margin-bottom: 20px; transition: transform .3s, background .3s, color .3s; }
+    .service-card:hover .s-icon { transform: scale(1.08) rotate(-4deg); background: var(--gold); color: #fff; }
+    .service-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 12px; font-weight: 700; }
+    .service-card p { font-size: .9rem; color: var(--muted); margin-bottom: 20px; flex-grow: 1; line-height: 1.55; }
+    .service-card ul { list-style: none; margin-bottom: 24px; }
+    .service-card ul li { font-size: .82rem; color: var(--ink); font-weight: 500; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .service-card ul li i { color: #2e7d32; font-size: .95rem; }
+    .s-link { font-size: .85rem; font-weight: 700; color: var(--navy); display: inline-flex; align-items: center; gap: 6px; border-bottom: 1.5px solid var(--yellow); width: max-content; padding-bottom: 2px; cursor: pointer; }
+    .service-card:hover .s-link { color: var(--gold); }
+
+    /* TAX CALCULATOR SECTION */
+    .computation-wrapper { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; align-items: start; background: #fff; border: 1px solid var(--line); padding: 32px; border-radius: 4px; position: relative; z-index: 3; }
+    @media(max-width: 900px) { .computation-wrapper, .hero-grid, .query-layout { grid-template-columns: 1fr !important; } }
+    .comp-panel-left { display: grid; gap: 20px; }
+    .comp-block-section { background: var(--soft); padding: 20px; border-radius: 3px; border-left: 3px solid var(--navy); transition: border-left-color .2s; }
+    .comp-block-section:hover { border-left-color: var(--gold); }
+    .comp-block-section h4 { font-size: .88rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 14px; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+    .comp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: center; margin-bottom: 12px; }
+    @media(max-width: 600px) { .comp-row { grid-template-columns: 1fr; gap: 4px; } }
+    .comp-row label { font-size: .82rem; font-weight: 600; color: var(--muted); }
+    .comp-output-pane { position: sticky; top: 100px; background: var(--navy-3); color: #fff; padding: 28px; border-radius: 4px; border-bottom: 4px solid var(--yellow); }
+    .comp-output-pane h3 { font-size: 1.3rem; margin-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,.1); padding-bottom: 10px; color: var(--yellow); }
+    .v-display { font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 20px; letter-spacing: -0.01em; }
+    .table-scroll-container { width: 100%; overflow-x: auto; margin-bottom: 16px; }
+    .matrix-table { width: 100%; border-collapse: collapse; font-size: .8rem; min-width: 280px; text-align: left; }
+    .matrix-table th, .matrix-table td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .matrix-table th { background: rgba(255,255,255,.05); color: var(--yellow); font-weight: 600; }
+    .matrix-table tr.total-row td { font-weight: 700; color: var(--yellow); border-bottom: 0; font-size: .88rem; }
+    .comp-advice-text { background: rgba(255,255,255,.04); border-left: 3px solid var(--yellow); padding: 12px; font-size: .78rem; color: #b8cddc; line-height: 1.5; }
+
+    /* DYNAMIC INTERACTIVE INTAKE FORM STYLES */
+    .query-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 50px; align-items: start; position: relative; z-index: 3; }
+    .query-info h3 { font-size: 1.6rem; color: var(--navy); margin-bottom: 16px; }
+    .counter-badge { display: inline-flex; align-items: center; gap: 10px; background: #e8f4fd; border: 1px solid #bce0fd; padding: 10px 18px; border-radius: 30px; margin-bottom: 24px; animation: pulseSoft 3s infinite ease-in-out; }
+    .counter-badge i { font-size: 1.2rem; color: #0288d1; }
+    .counter-badge-text { font-size: .85rem; font-weight: 700; color: var(--navy); }
+    .counter-badge-number { font-size: 1.1rem; font-weight: 800; color: var(--navy-2); }
+    .q-channel { display: flex; gap: 16px; align-items: center; padding: 16px; border: 1px solid var(--line); margin-bottom: 12px; border-radius: 2px; background: #fff; }
+    .q-channel i { font-size: 1.4rem; color: var(--navy); }
+    .q-channel div strong { display: block; font-size: .9rem; color: var(--navy); }
+    .q-channel div span { font-size: .85rem; color: var(--muted); }
+
+    .query-form-box { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--navy); padding: 36px; box-shadow: 0 10px 30px rgba(6,47,89,.06); border-radius: 2px; position: relative; z-index: 3; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    @media(max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .82rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .form-control { width: 100%; border: 1px solid var(--line); padding: 10px 14px; font-size: .88rem; border-radius: 2px; outline: none; background: #fff; transition: border-color .18s, box-shadow .18s; }
+    .form-control:hover { border-color: var(--gold); }
+    .form-control:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }
+    textarea.form-control { min-height: 90px; resize: vertical; }
+
+    .phone-input-wrap { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 2px; background: #fff; transition: border-color .18s; }
+    .phone-input-wrap:focus-within { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }
+    .phone-prefix { background: var(--soft); padding: 10px 12px; font-size: .88rem; font-weight: 600; color: var(--muted); border-right: 1px solid var(--line); }
+    .phone-input-wrap input { border: none !important; box-shadow: none !important; }
+
+    .dynamic-fields-box { background: var(--soft); border-left: 3px solid var(--gold); padding: 20px; border-radius: 2px; margin-bottom: 20px; animation: fadeSlideUp .3s ease both; }
+    .dynamic-fields-box h4 { font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; color: var(--navy); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
     .disclaimer-text { font-size: .74rem; color: var(--muted); margin-bottom: 20px; line-height: 1.48; }
 
-    /* FAQ ACCORDIONS */    .faq-stack { display: grid; gap: 8px; max-width: 850px; }    details { background: #fff; border: 1px solid var(--line); border-radius: 2px; }    details:hover { border-color: var(--gold); }    summary { padding: 16px 20px; font-weight: 700; color: var(--navy); cursor: pointer; font-size: .95rem; display: flex; justify-content: space-between; align-items: center; list-style: none; }    summary::-webkit-details-marker { display: none; }    summary::after { content: '\2212'; font-family: monospace; font-size: 1.1rem; color: var(--gold); }    details[open] summary::after { content: '\002B'; }    details p { padding: 0 20px 16px; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+    /* FAQ ACCORDIONS */
+    .faq-stack { display: grid; gap: 8px; max-width: 850px; position: relative; z-index: 3; }
+    details { background: #fff; border: 1px solid var(--line); border-radius: 2px; }
+    details:hover { border-color: var(--gold); }
+    summary { padding: 16px 20px; font-weight: 700; color: var(--navy); cursor: pointer; font-size: .95rem; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: '\2212'; font-family: monospace; font-size: 1.1rem; color: var(--gold); }
+    details[open] summary::after { content: '\002B'; }
+    details p { padding: 0 20px 16px; color: var(--muted); font-size: .88rem; line-height: 1.6; }
 
-    /* FOOTER */    .site-footer { background: #041725; color: #7090a0; padding: 40px 0 24px; font-size: .8rem; border-top: 1px solid rgba(255,255,255,.06); }    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }    .footer-row a:hover { color: #dce9f3; }    .footer-notice { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.04); color: #4b6675; text-align: center; font-size: .74rem; line-height: 1.5; }  </style></head><body>
-  <!-- TOP STRIP -->  <div class="topbar">    <div class="shell topbar-row">      <div><i class="ti ti-point-filled" style="color:var(--yellow)"></i> <strong>Online Business Compliance System</strong> &nbsp;·&nbsp; Complete Professional Support</div>      <div>connect@esyton.com · AY 2026-27 / FY 2025-26 Active</div>    </div>  </div>
-  <!-- NAVIGATION -->  <header class="site-header" id="navbar">    <div class="shell nav">      <a href="#" class="brand">        <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights Logo" class="brand-logo">      </a>      <nav class="nav-links">        <a href="#services">Services</a>        <a href="#calculator">Tax Calculator</a>        <a href="#faq">Help &amp; FAQ</a>                <div class="nav-tools">          <button class="nav-tools-btn" aria-haspopup="true">Internal Access <span style="font-size:0.6rem;">▼</span></button>          <div class="tools-dropdown" role="menu">            <a href="./viper.html" role="menuitem">V.I.P.E.R<br><small>Client Activity Log</small></a>            <a href="./timesheet.html" role="menuitem">T.I.M.O<br><small>Time Sheet Entry</small></a>            <a href="./computax.html" role="menuitem">Computax<br><small>Portal Redirect Gateway</small></a>            <a href="./refund-status.html" role="menuitem">Refund Track<br><small>Tax Processing Board</small></a>          </div>        </div>
-        <a href="#query" class="nav-cta"><i class="ti ti-message-circle-2"></i> Submit Enquiry</a>      </nav>    </div>  </header>
-  <!-- MAIN CONTENT -->  <main>    <!-- HERO -->    <section class="hero">      <div class="shell hero-grid">        <div class="hero-text">          <h1>Complete Business &amp; Tax Solutions. <span>Simplified.</span></h1>          <p>Get expert assistance for income tax filings, company &amp; LLP incorporations, monthly GST returns, routine bookkeeping, trademark registration, and payroll support. Clean, reliable execution for businesses and professionals across India.</p>          <div class="hero-actions">            <a href="#query" class="btn btn-gold"><i class="ti ti-circle-arrow-right"></i> Send an Enquiry</a>            <a href="#calculator" class="btn btn-outline"><i class="ti ti-calculator"></i> Tax Estimator</a>          </div>        </div>
-        <!-- CONSOLE -->        <div class="console-card">          <h3><i class="ti ti-settings-automation"></i> Quick Service Selector</h3>          <div class="console-tabs">            <button class="console-tab active" id="tabTax" onclick="switchConsole('tax')">Tax &amp; Accounts</button>            <button class="console-tab" id="tabCorp" onclick="switchConsole('corp')">Business &amp; GST</button>          </div>                    <div class="console-field">            <label for="consoleProfile">Select Your Entity Type</label>            <select id="consoleProfile" class="console-select" onchange="adaptConsoleFields()">              <option value="individual">Salaried Employee / Individual</option>              <option value="professional">Freelancer / Independent Professional</option>              <option value="business">Proprietorship / Partnership / LLP / Private Limited</option>            </select>          </div>
-          <div class="console-field" id="consoleDynamicRow">            <label for="consoleService">How can we help?</label>            <select id="consoleService" class="console-select">              <option value="itr">Income Tax Filing &amp; Notice Assistance</option>              <option value="bookkeeping">Monthly Bookkeeping &amp; Accounting</option>              <option value="incorporation">Incorporate a Company or LLP</option>            </select>          </div>
-          <button class="console-btn" onclick="captureConsoleIntent()">            <span>Proceed to Customized Form</span> <i class="ti ti-arrow-right"></i>          </button>                    <div class="console-badge-row">            <span class="console-badge"><i class="ti ti-shield-check"></i> Standard Documentation (Non-Audit)</span>            <span class="console-badge"><i class="ti ti-lock"></i> 100% Encrypted &amp; Confidential</span>          </div>        </div>      </div>    </section>
-    <!-- CORE SERVICES -->    <section id="services">      <div class="shell">        <div class="section-heading">          <span class="kicker">Service Portfolio</span>          <h2>What We Do</h2>          <p>We provide full-spectrum administrative, tax filing, accounting, corporate setup, and brand registration services. (Note: We focus on operational support and non-assurance filings).</p>        </div>
-        <div class="services-grid">          <!-- INCOME TAX -->          <div class="service-card">            <div class="s-icon"><i class="ti ti-file-analytics"></i></div>            <h3>Income Tax Services</h3>            <p>Annual tax return filing for individuals, freelancers, and businesses. Complete support for capital gains records, share trading reports, Form 26AS/AIS reconciliation, and tax notice responses.</p>            <ul>              <li><i class="ti ti-checkbox"></i> Salaried, Business &amp; Capital Gains ITR</li>              <li><i class="ti ti-checkbox"></i> Mismatch &amp; Income Tax Notice Response</li>              <li><i class="ti ti-checkbox"></i> FnO &amp; Stock Trading Summary Entry</li>            </ul>            <a onclick="selectMainService('income_tax')" class="s-link">Request Income Tax Help <i class="ti ti-chevron-right"></i></a>          </div>
-          <!-- COMPANY & LLP INCORPORATION -->          <div class="service-card">            <div class="s-icon"><i class="ti ti-building-skyscreaper"></i></div>            <h3>Company &amp; LLP Incorporation</h3>            <p>Turn your business idea into a legal entity. End-to-end guidance for registering Private Limited companies, LLPs, One Person Companies (OPC), and Partnership firms across India.</p>            <ul>              <li><i class="ti ti-checkbox"></i> Name Availability &amp; Approval</li>              <li><i class="ti ti-checkbox"></i> DIN, DSC &amp; MoA/AoA Drafting</li>              <li><i class="ti ti-checkbox"></i> Certificate of Incorporation &amp; PAN/TAN</li>            </ul>            <a onclick="selectMainService('incorporation')" class="s-link">Request Incorporation <i class="ti ti-chevron-right"></i></a>          </div>
-          <!-- GST SERVICES -->          <div class="service-card">            <div class="s-icon"><i class="ti ti-receipt-2"></i></div>            <h3>GST Registration &amp; Returns</h3>            <p>Smooth onboarding for new GST registrations, monthly or quarterly return generation (GSTR-1 &amp; GSTR-3B), vendor Input Tax Credit (ITC) matching, and annual GST summaries.</p>            <ul>              <li><i class="ti ti-checkbox"></i> Fresh GST Registration Online</li>              <li><i class="ti ti-checkbox"></i> Regular GSTR-1 &amp; GSTR-3B Filings</li>              <li><i class="ti ti-checkbox"></i> Input Tax Credit (ITC) Reconciliation</li>            </ul>            <a onclick="selectMainService('gst')" class="s-link">Request GST Support <i class="ti ti-chevron-right"></i></a>          </div>
-          <!-- BOOKKEEPING & ACCOUNTING -->          <div class="service-card">            <div class="s-icon"><i class="ti ti-books"></i></div>            <h3>Bookkeeping &amp; Accounting</h3>            <p>Outsource your daily accounting, ledger maintenance, bank reconciliation, and cash flow tracking. Get clean, organized financial reports for smart business decisions.</p>            <ul>              <li><i class="ti ti-checkbox"></i> Monthly Accounting &amp; Ledger Posting</li>              <li><i class="ti ti-checkbox"></i> Bank Statement Cleanups &amp; Reconciliation</li>              <li><i class="ti ti-checkbox"></i> Profit &amp; Loss &amp; Balance Sheet Preparation</li>            </ul>            <a onclick="selectMainService('accounting')" class="s-link">Request Bookkeeping <i class="ti ti-chevron-right"></i></a>          </div>
-          <!-- TRADEMARK -->          <div class="service-card">            <div class="s-icon"><i class="ti ti-registered"></i></div>            <h3>Trademark &amp; Brand Protection</h3>            <p>Protect your brand name, logo, or tagline. We conduct trademark searches across public registries, map your business to correct international classes, and file applications.</p>            <ul>              <li><i class="ti ti-checkbox"></i> Comprehensive Brand Name Search</li>              <li><i class="ti ti-checkbox"></i> Trademark Application Filing</li>              <li><i class="ti ti-checkbox"></i> Class Identification &amp; Documentation</li>            </ul>            <a onclick="selectMainService('trademark')" class="s-link">Request Trademark <i class="ti ti-chevron-right"></i></a>          </div>
-          <!-- PAYROLL & TDS -->          <div class="service-card">            <div class="s-icon"><i class="ti ti-users-group"></i></div>            <h3>Payroll, TDS &amp; Other Services</h3>            <p>Manage monthly staff payroll, team investment verifications, quarterly corporate TDS return filings, Form 16 issuance, and miscellaneous non-attest business documentation.</p>            <ul>              <li><i class="ti ti-checkbox"></i> Quarterly TDS Returns &amp; Form 16</li>              <li><i class="ti ti-checkbox"></i> Salary Structure &amp; Payroll Logs</li>              <li><i class="ti ti-checkbox"></i> Non-Audit Corporate Support</li>            </ul>            <a onclick="selectMainService('payroll')" class="s-link">Request Payroll / Other <i class="ti ti-chevron-right"></i></a>          </div>        </div>      </div>    </section>
-    <!-- TAX ESTIMATOR -->    <section class="section-alt" id="calculator">      <div class="shell">        <div class="section-heading">          <span class="kicker">Quick Estimator</span>          <h2>Tax Regime Comparison Calculator</h2>          <p>Compare your estimated income tax outgo under the Old vs. New Tax Regime for the current year.</p>        </div>
-        <div class="computation-wrapper">          <div class="comp-panel-left">                        <div class="comp-block-section">              <h4><i class="ti ti-user-scan"></i> 0. Regime &amp; Age</h4>              <div class="comp-row">                <label for="cRegime">Tax Method</label>                <select id="cRegime" class="console-select" onchange="runEngineCalculation()">                  <option value="new" selected>New Regime (Lower Rates - Default)</option>                  <option value="old">Old Regime (With Deductions)</option>                </select>              </div>              <div class="comp-row">                <label for="cAge">Age</label>                <input type="number" id="cAge" class="console-input" value="32" oninput="runEngineCalculation()">              </div>            </div>
-            <div class="comp-block-section">              <h4><i class="ti ti-briefcase"></i> 1. Earnings</h4>              <div class="comp-row">                <label for="cSalary">Gross Yearly Salary (₹)</label>                <input type="number" id="cSalary" class="console-input" value="1250000" oninput="runEngineCalculation()">              </div>              <div class="comp-row">                <label for="cExemptions">HRA / Allowances (Old Regime) (₹)</label>                <input type="number" id="cExemptions" class="console-input" value="0" oninput="runEngineCalculation()">              </div>              <div class="comp-row">                <label for="cBusiness">Business / Freelance Profits (₹)</label>                <input type="number" id="cBusiness" class="console-input" value="0" oninput="runEngineCalculation()">              </div>            </div>
-            <div class="comp-block-section">              <h4><i class="ti ti-chart-candle"></i> 2. Capital Gains &amp; House</h4>              <div class="comp-row">                <label for="cStcg">Short-Term Share Gains (STCG) (₹)</label>                <input type="number" id="cStcg" class="console-input" value="0" oninput="runEngineCalculation()">              </div>              <div class="comp-row">                <label for="cLtcg">Long-Term Share Gains (LTCG) (₹)</label>                <input type="number" id="cLtcg" class="console-input" value="0" oninput="runEngineCalculation()">              </div>              <div class="comp-row">                <label for="cHouse">Net Rental Property Income / Loss (₹)</label>                <input type="number" id="cHouse" class="console-input" value="0" oninput="runEngineCalculation()">              </div>            </div>
-            <div class="comp-block-section">              <h4><i class="ti ti-shield-plus"></i> 3. Deductions (Old Regime)</h4>              <div class="comp-row">                <label for="c80c">80C (PPF, LIC, ELSS, etc.) (₹)</label>                <input type="number" id="c80c" class="console-input" value="150000" oninput="runEngineCalculation()">              </div>              <div class="comp-row">                <label for="c80d">80D Health Insurance (₹)</label>                <input type="number" id="c80d" class="console-input" value="25000" oninput="runEngineCalculation()">              </div>            </div>          </div>
-          <!-- DISPLAY -->          <div class="comp-output-pane">            <h3>Filing Summary Estimate</h3>            <div class="v-display" id="displayFinalTax">₹0</div>                        <div class="table-scroll-container">              <table class="matrix-table">                <thead>                  <tr>                    <th>Line Item</th>                    <th>Amount (₹)</th>                  </tr>                </thead>                <tbody>                  <tr><td>Gross Total Income</td><td id="mGti">₹0</td></tr>                  <tr><td>Total Deductions Applied</td><td id="mDed">₹0</td></tr>                  <tr><td>Net Taxable Income</td><td id="mNti">₹0</td></tr>                  <tr><td>Base Calculated Tax</td><td id="mBasic">₹0</td></tr>                  <tr><td>Sec 87A Tax Rebate</td><td id="mRebate">₹0</td></tr>                  <tr><td>Health &amp; Education Cess (4%)</td><td id="mCess">₹0</td></tr>                  <tr class="total-row"><td>Estimated Final Tax Due</td><td id="mFinal">₹0</td></tr>                </tbody>              </table>            </div>
-            <div class="comp-advice-text" id="engineAdviceText">              Calculator active. Change figures in the fields to instantly see updated tax comparisons.            </div>          </div>        </div>      </div>    </section>
-    <!-- CUSTOMIZABLE INTERACTIVE INTAKE FORM SECTION -->    <section id="query">      <div class="shell query-layout">        <div class="query-info">          <div class="section-heading">            <span class="kicker">Online Enquiry Desk</span>            <h2>Send Us Your Requirements</h2>            <p>Fill out the customized form. Our support team will review your enquiry details and get back to you within 24 working hours.</p>          </div>
-          <!-- ENQUIRIES COUNTER BADGE -->          <div class="counter-badge">            <i class="ti ti-chart-dots"></i>            <div class="counter-badge-text">              Trusted Platform: <span class="counter-badge-number" id="enquiryCounter">810</span> Enquiries Dropped Till Date            </div>          </div>
-          <div class="q-channel">            <i class="ti ti-mail-opened"></i>            <div>              <strong>Email Us Directly</strong>              <span>connect@esyton.com</span>            </div>          </div>          <div class="q-channel">            <i class="ti ti-clock-hour-4"></i>            <div>              <strong>Working Hours</strong>              <span>Monday – Saturday · 9:30 AM – 6:30 PM IST</span>            </div>          </div>
-          <div style="margin-top:20px; font-size:.82rem; color:var(--muted); line-height:1.5;">            <strong>Note:</strong> Providing clear business details, financial periods, or specific questions helps us assign the right manager to your enquiry promptly.          </div>        </div>
+    /* FOOTER */
+    .site-footer { background: #041725; color: #7090a0; padding: 40px 0 24px; font-size: .8rem; border-top: 1px solid rgba(255,255,255,.06); position: relative; z-index: 2; }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-row a:hover { color: #dce9f3; }
+    .footer-brand { display: inline-flex; align-items: center; }
+    .footer-logo { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: .85; transition: opacity .2s; }
+    .footer-brand:hover .footer-logo { opacity: 1; }
+    .footer-notice { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.04); color: #4b6675; text-align: center; font-size: .74rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
 
-        <!-- DYNAMIC CUSTOMIZING FORM -->        <div class="query-form-box" id="queryFormContainer">          <h3><i class="ti ti-adjustments-horizontal"></i> Interactive Service Form</h3>          <p style="font-size:.82rem; color:var(--muted); margin-bottom:20px;">The form fields dynamically adjust based on the core service you choose.</p>                    <form id="intakeForm" action="https://formspree.io/f/mgogaybw" method="POST" onsubmit="handleFormSubmission(event)">            <!-- BASIC CONTACT INFO -->            <div class="form-grid">              <div class="form-group">                <label for="fName">Your Name / Entity Name *</label>                <input type="text" id="fName" name="Client Name" class="form-control" required placeholder="e.g. Rahul Sharma or Acme Corp">              </div>              <div class="form-group">                <label for="fEmail">Email Address *</label>                <input type="email" id="fEmail" name="_replyto" class="form-control" required placeholder="name@domain.com">              </div>            </div>
+  <!-- SCROLLING RABBIT: subtle margin guide-rail (never crosses content) -->
+  <div class="rabbit-track"></div>
 
-            <div class="form-grid">              <div class="form-group">                <label for="fPhone">Mobile Phone Number *</label>                <div class="phone-input-wrap">                  <span class="phone-prefix">+91</span>                  <input type="tel" id="fPhone" name="Mobile Number" class="form-control" required pattern="[0-9]{10}" placeholder="9876543210" title="Please enter a valid 10-digit Indian mobile number">                </div>              </div>              <div class="form-group">                <label for="fMainService">Select Core Service *</label>                <select id="fMainService" name="Main Service Selected" class="form-control" onchange="renderDynamicFormFields()" style="font-weight:700; color:var(--navy);">                  <option value="income_tax" selected>Income Tax Return &amp; Notice Help</option>                  <option value="incorporation">Company / LLP Incorporation</option>                  <option value="gst">GST Registration &amp; Returns</option>                  <option value="accounting">Bookkeeping &amp; Accounting</option>                  <option value="trademark">Trademark &amp; Brand Filing</option>                  <option value="payroll">Payroll &amp; TDS Returns</option>                  <option value="other">Other Business Services</option>                </select>              </div>            </div>
+  <!-- SCROLLING RABBIT RUNNER: leaps out of the header logo, tracks header logo -> footer logo -->
+  <div class="rabbit-position" id="fullPageRabbit" aria-hidden="true">
+    <div class="rabbit-body" id="rabbitBody">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAASCAYAAABFGc6jAAAETklEQVR4nK1UW2xUVRRd55x7Zzqdmc4UOlZKpgUEhJZiKShBiyUojyIGBS8BqmB4Rav90BILMXKd4Jc24cfUEA1EY8TkBg0xUQMagQ9tgGKk0yqYFCyWaIHOMLR3Hvees/1oiyiaIcb1vfdee629soF8MAwBAETEFq/aurCpyQwA9Zppmjxv7x1jdNi6jU1VkaqlZ8qql/ygC4D9fwx/kixbu702OKV+KDjtkXTd45v2zKh7suneOuPjZcbmBQBgjCrOh39czjAM0dvby1tbW73Pvfp2V7Ao6IYD3oHe/qtV6RwPhXzs6uL5NTXWB3svj7bQfyHiABQA3DPvsV2axnfnHPfChf5rM3Xdi/FBT7x2RunKzz/56BfA5EBM3Ymi20gYgNWbWyoWLN/4VNnspf3RmgbyRusoUvXopdmL1r756YEDYQA3rb1T3KqIMwY1pbahxc7RjmE7c/dwJouSsL+rcnLZjg2rFp7evm3bIAGorDQ8PT0DN5XU1wPHjx+TAPtXC0eJTE70OlXWrW65dPnaW0UBz0+JVLrcdckXGRfsHjz3VXUmJ/OvbRjCAGABgGUp3HK7MUWciKhizvLv+gft+eQ4EAwQghMYZ+PC/s7SkuL3AuGiHgaI6yl7kspkpyWSqQKvvwClkeKeF9YvOdTY2JjIZx0HQI1bmyeeivftzjluTXo4c9/gDdsjOIggmNA0CMEAIkgClFSg0QGcc/i94tep5RP2lFeUxc92nV8ejU44fMR6p9M0TR6LxdTNGxmGISzLkgAQ8PvgK39wIHHdjuiCKQKNYiQsjHEJ0BgPIwCKoOkeHbquw+8Vl59YtmBue1vs9xH3GI0lh1uWJQUHOjrOFzWsa36AEVIMcBRBKkWMCAwAKRAkKV0SPJKgS6UEAKZxpjKZjKtxlWzb9ez97W2x3wzD4GMBYcBIphs2vLgwfu5iy/BwpsGVzJPN5QAicM7AAEglwRmHEByMS5sxngAxXUm6K+u4IOVKxrgUQteqp05sPvn1wXYCBAAJAMw0zcIPvzjVdmPIfR5Q3YU+z1EO7VzAX+gJFQfHZW07Dripvv6rfHwoQFMmR4emTiq6aKxcOXjiRJfn2JnT08/GL7QmbGeN6+SgAHg9Qk6IhPYd3r/ppVmzLGmalcSe2fLKzG/P/rgjFPK9Gz9+qMNxZP5/8jdomkD1Q2uaBxKp9Wk77XdBIUfqFdFI4Rs/n/zstbFj/iWFc+du1yKRPg4AX165otDZ6eThGckHoDy6gCLgyNGDgS0vv79vIJXeUBL27l+/tG4nGymsFzAXKcRu/1vff7M3nL0yVCxV0u/1FQfctA2twEsq5yQLvL5k9cw5STZ9RfY2lYJjxvxVjbYrn55XVb7zVkWMiNDbaUWv9XU/7AynahkXJeBaoeOmHZ3rWiaTSUo34/gC4YiAVKR4IZjLFOGGYFq3f3xpR2l0RUe7ZdmxWIwA0NiH/gOPM9rcgWdtWwAAAABJRU5ErkJggg==" alt="" class="rabbit-icon-img">
+    </div>
+  </div>
 
-            <!-- DYNAMIC CONDITIONAL CONTAINER (AUTO-CHANGES) -->            <div class="dynamic-fields-box" id="dynamicFieldsContainer">              <!-- Injected dynamically via JS -->            </div>
+  <!-- SECTION INDICATOR: names the section the rabbit is currently passing, fades out when idle -->
+  <div class="rabbit-label" id="rabbitLabel" aria-hidden="true"></div>
 
-            <div class="form-group">              <label for="fDetails">Additional Details / Specific Questions *</label>              <textarea id="fDetails" name="Enquiry Message" class="form-control" required placeholder="Tell us briefly about your situation, timeline, or any specific questions..."></textarea>            </div>
+  <!-- TOP STRIP -->
+  <div class="topbar">
+    <div class="shell topbar-row">
+      <div><i class="ti ti-point-filled" style="color:var(--yellow)"></i> <strong>Online Business Compliance System</strong> &nbsp;·&nbsp; Complete Professional Support</div>
+      <div>connect@esyton.com · AY 2026-27 / FY 2025-26 Active</div>
+    </div>
+  </div>
 
-            <p class="disclaimer-text">              * By submitting this form, you acknowledge that Esyton provides operational, non-assurance documentation and business compliance support. This does not constitute a statutory audit engagement.            </p>
-            <button type="submit" class="console-btn" style="height:48px; background:var(--navy-3);">              <i class="ti ti-send"></i> Submit Enquiry            </button>          </form>        </div>      </div>    </section>
-    <!-- FAQ -->    <section class="section-alt" id="faq">      <div class="shell">        <div class="section-heading">          <span class="kicker">FAQ</span>          <h2>Frequently Asked Questions</h2>        </div>
-        <div class="faq-stack">          <details>            <summary>What services does Esyton provide?</summary>            <p>Esyton offers non-assurance administrative and compliance support. We assist clients with filing Income Tax Returns, registering and forming new companies or LLPs, preparing monthly GST statements, handling routine business bookkeeping, filing trademark applications, and managing employee payroll files.</p>          </details>          <details>            <summary>Can you help set up a new Private Limited Company or LLP from scratch?</summary>            <p>Yes. We assist with the end-to-end process including checking name availability, acquiring Digital Signature Certificates (DSC), drafting Memorandum &amp; Articles of Association (MoA/AoA) or Partnership Agreements, and submitting incorporation forms online.</p>          </details>          <details>            <summary>How do you handle complex tax filings like stock market trading or FnO?</summary>            <p>We systematically process and compile stock trading ledger data from major broker portals. Short-term, long-term, intraday, and Futures &amp; Options (FnO) contract trades are categorized according to Income Tax guidelines to accurately determine your net taxable income or carry-forward losses.</p>          </details>          <details>            <summary>Is my financial and business data kept secure?</summary>            <p>Absolutely. All documentation shared with us is handled under strict confidentiality protocols and encrypted cloud storage systems. Your information is strictly used for preparing your requested filings.</p>          </details>        </div>      </div>    </section>  </main>
-  <!-- FOOTER -->  <footer class="site-footer">    <div class="shell">      <div class="footer-row">        <div style="display:flex; gap:16px;">          <a href="#services">Services</a>          <a href="#calculator">Tax Calculator</a>          <a href="#query">Enquiry Desk</a>        </div>      </div>      <p class="footer-notice">        Regulatory Disclosure: Esyton Insights LLP provides business support, accounting organization, tax filing, and administrative services. The computational tools and services on this website belong to non-assurance and non-attest tracks. We do not provide public statutory audit certificates or formal legal opinions.      </p>    </div>  </footer>
-  <!-- SCRIPT LOGIC -->  <script>    // Navbar Shadow    const navbar = document.getElementById('navbar');    window.addEventListener('scroll', () => {      navbar.classList.toggle('scrolled', window.scrollY > 30);    }, { passive: true });
+  <!-- NAVIGATION -->
+  <header class="site-header" id="navbar">
+    <div class="shell nav">
+      <a href="#" class="brand">
+        <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights Logo" class="brand-logo" id="headerLogoImg">
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#calculator">Tax Calculator</a>
+        <a href="#faq">Help &amp; FAQ</a>
 
-    // Console Switcher    function switchConsole(category) {      const btnTax = document.getElementById('tabTax');      const btnCorp = document.getElementById('tabCorp');      const profileSelect = document.getElementById('consoleProfile');            if (category === 'tax') {        btnTax.classList.add('active');        btnCorp.classList.remove('active');        profileSelect.innerHTML = `          <option value="individual">Salaried Employee / Individual</option>          <option value="professional">Freelancer / Independent Professional</option>          <option value="business">Proprietorship / Partnership / LLP / Private Limited</option>        `;      } else {        btnTax.classList.remove('active');        btnCorp.classList.add('active');        profileSelect.innerHTML = `          <option value="startup">New Business / Startup Venture</option>          <option value="retail">E-Commerce / Retail Merchant</option>          <option value="existing">Established Corporate Firm</option>        `;      }      adaptConsoleFields();    }
+        <div class="nav-tools">
+          <button class="nav-tools-btn" aria-haspopup="true">Internal Access <span style="font-size:0.6rem;">▼</span></button>
+          <div class="tools-dropdown" role="menu">
+            <a href="./viper.html" role="menuitem">V.I.P.E.R<br><small>Client Activity Log</small></a>
+            <a href="./timesheet.html" role="menuitem">T.I.M.O<br><small>Time Sheet Entry</small></a>
+            <a href="./computax.html" role="menuitem">Computax<br><small>Portal Redirect Gateway</small></a>
+            <a href="./refund-status.html" role="menuitem">Refund Track<br><small>Tax Processing Board</small></a>
+          </div>
+        </div>
+        <a href="#query" class="nav-cta"><i class="ti ti-message-circle-2"></i> Submit Enquiry</a>
+      </nav>
+    </div>
+  </header>
 
-    function adaptConsoleFields() {      const profile = document.getElementById('consoleProfile').value;      const targetRow = document.getElementById('consoleDynamicRow');            let optionsHtml = '';      if (profile === 'individual' || profile === 'professional') {        optionsHtml = `          <label for="consoleService">How can we help?</label>          <select id="consoleService" class="console-select">            <option value="income_tax">File Income Tax Return / Respond to Notice</option>            <option value="accounting">Organize Freelance Bills &amp; Books</option>            <option value="trademark">Register Brand Name / Trademark</option>          </select>        `;      } else if (profile === 'startup') {        optionsHtml = `          <label for="consoleService">How can we help?</label>          <select id="consoleService" class="console-select">            <option value="incorporation">Incorporate New Company or LLP</option>            <option value="gst">Get New GST Registration</option>            <option value="trademark">Protect Brand Logo / Name</option>          </select>        `;      } else {        optionsHtml = `          <label for="consoleService">How can we help?</label>          <select id="consoleService" class="console-select">            <option value="gst">Monthly GST Returns &amp; Reconciliation</option>            <option value="accounting">Regular Bookkeeping &amp; Accounting</option>            <option value="payroll">Staff Payroll &amp; TDS Filings</option>          </select>        `;      }      targetRow.innerHTML = optionsHtml;    }
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero" data-rabbit-label="Home">
+      <div class="shell hero-grid">
+        <div class="hero-text">
+          <h1>Complete Business &amp; Tax Solutions. <span>Simplified.</span></h1>
+          <p>Get expert assistance for income tax filings, company &amp; LLP incorporations, monthly GST returns, routine bookkeeping, trademark registration, and payroll support. Clean, reliable execution for businesses and professionals across India.</p>
+          <div class="hero-actions">
+            <a href="#query" class="btn btn-gold"><i class="ti ti-circle-arrow-right"></i> Send an Enquiry</a>
+            <a href="#calculator" class="btn btn-outline"><i class="ti ti-calculator"></i> Tax Estimator</a>
+          </div>
+        </div>
+        <!-- CONSOLE -->
+        <div class="console-card">
+          <h3><i class="ti ti-settings-automation"></i> Quick Service Selector</h3>
+          <div class="console-tabs">
+            <button class="console-tab active" id="tabTax" onclick="switchConsole('tax')">Tax &amp; Accounts</button>
+            <button class="console-tab" id="tabCorp" onclick="switchConsole('corp')">Business &amp; GST</button>
+          </div>
 
-    function captureConsoleIntent() {      const consoleService = document.getElementById('consoleService').value;      selectMainService(consoleService);      document.getElementById('query').scrollIntoView({ behavior: 'smooth' });      document.getElementById('fName').focus();    }
+          <div class="console-field">
+            <label for="consoleProfile">Select Your Entity Type</label>
+            <select id="consoleProfile" class="console-select" onchange="adaptConsoleFields()">
+              <option value="individual">Salaried Employee / Individual</option>
+              <option value="professional">Freelancer / Independent Professional</option>
+              <option value="business">Proprietorship / Partnership / LLP / Private Limited</option>
+            </select>
+          </div>
+          <div class="console-field" id="consoleDynamicRow">
+            <label for="consoleService">How can we help?</label>
+            <select id="consoleService" class="console-select">
+              <option value="itr">Income Tax Filing &amp; Notice Assistance</option>
+              <option value="bookkeeping">Monthly Bookkeeping &amp; Accounting</option>
+              <option value="incorporation">Incorporate a Company or LLP</option>
+            </select>
+          </div>
+          <button class="console-btn" onclick="captureConsoleIntent()">
+            <span>Proceed to Customized Form</span> <i class="ti ti-arrow-right"></i>
+          </button>
 
-    function selectMainService(serviceKey) {      const mainSelect = document.getElementById('fMainService');      if (mainSelect) {        mainSelect.value = serviceKey;        renderDynamicFormFields();      }      document.getElementById('query').scrollIntoView({ behavior: 'smooth' });    }
+          <div class="console-badge-row">
+            <span class="console-badge"><i class="ti ti-shield-check"></i> Standard Documentation (Non-Audit)</span>
+            <span class="console-badge"><i class="ti ti-lock"></i> 100% Encrypted &amp; Confidential</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    // DYNAMIC FORM FIELDS GENERATOR ENGINE    function renderDynamicFormFields() {      const mainService = document.getElementById('fMainService').value;      const container = document.getElementById('dynamicFieldsContainer');            let html = '';
-      if (mainService === 'income_tax') {        html = `          <h4><i class="ti ti-file-text"></i> Income Tax Filing Details</h4>          <div class="form-grid">            <div class="form-group">              <label for="dTaxYear">Assessment Year *</label>              <select id="dTaxYear" name="ITR Assessment Year" class="form-control">                <option value="AY 2026-27 (FY 2025-26)">AY 2026-27 (Current FY 2025-26)</option>                <option value="AY 2025-26 (FY 2024-25)">AY 2025-26 (Previous Year)</option>                <option value="Notice Reply">Responding to Income Tax Notice</option>              </select>            </div>            <div class="form-group">              <label for="dIncomeSources">Primary Income Source *</label>              <select id="dIncomeSources" name="Income Sources" class="form-control">                <option value="Salary / Pension">Salaried Employee / Pensioner</option>                <option value="Business / Profession">Business Owner / Freelancer</option>                <option value="Capital Gains / Trading">Share Market / Crypto / FnO Trading</option>                <option value="Multiple Sources">Multiple Sources (Salary + Capital Gains)</option>              </select>            </div>          </div>        `;      } else if (mainService === 'incorporation') {        html = `          <h4><i class="ti ti-building"></i> Company / LLP Setup Details</h4>          <div class="form-grid">            <div class="form-group">              <label for="dEntityType">Proposed Entity Structure *</label>              <select id="dEntityType" name="Target Entity Type" class="form-control">                <option value="Private Limited Company">Private Limited Company</option>                <option value="Limited Liability Partnership (LLP)">Limited Liability Partnership (LLP)</option>                <option value="One Person Company (OPC)">One Person Company (OPC)</option>                <option value="Partnership Firm">Partnership Firm</option>              </select>            </div>            <div class="form-group">              <label for="dProposedName">Proposed Name (Optional)</label>              <input type="text" id="dProposedName" name="Proposed Business Name" class="form-control" placeholder="e.g. MyBrand Solutions">            </div>          </div>        `;      } else if (mainService === 'gst') {        html = `          <h4><i class="ti ti-receipt"></i> GST Service Details</h4>          <div class="form-grid">            <div class="form-group">              <label for="dGstType">Service Required *</label>              <select id="dGstType" name="GST Requirement Type" class="form-control">                <option value="New GST Registration">New GST Registration</option>                <option value="Monthly Returns Filing">Regular Monthly / Quarterly Filing</option>                <option value="ITC Reconciliation">Input Tax Credit (ITC) Clean Up</option>                <option value="GST Cancellation">GST Cancellation / Amendment</option>              </select>            </div>            <div class="form-group">              <label for="dGstNumber">Existing GSTIN (If applicable)</label>              <input type="text" id="dGstNumber" name="Existing GSTIN" class="form-control" placeholder="e.g. 36AAAAA0000A1Z5">            </div>          </div>        `;      } else if (mainService === 'accounting') {        html = `          <h4><i class="ti ti-books"></i> Bookkeeping Requirements</h4>          <div class="form-grid">            <div class="form-group">              <label for="dVolume">Estimated Monthly Entries / Invoices *</label>              <select id="dVolume" name="Monthly Transaction Volume" class="form-control">                <option value="Under 50 transactions">Under 50 Transactions / Month</option>                <option value="50 - 200 transactions">50 – 200 Transactions / Month</option>                <option value="200+ transactions">200+ Transactions / Month</option>              </select>            </div>            <div class="form-group">              <label for="dSoftware">Preferred Software (If any)</label>              <select id="dSoftware" name="Accounting Software Preference" class="form-control">                <option value="No preference">No Preference (We suggest)</option>                <option value="Tally Prime">Tally Prime</option>                <option value="Zoho Books">Zoho Books</option>                <option value="Excel / Digital Logs">Excel / Spreadsheets</option>              </select>            </div>          </div>        `;      } else if (mainService === 'trademark') {        html = `          <h4><i class="ti ti-registered"></i> Brand Registration Details</h4>          <div class="form-grid">            <div class="form-group">              <label for="dBrandName">Brand Name / Logo Text *</label>              <input type="text" id="dBrandName" name="Brand Name To Register" class="form-control" placeholder="e.g. Esyton" required>            </div>            <div class="form-group">              <label for="dIndustry">Business Domain / Products *</label>              <input type="text" id="dIndustry" name="Industry Description" class="form-control" placeholder="e.g. Clothing, Software, Consulting">            </div>          </div>        `;      } else if (mainService === 'payroll') {        html = `          <h4><i class="ti ti-users"></i> Payroll &amp; TDS Details</h4>          <div class="form-grid">            <div class="form-group">              <label for="dEmpCount">Employee Count *</label>              <select id="dEmpCount" name="Employee Count" class="form-control">                <option value="1 - 10 employees">1 – 10 Employees</option>                <option value="11 - 50 employees">11 – 50 Employees</option>                <option value="50+ employees">50+ Employees</option>              </select>            </div>            <div class="form-group">              <label for="dTdsType">Service Needed *</label>              <select id="dTdsType" name="TDS Support Needed" class="form-control">                <option value="Quarterly TDS Returns">Quarterly TDS Return Filings</option>                <option value="Form 16 Generation">Form 16 Generation for Staff</option>                <option value="Complete Monthly Payroll">Complete Monthly Payroll Management</option>              </select>            </div>          </div>        `;      } else {        html = `          <h4><i class="ti ti-info-circle"></i> General Business Query</h4>          <p style="font-size:.82rem; color:var(--muted);">Specify your requirement in the message field below.</p>        `;      }
+    <!-- CORE SERVICES -->
+    <section id="services" data-rabbit-label="Services">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="kicker">Service Portfolio</span>
+          <h2>What We Do</h2>
+          <p>We provide full-spectrum administrative, tax filing, accounting, corporate setup, and brand registration services. (Note: We focus on operational support and non-assurance filings).</p>
+        </div>
 
-      container.innerHTML = html;    }
+        <div class="services-grid">
+          <!-- INCOME TAX -->
+          <div class="service-card">
+            <div class="s-icon"><i class="ti ti-file-analytics"></i></div>
+            <h3>Income Tax Services</h3>
+            <p>Annual tax return filing for individuals, freelancers, and businesses. Complete support for capital gains records, share trading reports, Form 26AS/AIS reconciliation, and tax notice responses.</p>
+            <ul>
+              <li><i class="ti ti-checkbox"></i> Salaried, Business &amp; Capital Gains ITR</li>
+              <li><i class="ti ti-checkbox"></i> Mismatch &amp; Income Tax Notice Response</li>
+              <li><i class="ti ti-checkbox"></i> FnO &amp; Stock Trading Summary Entry</li>
+            </ul>
+            <a onclick="selectMainService('income_tax')" class="s-link">Request Income Tax Help <i class="ti ti-chevron-right"></i></a>
+          </div>
 
-    // TAX CALCULATOR ENGINE    function runEngineCalculation() {      const regime = document.getElementById('cRegime').value;      const age = parseInt(document.getElementById('cAge').value) || 0;            const salary = parseFloat(document.getElementById('cSalary').value) || 0;      const exemptions = parseFloat(document.getElementById('cExemptions').value) || 0;      const business = parseFloat(document.getElementById('cBusiness').value) || 0;            const stcg = parseFloat(document.getElementById('cStcg').value) || 0;      const ltcg = parseFloat(document.getElementById('cLtcg').value) || 0;      const house = parseFloat(document.getElementById('cHouse').value) || 0;            const ded80c = parseFloat(document.getElementById('c80c').value) || 0;      const ded80d = parseFloat(document.getElementById('c80d').value) || 0;
+          <!-- COMPANY & LLP INCORPORATION -->
+          <div class="service-card">
+            <div class="s-icon"><i class="ti ti-building-skyscraper"></i></div>
+            <h3>Company &amp; LLP Incorporation</h3>
+            <p>Turn your business idea into a legal entity. End-to-end guidance for registering Private Limited companies, LLPs, One Person Companies (OPC), and Partnership firms across India.</p>
+            <ul>
+              <li><i class="ti ti-checkbox"></i> Name Availability &amp; Approval</li>
+              <li><i class="ti ti-checkbox"></i> DIN, DSC &amp; MoA/AoA Drafting</li>
+              <li><i class="ti ti-checkbox"></i> Certificate of Incorporation &amp; PAN/TAN</li>
+            </ul>
+            <a onclick="selectMainService('incorporation')" class="s-link">Request Incorporation <i class="ti ti-chevron-right"></i></a>
+          </div>
 
-      if (regime === 'new') {        document.getElementById('cExemptions').disabled = true;        document.getElementById('cExemptions').value = 0;        document.getElementById('c80c').disabled = true;        document.getElementById('c80c').value = 0;        document.getElementById('c80d').disabled = true;        document.getElementById('c80d').value = 0;      } else {        document.getElementById('cExemptions').disabled = false;        document.getElementById('c80c').disabled = false;        document.getElementById('c80d').disabled = false;      }
+          <!-- GST SERVICES -->
+          <div class="service-card">
+            <div class="s-icon"><i class="ti ti-receipt-2"></i></div>
+            <h3>GST Registration &amp; Returns</h3>
+            <p>Smooth onboarding for new GST registrations, monthly or quarterly return generation (GSTR-1 &amp; GSTR-3B), vendor Input Tax Credit (ITC) matching, and annual GST summaries.</p>
+            <ul>
+              <li><i class="ti ti-checkbox"></i> Fresh GST Registration Online</li>
+              <li><i class="ti ti-checkbox"></i> Regular GSTR-1 &amp; GSTR-3B Filings</li>
+              <li><i class="ti ti-checkbox"></i> Input Tax Credit (ITC) Reconciliation</li>
+            </ul>
+            <a onclick="selectMainService('gst')" class="s-link">Request GST Support <i class="ti ti-chevron-right"></i></a>
+          </div>
 
-      let stdDed = (regime === 'new') ? 75000 : 50000;      let netSalary = Math.max(0, salary - exemptions - stdDed);      let grossTotalIncome = netSalary + business + stcg + ltcg + house;
+          <!-- BOOKKEEPING & ACCOUNTING -->
+          <div class="service-card">
+            <div class="s-icon"><i class="ti ti-books"></i></div>
+            <h3>Bookkeeping &amp; Accounting</h3>
+            <p>Outsource your daily accounting, ledger maintenance, bank reconciliation, and cash flow tracking. Get clean, organized financial reports for smart business decisions.</p>
+            <ul>
+              <li><i class="ti ti-checkbox"></i> Monthly Accounting &amp; Ledger Posting</li>
+              <li><i class="ti ti-checkbox"></i> Bank Statement Cleanups &amp; Reconciliation</li>
+              <li><i class="ti ti-checkbox"></i> Profit &amp; Loss &amp; Balance Sheet Preparation</li>
+            </ul>
+            <a onclick="selectMainService('accounting')" class="s-link">Request Bookkeeping <i class="ti ti-chevron-right"></i></a>
+          </div>
 
-      let totalDeductions = 0;      if (regime === 'old') {        let allowed80c = Math.min(ded80c, 150000);        let allowed80d = Math.min(ded80d, 25000);        if (age >= 60) allowed80d = Math.min(ded80d, 50000);        totalDeductions = allowed80c + allowed80d;      }
+          <!-- TRADEMARK -->
+          <div class="service-card">
+            <div class="s-icon"><i class="ti ti-registered"></i></div>
+            <h3>Trademark &amp; Brand Protection</h3>
+            <p>Protect your brand name, logo, or tagline. We conduct trademark searches across public registries, map your business to correct international classes, and file applications.</p>
+            <ul>
+              <li><i class="ti ti-checkbox"></i> Comprehensive Brand Name Search</li>
+              <li><i class="ti ti-checkbox"></i> Trademark Application Filing</li>
+              <li><i class="ti ti-checkbox"></i> Class Identification &amp; Documentation</li>
+            </ul>
+            <a onclick="selectMainService('trademark')" class="s-link">Request Trademark <i class="ti ti-chevron-right"></i></a>
+          </div>
+
+          <!-- PAYROLL & TDS -->
+          <div class="service-card">
+            <div class="s-icon"><i class="ti ti-users-group"></i></div>
+            <h3>Payroll, TDS &amp; Other Services</h3>
+            <p>Manage monthly staff payroll, team investment verifications, quarterly corporate TDS return filings, Form 16 issuance, and miscellaneous non-attest business documentation.</p>
+            <ul>
+              <li><i class="ti ti-checkbox"></i> Quarterly TDS Returns &amp; Form 16</li>
+              <li><i class="ti ti-checkbox"></i> Salary Structure &amp; Payroll Logs</li>
+              <li><i class="ti ti-checkbox"></i> Non-Audit Corporate Support</li>
+            </ul>
+            <a onclick="selectMainService('payroll')" class="s-link">Request Payroll / Other <i class="ti ti-chevron-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAX ESTIMATOR -->
+    <section class="section-alt" id="calculator" data-rabbit-label="Tax Calculator">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="kicker">Quick Estimator</span>
+          <h2>Tax Regime Comparison Calculator</h2>
+          <p>Compare your estimated income tax outgo under the Old vs. New Tax Regime for the current year.</p>
+        </div>
+        <div class="computation-wrapper">
+          <div class="comp-panel-left">
+            <div class="comp-block-section">
+              <h4><i class="ti ti-user-scan"></i> 0. Regime &amp; Age</h4>
+              <div class="comp-row">
+                <label for="cRegime">Tax Method</label>
+                <select id="cRegime" class="console-select" onchange="runEngineCalculation()">
+                  <option value="new" selected>New Regime (Lower Rates - Default)</option>
+                  <option value="old">Old Regime (With Deductions)</option>
+                </select>
+              </div>
+              <div class="comp-row">
+                <label for="cAge">Age</label>
+                <input type="number" id="cAge" class="console-input" value="32" oninput="runEngineCalculation()">
+              </div>
+            </div>
+            <div class="comp-block-section">
+              <h4><i class="ti ti-briefcase"></i> 1. Earnings</h4>
+              <div class="comp-row">
+                <label for="cSalary">Gross Yearly Salary (₹)</label>
+                <input type="number" id="cSalary" class="console-input" value="1250000" oninput="runEngineCalculation()">
+              </div>
+              <div class="comp-row">
+                <label for="cExemptions">HRA / Allowances (Old Regime) (₹)</label>
+                <input type="number" id="cExemptions" class="console-input" value="0" oninput="runEngineCalculation()">
+              </div>
+              <div class="comp-row">
+                <label for="cBusiness">Business / Freelance Profits (₹)</label>
+                <input type="number" id="cBusiness" class="console-input" value="0" oninput="runEngineCalculation()">
+              </div>
+            </div>
+            <div class="comp-block-section">
+              <h4><i class="ti ti-chart-candle"></i> 2. Capital Gains &amp; House</h4>
+              <div class="comp-row">
+                <label for="cStcg">Short-Term Share Gains (STCG) (₹)</label>
+                <input type="number" id="cStcg" class="console-input" value="0" oninput="runEngineCalculation()">
+              </div>
+              <div class="comp-row">
+                <label for="cLtcg">Long-Term Share Gains (LTCG) (₹)</label>
+                <input type="number" id="cLtcg" class="console-input" value="0" oninput="runEngineCalculation()">
+              </div>
+              <div class="comp-row">
+                <label for="cHouse">Net Rental Property Income / Loss (₹)</label>
+                <input type="number" id="cHouse" class="console-input" value="0" oninput="runEngineCalculation()">
+              </div>
+            </div>
+            <div class="comp-block-section">
+              <h4><i class="ti ti-shield-plus"></i> 3. Deductions (Old Regime)</h4>
+              <div class="comp-row">
+                <label for="c80c">80C (PPF, LIC, ELSS, etc.) (₹)</label>
+                <input type="number" id="c80c" class="console-input" value="150000" oninput="runEngineCalculation()">
+              </div>
+              <div class="comp-row">
+                <label for="c80d">80D Health Insurance (₹)</label>
+                <input type="number" id="c80d" class="console-input" value="25000" oninput="runEngineCalculation()">
+              </div>
+            </div>
+          </div>
+          <!-- DISPLAY -->
+          <div class="comp-output-pane">
+            <h3>Filing Summary Estimate</h3>
+            <div class="v-display" id="displayFinalTax">₹0</div>
+
+            <div class="table-scroll-container">
+              <table class="matrix-table">
+                <thead>
+                  <tr>
+                    <th>Line Item</th>
+                    <th>Amount (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Gross Total Income</td><td id="mGti">₹0</td></tr>
+                  <tr><td>Total Deductions Applied</td><td id="mDed">₹0</td></tr>
+                  <tr><td>Net Taxable Income</td><td id="mNti">₹0</td></tr>
+                  <tr><td>Base Calculated Tax</td><td id="mBasic">₹0</td></tr>
+                  <tr><td>Sec 87A Tax Rebate</td><td id="mRebate">₹0</td></tr>
+                  <tr><td>Health &amp; Education Cess (4%)</td><td id="mCess">₹0</td></tr>
+                  <tr class="total-row"><td>Estimated Final Tax Due</td><td id="mFinal">₹0</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="comp-advice-text" id="engineAdviceText">
+              Calculator active. Change figures in the fields to instantly see updated tax comparisons.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUSTOMIZABLE INTERACTIVE INTAKE FORM SECTION -->
+    <section id="query" data-rabbit-label="Enquiry Desk">
+      <div class="shell query-layout">
+        <div class="query-info">
+          <div class="section-heading">
+            <span class="kicker">Online Enquiry Desk</span>
+            <h2>Send Us Your Requirements</h2>
+            <p>Fill out the customized form. Our support team will review your enquiry details and get back to you within 24 working hours.</p>
+          </div>
+          <!-- ENQUIRIES COUNTER BADGE -->
+          <div class="counter-badge">
+            <i class="ti ti-chart-dots"></i>
+            <div class="counter-badge-text">
+              Trusted Platform: <span class="counter-badge-number" id="enquiryCounter">810</span> Enquiries Dropped Till Date
+            </div>
+          </div>
+          <div class="q-channel">
+            <i class="ti ti-mail-opened"></i>
+            <div>
+              <strong>Email Us Directly</strong>
+              <span>connect@esyton.com</span>
+            </div>
+          </div>
+          <div class="q-channel">
+            <i class="ti ti-clock-hour-4"></i>
+            <div>
+              <strong>Working Hours</strong>
+              <span>Monday – Saturday · 9:30 AM – 6:30 PM IST</span>
+            </div>
+          </div>
+          <div style="margin-top:20px; font-size:.82rem; color:var(--muted); line-height:1.5;">
+            <strong>Note:</strong> Providing clear business details, financial periods, or specific questions helps us assign the right manager to your enquiry promptly.
+          </div>
+        </div>
+
+        <!-- DYNAMIC CUSTOMIZING FORM -->
+        <div class="query-form-box" id="queryFormContainer">
+          <h3><i class="ti ti-adjustments-horizontal"></i> Interactive Service Form</h3>
+          <p style="font-size:.82rem; color:var(--muted); margin-bottom:20px;">The form fields dynamically adjust based on the core service you choose.</p>
+
+          <form id="intakeForm" action="https://formspree.io/f/mgogaybw" method="POST" onsubmit="handleFormSubmission(event)">
+            <!-- BASIC CONTACT INFO -->
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="fName">Your Name / Entity Name *</label>
+                <input type="text" id="fName" name="Client Name" class="form-control" required placeholder="e.g. Rahul Sharma or Acme Corp">
+              </div>
+              <div class="form-group">
+                <label for="fEmail">Email Address *</label>
+                <input type="email" id="fEmail" name="_replyto" class="form-control" required placeholder="name@domain.com">
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="fPhone">Mobile Phone Number *</label>
+                <div class="phone-input-wrap">
+                  <span class="phone-prefix">+91</span>
+                  <input type="tel" id="fPhone" name="Mobile Number" class="form-control" required pattern="[0-9]{10}" placeholder="9876543210" title="Please enter a valid 10-digit Indian mobile number">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="fMainService">Select Core Service *</label>
+                <select id="fMainService" name="Main Service Selected" class="form-control" onchange="renderDynamicFormFields()" style="font-weight:700; color:var(--navy);">
+                  <option value="income_tax" selected>Income Tax Return &amp; Notice Help</option>
+                  <option value="incorporation">Company / LLP Incorporation</option>
+                  <option value="gst">GST Registration &amp; Returns</option>
+                  <option value="accounting">Bookkeeping &amp; Accounting</option>
+                  <option value="trademark">Trademark &amp; Brand Filing</option>
+                  <option value="payroll">Payroll &amp; TDS Returns</option>
+                  <option value="other">Other Business Services</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- DYNAMIC CONDITIONAL CONTAINER (AUTO-CHANGES) -->
+            <div class="dynamic-fields-box" id="dynamicFieldsContainer">
+              <!-- Injected dynamically via JS -->
+            </div>
+
+            <div class="form-group">
+              <label for="fDetails">Additional Details / Specific Questions *</label>
+              <textarea id="fDetails" name="Enquiry Message" class="form-control" required placeholder="Tell us briefly about your situation, timeline, or any specific questions..."></textarea>
+            </div>
+
+            <p class="disclaimer-text">
+              * By submitting this form, you acknowledge that Esyton provides operational, non-assurance documentation and business compliance support. This does not constitute a statutory audit engagement.
+            </p>
+            <button type="submit" class="console-btn" style="height:48px; background:var(--navy-3);">
+              <i class="ti ti-send"></i> Submit Enquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section-alt" id="faq" data-rabbit-label="FAQ">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="kicker">FAQ</span>
+          <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-stack">
+          <details>
+            <summary>What services does Esyton provide?</summary>
+            <p>Esyton offers non-assurance administrative and compliance support. We assist clients with filing Income Tax Returns, registering and forming new companies or LLPs, preparing monthly GST statements, handling routine business bookkeeping, filing trademark applications, and managing employee payroll files.</p>
+          </details>
+          <details>
+            <summary>Can you help set up a new Private Limited Company or LLP from scratch?</summary>
+            <p>Yes. We assist with the end-to-end process including checking name availability, acquiring Digital Signature Certificates (DSC), drafting Memorandum &amp; Articles of Association (MoA/AoA) or Partnership Agreements, and submitting incorporation forms online.</p>
+          </details>
+          <details>
+            <summary>How do you handle complex tax filings like stock market trading or FnO?</summary>
+            <p>We systematically process and compile stock trading ledger data from major broker portals. Short-term, long-term, intraday, and Futures &amp; Options (FnO) contract trades are categorized according to Income Tax guidelines to accurately determine your net taxable income or carry-forward losses.</p>
+          </details>
+          <details>
+            <summary>Is my financial and business data kept secure?</summary>
+            <p>Absolutely. All documentation shared with us is handled under strict confidentiality protocols and encrypted cloud storage systems. Your information is strictly used for preparing your requested filings.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-row">
+        <a href="#" class="footer-brand">
+          <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights Logo" class="footer-logo" id="footerLogoImg">
+        </a>
+        <div style="display:flex; gap:16px;">
+          <a href="#services">Services</a>
+          <a href="#calculator">Tax Calculator</a>
+          <a href="#query">Enquiry Desk</a>
+        </div>
+      </div>
+      <p class="footer-notice">
+        Regulatory Disclosure: Esyton Insights LLP provides business support, accounting organization, tax filing, and administrative services. The computational tools and services on this website belong to non-assurance and non-attest tracks. We do not provide public statutory audit certificates or formal legal opinions.
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC -->
+  <script>
+    // Navbar Shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // SCROLLING RABBIT: leaps out of the header logo once you leave the top
+    // of the page, and tucks back into the logo whenever you scroll back to
+    // it - then travels down to the footer logo in between, hugging the
+    // right-hand margin so it never sits on top of content. A small label
+    // names the section it is passing, but only while actively scrolling.
+    function initFullPageRabbitScroll() {
+      const rabbit = document.getElementById('fullPageRabbit'); // position wrapper
+      const body = document.getElementById('rabbitBody');       // scale/opacity pop
+      const label = document.getElementById('rabbitLabel');
+      const track = document.querySelector('.rabbit-track');
+      const headerLogo = document.getElementById('headerLogoImg');
+      const footerLogo = document.getElementById('footerLogoImg');
+      const anyShell = document.querySelector('.shell');
+      if (!rabbit || !body || !headerLogo || !footerLogo || !anyShell) return;
+
+      const EDGE_GAP = 20; // desired clearance beyond the content's right edge
+
+      let startPoint = null;   // viewport coords (sticky header, constant)
+      let endDocY = null;      // document-space Y of footer logo
+      let endX = null;         // viewport X of footer logo
+      let maxScroll = 1;
+      let hasEmerged = false;  // becomes true the first time the page scrolls
+      let currentSectionLabel = '';
+      let idleTimer = null;
+      let marginX = null;      // the line the rabbit travels on, clear of content
+
+      function measure() {
+        const hRect = headerLogo.getBoundingClientRect();
+        startPoint = {
+          x: hRect.left + hRect.width / 2,
+          y: hRect.top + hRect.height / 2
+        };
+
+        const fRect = footerLogo.getBoundingClientRect();
+        endDocY = fRect.top + window.scrollY + fRect.height / 2;
+        endX = fRect.left + fRect.width / 2;
+
+        maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+
+        // Every .shell shares the same centred max-width, so its right edge
+        // is the true boundary of content anywhere on the page. Hug just
+        // outside it, but clamp so the rabbit always stays on-screen rather
+        // than ever disappearing (below 900px it's hidden by CSS instead).
+        const shellRight = anyShell.getBoundingClientRect().right;
+        marginX = Math.min(shellRight + EDGE_GAP, window.innerWidth - 18);
+        if (track) track.style.right = (window.innerWidth - marginX) + 'px';
+
+        // Park the (still invisible) body exactly on the logo before anything moves,
+        // so the very first thing that happens is a pop OUT of that spot, not a
+        // shape appearing already offset from it.
+        if (!hasEmerged) {
+          rabbit.style.transform = `translate(${startPoint.x}px, ${startPoint.y}px)`;
+        }
+      }
+
+      function update() {
+        if (!startPoint) return;
+
+        const progress = Math.max(0, Math.min(1, window.scrollY / maxScroll));
+
+        // Reversible emerge: pop out the moment you leave the very top,
+        // tuck back into the logo the moment you return to it.
+        if (progress > 0.004 && !hasEmerged) {
+          hasEmerged = true;
+          body.classList.add('emerged');
+        } else if (progress <= 0.004 && hasEmerged) {
+          hasEmerged = false;
+          body.classList.remove('emerged');
+          label.classList.remove('visible');
+        }
+
+        // Where the footer logo will sit on screen once fully scrolled down
+        const endPoint = { x: endX, y: endDocY - maxScroll };
+
+        // Straight hug just outside the content's right edge - no side-to-side
+        // wave, so it can never drift back over the calculator (or anything else).
+        const x = progress < 0.03 ? startPoint.x
+                : progress > 0.97 ? endPoint.x
+                : marginX;
+
+        const y = startPoint.y + (endPoint.y - startPoint.y) * progress;
+
+        rabbit.style.transform = `translate(${x}px, ${y}px)`;
+
+        // Position the label just to the left of the rabbit, vertically centered
+        label.style.transform = `translate(${x - 18}px, ${y}px) translate(-100%, -50%)`;
+      }
+
+      // --- Section indicator: which section is centered in the viewport ---
+      const sections = document.querySelectorAll('section[data-rabbit-label]');
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            currentSectionLabel = entry.target.getAttribute('data-rabbit-label');
+            label.textContent = currentSectionLabel;
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+      sections.forEach((s) => sectionObserver.observe(s));
+
+      function showLabelWhileScrolling() {
+        if (currentSectionLabel && hasEmerged) label.classList.add('visible');
+        window.clearTimeout(idleTimer);
+        idleTimer = window.setTimeout(() => label.classList.remove('visible'), 750);
+      }
+
+      let ticking = false;
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(() => { update(); ticking = false; });
+          ticking = true;
+        }
+        showLabelWhileScrolling();
+      }, { passive: true });
+
+      window.addEventListener('resize', () => { measure(); update(); });
+
+      if (headerLogo.complete && footerLogo.complete) {
+        measure(); update();
+      } else {
+        window.addEventListener('load', () => { measure(); update(); });
+      }
+    }
+
+    // Console Switcher
+    function switchConsole(category) {
+      const btnTax = document.getElementById('tabTax');
+      const btnCorp = document.getElementById('tabCorp');
+      const profileSelect = document.getElementById('consoleProfile');
+
+      if (category === 'tax') {
+        btnTax.classList.add('active');
+        btnCorp.classList.remove('active');
+        profileSelect.innerHTML = `
+          <option value="individual">Salaried Employee / Individual</option>
+          <option value="professional">Freelancer / Independent Professional</option>
+          <option value="business">Proprietorship / Partnership / LLP / Private Limited</option>
+        `;
+      } else {
+        btnTax.classList.remove('active');
+        btnCorp.classList.add('active');
+        profileSelect.innerHTML = `
+          <option value="startup">New Business / Startup Venture</option>
+          <option value="retail">E-Commerce / Retail Merchant</option>
+          <option value="existing">Established Corporate Firm</option>
+        `;
+      }
+      adaptConsoleFields();
+    }
+
+    function adaptConsoleFields() {
+      const profile = document.getElementById('consoleProfile').value;
+      const targetRow = document.getElementById('consoleDynamicRow');
+
+      let optionsHtml = '';
+      if (profile === 'individual' || profile === 'professional') {
+        optionsHtml = `
+          <label for="consoleService">How can we help?</label>
+          <select id="consoleService" class="console-select">
+            <option value="income_tax">File Income Tax Return / Respond to Notice</option>
+            <option value="accounting">Organize Freelance Bills &amp; Books</option>
+            <option value="trademark">Register Brand Name / Trademark</option>
+          </select>
+        `;
+      } else if (profile === 'startup') {
+        optionsHtml = `
+          <label for="consoleService">How can we help?</label>
+          <select id="consoleService" class="console-select">
+            <option value="incorporation">Incorporate New Company or LLP</option>
+            <option value="gst">Get New GST Registration</option>
+            <option value="trademark">Protect Brand Logo / Name</option>
+          </select>
+        `;
+      } else {
+        optionsHtml = `
+          <label for="consoleService">How can we help?</label>
+          <select id="consoleService" class="console-select">
+            <option value="gst">Monthly GST Returns &amp; Reconciliation</option>
+            <option value="accounting">Regular Bookkeeping &amp; Accounting</option>
+            <option value="payroll">Staff Payroll &amp; TDS Filings</option>
+          </select>
+        `;
+      }
+      targetRow.innerHTML = optionsHtml;
+    }
+
+    function captureConsoleIntent() {
+      const consoleService = document.getElementById('consoleService').value;
+      selectMainService(consoleService);
+      document.getElementById('query').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('fName').focus();
+    }
+
+    function selectMainService(serviceKey) {
+      const mainSelect = document.getElementById('fMainService');
+      if (mainSelect) {
+        mainSelect.value = serviceKey;
+        renderDynamicFormFields();
+      }
+      document.getElementById('query').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // DYNAMIC FORM FIELDS GENERATOR ENGINE
+    function renderDynamicFormFields() {
+      const mainService = document.getElementById('fMainService').value;
+      const container = document.getElementById('dynamicFieldsContainer');
+
+      let html = '';
+      if (mainService === 'income_tax') {
+        html = `
+          <h4><i class="ti ti-file-text"></i> Income Tax Filing Details</h4>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="dTaxYear">Assessment Year *</label>
+              <select id="dTaxYear" name="ITR Assessment Year" class="form-control">
+                <option value="AY 2026-27 (FY 2025-26)">AY 2026-27 (Current FY 2025-26)</option>
+                <option value="AY 2025-26 (FY 2024-25)">AY 2025-26 (Previous Year)</option>
+                <option value="Notice Reply">Responding to Income Tax Notice</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dIncomeSources">Primary Income Source *</label>
+              <select id="dIncomeSources" name="Income Sources" class="form-control">
+                <option value="Salary / Pension">Salaried Employee / Pensioner</option>
+                <option value="Business / Profession">Business Owner / Freelancer</option>
+                <option value="Capital Gains / Trading">Share Market / Crypto / FnO Trading</option>
+                <option value="Multiple Sources">Multiple Sources (Salary + Capital Gains)</option>
+              </select>
+            </div>
+          </div>
+        `;
+      } else if (mainService === 'incorporation') {
+        html = `
+          <h4><i class="ti ti-building"></i> Company / LLP Setup Details</h4>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="dEntityType">Proposed Entity Structure *</label>
+              <select id="dEntityType" name="Target Entity Type" class="form-control">
+                <option value="Private Limited Company">Private Limited Company</option>
+                <option value="Limited Liability Partnership (LLP)">Limited Liability Partnership (LLP)</option>
+                <option value="One Person Company (OPC)">One Person Company (OPC)</option>
+                <option value="Partnership Firm">Partnership Firm</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dProposedName">Proposed Name (Optional)</label>
+              <input type="text" id="dProposedName" name="Proposed Business Name" class="form-control" placeholder="e.g. MyBrand Solutions">
+            </div>
+          </div>
+        `;
+      } else if (mainService === 'gst') {
+        html = `
+          <h4><i class="ti ti-receipt"></i> GST Service Details</h4>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="dGstType">Service Required *</label>
+              <select id="dGstType" name="GST Requirement Type" class="form-control">
+                <option value="New GST Registration">New GST Registration</option>
+                <option value="Monthly Returns Filing">Regular Monthly / Quarterly Filing</option>
+                <option value="ITC Reconciliation">Input Tax Credit (ITC) Clean Up</option>
+                <option value="GST Cancellation">GST Cancellation / Amendment</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dGstNumber">Existing GSTIN (If applicable)</label>
+              <input type="text" id="dGstNumber" name="Existing GSTIN" class="form-control" placeholder="e.g. 36AAAAA0000A1Z5">
+            </div>
+          </div>
+        `;
+      } else if (mainService === 'accounting') {
+        html = `
+          <h4><i class="ti ti-books"></i> Bookkeeping Requirements</h4>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="dVolume">Estimated Monthly Entries / Invoices *</label>
+              <select id="dVolume" name="Monthly Transaction Volume" class="form-control">
+                <option value="Under 50 transactions">Under 50 Transactions / Month</option>
+                <option value="50 - 200 transactions">50 – 200 Transactions / Month</option>
+                <option value="200+ transactions">200+ Transactions / Month</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dSoftware">Preferred Software (If any)</label>
+              <select id="dSoftware" name="Accounting Software Preference" class="form-control">
+                <option value="No preference">No Preference (We suggest)</option>
+                <option value="Tally Prime">Tally Prime</option>
+                <option value="Zoho Books">Zoho Books</option>
+                <option value="Excel / Digital Logs">Excel / Spreadsheets</option>
+              </select>
+            </div>
+          </div>
+        `;
+      } else if (mainService === 'trademark') {
+        html = `
+          <h4><i class="ti ti-registered"></i> Brand Registration Details</h4>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="dBrandName">Brand Name / Logo Text *</label>
+              <input type="text" id="dBrandName" name="Brand Name To Register" class="form-control" placeholder="e.g. Esyton" required>
+            </div>
+            <div class="form-group">
+              <label for="dIndustry">Business Domain / Products *</label>
+              <input type="text" id="dIndustry" name="Industry Description" class="form-control" placeholder="e.g. Clothing, Software, Consulting">
+            </div>
+          </div>
+        `;
+      } else if (mainService === 'payroll') {
+        html = `
+          <h4><i class="ti ti-users"></i> Payroll &amp; TDS Details</h4>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="dEmpCount">Employee Count *</label>
+              <select id="dEmpCount" name="Employee Count" class="form-control">
+                <option value="1 - 10 employees">1 – 10 Employees</option>
+                <option value="11 - 50 employees">11 – 50 Employees</option>
+                <option value="50+ employees">50+ Employees</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dTdsType">Service Needed *</label>
+              <select id="dTdsType" name="TDS Support Needed" class="form-control">
+                <option value="Quarterly TDS Returns">Quarterly TDS Return Filings</option>
+                <option value="Form 16 Generation">Form 16 Generation for Staff</option>
+                <option value="Complete Monthly Payroll">Complete Monthly Payroll Management</option>
+              </select>
+            </div>
+          </div>
+        `;
+      } else {
+        html = `
+          <h4><i class="ti ti-info-circle"></i> General Business Query</h4>
+          <p style="font-size:.82rem; color:var(--muted);">Specify your requirement in the message field below.</p>
+        `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    // TAX CALCULATOR ENGINE
+    function runEngineCalculation() {
+      const regime = document.getElementById('cRegime').value;
+      const age = parseInt(document.getElementById('cAge').value) || 0;
+
+      const salary = parseFloat(document.getElementById('cSalary').value) || 0;
+      const exemptions = parseFloat(document.getElementById('cExemptions').value) || 0;
+      const business = parseFloat(document.getElementById('cBusiness').value) || 0;
+
+      const stcg = parseFloat(document.getElementById('cStcg').value) || 0;
+      const ltcg = parseFloat(document.getElementById('cLtcg').value) || 0;
+      const house = parseFloat(document.getElementById('cHouse').value) || 0;
+
+      const ded80c = parseFloat(document.getElementById('c80c').value) || 0;
+      const ded80d = parseFloat(document.getElementById('c80d').value) || 0;
+
+      if (regime === 'new') {
+        document.getElementById('cExemptions').disabled = true;
+        document.getElementById('cExemptions').value = 0;
+        document.getElementById('c80c').disabled = true;
+        document.getElementById('c80c').value = 0;
+        document.getElementById('c80d').disabled = true;
+        document.getElementById('c80d').value = 0;
+      } else {
+        document.getElementById('cExemptions').disabled = false;
+        document.getElementById('c80c').disabled = false;
+        document.getElementById('c80d').disabled = false;
+      }
+
+      let stdDed = (regime === 'new') ? 75000 : 50000;
+      let netSalary = Math.max(0, salary - exemptions - stdDed);
+      let grossTotalIncome = netSalary + business + stcg + ltcg + house;
+
+      let totalDeductions = 0;
+      if (regime === 'old') {
+        let allowed80c = Math.min(ded80c, 150000);
+        let allowed80d = Math.min(ded80d, 25000);
+        if (age >= 60) allowed80d = Math.min(ded80d, 50000);
+        totalDeductions = allowed80c + allowed80d;
+      }
 
       let netTaxableIncome = Math.max(0, grossTotalIncome - totalDeductions);
 
-      let basicTax = 0;      if (regime === 'new') {        let remaining = netTaxableIncome;        if (remaining > 2400000) { basicTax += (remaining - 2400000) * 0.30; remaining = 2400000; }        if (remaining > 2000000) { basicTax += (remaining - 2000000) * 0.25; remaining = 2000000; }        if (remaining > 1600000) { basicTax += (remaining - 1600000) * 0.20; remaining = 1600000; }        if (remaining > 1200000) { basicTax += (remaining - 1200000) * 0.15; remaining = 1200000; }        if (remaining > 800000)  { basicTax += (remaining - 800000)  * 0.10; remaining = 800000; }        if (remaining > 400000)  { basicTax += (remaining - 400000)  * 0.05; remaining = 400000; }      } else {        let remaining = netTaxableIncome;        let basicExemption = 250000;        if (age >= 60 && age < 80) basicExemption = 300000;        if (age >= 80) basicExemption = 500000;
+      let basicTax = 0;
+      if (regime === 'new') {
+        let remaining = netTaxableIncome;
+        if (remaining > 2400000) { basicTax += (remaining - 2400000) * 0.30; remaining = 2400000; }
+        if (remaining > 2000000) { basicTax += (remaining - 2000000) * 0.25; remaining = 2000000; }
+        if (remaining > 1600000) { basicTax += (remaining - 1600000) * 0.20; remaining = 1600000; }
+        if (remaining > 1200000) { basicTax += (remaining - 1200000) * 0.15; remaining = 1200000; }
+        if (remaining > 800000)  { basicTax += (remaining - 800000)  * 0.10; remaining = 800000; }
+        if (remaining > 400000)  { basicTax += (remaining - 400000)  * 0.05; remaining = 400000; }
+      } else {
+        let remaining = netTaxableIncome;
+        let basicExemption = 250000;
+        if (age >= 60 && age < 80) basicExemption = 300000;
+        if (age >= 80) basicExemption = 500000;
 
-        if (basicExemption === 500000) {          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }        } else if (basicExemption === 300000) {          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }          if (remaining > 300000)  { basicTax += (remaining - 300000)  * 0.05; remaining = 300000; }        } else {          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }          if (remaining > 250000)  { basicTax += (remaining - 250000)  * 0.05; remaining = 250000; }        }      }
+        if (basicExemption === 500000) {
+          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }
+          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }
+        } else if (basicExemption === 300000) {
+          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }
+          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }
+          if (remaining > 300000)  { basicTax += (remaining - 300000)  * 0.05; remaining = 300000; }
+        } else {
+          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }
+          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }
+          if (remaining > 250000)  { basicTax += (remaining - 250000)  * 0.05; remaining = 250000; }
+        }
+      }
 
-      let rebate87A = 0;      if (regime === 'new' && netTaxableIncome <= 1200000) {        rebate87A = basicTax;      } else if (regime === 'old' && netTaxableIncome <= 500000) {        rebate87A = Math.min(basicTax, 125000);      }
+      let rebate87A = 0;
+      if (regime === 'new' && netTaxableIncome <= 1200000) {
+        rebate87A = basicTax;
+      } else if (regime === 'old' && netTaxableIncome <= 500000) {
+        rebate87A = Math.min(basicTax, 125000);
+      }
 
-      let taxPostRebate = Math.max(0, basicTax - rebate87A);      let cess = taxPostRebate * 0.04;      let absoluteFinalPayableTax = taxPostRebate + cess;
+      let taxPostRebate = Math.max(0, basicTax - rebate87A);
+      let cess = taxPostRebate * 0.04;
+      let absoluteFinalPayableTax = taxPostRebate + cess;
 
-      document.getElementById('displayFinalTax').textContent = "₹" + Math.round(absoluteFinalPayableTax).toLocaleString('en-IN');      document.getElementById('mGti').textContent = "₹" + Math.round(grossTotalIncome).toLocaleString('en-IN');      document.getElementById('mDed').textContent = "₹" + Math.round(totalDeductions).toLocaleString('en-IN');      document.getElementById('mNti').textContent = "₹" + Math.round(netTaxableIncome).toLocaleString('en-IN');      document.getElementById('mBasic').textContent = "₹" + Math.round(basicTax).toLocaleString('en-IN');      document.getElementById('mRebate').textContent = "₹" + Math.round(rebate87A).toLocaleString('en-IN');      document.getElementById('mCess').textContent = "₹" + Math.round(cess).toLocaleString('en-IN');      document.getElementById('mFinal').textContent = "₹" + Math.round(absoluteFinalPayableTax).toLocaleString('en-IN');
+      document.getElementById('displayFinalTax').textContent = "₹" + Math.round(absoluteFinalPayableTax).toLocaleString('en-IN');
+      document.getElementById('mGti').textContent = "₹" + Math.round(grossTotalIncome).toLocaleString('en-IN');
+      document.getElementById('mDed').textContent = "₹" + Math.round(totalDeductions).toLocaleString('en-IN');
+      document.getElementById('mNti').textContent = "₹" + Math.round(netTaxableIncome).toLocaleString('en-IN');
+      document.getElementById('mBasic').textContent = "₹" + Math.round(basicTax).toLocaleString('en-IN');
+      document.getElementById('mRebate').textContent = "₹" + Math.round(rebate87A).toLocaleString('en-IN');
+      document.getElementById('mCess').textContent = "₹" + Math.round(cess).toLocaleString('en-IN');
+      document.getElementById('mFinal').textContent = "₹" + Math.round(absoluteFinalPayableTax).toLocaleString('en-IN');
 
-      const adviceEl = document.getElementById('engineAdviceText');      if (regime === 'new') {        adviceEl.innerHTML = `<strong>Note:</strong> New Tax Regime parameters used with ₹75,000 standard deduction applied. Full Section 87A rebate applies on net taxable income up to ₹12 Lakhs.`;      } else {        adviceEl.innerHTML = `<strong>Note:</strong> Old Tax Regime parameters used. Computed for age bracket <strong>${age}</strong>. Keep all deduction proof documents saved securely.`;      }    }
+      const adviceEl = document.getElementById('engineAdviceText');
+      if (regime === 'new') {
+        adviceEl.innerHTML = `<strong>Note:</strong> New Tax Regime parameters used with ₹75,000 standard deduction applied. Full Section 87A rebate applies on net taxable income up to ₹12 Lakhs.`;
+      } else {
+        adviceEl.innerHTML = `<strong>Note:</strong> Old Tax Regime parameters used. Computed for age bracket <strong>${age}</strong>. Keep all deduction proof documents saved securely.`;
+      }
+    }
 
-    // FORM SUBMISSION HANDLER    function handleFormSubmission(e) {      e.preventDefault();      const form = e.target;      const container = document.getElementById('queryFormContainer');      const submitBtn = form.querySelector('button[type="submit"]');      const name = document.getElementById('fName').value;      const phone = document.getElementById('fPhone').value;      const serviceText = document.getElementById('fMainService').options[document.getElementById('fMainService').selectedIndex].text;
+    // FORM SUBMISSION HANDLER
+    function handleFormSubmission(e) {
+      e.preventDefault();
+      const form = e.target;
+      const container = document.getElementById('queryFormContainer');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const name = document.getElementById('fName').value;
+      const phone = document.getElementById('fPhone').value;
+      const serviceText = document.getElementById('fMainService').options[document.getElementById('fMainService').selectedIndex].text;
 
-      submitBtn.disabled = true;      const originalBtnHtml = submitBtn.innerHTML;      submitBtn.innerHTML = '<i class="ti ti-loader-2"></i> Transmitting...';
+      submitBtn.disabled = true;
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="ti ti-loader-2"></i> Transmitting...';
 
-      fetch(form.action, {        method: 'POST',        body: new FormData(form),        headers: { 'Accept': 'application/json' }      })        .then((response) => {          if (response.ok) {            // Increment counter on screen visually after submission            const counterEl = document.getElementById('enquiryCounter');            if (counterEl) {              let currentVal = parseInt(counterEl.textContent) || 810;              counterEl.textContent = currentVal + 1;            }
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      })
+        .then((response) => {
+          if (response.ok) {
+            const counterEl = document.getElementById('enquiryCounter');
+            if (counterEl) {
+              let currentVal = parseInt(counterEl.textContent) || 810;
+              counterEl.textContent = currentVal + 1;
+            }
 
-            container.innerHTML = `              <div style="text-align:center; padding: 40px 20px;">                <i class="ti ti-circle-check-filled" style="font-size: 3.5rem; color:#2e7d32; margin-bottom:16px; display:block;"></i>                <h4 style="font-size:1.3rem; color:var(--navy); margin-bottom:10px;">Enquiry Received Successfully!</h4>                <p style="font-size:.9rem; color:var(--muted); line-height:1.6; max-width:420px; margin: 0 auto 20px;">                  Thank you, <strong>${name}</strong>. Your request regarding <strong>${serviceText}</strong> has been transmitted. Our team will get in touch with you at <strong>+91 ${phone}</strong> shortly.                </p>                <span style="font-size:.78rem; background: var(--soft); padding: 8px 16px; border-radius:30px; font-weight:700; color:var(--navy);">                  Reference Code: ESY-${Math.floor(100000 + Math.random() * 900000)}                </span>              </div>            `;          } else {            return response.json().then((data) => {              throw new Error((data && data.errors && data.errors.map(err => err.message).join(', ')) || 'Submission failed');            });          }        })        .catch((error) => {          submitBtn.disabled = false;          submitBtn.innerHTML = originalBtnHtml;          let errorBox = document.getElementById('formErrorBox');          if (!errorBox) {            errorBox = document.createElement('p');            errorBox.id = 'formErrorBox';            errorBox.style.cssText = 'margin-top:12px; font-size:.82rem; color:#b3261e; text-align:center;';            form.appendChild(errorBox);          }          errorBox.textContent = "Unable to send enquiry right now. Please try again or reach out at connect@esyton.com.";        });    }
+            container.innerHTML = `
+              <div style="text-align:center; padding: 40px 20px;">
+                <i class="ti ti-circle-check-filled" style="font-size: 3.5rem; color:#2e7d32; margin-bottom:16px; display:block;"></i>
+                <h4 style="font-size:1.3rem; color:var(--navy); margin-bottom:10px;">Enquiry Received Successfully!</h4>
+                <p style="font-size:.9rem; color:var(--muted); line-height:1.6; max-width:420px; margin: 0 auto 20px;">
+                  Thank you, <strong>${name}</strong>. Your request regarding <strong>${serviceText}</strong> has been transmitted. Our team will get in touch with you at <strong>+91 ${phone}</strong> shortly.
+                </p>
+                <span style="font-size:.78rem; background: var(--soft); padding: 8px 16px; border-radius:30px; font-weight:700; color:var(--navy);">
+                  Reference Code: ESY-${Math.floor(100000 + Math.random() * 900000)}
+                </span>
+              </div>
+            `;
+          } else {
+            return response.json().then((data) => {
+              throw new Error((data && data.errors && data.errors.map(err => err.message).join(', ')) || 'Submission failed');
+            });
+          }
+        })
+        .catch((error) => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
+          let errorBox = document.getElementById('formErrorBox');
+          if (!errorBox) {
+            errorBox = document.createElement('p');
+            errorBox.id = 'formErrorBox';
+            errorBox.style.cssText = 'margin-top:12px; font-size:.82rem; color:#b3261e; text-align:center;';
+            form.appendChild(errorBox);
+          }
+          errorBox.textContent = "Unable to send enquiry right now. Please try again or reach out at connect@esyton.com.";
+        });
+    }
 
-    // URL CLEANER    if (window.location.pathname.endsWith('.html')) {      const cleanRoute = window.location.pathname.replace(/\.html$/, '');      window.history.replaceState(null, '', cleanRoute + window.location.search + window.location.hash);    }
-
-    // INITIALIZATION    window.addEventListener('DOMContentLoaded', () => {      adaptConsoleFields();      renderDynamicFormFields();      runEngineCalculation();    });  </script></body></html>
+    // INITIALIZATION
+    window.addEventListener('DOMContentLoaded', () => {
+      adaptConsoleFields();
+      renderDynamicFormFields();
+      runEngineCalculation();
+      initFullPageRabbitScroll();
+    });
+  </script>
+</body>
+</html>
