@@ -427,6 +427,30 @@
 
 <script>
   // ------------------------------------------------------------------
+  // CLEAN URL SAFETY NET
+  // This page is deployed as employee-rewards/index.html, which is
+  // what actually makes esyton.com/employee-rewards work with no
+  // .html and no redirect — GitHub Pages serves index.html for a
+  // folder automatically. This snippet is just a belt-and-suspenders
+  // fallback: if the page is ever reached with .html visible in the
+  // address bar (e.g. a direct link to .../employee-rewards.html, or
+  // .../employee-rewards/index.html), it quietly rewrites the visible
+  // URL to the clean form, without reloading or redirecting the page.
+  // ------------------------------------------------------------------
+  (function cleanUrl(){
+    try {
+      const path = window.location.pathname;
+      if (/\/employee-rewards(\/index)?\.html\/?$/i.test(path)){
+        const cleanPath = path.replace(/\/employee-rewards(\/index)?\.html\/?$/i, '/employee-rewards');
+        window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+      }
+    } catch (e) {
+      // If the History API isn't available for any reason, fail silently —
+      // the folder/index.html structure still serves the clean URL correctly.
+    }
+  })();
+
+  // ------------------------------------------------------------------
   // FORM ENDPOINT (Formspree)
   // Submissions are sent to the email address configured on this
   // Formspree form's dashboard (formspree.io/forms/mrenvrkz) — set
