@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TDS on Sale of Immovable Property — A Guide by esyton</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --navy: #0f2a4a;
+    --navy-deep: #081729;
+    --navy-soft: #3c5978;
+    --gold: #b8863c;
+    --gold-light: #d9ab63;
+    --paper: #ffffff;
+    --paper-tint: #faf9f6;
+    --ink: #1b2733;
+    --ink-soft: #55636f;
+    --rule: #e4e1d8;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body{
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Fixed chrome ---------- */
+
+  .brand-badge{
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 500;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(6px);
+    padding: 5px 14px 5px 5px;
+    border-radius: 999px;
+    border: 1px solid var(--rule);
+  }
+  .brand-badge img{
+    width: 30px;
+    height: 30px;
+    display:block;
+    border-radius: 50%;
+  }
+  .brand-badge span{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    font-size: 12.5px;
+    color: var(--navy);
+  }
+
+  .progress-rail{
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 100%;
+    background: transparent;
+    z-index: 501;
+  }
+  .progress-fill{
+    height: 100%;
+    width: 0%;
+    background: var(--gold);
+    transition: width 0.5s ease;
+  }
+
+  .dots-nav{
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 500;
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .dot{
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1.5px solid var(--navy-soft);
+    cursor: pointer;
+    padding:0;
+    transition: background 0.25s, border-color 0.25s, transform 0.25s;
+  }
+  .dot:hover{ transform: scale(1.2); }
+  .dot.active{
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: scale(1.25);
+  }
+
+  .scroll-cue{
+    position: fixed;
+    left: 24px;
+    bottom: 20px;
+    z-index: 500;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition: opacity .4s ease;
+  }
+  .scroll-cue .line{
+    width: 20px; height: 1px; background: var(--gold);
+    display:inline-block;
+    animation: cueMove 1.8s ease-in-out infinite;
+  }
+  @keyframes cueMove{
+    0%,100%{ transform: translateX(0); opacity:.5;}
+    50%{ transform: translateX(6px); opacity:1;}
+  }
+
+  .page-count{
+    position: fixed;
+    left: 24px;
+    top: 24px;
+    z-index: 500;
+    font-family: 'Source Serif 4', serif;
+    font-size: 13px;
+    color: var(--navy-soft);
+    letter-spacing: 0.02em;
+  }
+  .page-count b{ color: var(--navy); }
+
+  /* ---------- Stage ---------- */
+
+  .stage{
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    perspective: 2400px;
+    background: var(--paper);
+    touch-action: none;
+  }
+
+  .page{
+    position: absolute;
+    inset: 0;
+    background: var(--paper);
+    transform-origin: left center;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    transition: transform 0.85s cubic-bezier(.65,0,.35,1), box-shadow 0.85s ease;
+    will-change: transform;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-right: 1px solid var(--rule);
+  }
+
+  .page.turned{
+    transform: rotateY(-172deg);
+    box-shadow: inset -40px 0 60px rgba(8,23,41,0.28);
+  }
+
+  .page::before{ /* dog-ear fold, purely decorative */
+    content:"";
+    position:absolute;
+    right:0;
+    bottom:0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, transparent 50%, var(--paper-tint) 50.5%, var(--paper-tint) 62%, var(--rule) 62.5%);
+    pointer-events:none;
+  }
+
+  .page-inner{
+    width:100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(14px,4vh,40px) 7vw;
+    display:grid;
+    grid-template-columns: 0.9fr 1.15fr;
+    gap: clamp(20px, 4vw, 56px);
+    align-items:center;
+  }
+
+  .page-left{
+    border-right: 1px solid var(--rule);
+    padding-right: clamp(18px, 3vw, 40px);
+  }
+
+  .kicker{
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    font-weight: 600;
+    display:flex;
+    align-items:center;
+    gap: 9px;
+    margin-bottom: clamp(10px, 2vh, 20px);
+  }
+  .kicker .num{
+    font-family:'Source Serif 4', serif;
+    font-size: 14px;
+    color: var(--navy);
+    border: 1px solid var(--navy);
+    width: 24px; height:24px;
+    border-radius: 50%;
+    display:flex;align-items:center;justify-content:center;
+    letter-spacing: 0;
+  }
+
+  .page-title{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: clamp(22px, 2.6vw, 38px);
+    line-height: 1.14;
+    margin: 0 0 clamp(8px,1.6vh,16px) 0;
+  }
+
+  .page-sub{
+    color: var(--ink-soft);
+    font-size: clamp(12.5px, 1.5vh, 14.5px);
+    line-height: 1.55;
+    max-width: 44ch;
+  }
+
+  .cite-box{
+    margin-top: clamp(10px,2vh,22px);
+    padding: 11px 14px;
+    border-left: 3px solid var(--gold);
+    background: var(--paper-tint);
+    font-size: 12px;
+    color: var(--navy);
+    line-height: 1.55;
+  }
+  .cite-box b{ color: var(--navy); }
+
+  .page-right{
+    font-size: clamp(12px, 1.55vh, 14px);
+    line-height: 1.55;
+  }
+
+  .page-right h4{
+    font-family:'Inter',sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin: clamp(10px,1.8vh,18px) 0 8px;
+    font-weight: 600;
+  }
+  .page-right h4:first-child{ margin-top:0; }
+
+  .page-right ul{
+    margin: 0 0 4px 0;
+    padding-left: 18px;
+  }
+  .page-right li{
+    margin-bottom: 6px;
+  }
+  .page-right li::marker{ color: var(--gold); }
+
+  .page-right p{ margin: 0 0 10px 0; }
+
+  .checklist{
+    list-style: none;
+    padding:0;
+    margin:0;
+    display:grid;
+    gap: 8px;
+  }
+  .checklist li{
+    display:flex;
+    gap: 10px;
+    align-items:flex-start;
+    padding: 9px 12px;
+    background: var(--paper-tint);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  .checklist li b{ color: var(--navy); display:block; font-size: 12.5px; margin-bottom:1px; }
+  .checklist li div{ font-size: 11.8px; color: var(--ink-soft); }
+  .checklist .mark{
+    flex-shrink:0;
+    width: 18px; height:18px;
+    border-radius:50%;
+    border:1.5px solid var(--gold);
+    color: var(--gold);
+    font-family:'Source Serif 4', serif;
+    font-size: 11px;
+    display:flex;align-items:center;justify-content:center;
+    margin-top:1px;
+  }
+
+  .timeline{
+    position: relative;
+    padding-left: 22px;
+    border-left: 2px solid var(--rule);
+  }
+  .t-step{
+    position: relative;
+    padding-bottom: 16px;
+  }
+  .t-step:last-child{ padding-bottom: 0; }
+  .t-step::before{
+    content:"";
+    position:absolute;
+    left: -28px;
+    top: 3px;
+    width: 9px; height:9px;
+    border-radius:50%;
+    background: var(--gold);
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1.5px var(--gold);
+  }
+  .t-step b{ display:block; color: var(--navy); font-size: 12.8px; margin-bottom:2px; }
+  .t-step span{ color: var(--ink-soft); font-size: 12px; }
+
+  .callout{
+    margin-top: 12px;
+    padding: 11px 14px;
+    background: #fbf5ea;
+    border: 1px solid #ecdcb9;
+    border-radius: 4px;
+    font-size: 12px;
+    color: var(--navy);
+    line-height:1.5;
+  }
+
+  .flag-list{
+    display:grid;
+    gap: 8px;
+  }
+  .flag-list li{
+    list-style:none;
+    padding: 9px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    position:relative;
+    padding-left: 30px;
+    font-size: 11.8px;
+    color: var(--ink-soft);
+  }
+  .flag-list li::before{
+    content:"!";
+    position:absolute;
+    left: 10px; top:9px;
+    width:15px;height:15px;
+    border-radius:50%;
+    background: var(--navy);
+    color:#fff;
+    font-size: 10px;
+    font-weight:700;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .flag-list b{ color: var(--navy); display:block; font-size: 12.5px; margin-bottom: 1px;}
+
+  .reason-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .reason-card{
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 11px 13px 10px;
+    background: var(--paper-tint);
+  }
+  .reason-card .r-num{
+    font-family:'Source Serif 4', serif;
+    color: var(--gold);
+    font-size: 16px;
+    display:block;
+    margin-bottom: 3px;
+  }
+  .reason-card b{ color: var(--navy); display:block; font-size: 12.5px; margin-bottom:2px; }
+  .reason-card p{ font-size: 11.5px; color: var(--ink-soft); margin:0; line-height:1.4; }
+
+  /* ---- cover page ---- */
+  .cover-page .page-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap: clamp(14px, 2.6dvh, 26px);
+    max-width: 640px;
+  }
+  .cover-logo{
+    width: clamp(84px, 16vw, 132px);
+    height: clamp(84px, 16vw, 132px);
+    border-radius: 50%;
+    display:block;
+  }
+  .cover-wordmark{
+    font-family:'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    font-size: clamp(15px, 2.6vw, 20px);
+    color: var(--navy);
+    text-transform: lowercase;
+  }
+  .cover-motto{
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    color: var(--navy-soft);
+    font-size: clamp(14px, 2.4vw, 19px);
+    line-height: 1.5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    margin: 0;
+  }
+  .cover-motto .divider{
+    width: 1px;
+    height: 1em;
+    background: var(--gold);
+    display:inline-block;
+  }
+  .cover-doc-title{
+    margin: 0;
+    padding-top: clamp(6px, 1.4dvh, 12px);
+    border-top: 1px solid var(--rule);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    max-width: 42ch;
+  }
+
+  /* ---- final page ---- */
+  .final-page .page-inner{
+    grid-template-columns: 1fr;
+    max-width: 720px;
+    text-align:center;
+  }
+  .final-page .page-left{ border-right:none; padding-right:0; }
+  .final-page .kicker{ justify-content:center; }
+  .final-page .page-sub{ max-width: 58ch; margin: 0 auto; font-size: clamp(12.5px,1.5vh,14.5px); }
+  .signoff{
+    margin-top: clamp(10px,2vh,22px);
+    font-family:'Source Serif 4', serif;
+    font-style: italic;
+    color: var(--navy-soft);
+    font-size: clamp(13px,1.8vh,16px);
+  }
+  .final-disclaimer{
+    margin-top: clamp(14px,2.4vh,26px);
+    font-size: 10.8px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+    line-height: 1.55;
+  }
+  .cta-row{
+    margin-top: clamp(12px,2vh,22px);
+    display:flex;
+    justify-content:center;
+    gap: 12px;
+  }
+  .cta{
+    display:inline-block;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .cta.primary{ background: var(--navy); color:#fff; }
+  .cta.ghost{ border: 1.5px solid var(--navy); color: var(--navy); background:transparent; }
+
+  @media (max-width: 880px){
+    .brand-badge{
+      top: calc(12px + env(safe-area-inset-top, 0px));
+      right: calc(12px + env(safe-area-inset-right, 0px));
+      padding: 4px;
+    }
+    .brand-badge span{ display:none; }
+    .brand-badge img{ width:26px; height:26px; }
+
+    .page-count{
+      top: calc(12px + env(safe-area-inset-top, 0px));
+      left: calc(12px + env(safe-area-inset-left, 0px));
+      font-size: 11px;
+    }
+
+    .dots-nav{
+      right: calc(8px + env(safe-area-inset-right, 0px));
+      gap: 8px;
+    }
+    .dot{ width:7px; height:7px; }
+
+    .scroll-cue{
+      left: calc(12px + env(safe-area-inset-left, 0px));
+      bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+      font-size: 9.5px;
+    }
+
+    .page:not(.cover-page) .page-inner{
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      height: 100%;
+      padding: calc(46px + env(safe-area-inset-top, 0px)) 6.5vw calc(20px + env(safe-area-inset-bottom, 0px));
+      gap: clamp(8px, 1.6dvh, 14px);
+    }
+    .page-left{
+      border-right:none;
+      padding-right:0;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: clamp(8px, 1.6dvh, 14px);
+      flex: 0 0 auto;
+    }
+    .page-right{
+      flex: 1 1 auto;
+      min-height: 0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .kicker{ font-size: 10.5px; margin-bottom: clamp(4px,1dvh,8px); }
+    .kicker .num{ width:20px; height:20px; font-size:12px; }
+    .page-title{ font-size: clamp(19px, 5.6vw, 25px); margin-bottom: clamp(4px,1dvh,8px); }
+    .page-sub{ font-size: clamp(11.5px, 3.3vw, 13px); max-width: none; line-height:1.45; }
+    .cite-box{ font-size: 10.8px; padding: 8px 11px; margin-top: clamp(6px,1.2dvh,12px); }
+    .callout{ font-size: 10.8px; padding: 8px 11px; margin-top: 8px; }
+
+    .page-right{ font-size: clamp(11px, 3vw, 13px); line-height:1.45; }
+    .page-right h4{ font-size: 10px; margin: clamp(6px,1.2dvh,12px) 0 5px; }
+    .page-right h4:first-child{ margin-top:0; }
+    .page-right p{ margin-bottom: 7px; }
+    .page-right ul{ padding-left: 16px; }
+    .page-right li{ margin-bottom: 4px; }
+
+    .timeline{ padding-left: 18px; }
+    .t-step{ padding-bottom: 10px; }
+    .t-step::before{ left:-24px; }
+
+    .checklist{ gap: 6px; }
+    .checklist li{ padding: 7px 10px; }
+    .checklist li b{ font-size: 11.5px; }
+    .checklist li div{ font-size: 10.8px; }
+
+    .flag-list{ gap: 6px; }
+    .flag-list li{ padding: 7px 10px 7px 26px; font-size: 10.8px; }
+    .flag-list b{ font-size: 11.5px; }
+
+    .reason-grid{ grid-template-columns: 1fr 1fr; gap: 7px; }
+    .reason-card{ padding: 8px 10px 8px; }
+    .reason-card .r-num{ font-size: 13px; margin-bottom:1px; }
+    .reason-card b{ font-size: 11.2px; }
+    .reason-card p{ font-size: 10.2px; }
+
+    .final-page .page-inner{ justify-content:center; text-align:center; }
+    .final-disclaimer{ font-size: 9.8px; }
+    .cta{ padding: 9px 18px; font-size: 11.5px; }
+  }
+
+  @media (max-width: 420px){
+    .reason-grid{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-height: 700px) and (max-width: 880px){
+    .page-sub{ display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+    .cite-box, .callout{ padding:6px 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .page{ transition: opacity 0.3s ease !important; transform: none !important; }
+    .page.turned{ opacity: 0; pointer-events:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="page-count"><b id="pageNow">01</b> / 08</div>
+
+  <div class="brand-badge">
+    <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="esyton logo">
+    <span>esyton</span>
+  </div>
+
+  <nav class="dots-nav" id="dotsNav" aria-label="Page navigation">
+    <button class="dot active" data-i="0" aria-label="Go to cover"></button>
+    <button class="dot" data-i="1" aria-label="Go to page 1"></button>
+    <button class="dot" data-i="2" aria-label="Go to page 2"></button>
+    <button class="dot" data-i="3" aria-label="Go to page 3"></button>
+    <button class="dot" data-i="4" aria-label="Go to page 4"></button>
+    <button class="dot" data-i="5" aria-label="Go to page 5"></button>
+    <button class="dot" data-i="6" aria-label="Go to page 6"></button>
+    <button class="dot" data-i="7" aria-label="Go to page 7"></button>
+  </nav>
+
+  <div class="scroll-cue" id="scrollCue"><span class="line"></span>scroll, swipe, or use arrow keys</div>
+
+  <div class="stage" id="stage">
+
+    <!-- COVER -->
+    <section class="page cover-page" data-index="0">
+      <div class="page-inner">
+        <img class="cover-logo" src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="esyton logo">
+        <div class="cover-wordmark">esyton</div>
+        <p class="cover-motto">Swift as a rabbit <span class="divider"></span> precision is our habit</p>
+        <p class="cover-doc-title">A Guide to TDS on Sale of Immovable Property</p>
+      </div>
+    </section>
+
+    <!-- PAGE 1 -->
+    <section class="page" data-index="1">
+      <div class="page-inner">
+        <div class="page-left">
+          <div class="kicker"><span class="num">1</span>THE BASICS</div>
+          <h1 class="page-title">What is TDS on Sale of Immovable Property?</h1>
+          <p class="page-sub">A quiet but compulsory step in almost every property purchase above ₹50 lakh — one that buyers often discover too late.</p>
+          <div class="cite-box">
+            Governed by <b>Section 393(1), Table Sl. No. 3(i) of the Income-tax Act, 2025</b> — successor to the erstwhile <b>Section 194-IA of the Income-tax Act, 1961</b>.
+          </div>
+        </div>
+        <div class="page-right">
+          <h4>In plain terms</h4>
+          <p>When a buyer purchases immovable property — land (other than agricultural land) or a building or part of a building — for a consideration of <b>₹50 lakh or more</b>, the buyer must deduct tax at source before paying the seller, and deposit it with the government on the seller's behalf.</p>
+          <h4>How much, and on what value</h4>
+          <ul>
+            <li>Tax is deducted at <b>1%</b> of the sale consideration or the stamp duty value, <b>whichever is higher</b>.</li>
+            <li>"Consideration" can include club membership, parking, water/electricity facility charges and other amounts incidental to the transfer.</li>
+            <li>Agricultural land is specifically excluded.</li>
+          </ul>
+          <h4>Who is responsible</h4>
+          <p>The <b>buyer</b> — not the seller or the registrar — must deduct, deposit, and certify, at the time of payment or credit, whichever is earlier.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 2 -->
+    <section class="page" data-index="2">
+      <div class="page-inner">
+        <div class="page-left">
+          <div class="kicker"><span class="num">2</span>THE TRANSITION</div>
+          <h1 class="page-title">From the 1961 Act to the 2025 Act</h1>
+          <p class="page-sub">The rule hasn't changed. The number attached to it — and the form you file — has.</p>
+          <div class="cite-box">
+            What matters is the <b>date of payment</b>, not the date on your sale agreement.
+          </div>
+        </div>
+        <div class="page-right">
+          <h4>Before 1 April 2026</h4>
+          <p>Section 194-IA of the Income-tax Act, 1961. Filed as <b>Form 26QB</b>, certificate issued as <b>Form 16B</b>.</p>
+          <h4>On or after 1 April 2026</h4>
+          <p>Section 393(1), Table Sl. No. 3(i) of the Income-tax Act, 2025. Filed as <b>Form 141, Schedule B</b> — one consolidated statement that also absorbs the erstwhile 26QC, 26QD and 26QE. Certificate is now <b>Form 132</b>, merging the old 16B, 16C, 16D and 16E.</p>
+          <h4>What stays the same</h4>
+          <ul>
+            <li>₹50 lakh threshold · 1% rate on the higher value · agricultural land excluded · buyer deducts and deposits</li>
+          </ul>
+          <div class="callout">An agreement signed in Feb 2026 with payment made in June 2026 falls under the <b>new</b> regime — Form 141, not Form 26QB.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 3 -->
+    <section class="page" data-index="3">
+      <div class="page-inner">
+        <div class="page-left">
+          <div class="kicker"><span class="num">3</span>THE CLOCK</div>
+          <h1 class="page-title">How Long You Have to Deposit It</h1>
+          <p class="page-sub">Two deadlines run back to back — one for the government, one for the seller.</p>
+        </div>
+        <div class="page-right">
+          <div class="timeline">
+            <div class="t-step">
+              <b>Deduction</b>
+              <span>At the time of payment or credit to the seller — whichever is earlier.</span>
+            </div>
+            <div class="t-step">
+              <b>Deposit with the government</b>
+              <span>Within <b>30 days from the end of the month</b> of deduction, via Form 141.</span>
+            </div>
+            <div class="t-step">
+              <b>Certificate to the seller</b>
+              <span>Form 132, within <b>15 days</b> from the due date for filing Form 141.</span>
+            </div>
+          </div>
+          <div class="callout"><b>Example:</b> payment on 5 June 2026 → deposit due by 31 July 2026 → Form 132 due to the seller by around 15 August 2026.</div>
+          <h4>If you miss it</h4>
+          <p>Interest applies per month of delay for failure to deduct or deposit, a late fee accrues per day for late filing, and a separate penalty applies for delayed certificate issuance — exact figures are best confirmed at the time of filing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4 -->
+    <section class="page" data-index="4">
+      <div class="page-inner">
+        <div class="page-left">
+          <div class="kicker"><span class="num">4</span>BEFORE YOU START</div>
+          <h1 class="page-title">What You'll Need to Get This Done</h1>
+          <p class="page-sub">Having these ready before filing avoids the back-and-forth that usually causes delays.</p>
+        </div>
+        <div class="page-right">
+          <ul class="checklist">
+            <li><span class="mark">1</span><div><b>Aadhaar &amp; PAN — buyer and seller</b>A mismatch or missing PAN can trigger higher deduction requirements.</div></li>
+            <li><span class="mark">2</span><div><b>Seller's address</b>As it should appear on the deduction certificate.</div></li>
+            <li><span class="mark">3</span><div><b>Address of the property</b>Matching the sale documents exactly.</div></li>
+            <li><span class="mark">4</span><div><b>Agreement to sell / sale deed</b>Establishes transaction value, stamp duty value and payment schedule.</div></li>
+            <li><span class="mark">5</span><div><b>Payment details</b>Date, mode and amount of each instalment — every payment can trigger its own filing.</div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 5 -->
+    <section class="page" data-index="5">
+      <div class="page-inner">
+        <div class="page-left">
+          <div class="kicker"><span class="num">5</span>THE PORTAL</div>
+          <h1 class="page-title">The New TRACES Portal — and Its Rough Edges</h1>
+          <p class="page-sub">Revamped alongside the new Act from 1 April 2026. The core process is sound; the transition period isn't always smooth.</p>
+        </div>
+        <div class="page-right">
+          <ul class="flag-list">
+            <li><b>Old bookmarks redirect unexpectedly</b>Returning users often land on an unfamiliar homepage.</li>
+            <li><b>A fresh "Taxpayer" registration is required</b>Separate from the income-tax e-filing login.</li>
+            <li><b>Form 132 isn't available on demand</b>Only generated after Form 141 is filed <i>and</i> processed.</li>
+            <li><b>One form, four old schedules</b>Picking the wrong schedule is a common filing error.</li>
+            <li><b>Corrections happen only on TRACES</b>Not on the e-filing portal used for the original filing.</li>
+            <li><b>Silent failures need manual follow-up</b>A missing filing requires a grievance — no automatic retry.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 6 -->
+    <section class="page" data-index="6">
+      <div class="page-inner">
+        <div class="page-left">
+          <div class="kicker"><span class="num">6</span>WHY ESYTON</div>
+          <h1 class="page-title">Let Us Handle Form 141, Start to Finish</h1>
+          <p class="page-sub">Form 141 is the erstwhile Form 26QB — not the annual tax credit statement, now Form 168 (previously Form 26AS). We keep that distinction, and everything else, sorted for you.</p>
+        </div>
+        <div class="page-right">
+          <div class="reason-grid">
+            <div class="reason-card">
+              <span class="r-num">01</span>
+              <b>The right form, every time</b>
+              <p>Old or new regime, decided by your actual payment date.</p>
+            </div>
+            <div class="reason-card">
+              <span class="r-num">02</span>
+              <b>Accurate computation</b>
+              <p>1% on the higher value, including charges buyers often miss.</p>
+            </div>
+            <div class="reason-card">
+              <span class="r-num">03</span>
+              <b>We navigate TRACES 2.0</b>
+              <p>Registration, filing, correction and certificate download handled for you.</p>
+            </div>
+            <div class="reason-card">
+              <span class="r-num">04</span>
+              <b>Built for instalments too</b>
+              <p>Under-construction property gets every instalment tracked separately.</p>
+            </div>
+            <div class="reason-card">
+              <span class="r-num">05</span>
+              <b>Deadlines, tracked for you</b>
+              <p>Deposit and certificate dates monitored so nothing slips past due.</p>
+            </div>
+            <div class="reason-card">
+              <span class="r-num">06</span>
+              <b>Clean, transparent execution</b>
+              <p>Fixed pricing and one point of contact, start to finish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 7 -->
+    <section class="page final-page" data-index="7">
+      <div class="page-inner">
+        <div class="page-left">
+          <div class="kicker"><span class="num">7</span>A CLOSING NOTE</div>
+          <h1 class="page-title">Thank You for Reading This Far</h1>
+          <p class="page-sub">Property transactions carry enough weight without a compliance step catching you off guard. TDS on sale of immovable property is small on paper, but it carries real deadlines, real penalties, and — as of this year — a genuinely new set of forms and portals to get used to.</p>
+          <p class="signoff">If something here feels unclear, that's reason enough to ask — not to guess.</p>
+          <div class="cta-row">
+            <a class="cta primary" href="mailto:connect@esyton.com">Talk to esyton</a>
+            <a class="cta ghost" href="http://esyton.com/">Visit esyton.com</a>
+          </div>
+          <div class="final-disclaimer">
+            This guide is for general awareness and reflects the compliance framework as understood at the time of writing. It is not a substitute for personalised advice. Esyton provides operational, non-assurance compliance support — for guidance specific to your transaction, we recommend a direct conversation before you act.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+<script>
+(function(){
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.dot'));
+  var progressFill = document.getElementById('progressFill');
+  var scrollCue = document.getElementById('scrollCue');
+  var pageNow = document.getElementById('pageNow');
+  var n = pages.length;
+  var current = 0;
+  var animating = false;
+  var ANIM_MS = 850;
+
+  pages.forEach(function(p, i){
+    p.style.zIndex = n - i;
+  });
+
+  function render(){
+    pages.forEach(function(p, i){
+      p.classList.toggle('turned', i < current);
+    });
+    dots.forEach(function(d, i){
+      d.classList.toggle('active', i === current);
+    });
+    progressFill.style.width = (current / (n - 1) * 100) + '%';
+    pageNow.textContent = String(current + 1).padStart(2, '0');
+    scrollCue.style.opacity = current === 0 ? '1' : '0';
+  }
+
+  function goTo(i){
+    i = Math.max(0, Math.min(n - 1, i));
+    if(i === current || animating) return;
+    current = i;
+    animating = true;
+    render();
+    setTimeout(function(){ animating = false; }, ANIM_MS);
+  }
+
+  // wheel
+  var wheelLock = false;
+  window.addEventListener('wheel', function(e){
+    e.preventDefault();
+    if(wheelLock || animating) return;
+    if(Math.abs(e.deltaY) < 4) return;
+    wheelLock = true;
+    goTo(current + (e.deltaY > 0 ? 1 : -1));
+    setTimeout(function(){ wheelLock = false; }, ANIM_MS + 60);
+  }, { passive:false });
+
+  // keyboard
+  window.addEventListener('keydown', function(e){
+    if(['ArrowDown','PageDown',' '].indexOf(e.key) > -1){ e.preventDefault(); goTo(current+1); }
+    else if(['ArrowUp','PageUp'].indexOf(e.key) > -1){ e.preventDefault(); goTo(current-1); }
+    else if(e.key === 'Home'){ goTo(0); }
+    else if(e.key === 'End'){ goTo(n-1); }
+  });
+
+  // touch swipe
+  var touchStartY = null;
+  window.addEventListener('touchstart', function(e){
+    touchStartY = e.touches[0].clientY;
+  }, { passive:true });
+  window.addEventListener('touchmove', function(e){ e.preventDefault(); }, { passive:false });
+  window.addEventListener('touchend', function(e){
+    if(touchStartY === null) return;
+    var dy = touchStartY - e.changedTouches[0].clientY;
+    touchStartY = null;
+    if(Math.abs(dy) < 40) return;
+    goTo(current + (dy > 0 ? 1 : -1));
+  }, { passive:true });
+
+  // dots
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){
+      goTo(parseInt(d.getAttribute('data-i'), 10));
+    });
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
