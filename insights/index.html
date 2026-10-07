@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Esyton Insights | Articles on Income Tax, GST, IPO, Merchant Banking & Accounting</title>
+  <meta name="description" content="Practical articles on income tax, GST, IPOs, merchant banking, accounting and company law, written by professionals empanelled with Esyton Insights.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#062f59">
+  <link rel="canonical" href="https://www.esyton.com/insights/">
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <style>
+    /* ───────── Design tokens: identical to the main Esyton site ───────── */
+    :root {
+      --navy: #062f59; --navy-2: #0a426f; --navy-3: #071f36;
+      --gold: #c5983d; --yellow: #ffd800; --yellow-pale: #fffbe6;
+      --ink: #101820; --muted: #5d6872; --paper: #fff; --soft: #f4f6f8; --line: #dfe5e9;
+      --danger: #c45d73; --success: #2f8d6a; --warning: #c8862f;
+      --shadow: 0 22px 55px rgba(6,47,89,.13);
+      --max: 1200px;
+      --ui-font: 'Inter', 'DM Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ui-font); color: var(--ink); background: var(--paper); line-height: 1.65; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+    main { flex: 1; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    h1, h2, h3, h4 { font-weight: 700; color: var(--navy); }
+    ::selection { background: var(--yellow); color: var(--navy-3); }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [contenteditable]:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; } }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    .shell { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    [hidden] { display: none !important; }
+
+    /* Topbar / header (same as main site) */
+    .topbar { background: var(--navy-3); color: #dce9f3; font-size: .78rem; padding: 8px 0; }
+    .topbar-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .topbar strong { color: var(--yellow); }
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: box-shadow .3s; }
+    .site-header.scrolled { box-shadow: 0 4px 30px rgba(6,47,89,.08); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand-logo { height: 42px; width: auto; transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+    .brand:hover .brand-logo { transform: scale(1.06) rotate(-1.5deg); }
+    .nav-links { display: flex; align-items: center; gap: 6px; }
+    .nav-links > a:not(.nav-cta) { position: relative; padding: 8px 14px; font-size: .88rem; font-weight: 600; color: #34424e; border-radius: 4px; transition: background .2s, color .2s; }
+    .nav-links > a:not(.nav-cta):hover, .nav-links > a.active { background: var(--soft); color: var(--navy); }
+    .nav-links > a.active::after { content: ''; position: absolute; left: 14px; right: 14px; bottom: 5px; height: 2px; background: var(--gold); }
+    .nav-auth { display: flex; align-items: center; gap: 10px; margin-left: 14px; padding-left: 18px; border-left: 1px solid var(--line); }
+    .nav-btn { min-height: 40px; padding: 0 18px; display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 700; border-radius: 2px; border: 1px solid var(--navy); background: transparent; color: var(--navy); cursor: pointer; transition: background .2s, color .2s, transform .2s, box-shadow .2s; }
+    .nav-btn:hover { background: var(--soft); }
+    .nav-btn.solid { background: var(--navy); color: #fff; box-shadow: 0 8px 20px rgba(6,47,89,.15); }
+    .nav-btn.solid:hover { background: var(--navy-2); transform: translateY(-1px); }
+    .user-chip { display: flex; flex-direction: column; line-height: 1.2; text-align: right; }
+    .user-chip strong { font-size: .82rem; color: var(--navy); max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .user-chip span { font-size: .7rem; color: var(--muted); font-weight: 600; }
+
+    /* Buttons */
+    .btn { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 24px; font-weight: 700; font-size: .88rem; border-radius: 2px; transition: transform .2s, background .2s, box-shadow .2s; border: 1px solid transparent; cursor: pointer; }
+    .btn:active { transform: scale(.97); }
+    .btn:disabled { opacity: .55; cursor: not-allowed; }
+    .btn-gold { background: var(--yellow); color: var(--navy-3); box-shadow: 0 10px 25px rgba(255,216,0,.2); }
+    .btn-gold:hover:not(:disabled) { background: #ffe53a; transform: translateY(-2px); }
+    .btn-navy { background: var(--navy); color: #fff; }
+    .btn-navy:hover:not(:disabled) { background: var(--navy-2); box-shadow: 0 8px 20px rgba(6,47,89,.25); }
+    .btn-ghost { border-color: var(--line); background: #fff; color: var(--navy); }
+    .btn-ghost:hover:not(:disabled) { border-color: var(--gold); }
+    .btn-danger { background: #fff; border-color: var(--danger); color: var(--danger); }
+    .btn-danger:hover:not(:disabled) { background: var(--danger); color: #fff; }
+    .btn-sm { min-height: 34px; padding: 0 14px; font-size: .78rem; }
+
+    /* Hero */
+    .hero { position: relative; background: linear-gradient(115deg, #041628 0%, #062f59 60%, #0a426f 100%); color: #fff; padding: 70px 0 80px; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; opacity: .06; background-image: linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px); background-size: 40px 40px; }
+    .hero .shell { position: relative; }
+    .hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.18; letter-spacing: -.02em; margin-bottom: 16px; max-width: 760px; animation: fadeSlideUp .6s ease both; }
+    .hero p { color: #cbdbe7; font-size: 1.05rem; max-width: 620px; margin-bottom: 28px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-outline { border-color: rgba(255,255,255,.4); color: #fff; background: transparent; }
+    .btn-outline:hover { background: rgba(255,255,255,.08); border-color: #fff; }
+
+    /* Sections & toolbar */
+    .section { padding: 56px 0 80px; background: var(--soft); }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; margin-bottom: 30px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border: 1px solid var(--line); background: #fff; color: #34424e; font-size: .8rem; font-weight: 600; padding: 7px 16px; border-radius: 30px; cursor: pointer; transition: all .18s; }
+    .chip:hover { border-color: var(--gold); }
+    .chip.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .search { position: relative; width: min(320px, 100%); }
+    .search i { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); }
+    .search input { padding-left: 36px; }
+
+    /* Article cards: same language as .service-card */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 24px; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 3px; padding: 28px; display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s, border-color .25s; }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--gold); }
+    .tag { display: inline-block; align-self: flex-start; background: var(--yellow-pale); color: #8a6417; font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 2px; margin-bottom: 14px; }
+    .card h3 { font-size: 1.15rem; line-height: 1.35; margin-bottom: 10px; }
+    .card p { font-size: .9rem; color: var(--muted); flex-grow: 1; margin-bottom: 18px; line-height: 1.55; }
+    .byline { display: flex; align-items: center; gap: 10px; font-size: .78rem; color: var(--muted); border-top: 1px solid var(--soft); padding-top: 14px; }
+    .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--yellow); display: grid; place-items: center; font-weight: 700; font-size: .8rem; flex-shrink: 0; }
+    .byline strong { display: block; color: var(--navy); font-size: .82rem; }
+    .state { text-align: center; padding: 60px 20px; color: var(--muted); background: #fff; border: 1px dashed var(--line); border-radius: 3px; }
+    .state i { font-size: 2rem; color: var(--gold); display: block; margin-bottom: 10px; }
+    .state h3 { margin-bottom: 6px; }
+
+    /* Article page */
+    .article-wrap { max-width: 780px; margin: 0 auto; padding: 48px 0 80px; }
+    .back-link { display: inline-flex; gap: 6px; align-items: center; font-size: .85rem; font-weight: 700; color: var(--navy); margin-bottom: 26px; border-bottom: 1.5px solid var(--yellow); padding-bottom: 2px; }
+    .article-wrap h1 { font-size: clamp(1.8rem, 3.5vw, 2.5rem); line-height: 1.2; letter-spacing: -.01em; margin-bottom: 18px; }
+    .article-meta { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 30px; padding-bottom: 22px; border-bottom: 1px solid var(--line); font-size: .85rem; color: var(--muted); }
+    .prose { font-size: 1.04rem; line-height: 1.8; color: #1d2933; }
+    .prose p { margin-bottom: 1.15em; }
+    .prose h2 { font-size: 1.5rem; margin: 1.8em 0 .6em; }
+    .prose h3 { font-size: 1.2rem; margin: 1.5em 0 .5em; }
+    .prose ul, .prose ol { margin: 0 0 1.2em 1.4em; }
+    .prose li { margin-bottom: .4em; }
+    .prose a { color: var(--navy-2); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+    .prose blockquote { border-left: 3px solid var(--gold); background: var(--soft); padding: 14px 20px; margin: 0 0 1.2em; color: #34424e; }
+    .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.2em; font-size: .92rem; display: block; overflow-x: auto; }
+    .prose th, .prose td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+    .prose th { background: var(--soft); color: var(--navy); }
+    .disclaimer { background: var(--soft); border-left: 3px solid var(--gold); padding: 16px 20px; font-size: .8rem; color: var(--muted); margin-top: 40px; line-height: 1.55; }
+
+    /* Dashboard */
+    .dash { padding: 40px 0 80px; background: var(--soft); min-height: 60vh; }
+    .dash-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+    .dash-head h2 { font-size: 1.7rem; }
+    .dash-head p { color: var(--muted); font-size: .92rem; }
+    .tabs { display: flex; gap: 6px; border-bottom: 1px solid var(--line); margin-bottom: 24px; overflow-x: auto; }
+    .tab { border: 0; background: none; padding: 12px 18px; font-weight: 700; font-size: .88rem; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
+    .tab.active { color: var(--navy); border-bottom-color: var(--yellow); }
+    .count { background: var(--yellow); color: var(--navy-3); border-radius: 20px; font-size: .7rem; padding: 1px 8px; margin-left: 6px; }
+    .row { background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--navy); padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 20px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .row:hover { border-left-color: var(--gold); }
+    .row-main { flex: 1 1 340px; min-width: 0; }
+    .row-main h4 { font-size: 1rem; margin-bottom: 4px; }
+    .row-sub { font-size: .8rem; color: var(--muted); line-height: 1.5; }
+    .row-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge { display: inline-block; font-size: .7rem; font-weight: 700; padding: 2px 10px; border-radius: 2px; margin-left: 8px; vertical-align: middle; }
+    .b-pending { background: var(--yellow-pale); color: var(--warning); border: 1px solid rgba(197,152,61,.3); }
+    .b-published, .b-approved { background: #e6f4ee; color: var(--success); border: 1px solid rgba(47,141,106,.25); }
+    .b-rejected { background: #fbeaee; color: var(--danger); border: 1px solid rgba(196,93,115,.3); }
+    .b-draft { background: var(--soft); color: var(--muted); border: 1px solid var(--line); }
+    .note { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--gold); padding: 28px; max-width: 640px; }
+    .note h3 { margin-bottom: 8px; }
+    .note p { color: var(--muted); font-size: .92rem; }
+
+    /* Forms & editor */
+    .panel { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--navy); padding: 34px; box-shadow: 0 10px 30px rgba(6,47,89,.06); max-width: 900px; margin: 0 auto; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .form-full { grid-column: 1 / -1; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: .82rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .hint { font-size: .74rem; color: var(--muted); margin-top: 4px; }
+    .form-control, input[type=text], input[type=email], input[type=password], input[type=tel], select, textarea { width: 100%; border: 1px solid var(--line); padding: 10px 14px; font-size: .9rem; border-radius: 2px; outline: none; background: #fff; transition: border-color .18s, box-shadow .18s; min-height: 44px; }
+    textarea { min-height: 90px; resize: vertical; }
+    .form-control:hover, input:hover, select:hover, textarea:hover { border-color: var(--gold); }
+    input:focus, select:focus, textarea:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }
+    .check { display: flex; gap: 10px; align-items: flex-start; font-size: .8rem; color: var(--muted); margin: 6px 0 16px; }
+    .check input { width: auto; min-height: 0; margin-top: 4px; }
+    .editor-bar { display: flex; flex-wrap: wrap; gap: 4px; border: 1px solid var(--line); border-bottom: 0; background: var(--soft); padding: 6px; }
+    .editor-bar button { border: 1px solid transparent; background: transparent; width: 34px; height: 32px; border-radius: 2px; cursor: pointer; font-weight: 700; color: var(--navy); }
+    .editor-bar button:hover { background: #fff; border-color: var(--line); }
+    #editorBody { min-height: 340px; border: 1px solid var(--line); padding: 18px 20px; background: #fff; outline: none; }
+    #editorBody:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(6,47,89,.08); }
+    .form-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+    .msg { font-size: .84rem; margin-top: 12px; min-height: 1.2em; }
+    .msg.err { color: var(--danger); } .msg.ok { color: var(--success); }
+
+    /* Modal */
+    .overlay { position: fixed; inset: 0; background: rgba(4,22,40,.6); z-index: 500; display: grid; place-items: center; padding: 20px; overflow-y: auto; }
+    .modal { background: #fff; width: min(560px, 100%); border-top: 4px solid var(--gold); padding: 32px; position: relative; box-shadow: 0 30px 70px rgba(0,0,0,.3); animation: fadeSlideUp .25s ease both; margin: auto; }
+    .modal h3 { font-size: 1.4rem; margin-bottom: 4px; }
+    .modal .sub { color: var(--muted); font-size: .88rem; margin-bottom: 20px; }
+    .modal-close { position: absolute; top: 12px; right: 14px; border: 0; background: none; font-size: 1.4rem; color: var(--muted); cursor: pointer; }
+    .switch { text-align: center; font-size: .84rem; color: var(--muted); margin-top: 16px; }
+    .switch button { border: 0; background: none; color: var(--navy); font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); cursor: pointer; }
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--navy-3); color: #fff; padding: 12px 22px; border-left: 4px solid var(--yellow); font-size: .86rem; z-index: 600; box-shadow: 0 10px 30px rgba(0,0,0,.25); max-width: 90vw; }
+
+    /* Footer (same as main site) */
+    .site-footer { background: #041725; color: #7090a0; padding: 40px 0 24px; font-size: .8rem; border-top: 1px solid rgba(255,255,255,.06); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-row a:hover { color: #dce9f3; }
+    .footer-logo { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: .85; }
+    .footer-notice { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.04); color: #4b6675; text-align: center; font-size: .74rem; line-height: 1.5; }
+
+    @media (max-width: 860px) {
+      .nav-links > a:not(.nav-cta) { display: none; }
+      .nav-auth { margin-left: 0; padding-left: 0; border-left: 0; }
+      .user-chip { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .panel, .modal { padding: 24px 20px; }
+      .topbar-row div:last-child { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="shell topbar-row">
+      <div><i class="ti ti-point-filled" style="color:var(--yellow)"></i> <strong>Esyton Insights</strong> &nbsp;·&nbsp; Articles by empanelled professionals</div>
+      <div>connect@esyton.com</div>
+    </div>
+  </div>
+
+  <header class="site-header" id="navbar">
+    <div class="shell nav">
+      <a href="../" class="brand" aria-label="Esyton home">
+        <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights Logo" class="brand-logo">
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="../">Home</a>
+        <a href="#/" class="active">Insights</a>
+        <a href="../#services">Services</a>
+        <a href="../#query">Enquiry</a>
+        <div class="nav-auth" id="navAuth">
+          <button class="nav-btn" id="btnLogin" type="button"><i class="ti ti-login-2"></i> Login</button>
+          <button class="nav-btn solid" id="btnRegister" type="button"><i class="ti ti-user-plus"></i> Register</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" aria-live="polite"></main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-row">
+        <a href="../" aria-label="Esyton home"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights Logo" class="footer-logo"></a>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="../">Home</a>
+          <a href="#/">Insights</a>
+          <a href="../#services">Services</a>
+          <a href="../#query">Enquiry Desk</a>
+        </div>
+      </div>
+      <p class="footer-notice">
+        Disclaimer: Articles on Esyton Insights are the personal views of the professionals who write them and are published for general information only. They are not legal, tax or investment advice and do not create a professional engagement. Please consult a qualified professional before acting on any article. Esyton Insights LLP provides business support, accounting organization, tax filing, and administrative services on non-assurance and non-attest tracks.
+      </p>
+    </div>
+  </footer>
+
+  <div id="modalRoot"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc, setDoc, addDoc, updateDoc, deleteDoc, getDocs, collection, query, where, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import { firebaseConfig } from "../firebase-config.js";
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    /* ───────── constants & helpers ───────── */
+    const CATEGORIES = ["Income Tax", "GST", "IPO & Capital Markets", "Merchant Banking", "Accounting & Audit", "Company Law & ROC", "Other"];
+    const PROFESSIONS = ["Chartered Accountant", "Company Secretary", "Cost & Management Accountant", "Advocate", "Merchant Banker", "SEBI Registered Intermediary", "Tax Practitioner / GST Practitioner", "Other Finance Professional"];
+    const EDITORIAL_NAME = "Esyton Editorial Team";
+
+    const $ = (s, r = document) => r.querySelector(s);
+    const appEl = $("#app");
+    const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const initials = n => String(n || "?").replace(/^(CA|CS|Adv\.?|Dr\.?|Mr\.?|Ms\.?|Mrs\.?)\s+/i, "").split(/\s+/).slice(0, 2).map(w => w[0]).join("").toUpperCase();
+    const fmtDate = t => { const d = t?.toDate ? t.toDate() : (t ? new Date(t) : null); return d ? d.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }) : ""; };
+    const millis = t => t?.toMillis ? t.toMillis() : 0;
+    const wordCount = html => (String(html).replace(/<[^>]+>/g, " ").match(/\S+/g) || []).length;
+
+    function toast(msg) {
+      const t = document.createElement("div"); t.className = "toast"; t.textContent = msg; t.setAttribute("role", "status");
+      document.body.appendChild(t); setTimeout(() => t.remove(), 3200);
+    }
+
+    /* Whitelist sanitiser: article HTML is written by outside contributors, so it is cleaned on save AND on display */
+    const ALLOWED = new Set(["P","BR","STRONG","B","EM","I","U","H2","H3","UL","OL","LI","A","BLOCKQUOTE","TABLE","THEAD","TBODY","TR","TH","TD"]);
+    const DROP = new Set(["SCRIPT","STYLE","IFRAME","OBJECT","EMBED","NOSCRIPT","TEMPLATE","SVG","FORM","INPUT","BUTTON","LINK","META"]);
+    function sanitize(html) {
+      const parsed = new DOMParser().parseFromString("<div>" + html + "</div>", "text/html");
+      const root = parsed.body.firstChild;
+      (function clean(node) {
+        [...node.childNodes].forEach(ch => {
+          if (ch.nodeType === 3) return;
+          if (ch.nodeType !== 1) { ch.remove(); return; }
+          let tag = ch.tagName;
+          if (DROP.has(tag)) { ch.remove(); return; }
+          clean(ch);
+          if (tag === "DIV") { const p = parsed.createElement("p"); p.append(...ch.childNodes); ch.replaceWith(p); ch = p; tag = "P"; }
+          if (!ALLOWED.has(tag)) { ch.replaceWith(...ch.childNodes); return; }
+          [...ch.attributes].forEach(a => { if (!(tag === "A" && a.name === "href")) ch.removeAttribute(a.name); });
+          if (tag === "A") {
+            const h = (ch.getAttribute("href") || "").trim();
+            if (/^(https?:|mailto:)/i.test(h)) { ch.setAttribute("target", "_blank"); ch.setAttribute("rel", "noopener noreferrer nofollow"); }
+            else ch.removeAttribute("href");
+          }
+        });
+      })(root);
+      return root.innerHTML;
+    }
+
+    /* ───────── state ───────── */
+    let user = null;          // Firebase user
+    let role = null;          // "admin" | "contributor" | null
+    let profile = null;       // contributors/{uid}
+    let authReady = false;
+
+    const isAdmin = () => role === "admin";
+    const isApproved = () => role === "contributor" && profile?.status === "approved";
+
+    /* ───────── auth state ───────── */
+    onAuthStateChanged(auth, async u => {
+      user = u; role = null; profile = null;
+      if (u) {
+        try {
+          const r = await getDoc(doc(db, "roles", (u.email || "").toLowerCase()));
+          if (r.exists() && String(r.data().role || "").toLowerCase() === "admin") role = "admin";
+        } catch (e) { /* no access to roles doc: treat as non-admin */ }
+        if (!role) {
+          try {
+            const c = await getDoc(doc(db, "contributors", u.uid));
+            if (c.exists()) { profile = c.data(); role = "contributor"; }
+          } catch (e) { console.warn(e); }
+        }
+      }
+      authReady = true;
+      renderNav();
+      route();
+    });
+
+    function renderNav() {
+      const box = $("#navAuth");
+      if (!user) {
+        box.innerHTML = `<button class="nav-btn" id="btnLogin" type="button"><i class="ti ti-login-2"></i> Login</button>
+                         <button class="nav-btn solid" id="btnRegister" type="button"><i class="ti ti-user-plus"></i> Register</button>`;
+        $("#btnLogin").onclick = () => openAuth("login");
+        $("#btnRegister").onclick = () => openAuth("register");
+        return;
+      }
+      const name = isAdmin() ? "Administrator" : (profile?.name || user.email);
+      const sub = isAdmin() ? "Admin" : (profile?.status === "approved" ? "Empanelled professional" : "Verification pending");
+      box.innerHTML = `<div class="user-chip"><strong>${esc(name)}</strong><span>${esc(sub)}</span></div>
+                       <button class="nav-btn solid" id="btnDash" type="button"><i class="ti ti-layout-dashboard"></i> Dashboard</button>
+                       <button class="nav-btn" id="btnLogout" type="button"><i class="ti ti-logout"></i> Logout</button>`;
+      $("#btnDash").onclick = () => location.hash = "#/dashboard";
+      $("#btnLogout").onclick = async () => { await signOut(auth); toast("Logged out."); location.hash = "#/"; };
+    }
+
+    /* ───────── login / register modals ───────── */
+    function closeModal() { $("#modalRoot").innerHTML = ""; }
+    function openModal(inner) {
+      $("#modalRoot").innerHTML = `<div class="overlay" id="ov"><div class="modal" role="dialog" aria-modal="true">${inner}<button class="modal-close" aria-label="Close" id="mClose">&times;</button></div></div>`;
+      $("#mClose").onclick = closeModal;
+      $("#ov").addEventListener("mousedown", e => { if (e.target.id === "ov") closeModal(); });
+    }
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+    const authErr = e => ({
+      "auth/invalid-credential": "Email or password is incorrect.",
+      "auth/wrong-password": "Email or password is incorrect.",
+      "auth/user-not-found": "No account found for this email. Please register first.",
+      "auth/email-already-in-use": "An account with this email already exists. Please log in instead.",
+      "auth/weak-password": "Password must be at least 6 characters.",
+      "auth/invalid-email": "Please enter a valid email address.",
+      "auth/too-many-requests": "Too many attempts. Please wait a few minutes and try again."
+    }[e.code] || "Something went wrong. Please try again.");
+
+    function openAuth(mode) {
+      if (mode === "login") {
+        openModal(`<h3>Login</h3><p class="sub">For Esyton admins and empanelled professionals.</p>
+          <div class="form-group"><label for="lEmail">Email</label><input type="email" id="lEmail" autocomplete="username"></div>
+          <div class="form-group"><label for="lPass">Password</label><input type="password" id="lPass" autocomplete="current-password"></div>
+          <button class="btn btn-navy" id="lGo" style="width:100%">Login</button>
+          <div class="msg" id="lMsg"></div>
+          <div class="switch"><button id="lForgot" type="button">Forgot password?</button> &nbsp;|&nbsp; New professional? <button id="toReg" type="button">Register</button></div>`);
+        const go = async () => {
+          const msg = $("#lMsg"); msg.className = "msg"; msg.textContent = "";
+          const email = $("#lEmail").value.trim(), pass = $("#lPass").value;
+          if (!email || !pass) { msg.className = "msg err"; msg.textContent = "Enter your email and password."; return; }
+          $("#lGo").disabled = true; $("#lGo").textContent = "Signing in...";
+          try { await signInWithEmailAndPassword(auth, email, pass); closeModal(); toast("Logged in."); location.hash = "#/dashboard"; }
+          catch (e) { msg.className = "msg err"; msg.textContent = authErr(e); $("#lGo").disabled = false; $("#lGo").textContent = "Login"; }
+        };
+        $("#lGo").onclick = go;
+        $("#lPass").addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+        $("#toReg").onclick = () => openAuth("register");
+        $("#lForgot").onclick = async () => {
+          const email = $("#lEmail").value.trim(), msg = $("#lMsg");
+          if (!email) { msg.className = "msg err"; msg.textContent = "Enter your email above first."; return; }
+          try { await sendPasswordResetEmail(auth, email); msg.className = "msg ok"; msg.textContent = "Password reset link sent. Check your inbox."; }
+          catch (e) { msg.className = "msg err"; msg.textContent = authErr(e); }
+        };
+        $("#lEmail").focus();
+      } else {
+        openModal(`<h3>Register as a professional</h3><p class="sub">Registration is free. Our team verifies every profile before you can publish.</p>
+          <div class="form-grid">
+            <div class="form-group form-full"><label for="rName">Full name (with designation, e.g. CA Priya Rao)</label><input type="text" id="rName" autocomplete="name"></div>
+            <div class="form-group"><label for="rEmail">Email</label><input type="email" id="rEmail" autocomplete="email"></div>
+            <div class="form-group"><label for="rPhone">Mobile</label><input type="tel" id="rPhone" autocomplete="tel"></div>
+            <div class="form-group"><label for="rProf">Profession</label><select id="rProf">${PROFESSIONS.map(p => `<option>${esc(p)}</option>`).join("")}</select></div>
+            <div class="form-group"><label for="rReg">Membership / registration no.</label><input type="text" id="rReg"></div>
+            <div class="form-group"><label for="rFirm">Firm / organisation</label><input type="text" id="rFirm"></div>
+            <div class="form-group"><label for="rCity">City</label><input type="text" id="rCity"></div>
+            <div class="form-group form-full"><label for="rBio">Areas of practice</label><textarea id="rBio" placeholder="e.g. Income tax assessments, GST litigation, SME IPOs"></textarea></div>
+            <div class="form-group form-full"><label for="rPass">Create password</label><input type="password" id="rPass" autocomplete="new-password"><div class="hint">At least 6 characters.</div></div>
+          </div>
+          <label class="check"><input type="checkbox" id="rAgree"><span>I confirm the details above are true and that articles I submit are my own original work. I understand Esyton may edit, decline or remove any article.</span></label>
+          <button class="btn btn-navy" id="rGo" style="width:100%">Submit for verification</button>
+          <div class="msg" id="rMsg"></div>
+          <div class="switch">Already registered? <button id="toLogin" type="button">Login</button></div>`);
+        $("#toLogin").onclick = () => openAuth("login");
+        $("#rGo").onclick = async () => {
+          const msg = $("#rMsg"); msg.className = "msg err"; msg.textContent = "";
+          const v = id => $("#" + id).value.trim();
+          const data = { name: v("rName"), email: v("rEmail").toLowerCase(), phone: v("rPhone"), profession: v("rProf"), regNo: v("rReg"), firm: v("rFirm"), city: v("rCity"), bio: v("rBio") };
+          if (!data.name || !data.email || !data.phone || !data.regNo || !data.city) { msg.textContent = "Please fill in name, email, mobile, registration number and city."; return; }
+          if (!$("#rAgree").checked) { msg.textContent = "Please tick the confirmation to continue."; return; }
+          $("#rGo").disabled = true; $("#rGo").textContent = "Submitting...";
+          try {
+            const cred = await createUserWithEmailAndPassword(auth, data.email, $("#rPass").value);
+            await setDoc(doc(db, "contributors", cred.user.uid), { ...data, status: "pending", createdAt: serverTimestamp() });
+            profile = { ...data, status: "pending" }; role = "contributor";
+            closeModal(); renderNav(); toast("Registered. Awaiting admin verification."); location.hash = "#/dashboard"; route();
+          } catch (e) { msg.textContent = authErr(e); $("#rGo").disabled = false; $("#rGo").textContent = "Submit for verification"; }
+        };
+        $("#rName").focus();
+      }
+    }
+
+    /* ───────── router ───────── */
+    window.addEventListener("hashchange", route);
+    window.addEventListener("scroll", () => $("#navbar").classList.toggle("scrolled", scrollY > 30), { passive: true });
+
+    function route() {
+      if (!authReady) { appEl.innerHTML = `<div class="shell"><div class="state"><i class="ti ti-loader-2"></i>Loading...</div></div>`; return; }
+      const h = location.hash.replace(/^#/, "") || "/";
+      const parts = h.split("/").filter(Boolean);
+      scrollTo(0, 0);
+      if (parts[0] === "a" && parts[1]) return viewArticle(parts[1]);
+      if (parts[0] === "dashboard") return viewDashboard();
+      if (parts[0] === "write") return viewEditor(parts[1] || null);
+      return viewList();
+    }
+
+    /* ───────── public list ───────── */
+    let published = null, activeCat = "All", searchTerm = "";
+
+    async function loadPublished(force) {
+      if (published && !force) return published;
+      const snap = await getDocs(query(collection(db, "articles"), where("status", "==", "published")));
+      published = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => millis(b.publishedAt) - millis(a.publishedAt));
+      return published;
+    }
+
+    async function viewList() {
+      document.title = "Esyton Insights | Articles on Income Tax, GST, IPO, Merchant Banking & Accounting";
+      const cta = user ? `<a class="btn btn-gold" href="#/${isAdmin() || isApproved() ? "write" : "dashboard"}"><i class="ti ti-pencil"></i> ${isAdmin() || isApproved() ? "Write an article" : "Go to dashboard"}</a>`
+                       : `<button class="btn btn-gold" id="heroReg"><i class="ti ti-user-plus"></i> Register as a professional</button>`;
+      appEl.innerHTML = `
+        <section class="hero"><div class="shell">
+          <h1>Insights from professionals who do this work every day</h1>
+          <p>Income tax, GST, IPOs, merchant banking and accounting, explained by practising professionals empanelled with Esyton. Free to read, no sign-up needed.</p>
+          <div class="hero-actions">${cta}</div>
+        </div></section>
+        <section class="section"><div class="shell">
+          <div class="toolbar">
+            <div class="chips" id="chips">${["All", ...CATEGORIES].map(c => `<button class="chip${c === activeCat ? " active" : ""}" data-c="${esc(c)}" type="button">${esc(c)}</button>`).join("")}</div>
+            <div class="search"><i class="ti ti-search"></i><input type="text" id="q" placeholder="Search articles" aria-label="Search articles" value="${esc(searchTerm)}"></div>
+          </div>
+          <div id="gridBox"><div class="state"><i class="ti ti-loader-2"></i>Loading articles...</div></div>
+        </div></section>`;
+      $("#heroReg")?.addEventListener("click", () => openAuth("register"));
+      $("#chips").onclick = e => { const b = e.target.closest(".chip"); if (!b) return; activeCat = b.dataset.c; document.querySelectorAll(".chip").forEach(x => x.classList.toggle("active", x === b)); drawGrid(); };
+      $("#q").oninput = e => { searchTerm = e.target.value; drawGrid(); };
+      try { await loadPublished(true); drawGrid(); }
+      catch (e) { console.error(e); $("#gridBox").innerHTML = `<div class="state"><i class="ti ti-alert-triangle"></i><h3>Could not load articles</h3>Please refresh the page in a moment.</div>`; }
+    }
+
+    function drawGrid() {
+      const box = $("#gridBox"); if (!box || !published) return;
+      const q = searchTerm.trim().toLowerCase();
+      const list = published.filter(a => (activeCat === "All" || a.category === activeCat) && (!q || [a.title, a.summary, a.authorName, a.category].join(" ").toLowerCase().includes(q)));
+      if (!list.length) {
+        box.innerHTML = `<div class="state"><i class="ti ti-news"></i><h3>${published.length ? "No articles match your search" : "No articles published yet"}</h3>${published.length ? "Try a different category or keyword." : "Empanelled professionals are preparing the first articles. Please check back soon."}</div>`;
+        return;
+      }
+      box.innerHTML = `<div class="grid">${list.map(a => `
+        <a class="card" href="#/a/${esc(a.id)}">
+          <span class="tag">${esc(a.category)}</span>
+          <h3>${esc(a.title)}</h3>
+          <p>${esc(a.summary)}</p>
+          <div class="byline"><span class="avatar">${esc(initials(a.authorName))}</span>
+            <span><strong>${esc(a.authorName)}</strong>${esc(fmtDate(a.publishedAt))} &middot; ${esc(a.readMins || 1)} min read</span></div>
+        </a>`).join("")}</div>`;
+    }
+
+    /* ───────── single article ───────── */
+    async function viewArticle(id) {
+      appEl.innerHTML = `<div class="shell"><div class="article-wrap"><div class="state"><i class="ti ti-loader-2"></i>Loading article...</div></div></div>`;
+      let a = null;
+      try { const s = await getDoc(doc(db, "articles", id)); if (s.exists()) a = { id: s.id, ...s.data() }; } catch (e) { console.warn(e); }
+      if (!a) { appEl.innerHTML = `<div class="shell"><div class="article-wrap"><a class="back-link" href="#/"><i class="ti ti-arrow-left"></i> All articles</a><div class="state"><i class="ti ti-file-off"></i><h3>Article not found</h3>It may have been removed or is not published yet.</div></div></div>`; return; }
+      document.title = `${a.title} | Esyton Insights`;
+      const banner = a.status !== "published" ? `<div class="disclaimer" style="margin:0 0 24px"><strong>Preview.</strong> This article is "${esc(a.status)}" and only visible to you and the admin.</div>` : "";
+      appEl.innerHTML = `<div class="shell"><article class="article-wrap">
+        <a class="back-link" href="#/"><i class="ti ti-arrow-left"></i> All articles</a>
+        ${banner}
+        <span class="tag">${esc(a.category)}</span>
+        <h1>${esc(a.title)}</h1>
+        <div class="article-meta">
+          <span class="avatar">${esc(initials(a.authorName))}</span>
+          <span><strong style="color:var(--navy)">${esc(a.authorName)}</strong>${a.authorDesignation ? `<br>${esc(a.authorDesignation)}` : ""}</span>
+          <span>${esc(fmtDate(a.publishedAt || a.createdAt))}</span><span>${esc(a.readMins || 1)} min read</span>
+        </div>
+        <div class="prose">${sanitize(a.body || "")}</div>
+        <p class="disclaimer">This article reflects the author's personal views and is for general information only. It is not tax, legal or investment advice. Laws and rates change; please consult a qualified professional before acting. Need help? <a href="../#query" style="text-decoration:underline">Contact Esyton</a>.</p>
+      </article></div>`;
+    }
+
+    /* ───────── dashboard ───────── */
+    let dashTab = "pros";
+
+    async function viewDashboard() {
+      document.title = "Dashboard | Esyton Insights";
+      if (!user) {
+        appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Please log in</h3><p>Log in to manage articles, or register if you are a professional who wants to contribute.</p><div class="form-actions"><button class="btn btn-navy" id="dl">Login</button><button class="btn btn-ghost" id="dr">Register</button></div></div></div></div>`;
+        $("#dl").onclick = () => openAuth("login"); $("#dr").onclick = () => openAuth("register"); return;
+      }
+      if (isAdmin()) return adminDashboard();
+      if (role === "contributor") return contributorDashboard();
+      appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>No profile found</h3><p>This login is not linked to an Insights profile. Please register as a professional using a new email.</p></div></div></div>`;
+    }
+
+    const badge = s => `<span class="badge b-${esc(s)}">${esc(s)}</span>`;
+
+    async function contributorDashboard() {
+      if (profile.status === "pending") {
+        appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Verification in progress</h3><p>Thanks, ${esc(profile.name)}. Our team is verifying your professional details. You will be able to submit articles as soon as your profile is approved. Please check back here in a day or two.</p></div></div></div>`; return;
+      }
+      if (profile.status === "rejected") {
+        appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Registration not approved</h3><p>We could not verify this profile.${profile.reviewNote ? " Reason: " + esc(profile.reviewNote) : ""} Write to connect@esyton.com if you think this is a mistake.</p></div></div></div>`; return;
+      }
+      appEl.innerHTML = `<div class="dash"><div class="shell">
+        <div class="dash-head"><div><h2>My articles</h2><p>Submitted articles go live after admin review.</p></div><a class="btn btn-navy" href="#/write"><i class="ti ti-pencil"></i> Write an article</a></div>
+        <div id="myList"><div class="state"><i class="ti ti-loader-2"></i>Loading...</div></div></div></div>`;
+      try {
+        const snap = await getDocs(query(collection(db, "articles"), where("authorUid", "==", user.uid)));
+        const list = snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => millis(b.createdAt) - millis(a.createdAt));
+        $("#myList").innerHTML = list.length ? list.map(a => `
+          <div class="row"><div class="row-main"><h4>${esc(a.title)} ${badge(a.status)}</h4>
+            <div class="row-sub">${esc(a.category)} &middot; ${esc(fmtDate(a.createdAt))}${a.reviewNote ? `<br><strong>Reviewer note:</strong> ${esc(a.reviewNote)}` : ""}</div></div>
+            <div class="row-actions"><a class="btn btn-ghost btn-sm" href="#/a/${esc(a.id)}">View</a>
+              ${a.status !== "published" ? `<a class="btn btn-navy btn-sm" href="#/write/${esc(a.id)}">Edit</a>` : ""}</div></div>`).join("")
+          : `<div class="state"><i class="ti ti-pencil"></i><h3>You have not written anything yet</h3>Click "Write an article" to submit your first one.</div>`;
+      } catch (e) { console.error(e); $("#myList").innerHTML = `<div class="state">Could not load your articles.</div>`; }
+    }
+
+    async function adminDashboard() {
+      appEl.innerHTML = `<div class="dash"><div class="shell">
+        <div class="dash-head"><div><h2>Admin dashboard</h2><p>Verify professionals and review articles.</p></div><a class="btn btn-navy" href="#/write"><i class="ti ti-pencil"></i> Write an article</a></div>
+        <div class="tabs" role="tablist" id="tabs"></div><div id="tabBody"><div class="state"><i class="ti ti-loader-2"></i>Loading...</div></div></div></div>`;
+      let pros = [], arts = [];
+      const load = async () => {
+        const [p, a] = await Promise.all([getDocs(collection(db, "contributors")), getDocs(collection(db, "articles"))]);
+        pros = p.docs.map(d => ({ id: d.id, ...d.data() })).sort((x, y) => millis(y.createdAt) - millis(x.createdAt));
+        arts = a.docs.map(d => ({ id: d.id, ...d.data() })).sort((x, y) => millis(y.createdAt) - millis(x.createdAt));
+      };
+      const draw = () => {
+        const pendPros = pros.filter(p => p.status === "pending").length, pendArts = arts.filter(a => a.status === "pending").length;
+        $("#tabs").innerHTML = [["pros", "Professionals", pendPros], ["review", "Articles to review", pendArts], ["all", "All articles", 0]]
+          .map(([k, l, n]) => `<button class="tab${dashTab === k ? " active" : ""}" data-t="${k}" type="button">${l}${n ? `<span class="count">${n}</span>` : ""}</button>`).join("");
+        const body = $("#tabBody");
+        if (dashTab === "pros") {
+          body.innerHTML = pros.length ? pros.map(p => `
+            <div class="row"><div class="row-main"><h4>${esc(p.name)} ${badge(p.status)}</h4>
+              <div class="row-sub">${esc(p.profession)} &middot; Reg. no. <strong>${esc(p.regNo)}</strong> &middot; ${esc(p.firm || "No firm given")}, ${esc(p.city)}<br>${esc(p.email)} &middot; ${esc(p.phone)}${p.bio ? `<br>${esc(p.bio)}` : ""}</div></div>
+              <div class="row-actions">
+                ${p.status !== "approved" ? `<button class="btn btn-navy btn-sm" data-act="approve" data-id="${esc(p.id)}">Approve</button>` : ""}
+                ${p.status !== "rejected" ? `<button class="btn btn-danger btn-sm" data-act="reject" data-id="${esc(p.id)}">Reject</button>` : ""}
+              </div></div>`).join("") : `<div class="state"><i class="ti ti-users"></i><h3>No professionals registered yet</h3></div>`;
+        } else {
+          const list = dashTab === "review" ? arts.filter(a => a.status === "pending") : arts;
+          body.innerHTML = list.length ? list.map(a => `
+            <div class="row"><div class="row-main"><h4>${esc(a.title)} ${badge(a.status)}</h4>
+              <div class="row-sub">${esc(a.category)} &middot; by ${esc(a.authorName)} &middot; ${esc(fmtDate(a.createdAt))}</div></div>
+              <div class="row-actions">
+                <a class="btn btn-ghost btn-sm" href="#/a/${esc(a.id)}">Read</a>
+                <a class="btn btn-ghost btn-sm" href="#/write/${esc(a.id)}">Edit</a>
+                ${a.status !== "published" ? `<button class="btn btn-navy btn-sm" data-act="publish" data-id="${esc(a.id)}">Publish</button>` : `<button class="btn btn-ghost btn-sm" data-act="unpublish" data-id="${esc(a.id)}">Unpublish</button>`}
+                ${a.status === "pending" ? `<button class="btn btn-danger btn-sm" data-act="decline" data-id="${esc(a.id)}">Decline</button>` : ""}
+                <button class="btn btn-danger btn-sm" data-act="delete" data-id="${esc(a.id)}" aria-label="Delete article"><i class="ti ti-trash"></i></button>
+              </div></div>`).join("") : `<div class="state"><i class="ti ti-circle-check"></i><h3>${dashTab === "review" ? "Nothing waiting for review" : "No articles yet"}</h3></div>`;
+        }
+      };
+      $("#tabBody").onclick = async e => {
+        const b = e.target.closest("[data-act]"); if (!b) return;
+        const id = b.dataset.id, act = b.dataset.act; b.disabled = true;
+        try {
+          if (act === "approve") await updateDoc(doc(db, "contributors", id), { status: "approved", reviewedAt: serverTimestamp(), reviewNote: "" });
+          if (act === "reject") { const n = prompt("Reason for rejection (shown to the applicant):"); if (n === null) { b.disabled = false; return; } await updateDoc(doc(db, "contributors", id), { status: "rejected", reviewedAt: serverTimestamp(), reviewNote: n.trim() }); }
+          if (act === "publish") await updateDoc(doc(db, "articles", id), { status: "published", publishedAt: serverTimestamp(), reviewNote: "" });
+          if (act === "unpublish") await updateDoc(doc(db, "articles", id), { status: "draft" });
+          if (act === "decline") { const n = prompt("Feedback for the author (they will see this):"); if (n === null) { b.disabled = false; return; } await updateDoc(doc(db, "articles", id), { status: "rejected", reviewNote: n.trim() }); }
+          if (act === "delete") { if (!confirm("Delete this article permanently?")) { b.disabled = false; return; } await deleteDoc(doc(db, "articles", id)); }
+          published = null; await load(); draw(); toast("Done.");
+        } catch (err) { console.error(err); toast("Action failed. Check your permissions."); b.disabled = false; }
+      };
+      $("#tabs").onclick = e => { const t = e.target.closest(".tab"); if (!t) return; dashTab = t.dataset.t; draw(); };
+      try { await load(); draw(); } catch (e) { console.error(e); $("#tabBody").innerHTML = `<div class="state"><i class="ti ti-alert-triangle"></i><h3>Could not load data</h3>Make sure the Firestore rules for Insights have been published.</div>`; }
+    }
+
+    /* ───────── editor (admin & approved professionals) ───────── */
+    async function viewEditor(id) {
+      document.title = "Write an article | Esyton Insights";
+      if (!user || !(isAdmin() || isApproved())) {
+        appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Writing is for empanelled professionals</h3><p>${user ? "Your profile must be approved by the admin before you can write." : "Please log in with your approved professional account."}</p>${user ? "" : `<div class="form-actions"><button class="btn btn-navy" id="el">Login</button></div>`}</div></div></div>`;
+        $("#el")?.addEventListener("click", () => openAuth("login")); return;
+      }
+      let a = { title: "", summary: "", category: CATEGORIES[0], body: "" };
+      if (id) {
+        try { const s = await getDoc(doc(db, "articles", id)); if (s.exists()) a = { id: s.id, ...s.data() }; } catch (e) { console.warn(e); }
+        if (!isAdmin() && a.authorUid !== user.uid) { appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Not allowed</h3><p>You can only edit your own articles.</p></div></div></div>`; return; }
+      }
+      const tb = (cmd, label, title) => `<button type="button" data-cmd="${cmd}" title="${title}" aria-label="${title}">${label}</button>`;
+      appEl.innerHTML = `<div class="dash"><div class="shell"><div class="panel">
+        <h2 style="margin-bottom:4px">${id ? "Edit article" : "Write an article"}</h2>
+        <p class="row-sub" style="margin-bottom:22px">${isAdmin() ? "As admin you can publish directly or save a draft." : "Your article will be reviewed by the Esyton team before it goes live."}</p>
+        <div class="form-grid">
+          <div class="form-group form-full"><label for="eTitle">Title</label><input type="text" id="eTitle" maxlength="140" value="${esc(a.title)}"></div>
+          <div class="form-group"><label for="eCat">Category</label><select id="eCat">${CATEGORIES.map(c => `<option${c === a.category ? " selected" : ""}>${esc(c)}</option>`).join("")}</select></div>
+          <div class="form-group form-full"><label for="eSum">Short summary (shown on the article card)</label><textarea id="eSum" maxlength="260" style="min-height:70px">${esc(a.summary)}</textarea><div class="hint">One or two sentences, up to 260 characters.</div></div>
+          <div class="form-group form-full"><label>Article</label>
+            <div class="editor-bar">${tb("bold", "<b>B</b>", "Bold")}${tb("italic", "<i>I</i>", "Italic")}${tb("h2", "H2", "Heading")}${tb("h3", "H3", "Sub-heading")}${tb("insertUnorderedList", "<i class='ti ti-list'></i>", "Bullet list")}${tb("insertOrderedList", "<i class='ti ti-list-numbers'></i>", "Numbered list")}${tb("blockquote", "<i class='ti ti-quote'></i>", "Quote")}${tb("link", "<i class='ti ti-link'></i>", "Add link")}${tb("clear", "<i class='ti ti-clear-formatting'></i>", "Clear formatting")}</div>
+            <div id="editorBody" class="prose" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Article body">${sanitize(a.body || "")}</div>
+          </div>
+        </div>
+        <div class="form-actions" id="eActions">
+          ${isAdmin() ? `<button class="btn btn-navy" data-s="published">Publish now</button><button class="btn btn-ghost" data-s="draft">Save as draft</button>`
+                      : `<button class="btn btn-navy" data-s="pending">Submit for review</button>`}
+          <a class="btn btn-ghost" href="#/dashboard">Cancel</a>
+        </div>
+        <div class="msg" id="eMsg"></div>
+      </div></div></div>`;
+      const ed = $("#editorBody");
+      document.querySelector(".editor-bar").addEventListener("mousedown", e => e.preventDefault());
+      document.querySelector(".editor-bar").addEventListener("click", e => {
+        const b = e.target.closest("[data-cmd]"); if (!b) return; ed.focus(); const c = b.dataset.cmd;
+        if (c === "h2" || c === "h3" || c === "blockquote") document.execCommand("formatBlock", false, c.toUpperCase());
+        else if (c === "link") { const u = prompt("Link address (https://...)"); if (u) document.execCommand("createLink", false, u); }
+        else if (c === "clear") { document.execCommand("removeFormat"); document.execCommand("formatBlock", false, "P"); }
+        else document.execCommand(c);
+      });
+      ed.addEventListener("paste", e => {
+        e.preventDefault();
+        const html = e.clipboardData.getData("text/html"), txt = e.clipboardData.getData("text/plain");
+        document.execCommand("insertHTML", false, html ? sanitize(html) : esc(txt).replace(/\n/g, "<br>"));
+      });
+      $("#eActions").addEventListener("click", async e => {
+        const b = e.target.closest("[data-s]"); if (!b) return;
+        const msg = $("#eMsg"); msg.className = "msg err"; msg.textContent = "";
+        const title = $("#eTitle").value.trim(), summary = $("#eSum").value.trim(), body = sanitize(ed.innerHTML);
+        if (title.length < 8) { msg.textContent = "Please enter a title (at least 8 characters)."; return; }
+        if (summary.length < 20) { msg.textContent = "Please add a short summary (at least 20 characters)."; return; }
+        if (wordCount(body) < 150) { msg.textContent = "The article looks too short. Please write at least 150 words."; return; }
+        const status = b.dataset.s;
+        const fields = { title, summary, body, category: $("#eCat").value, readMins: Math.max(1, Math.round(wordCount(body) / 200)), status, updatedAt: serverTimestamp() };
+        if (isAdmin() && status === "published" && a.status !== "published") fields.publishedAt = serverTimestamp();
+        if (!isAdmin()) fields.reviewNote = "";
+        document.querySelectorAll("#eActions .btn").forEach(x => x.disabled = true);
+        try {
+          if (id) await updateDoc(doc(db, "articles", id), fields);
+          else await addDoc(collection(db, "articles"), {
+            ...fields, createdAt: serverTimestamp(), authorUid: user.uid,
+            authorName: isAdmin() ? EDITORIAL_NAME : profile.name,
+            authorDesignation: isAdmin() ? "Esyton Insights LLP" : [profile.profession, profile.firm].filter(Boolean).join(", ")
+          });
+          published = null;
+          toast(status === "published" ? "Published." : status === "pending" ? "Submitted for review." : "Draft saved.");
+          location.hash = "#/dashboard";
+        } catch (err) { console.error(err); msg.textContent = "Could not save. Please check your connection and permissions."; document.querySelectorAll("#eActions .btn").forEach(x => x.disabled = false); }
+      });
+    }
+
+    /* kick off */
+    renderNav();
+    $("#btnLogin").onclick = () => openAuth("login");
+    $("#btnRegister").onclick = () => openAuth("register");
+    route();
+  </script>
+</body>
+</html>
