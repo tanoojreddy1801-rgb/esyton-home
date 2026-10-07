@@ -396,19 +396,14 @@
         };
         $("#lEmail").focus();
       } else {
-        openModal(`<h3>Register as a professional</h3><p class="sub">Registration is free. Our team verifies every profile before you can publish.</p>
+        openModal(`<h3>Register as a professional</h3><p class="sub">Registration is free. We only need your name and email. Our team verifies every profile before you can publish.</p>
           <div class="form-grid">
-            <div class="form-group form-full"><label for="rName">Full name (with designation, e.g. CA Priya Rao)</label><input type="text" id="rName" autocomplete="name"></div>
+            <div class="form-group form-full"><label for="rName">Name as it should appear on articles (e.g. CA Priya Rao)</label><input type="text" id="rName" autocomplete="name"></div>
             <div class="form-group"><label for="rEmail">Email</label><input type="email" id="rEmail" autocomplete="email"></div>
-            <div class="form-group"><label for="rPhone">Mobile</label><input type="tel" id="rPhone" autocomplete="tel"></div>
             <div class="form-group"><label for="rProf">Profession</label><select id="rProf">${PROFESSIONS.map(p => `<option>${esc(p)}</option>`).join("")}</select></div>
-            <div class="form-group"><label for="rReg">Membership / registration no.</label><input type="text" id="rReg"></div>
-            <div class="form-group"><label for="rFirm">Firm / organisation</label><input type="text" id="rFirm"></div>
-            <div class="form-group"><label for="rCity">City</label><input type="text" id="rCity"></div>
-            <div class="form-group form-full"><label for="rBio">Areas of practice</label><textarea id="rBio" placeholder="e.g. Income tax assessments, GST litigation, SME IPOs"></textarea></div>
-            <div class="form-group form-full"><label for="rPass">Create password</label><input type="password" id="rPass" autocomplete="new-password"><div class="hint">At least 6 characters.</div></div>
+            <div class="form-group form-full"><label for="rPass">Create password</label><input type="password" id="rPass" autocomplete="new-password"><div class="hint">At least 6 characters. We do not collect membership numbers or phone numbers here.</div></div>
           </div>
-          <label class="check"><input type="checkbox" id="rAgree"><span>I confirm the details above are true and that articles I submit are my own original work. I understand Esyton may edit, decline or remove any article.</span></label>
+          <label class="check"><input type="checkbox" id="rAgree"><span>I confirm the details above are true and that articles I submit are my own original work. I understand Esyton may edit, decline or remove any article, and may email me to request any verification details.</span></label>
           <button class="btn btn-navy" id="rGo" style="width:100%">Submit for verification</button>
           <div class="msg" id="rMsg"></div>
           <div class="switch">Already registered? <button id="toLogin" type="button">Login</button></div>`);
@@ -416,8 +411,8 @@
         $("#rGo").onclick = async () => {
           const msg = $("#rMsg"); msg.className = "msg err"; msg.textContent = "";
           const v = id => $("#" + id).value.trim();
-          const data = { name: v("rName"), email: v("rEmail").toLowerCase(), phone: v("rPhone"), profession: v("rProf"), regNo: v("rReg"), firm: v("rFirm"), city: v("rCity"), bio: v("rBio") };
-          if (!data.name || !data.email || !data.phone || !data.regNo || !data.city) { msg.textContent = "Please fill in name, email, mobile, registration number and city."; return; }
+          const data = { name: v("rName"), email: v("rEmail").toLowerCase(), profession: v("rProf") };
+          if (!data.name || !data.email) { msg.textContent = "Please enter your name and email."; return; }
           if (!$("#rAgree").checked) { msg.textContent = "Please tick the confirmation to continue."; return; }
           $("#rGo").disabled = true; $("#rGo").textContent = "Submitting...";
           try {
@@ -539,7 +534,7 @@
 
     async function contributorDashboard() {
       if (profile.status === "pending") {
-        appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Verification in progress</h3><p>Thanks, ${esc(profile.name)}. Our team is verifying your professional details. You will be able to submit articles as soon as your profile is approved. Please check back here in a day or two.</p></div></div></div>`; return;
+        appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Verification in progress</h3><p>Thanks, ${esc(profile.name)}. Our team is verifying your profile and may email you for supporting details. You will be able to submit articles as soon as your profile is approved. Please check back here in a day or two.</p></div></div></div>`; return;
       }
       if (profile.status === "rejected") {
         appEl.innerHTML = `<div class="dash"><div class="shell"><div class="note"><h3>Registration not approved</h3><p>We could not verify this profile.${profile.reviewNote ? " Reason: " + esc(profile.reviewNote) : ""} Write to connect@esyton.com if you think this is a mistake.</p></div></div></div>`; return;
@@ -577,7 +572,7 @@
         if (dashTab === "pros") {
           body.innerHTML = pros.length ? pros.map(p => `
             <div class="row"><div class="row-main"><h4>${esc(p.name)} ${badge(p.status)}</h4>
-              <div class="row-sub">${esc(p.profession)} &middot; Reg. no. <strong>${esc(p.regNo)}</strong> &middot; ${esc(p.firm || "No firm given")}, ${esc(p.city)}<br>${esc(p.email)} &middot; ${esc(p.phone)}${p.bio ? `<br>${esc(p.bio)}` : ""}</div></div>
+              <div class="row-sub">${esc(p.profession)} &middot; ${esc(p.email)}<br>Verify by email if needed, then approve.</div></div>
               <div class="row-actions">
                 ${p.status !== "approved" ? `<button class="btn btn-navy btn-sm" data-act="approve" data-id="${esc(p.id)}">Approve</button>` : ""}
                 ${p.status !== "rejected" ? `<button class="btn btn-danger btn-sm" data-act="reject" data-id="${esc(p.id)}">Reject</button>` : ""}
@@ -676,7 +671,7 @@
           else await addDoc(collection(db, "articles"), {
             ...fields, createdAt: serverTimestamp(), authorUid: user.uid,
             authorName: isAdmin() ? EDITORIAL_NAME : profile.name,
-            authorDesignation: isAdmin() ? "Esyton Insights LLP" : [profile.profession, profile.firm].filter(Boolean).join(", ")
+            authorDesignation: isAdmin() ? "Esyton Insights LLP" : profile.profession || ""
           });
           published = null;
           toast(status === "published" ? "Published." : status === "pending" ? "Submitted for review." : "Draft saved.");
