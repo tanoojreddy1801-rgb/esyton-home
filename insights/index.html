@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esyton Insights - Professional Articles</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="../index.html"><img src="../logo.jpg" alt="Esyton Logo"></a>
+            </div>
+            <nav class="main-nav">
+                <a href="../index.html">Home</a>
+                <a href="index.html" class="active">Insights</a>
+                <div class="auth-buttons">
+                    <a href="submit.html" class="btn-secondary">Professional Register</a>
+                    <a href="admin.html" class="btn-primary">Admin Login</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container insights-main" style="padding: 40px 20px;">
+        <section class="insights-hero" style="text-align: center; margin-bottom: 40px;">
+            <h1>Professional Insights &amp; Articles</h1>
+            <p>Expert perspectives on Income Tax, GST, IPOs, Merchant Banking, and Accounting.</p>
+        </section>
+
+        <!-- Filter Tags -->
+        <div class="filter-container" style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap;">
+            <button class="filter-btn active" onclick="filterArticles('all')" style="padding: 8px 16px; cursor: pointer;">All</button>
+            <button class="filter-btn" onclick="filterArticles('Income Tax')" style="padding: 8px 16px; cursor: pointer;">Income Tax</button>
+            <button class="filter-btn" onclick="filterArticles('GST')" style="padding: 8px 16px; cursor: pointer;">GST</button>
+            <button class="filter-btn" onclick="filterArticles('IPO')" style="padding: 8px 16px; cursor: pointer;">IPO</button>
+            <button class="filter-btn" onclick="filterArticles('Merchant Banking')" style="padding: 8px 16px; cursor: pointer;">Merchant Banking</button>
+            <button class="filter-btn" onclick="filterArticles('Accounting')" style="padding: 8px 16px; cursor: pointer;">Accounting</button>
+        </div>
+
+        <!-- Article Grid Listing -->
+        <div id="articles-grid" class="articles-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <!-- Dynamically populated via script -->
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            loadPublishedArticles();
+        });
+
+        function loadPublishedArticles() {
+            const grid = document.getElementById('articles-grid');
+            const mockArticles = [
+                { title: "Understanding the New Tax Regime Amendments", category: "Income Tax", author: "CA R. Sharma", date: "Oct 5, 2026", slug: "#" },
+                { title: "GST Audit Compliance Checklist for FY 2025-26", category: "GST", author: "CS Priya Menon", date: "Oct 2, 2026", slug: "#" }
+            ];
+            
+            grid.innerHTML = mockArticles.map(art => `
+                <div class="article-card" style="border: 1px solid #e1e1e1; padding: 20px; border-radius: 8px; background: #fff;">
+                    <span class="badge" style="background: #eef2f7; padding: 4px 8px; font-size: 12px; border-radius: 4px;">${art.category}</span>
+                    <h3 style="margin-top: 15px;"><a href="${art.slug}" style="text-decoration: none; color: #333;">${art.title}</a></h3>
+                    <div class="article-meta" style="margin-top: 15px; font-size: 13px; color: #777;">
+                        <span>By ${art.author}</span> • <span>${art.date}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
