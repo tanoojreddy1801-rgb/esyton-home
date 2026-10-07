@@ -318,7 +318,7 @@
       if (u) {
         try {
           const r = await getDoc(doc(db, "roles", (u.email || "").toLowerCase()));
-          if (r.exists() && String(r.data().role || "").toLowerCase() === "admin") role = "admin";
+          if (r.exists() && String(r.data().role || "").toLowerCase() === "admin" && r.data().active === true) role = "admin";
         } catch (e) { /* no access to roles doc: treat as non-admin */ }
         if (!role) {
           try {
