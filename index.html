@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- SEO OPTIMIZATION ENGAGEMENT MATRIX -->
-  <title>Esyton | Income Tax Filing, GST, Accounting & Business Support Platform</title>
-  <meta name="description" content="File your Income Tax Return, manage GST compliance, get business bookkeeping done, incorporate companies or LLPs, and register trademarks online. Practical, non-assurance business support across India.">
-  <meta name="keywords" content="income tax filing, ITR notice help, GST registration online, bookkeeping services, company incorporation, LLP registration, trademark application, online tax consultant India, business compliance tools">
+  <title>Esyton | Back-Office Accounting, Payroll &amp; TDS/TCS Compliance Engine</title>
+  <meta name="description" content="Esyton Insights LLP runs a back-office processing engine for accounting, payroll computation and TDS/TCS statement preparation, performed on client-supplied records. Non-audit, non-attest, non-advisory.">
+  <meta name="keywords" content="back office accounting, payroll processing, TDS compliance, TCS compliance, TDS statements, outsourced bookkeeping">
   <meta name="author" content="Esyton Insights LLP">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.esyton.com/">
@@ -275,6 +274,18 @@
     .footer-logo { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: .85; transition: opacity .2s; }
     .footer-brand:hover .footer-logo { opacity: 1; }
     .footer-notice { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.04); color: #4b6675; text-align: center; font-size: .74rem; line-height: 1.5; }
+  
+    /* ---- Restructure additions ---- */
+    .engine-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .engine-step .step-no { font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; display: block; }
+    .scope-note { margin-top: 36px; background: var(--yellow-pale); border: 1px solid #eadfa8; border-left: 4px solid var(--gold); border-radius: 3px; padding: 24px 28px; }
+    .scope-note h3 { font-size: 1.05rem; margin-bottom: 10px; }
+    .scope-note ul { list-style: none; }
+    .scope-note li { font-size: .86rem; color: var(--ink); line-height: 1.55; margin-bottom: 8px; display: flex; gap: 8px; }
+    .scope-note li i { color: var(--gold); margin-top: 3px; }
+    .est-disclaimer { font-size: .76rem; color: var(--muted); margin-top: 18px; line-height: 1.5; }
+    .comp-output-pane .monthly-line { margin: 10px 0 18px; font-size: .9rem; color: #cbdbe7; }
+    .comp-output-pane .monthly-line strong { color: var(--yellow); font-size: 1.15rem; }
   </style>
 </head>
 <body>
@@ -295,8 +306,8 @@
   <!-- TOP STRIP -->
   <div class="topbar">
     <div class="shell topbar-row">
-      <div><i class="ti ti-point-filled" style="color:var(--yellow)"></i> <strong>Online Business Compliance System</strong> &nbsp;·&nbsp; Complete Professional Support</div>
-      <div>connect@esyton.com · AY 2026-27 / FY 2025-26 Active</div>
+      <div><i class="ti ti-point-filled" style="color:var(--yellow)"></i> <strong>Back-Office Accounting · Payroll · TDS/TCS Compliance</strong></div>
+      <div>connect@esyton.com</div>
     </div>
   </div>
 
@@ -308,9 +319,10 @@
       </a>
       <nav class="nav-links">
         <a href="#services">Services</a>
-        <a href="#calculator">Tax Calculator</a>
+        <a href="#engine">How It Works</a>
+        <a href="#estimator">Payroll TDS Estimator</a>
         <a href="./insights/">Insights</a>
-        <a href="#faq">Help &amp; FAQ</a>
+        <a href="#faq">FAQ</a>
 
         <div class="nav-tools">
           <button class="nav-tools-btn" aria-haspopup="true">Internal Access <span style="font-size:0.6rem;">▼</span></button>
@@ -318,7 +330,6 @@
             <a href="./viper.html" role="menuitem">V.I.P.E.R<br><small>Client Activity Log</small></a>
             <a href="./timesheet.html" role="menuitem">T.I.M.O<br><small>Time Sheet Entry</small></a>
             <a href="./computax.html" role="menuitem">Computax<br><small>Portal Redirect Gateway</small></a>
-            <a href="./refund-status.html" role="menuitem">Refund Track<br><small>Tax Processing Board</small></a>
           </div>
         </div>
         <a href="#query" class="nav-cta"><i class="ti ti-message-circle-2"></i> Submit Enquiry</a>
@@ -332,44 +343,40 @@
     <section class="hero" id="hero" data-rabbit-label="Home">
       <div class="shell hero-grid">
         <div class="hero-text">
-          <h1>Complete Business &amp; Tax Solutions. <span>Simplified.</span></h1>
-          <p>Get expert assistance for income tax filings, company &amp; LLP incorporations, monthly GST returns, routine bookkeeping, trademark registration, and payroll support. Clean, reliable execution for businesses and professionals across India.</p>
+          <h1>Accounting, Payroll &amp; TDS/TCS Compliance, <span>Processed in the Back Office.</span></h1>
+          <p>Esyton Insights LLP operates a back-office processing engine for bookkeeping, payroll computation and TDS/TCS statement preparation. We work on records supplied by the client, under rules the client has approved.</p>
           <div class="hero-actions">
             <a href="#query" class="btn btn-gold"><i class="ti ti-circle-arrow-right"></i> Send an Enquiry</a>
-            <a href="#calculator" class="btn btn-outline"><i class="ti ti-calculator"></i> Tax Estimator</a>
+            <a href="#estimator" class="btn btn-outline"><i class="ti ti-calculator"></i> Payroll TDS Estimator</a>
           </div>
         </div>
         <!-- CONSOLE -->
         <div class="console-card">
-          <h3><i class="ti ti-settings-automation"></i> Quick Service Selector</h3>
+          <h3><i class="ti ti-settings-automation"></i> Scope Selector</h3>
           <div class="console-tabs">
-            <button class="console-tab active" id="tabTax" onclick="switchConsole('tax')">Tax &amp; Accounts</button>
-            <button class="console-tab" id="tabCorp" onclick="switchConsole('corp')">Business &amp; GST</button>
+            <button class="console-tab active" id="tabBiz" onclick="switchConsole('biz')">Companies &amp; LLPs</button>
+            <button class="console-tab" id="tabPro" onclick="switchConsole('pro')">Other Establishments</button>
           </div>
 
           <div class="console-field">
-            <label for="consoleProfile">Select Your Entity Type</label>
-            <select id="consoleProfile" class="console-select" onchange="adaptConsoleFields()">
-              <option value="individual">Salaried Employee / Individual</option>
-              <option value="professional">Freelancer / Independent Professional</option>
-              <option value="business">Proprietorship / Partnership / LLP / Private Limited</option>
-            </select>
+            <label for="consoleProfile">Enquiring As</label>
+            <select id="consoleProfile" class="console-select"></select>
           </div>
           <div class="console-field" id="consoleDynamicRow">
-            <label for="consoleService">How can we help?</label>
+            <label for="consoleService">Back-Office Function</label>
             <select id="consoleService" class="console-select">
-              <option value="itr">Income Tax Filing &amp; Notice Assistance</option>
-              <option value="bookkeeping">Monthly Bookkeeping &amp; Accounting</option>
-              <option value="incorporation">Incorporate a Company or LLP</option>
+              <option value="accounting">Accounting &amp; Bookkeeping Processing</option>
+              <option value="payroll">Payroll Processing</option>
+              <option value="tds_tcs">TDS / TCS Compliance Engine</option>
             </select>
           </div>
           <button class="console-btn" onclick="captureConsoleIntent()">
-            <span>Proceed to Customized Form</span> <i class="ti ti-arrow-right"></i>
+            <span>Proceed to Enquiry Form</span> <i class="ti ti-arrow-right"></i>
           </button>
 
           <div class="console-badge-row">
-            <span class="console-badge"><i class="ti ti-shield-check"></i> Standard Documentation (Non-Audit)</span>
-            <span class="console-badge"><i class="ti ti-lock"></i> 100% Encrypted &amp; Confidential</span>
+            <span class="console-badge"><i class="ti ti-shield-check"></i> Non-Audit · Non-Attest · Non-Advisory</span>
+            <span class="console-badge"><i class="ti ti-lock"></i> Confidential Handling of Client Data</span>
           </div>
         </div>
       </div>
@@ -379,163 +386,155 @@
     <section id="services" data-rabbit-label="Services">
       <div class="shell">
         <div class="section-heading">
-          <span class="kicker">Service Portfolio</span>
-          <h2>What We Do</h2>
-          <p>We provide full-spectrum administrative, tax filing, accounting, corporate setup, and brand registration services. (Note: We focus on operational support and non-assurance filings).</p>
+          <span class="kicker">Scope of Work</span>
+          <h2>What We Process</h2>
+          <p>Three back-office functions, delivered as defined processes on client-supplied data. Esyton does not render audit, attest, certification, advisory or representation services.</p>
         </div>
 
         <div class="services-grid">
-          <!-- INCOME TAX -->
-          <div class="service-card">
-            <div class="s-icon"><i class="ti ti-file-analytics"></i></div>
-            <h3>Income Tax Services</h3>
-            <p>Annual tax return filing for individuals, freelancers, and businesses. Complete support for capital gains records, share trading reports, Form 26AS/AIS reconciliation, and tax notice responses.</p>
-            <ul>
-              <li><i class="ti ti-checkbox"></i> Salaried, Business &amp; Capital Gains ITR</li>
-              <li><i class="ti ti-checkbox"></i> Mismatch &amp; Income Tax Notice Response</li>
-              <li><i class="ti ti-checkbox"></i> FnO &amp; Stock Trading Summary Entry</li>
-            </ul>
-            <a onclick="selectMainService('income_tax')" class="s-link">Request Income Tax Help <i class="ti ti-chevron-right"></i></a>
-          </div>
-
-          <!-- COMPANY & LLP INCORPORATION -->
-          <div class="service-card">
-            <div class="s-icon"><i class="ti ti-building-skyscraper"></i></div>
-            <h3>Company &amp; LLP Incorporation</h3>
-            <p>Turn your business idea into a legal entity. End-to-end guidance for registering Private Limited companies, LLPs, One Person Companies (OPC), and Partnership firms across India.</p>
-            <ul>
-              <li><i class="ti ti-checkbox"></i> Name Availability &amp; Approval</li>
-              <li><i class="ti ti-checkbox"></i> DIN, DSC &amp; MoA/AoA Drafting</li>
-              <li><i class="ti ti-checkbox"></i> Certificate of Incorporation &amp; PAN/TAN</li>
-            </ul>
-            <a onclick="selectMainService('incorporation')" class="s-link">Request Incorporation <i class="ti ti-chevron-right"></i></a>
-          </div>
-
-          <!-- GST SERVICES -->
-          <div class="service-card">
-            <div class="s-icon"><i class="ti ti-receipt-2"></i></div>
-            <h3>GST Registration &amp; Returns</h3>
-            <p>Smooth onboarding for new GST registrations, monthly or quarterly return generation (GSTR-1 &amp; GSTR-3B), vendor Input Tax Credit (ITC) matching, and annual GST summaries.</p>
-            <ul>
-              <li><i class="ti ti-checkbox"></i> Fresh GST Registration Online</li>
-              <li><i class="ti ti-checkbox"></i> Regular GSTR-1 &amp; GSTR-3B Filings</li>
-              <li><i class="ti ti-checkbox"></i> Input Tax Credit (ITC) Reconciliation</li>
-            </ul>
-            <a onclick="selectMainService('gst')" class="s-link">Request GST Support <i class="ti ti-chevron-right"></i></a>
-          </div>
-
-          <!-- BOOKKEEPING & ACCOUNTING -->
+          <!-- ACCOUNTING -->
           <div class="service-card">
             <div class="s-icon"><i class="ti ti-books"></i></div>
-            <h3>Bookkeeping &amp; Accounting</h3>
-            <p>Outsource your daily accounting, ledger maintenance, bank reconciliation, and cash flow tracking. Get clean, organized financial reports for smart business decisions.</p>
+            <h3>Accounting &amp; Bookkeeping Processing</h3>
+            <p>Day-to-day posting and reconciliation work carried out on the client's records and accounting software, so that books stay current and ready for the client's own review.</p>
             <ul>
-              <li><i class="ti ti-checkbox"></i> Monthly Accounting &amp; Ledger Posting</li>
-              <li><i class="ti ti-checkbox"></i> Bank Statement Cleanups &amp; Reconciliation</li>
-              <li><i class="ti ti-checkbox"></i> Profit &amp; Loss &amp; Balance Sheet Preparation</li>
+              <li><i class="ti ti-checkbox"></i> Voucher entry and ledger posting</li>
+              <li><i class="ti ti-checkbox"></i> Bank, vendor and customer reconciliation</li>
+              <li><i class="ti ti-checkbox"></i> Trial balance and MIS reports for management use</li>
             </ul>
-            <a onclick="selectMainService('accounting')" class="s-link">Request Bookkeeping <i class="ti ti-chevron-right"></i></a>
+            <a onclick="selectMainService('accounting')" class="s-link">Enquire about Accounting <i class="ti ti-chevron-right"></i></a>
           </div>
 
-          <!-- TRADEMARK -->
-          <div class="service-card">
-            <div class="s-icon"><i class="ti ti-registered"></i></div>
-            <h3>Trademark &amp; Brand Protection</h3>
-            <p>Protect your brand name, logo, or tagline. We conduct trademark searches across public registries, map your business to correct international classes, and file applications.</p>
-            <ul>
-              <li><i class="ti ti-checkbox"></i> Comprehensive Brand Name Search</li>
-              <li><i class="ti ti-checkbox"></i> Trademark Application Filing</li>
-              <li><i class="ti ti-checkbox"></i> Class Identification &amp; Documentation</li>
-            </ul>
-            <a onclick="selectMainService('trademark')" class="s-link">Request Trademark <i class="ti ti-chevron-right"></i></a>
-          </div>
-
-          <!-- PAYROLL & TDS -->
+          <!-- PAYROLL -->
           <div class="service-card">
             <div class="s-icon"><i class="ti ti-users-group"></i></div>
-            <h3>Payroll, TDS &amp; Other Services</h3>
-            <p>Manage monthly staff payroll, team investment verifications, quarterly corporate TDS return filings, Form 16 issuance, and miscellaneous non-attest business documentation.</p>
+            <h3>Payroll Processing</h3>
+            <p>Monthly salary computation based on the client's salary structure and the attendance, leave and declaration inputs the client provides.</p>
             <ul>
-              <li><i class="ti ti-checkbox"></i> Quarterly TDS Returns &amp; Form 16</li>
-              <li><i class="ti ti-checkbox"></i> Salary Structure &amp; Payroll Logs</li>
-              <li><i class="ti ti-checkbox"></i> Non-Audit Corporate Support</li>
+              <li><i class="ti ti-checkbox"></i> Salary computation and payslips</li>
+              <li><i class="ti ti-checkbox"></i> Statutory deduction workings per client registrations</li>
+              <li><i class="ti ti-checkbox"></i> Salary TDS workings and certificates in the prescribed form</li>
             </ul>
-            <a onclick="selectMainService('payroll')" class="s-link">Request Payroll / Other <i class="ti ti-chevron-right"></i></a>
+            <a onclick="selectMainService('payroll')" class="s-link">Enquire about Payroll <i class="ti ti-chevron-right"></i></a>
+          </div>
+
+          <!-- TDS / TCS -->
+          <div class="service-card">
+            <div class="s-icon"><i class="ti ti-receipt-tax"></i></div>
+            <h3>TDS / TCS Compliance Engine</h3>
+            <p>A rule-driven process that applies the client's approved section and rate mappings to payments and collections, reconciles them with challans, and prepares statements for the client to submit.</p>
+            <ul>
+              <li><i class="ti ti-checkbox"></i> Deductee / collectee master and PAN validation</li>
+              <li><i class="ti ti-checkbox"></i> Deduction and collection workings with threshold tracking</li>
+              <li><i class="ti ti-checkbox"></i> Challan reconciliation and quarterly statement preparation</li>
+              <li><i class="ti ti-checkbox"></i> Correction-statement preparation from default reports</li>
+            </ul>
+            <a onclick="selectMainService('tds_tcs')" class="s-link">Enquire about TDS / TCS <i class="ti ti-chevron-right"></i></a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TAX ESTIMATOR -->
-    <section class="section-alt" id="calculator" data-rabbit-label="Tax Calculator">
+    <!-- HOW THE ENGINE WORKS -->
+    <section class="section-alt" id="engine" data-rabbit-label="How It Works">
       <div class="shell">
         <div class="section-heading">
-          <span class="kicker">Quick Estimator</span>
-          <h2>Tax Regime Comparison Calculator</h2>
-          <p>Compare your estimated income tax outgo under the Old vs. New Tax Regime for the current year.</p>
+          <span class="kicker">Process</span>
+          <h2>How the Compliance Engine Works</h2>
+          <p>Every engagement follows the same four stages, so responsibilities stay clear at each hand-off.</p>
+        </div>
+
+        <div class="engine-grid">
+          <div class="service-card engine-step">
+            <span class="step-no">Stage 1</span>
+            <div class="s-icon"><i class="ti ti-upload"></i></div>
+            <h3>Data Intake</h3>
+            <p>The client supplies ledgers, bank statements, salary inputs and party masters through the agreed secure channel.</p>
+          </div>
+          <div class="service-card engine-step">
+            <span class="step-no">Stage 2</span>
+            <div class="s-icon"><i class="ti ti-adjustments-horizontal"></i></div>
+            <h3>Rule Configuration</h3>
+            <p>Payment-to-section mappings, rates and thresholds are recorded in a configuration sheet that the client, or the client's own professional advisor, approves.</p>
+          </div>
+          <div class="service-card engine-step">
+            <span class="step-no">Stage 3</span>
+            <div class="s-icon"><i class="ti ti-arrows-shuffle"></i></div>
+            <h3>Processing &amp; Reconciliation</h3>
+            <p>Computations run on the approved rules and are matched against challans and books. Items that fit no rule are listed in an exception report rather than decided by us.</p>
+          </div>
+          <div class="service-card engine-step">
+            <span class="step-no">Stage 4</span>
+            <div class="s-icon"><i class="ti ti-file-export"></i></div>
+            <h3>Statement Preparation &amp; Hand-off</h3>
+            <p>Draft statements, registers, payslips and reports are returned with the exception list. Submission to any authority is made by the client or its authorised signatory.</p>
+          </div>
+        </div>
+
+        <div class="scope-note">
+          <h3><i class="ti ti-info-circle"></i> Engagement Boundaries</h3>
+          <ul>
+            <li><i class="ti ti-point-filled"></i> Work is performed on information supplied by the client. Accuracy, completeness and the applicability of any provision remain the client's responsibility.</li>
+            <li><i class="ti ti-point-filled"></i> Esyton does not provide audit, attest, assurance, certification, tax advice, legal opinions or representation before any authority.</li>
+            <li><i class="ti ti-point-filled"></i> Statutory submissions are made by the client or its authorised signatory using the client's own credentials.</li>
+            <li><i class="ti ti-point-filled"></i> Esyton Insights LLP is a commercial entity and is not a firm of Chartered Accountants. It does not render services that are reserved by law for members of any professional body.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAYROLL TDS ESTIMATOR -->
+    <section id="estimator" data-rabbit-label="Payroll TDS Estimator">
+      <div class="shell">
+        <div class="section-heading">
+          <span class="kicker">Payroll Planning Aid</span>
+          <h2>Payroll TDS Estimator</h2>
+          <p>An illustration of indicative annual tax on salary and the resulting monthly TDS under the old and new regimes for FY 2026-27. Actual TDS is computed on the employee's declarations and the law in force.</p>
         </div>
         <div class="computation-wrapper">
           <div class="comp-panel-left">
             <div class="comp-block-section">
-              <h4><i class="ti ti-user-scan"></i> 0. Regime &amp; Age</h4>
+              <h4><i class="ti ti-user-scan"></i> 1. Regime &amp; Age</h4>
               <div class="comp-row">
-                <label for="cRegime">Tax Method</label>
+                <label for="cRegime">Tax Regime</label>
                 <select id="cRegime" class="console-select" onchange="runEngineCalculation()">
-                  <option value="new" selected>New Regime (Lower Rates - Default)</option>
+                  <option value="new" selected>New Regime (Default)</option>
                   <option value="old">Old Regime (With Deductions)</option>
                 </select>
               </div>
               <div class="comp-row">
-                <label for="cAge">Age</label>
+                <label for="cAge">Employee Age</label>
                 <input type="number" id="cAge" class="console-input" value="32" oninput="runEngineCalculation()">
               </div>
             </div>
             <div class="comp-block-section">
-              <h4><i class="ti ti-briefcase"></i> 1. Earnings</h4>
+              <h4><i class="ti ti-briefcase"></i> 2. Salary</h4>
               <div class="comp-row">
-                <label for="cSalary">Gross Yearly Salary (₹)</label>
+                <label for="cSalary">Gross Annual Salary (₹)</label>
                 <input type="number" id="cSalary" class="console-input" value="1250000" oninput="runEngineCalculation()">
               </div>
               <div class="comp-row">
-                <label for="cExemptions">HRA / Allowances (Old Regime) (₹)</label>
+                <label for="cExemptions">HRA / Allowance Exemptions (Old Regime) (₹)</label>
                 <input type="number" id="cExemptions" class="console-input" value="0" oninput="runEngineCalculation()">
               </div>
-              <div class="comp-row">
-                <label for="cBusiness">Business / Freelance Profits (₹)</label>
-                <input type="number" id="cBusiness" class="console-input" value="0" oninput="runEngineCalculation()">
-              </div>
             </div>
             <div class="comp-block-section">
-              <h4><i class="ti ti-chart-candle"></i> 2. Capital Gains &amp; House</h4>
+              <h4><i class="ti ti-shield-plus"></i> 3. Declared Deductions (Old Regime)</h4>
               <div class="comp-row">
-                <label for="cStcg">Short-Term Share Gains (STCG) (₹)</label>
-                <input type="number" id="cStcg" class="console-input" value="0" oninput="runEngineCalculation()">
-              </div>
-              <div class="comp-row">
-                <label for="cLtcg">Long-Term Share Gains (LTCG) (₹)</label>
-                <input type="number" id="cLtcg" class="console-input" value="0" oninput="runEngineCalculation()">
-              </div>
-              <div class="comp-row">
-                <label for="cHouse">Net Rental Property Income / Loss (₹)</label>
-                <input type="number" id="cHouse" class="console-input" value="0" oninput="runEngineCalculation()">
-              </div>
-            </div>
-            <div class="comp-block-section">
-              <h4><i class="ti ti-shield-plus"></i> 3. Deductions (Old Regime)</h4>
-              <div class="comp-row">
-                <label for="c80c">80C (PPF, LIC, ELSS, etc.) (₹)</label>
+                <label for="c80c">Chapter VI-A investments, e.g. PPF, ELSS (₹, max 1,50,000)</label>
                 <input type="number" id="c80c" class="console-input" value="150000" oninput="runEngineCalculation()">
               </div>
               <div class="comp-row">
-                <label for="c80d">80D Health Insurance (₹)</label>
+                <label for="c80d">Health insurance premium (₹)</label>
                 <input type="number" id="c80d" class="console-input" value="25000" oninput="runEngineCalculation()">
               </div>
             </div>
           </div>
           <!-- DISPLAY -->
           <div class="comp-output-pane">
-            <h3>Filing Summary Estimate</h3>
+            <h3>Indicative Annual Tax</h3>
             <div class="v-display" id="displayFinalTax">₹0</div>
+            <div class="monthly-line">Indicative monthly TDS: <strong id="displayMonthlyTds">₹0</strong></div>
 
             <div class="table-scroll-container">
               <table class="matrix-table">
@@ -546,44 +545,39 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>Gross Total Income</td><td id="mGti">₹0</td></tr>
-                  <tr><td>Total Deductions Applied</td><td id="mDed">₹0</td></tr>
-                  <tr><td>Net Taxable Income</td><td id="mNti">₹0</td></tr>
-                  <tr><td>Base Calculated Tax</td><td id="mBasic">₹0</td></tr>
-                  <tr><td>Sec 87A Tax Rebate</td><td id="mRebate">₹0</td></tr>
+                  <tr><td>Gross Salary</td><td id="mGross">₹0</td></tr>
+                  <tr><td>Standard Deduction &amp; Exemptions</td><td id="mStd">₹0</td></tr>
+                  <tr><td>Declared Deductions</td><td id="mDed">₹0</td></tr>
+                  <tr><td>Net Taxable Salary</td><td id="mNti">₹0</td></tr>
+                  <tr><td>Tax on Slab Rates</td><td id="mBasic">₹0</td></tr>
+                  <tr><td>Rebate &amp; Marginal Relief</td><td id="mRebate">₹0</td></tr>
                   <tr><td>Health &amp; Education Cess (4%)</td><td id="mCess">₹0</td></tr>
-                  <tr class="total-row"><td>Estimated Final Tax Due</td><td id="mFinal">₹0</td></tr>
+                  <tr class="total-row"><td>Indicative Annual Tax</td><td id="mFinal">₹0</td></tr>
                 </tbody>
               </table>
             </div>
             <div class="comp-advice-text" id="engineAdviceText">
-              Calculator active. Change figures in the fields to instantly see updated tax comparisons.
+              Change the figures to see the estimate update.
             </div>
           </div>
         </div>
+        <p class="est-disclaimer">This estimator is an illustration for payroll planning only. It covers salary income of a resident individual, does not compute surcharge, and is not tax advice. Slabs, rebate and standard deduction are as currently programmed and should be confirmed against the law in force.</p>
       </div>
     </section>
 
-    <!-- CUSTOMIZABLE INTERACTIVE INTAKE FORM SECTION -->
-    <section id="query" data-rabbit-label="Enquiry Desk">
+    <!-- ENQUIRY -->
+    <section class="section-alt" id="query" data-rabbit-label="Enquiry Desk">
       <div class="shell query-layout">
         <div class="query-info">
           <div class="section-heading">
-            <span class="kicker">Online Enquiry Desk</span>
-            <h2>Send Us Your Requirements</h2>
-            <p>Fill out the customized form. Our support team will review your enquiry details and get back to you within 24 working hours.</p>
-          </div>
-          <!-- ENQUIRIES COUNTER BADGE -->
-          <div class="counter-badge">
-            <i class="ti ti-chart-dots"></i>
-            <div class="counter-badge-text">
-              Trusted Platform: <span class="counter-badge-number" id="enquiryCounter">810</span> Enquiries Dropped Till Date
-            </div>
+            <span class="kicker">Enquiry Desk</span>
+            <h2>Share Your Requirement</h2>
+            <p>Describe the processing work you need done. We reply to enquiries by email on working days.</p>
           </div>
           <div class="q-channel">
             <i class="ti ti-mail-opened"></i>
             <div>
-              <strong>Email Us Directly</strong>
+              <strong>Email</strong>
               <span>connect@esyton.com</span>
             </div>
           </div>
@@ -595,21 +589,20 @@
             </div>
           </div>
           <div style="margin-top:20px; font-size:.82rem; color:var(--muted); line-height:1.5;">
-            <strong>Note:</strong> Providing clear business details, financial periods, or specific questions helps us assign the right manager to your enquiry promptly.
+            <strong>Note:</strong> Please do not enter PAN, TAN, passwords or bank details in this form. Details needed for an engagement are collected later through the agreed secure channel.
           </div>
         </div>
 
-        <!-- DYNAMIC CUSTOMIZING FORM -->
+        <!-- DYNAMIC FORM -->
         <div class="query-form-box" id="queryFormContainer">
-          <h3><i class="ti ti-adjustments-horizontal"></i> Interactive Service Form</h3>
-          <p style="font-size:.82rem; color:var(--muted); margin-bottom:20px;">The form fields dynamically adjust based on the core service you choose.</p>
+          <h3><i class="ti ti-adjustments-horizontal"></i> Enquiry Form</h3>
+          <p style="font-size:.82rem; color:var(--muted); margin-bottom:20px;">The fields below adjust to the function you select.</p>
 
           <form id="intakeForm" action="https://formspree.io/f/mgogaybw" method="POST" onsubmit="handleFormSubmission(event)">
-            <!-- BASIC CONTACT INFO -->
             <div class="form-grid">
               <div class="form-group">
                 <label for="fName">Your Name / Entity Name *</label>
-                <input type="text" id="fName" name="Client Name" class="form-control" required placeholder="e.g. Rahul Sharma or Acme Corp">
+                <input type="text" id="fName" name="Client Name" class="form-control" required placeholder="e.g. Rahul Sharma or Acme Pvt Ltd">
               </div>
               <div class="form-group">
                 <label for="fEmail">Email Address *</label>
@@ -626,31 +619,37 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="fMainService">Select Core Service *</label>
-                <select id="fMainService" name="Main Service Selected" class="form-control" onchange="renderDynamicFormFields()" style="font-weight:700; color:var(--navy);">
-                  <option value="income_tax" selected>Income Tax Return &amp; Notice Help</option>
-                  <option value="incorporation">Company / LLP Incorporation</option>
-                  <option value="gst">GST Registration &amp; Returns</option>
-                  <option value="accounting">Bookkeeping &amp; Accounting</option>
-                  <option value="trademark">Trademark &amp; Brand Filing</option>
-                  <option value="payroll">Payroll &amp; TDS Returns</option>
-                  <option value="other">Other Business Services</option>
+                <label for="fEntity">Enquiring As *</label>
+                <select id="fEntity" name="Enquiring As" class="form-control">
+                  <option value="Company / LLP">Company / LLP</option>
+                  <option value="Partnership / Proprietorship">Partnership / Proprietorship</option>
+                  <option value="Trust / Society / Association">Trust / Society / Association</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
 
-            <!-- DYNAMIC CONDITIONAL CONTAINER (AUTO-CHANGES) -->
+            <div class="form-group">
+              <label for="fMainService">Function *</label>
+              <select id="fMainService" name="Main Service Selected" class="form-control" onchange="renderDynamicFormFields()" style="font-weight:700; color:var(--navy);">
+                <option value="accounting" selected>Accounting &amp; Bookkeeping Processing</option>
+                <option value="payroll">Payroll Processing</option>
+                <option value="tds_tcs">TDS / TCS Compliance Engine</option>
+                <option value="other">Other Back-Office Query</option>
+              </select>
+            </div>
+
             <div class="dynamic-fields-box" id="dynamicFieldsContainer">
               <!-- Injected dynamically via JS -->
             </div>
 
             <div class="form-group">
-              <label for="fDetails">Additional Details / Specific Questions *</label>
-              <textarea id="fDetails" name="Enquiry Message" class="form-control" required placeholder="Tell us briefly about your situation, timeline, or any specific questions..."></textarea>
+              <label for="fDetails">Additional Details *</label>
+              <textarea id="fDetails" name="Enquiry Message" class="form-control" required placeholder="Briefly describe the processing requirement, volumes and timeline..."></textarea>
             </div>
 
             <p class="disclaimer-text">
-              * By submitting this form, you acknowledge that Esyton provides operational, non-assurance documentation and business compliance support. This does not constitute a statutory audit engagement.
+              * By submitting this form you acknowledge that Esyton provides back-office processing support on information supplied by you. Esyton does not provide audit, attest, certification, advisory or representation services, and this enquiry is not a solicitation of any professional engagement.
             </p>
             <button type="submit" class="console-btn" style="height:48px; background:var(--navy-3);">
               <i class="ti ti-send"></i> Submit Enquiry
@@ -661,7 +660,7 @@
     </section>
 
     <!-- FAQ -->
-    <section class="section-alt" id="faq" data-rabbit-label="FAQ">
+    <section id="faq" data-rabbit-label="FAQ">
       <div class="shell">
         <div class="section-heading">
           <span class="kicker">FAQ</span>
@@ -669,20 +668,28 @@
         </div>
         <div class="faq-stack">
           <details>
-            <summary>What services does Esyton provide?</summary>
-            <p>Esyton offers non-assurance administrative and compliance support. We assist clients with filing Income Tax Returns, registering and forming new companies or LLPs, preparing monthly GST statements, handling routine business bookkeeping, filing trademark applications, and managing employee payroll files.</p>
+            <summary>What does Esyton do?</summary>
+            <p>Esyton Insights LLP provides back-office processing for accounting entries and reconciliations, payroll computation, and TDS/TCS workings and statement preparation. All work is done on records and instructions supplied by the client.</p>
           </details>
           <details>
-            <summary>Can you help set up a new Private Limited Company or LLP from scratch?</summary>
-            <p>Yes. We assist with the end-to-end process including checking name availability, acquiring Digital Signature Certificates (DSC), drafting Memorandum &amp; Articles of Association (MoA/AoA) or Partnership Agreements, and submitting incorporation forms online.</p>
+            <summary>Who submits the TDS/TCS statements to the department?</summary>
+            <p>Esyton prepares the statements in the prescribed format and returns them with a reconciliation and exception report. Submission is made by the client or its authorised signatory using the client's own credentials, unless a different arrangement is recorded in the engagement terms.</p>
           </details>
           <details>
-            <summary>How do you handle complex tax filings like stock market trading or FnO?</summary>
-            <p>We systematically process and compile stock trading ledger data from major broker portals. Short-term, long-term, intraday, and Futures &amp; Options (FnO) contract trades are categorized according to Income Tax guidelines to accurately determine your net taxable income or carry-forward losses.</p>
+            <summary>Does Esyton advise on whether TDS or TCS applies, or at what rate?</summary>
+            <p>No. Esyton does not give tax advice. The engine applies section and rate mappings that the client, or the client's own professional advisor, has configured and approved. Where an item does not fit an approved mapping, it is listed in the exception report for the client to resolve.</p>
           </details>
           <details>
-            <summary>Is my financial and business data kept secure?</summary>
-            <p>Absolutely. All documentation shared with us is handled under strict confidentiality protocols and encrypted cloud storage systems. Your information is strictly used for preparing your requested filings.</p>
+            <summary>Does Esyton audit, review or certify anything?</summary>
+            <p>No. Esyton does not perform audit, attest, assurance or certification work and does not issue reports or opinions on financial statements. Management reports prepared from the books are for the client's internal use.</p>
+          </details>
+          <details>
+            <summary>Is Esyton a firm of Chartered Accountants?</summary>
+            <p>No. Esyton Insights LLP is a commercial entity and is not a firm of Chartered Accountants. It does not render services that are reserved by law for members of any professional body. Esyton does not hold itself out as providing any such service.</p>
+          </details>
+          <details>
+            <summary>How is client data handled?</summary>
+            <p>Client data is used only for the agreed processing. Access is limited to personnel assigned to the engagement, and files are held on encrypted cloud storage. Specific arrangements are recorded in the engagement terms.</p>
           </details>
         </div>
       </div>
@@ -696,15 +703,18 @@
         <a href="#" class="footer-brand">
           <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton Insights Logo" class="footer-logo" id="footerLogoImg">
         </a>
-        <div style="display:flex; gap:16px;">
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
           <a href="#services">Services</a>
-          <a href="#calculator">Tax Calculator</a>
+          <a href="#engine">How It Works</a>
+          <a href="#estimator">Payroll TDS Estimator</a>
           <a href="./insights/">Insights</a>
           <a href="#query">Enquiry Desk</a>
+          <a href="./insights/#/terms">Terms</a>
+          <a href="./insights/#/disclaimer">Disclaimer</a>
         </div>
       </div>
       <p class="footer-notice">
-        Regulatory Disclosure: Esyton Insights LLP provides business support, accounting organization, tax filing, and administrative services. The computational tools and services on this website belong to non-assurance and non-attest tracks. We do not provide public statutory audit certificates or formal legal opinions.
+        Regulatory Disclosure: Esyton Insights LLP is a back-office processing and compliance-support entity for accounting, payroll and TDS/TCS statement preparation. It does not render audit, attest, assurance, certification, tax-advisory, legal or representation services. Esyton Insights LLP is a commercial entity and is not a firm of Chartered Accountants. It does not render services that are reserved by law for members of any professional body. Nothing on this website is professional advice or an invitation to engage any member of a regulated profession. Services are performed on client-supplied information, and responsibility for statutory compliance rests with the client.
       </p>
     </div>
   </footer>
@@ -843,68 +853,32 @@
 
     // Console Switcher
     function switchConsole(category) {
-      const btnTax = document.getElementById('tabTax');
-      const btnCorp = document.getElementById('tabCorp');
+      const btnBiz = document.getElementById('tabBiz');
+      const btnPro = document.getElementById('tabPro');
       const profileSelect = document.getElementById('consoleProfile');
 
-      if (category === 'tax') {
-        btnTax.classList.add('active');
-        btnCorp.classList.remove('active');
+      if (category === 'biz') {
+        btnBiz.classList.add('active');
+        btnPro.classList.remove('active');
         profileSelect.innerHTML = `
-          <option value="individual">Salaried Employee / Individual</option>
-          <option value="professional">Freelancer / Independent Professional</option>
-          <option value="business">Proprietorship / Partnership / LLP / Private Limited</option>
+          <option value="Company / LLP">Company / LLP</option>
         `;
       } else {
-        btnTax.classList.remove('active');
-        btnCorp.classList.add('active');
+        btnBiz.classList.remove('active');
+        btnPro.classList.add('active');
         profileSelect.innerHTML = `
-          <option value="startup">New Business / Startup Venture</option>
-          <option value="retail">E-Commerce / Retail Merchant</option>
-          <option value="existing">Established Corporate Firm</option>
+          <option value="Partnership / Proprietorship">Partnership / Proprietorship</option>
+          <option value="Trust / Society / Association">Trust / Society / Association</option>
+          <option value="Other">Other establishment</option>
         `;
       }
-      adaptConsoleFields();
-    }
-
-    function adaptConsoleFields() {
-      const profile = document.getElementById('consoleProfile').value;
-      const targetRow = document.getElementById('consoleDynamicRow');
-
-      let optionsHtml = '';
-      if (profile === 'individual' || profile === 'professional') {
-        optionsHtml = `
-          <label for="consoleService">How can we help?</label>
-          <select id="consoleService" class="console-select">
-            <option value="income_tax">File Income Tax Return / Respond to Notice</option>
-            <option value="accounting">Organize Freelance Bills &amp; Books</option>
-            <option value="trademark">Register Brand Name / Trademark</option>
-          </select>
-        `;
-      } else if (profile === 'startup') {
-        optionsHtml = `
-          <label for="consoleService">How can we help?</label>
-          <select id="consoleService" class="console-select">
-            <option value="incorporation">Incorporate New Company or LLP</option>
-            <option value="gst">Get New GST Registration</option>
-            <option value="trademark">Protect Brand Logo / Name</option>
-          </select>
-        `;
-      } else {
-        optionsHtml = `
-          <label for="consoleService">How can we help?</label>
-          <select id="consoleService" class="console-select">
-            <option value="gst">Monthly GST Returns &amp; Reconciliation</option>
-            <option value="accounting">Regular Bookkeeping &amp; Accounting</option>
-            <option value="payroll">Staff Payroll &amp; TDS Filings</option>
-          </select>
-        `;
-      }
-      targetRow.innerHTML = optionsHtml;
     }
 
     function captureConsoleIntent() {
       const consoleService = document.getElementById('consoleService').value;
+      const profileValue = document.getElementById('consoleProfile').value;
+      const entity = document.getElementById('fEntity');
+      if (entity) entity.value = profileValue;
       selectMainService(consoleService);
       document.getElementById('query').scrollIntoView({ behavior: 'smooth' });
       document.getElementById('fName').focus();
@@ -925,129 +899,79 @@
       const container = document.getElementById('dynamicFieldsContainer');
 
       let html = '';
-      if (mainService === 'income_tax') {
+      if (mainService === 'accounting') {
         html = `
-          <h4><i class="ti ti-file-text"></i> Income Tax Filing Details</h4>
+          <h4><i class="ti ti-books"></i> Accounting Processing Requirements</h4>
           <div class="form-grid">
             <div class="form-group">
-              <label for="dTaxYear">Assessment Year *</label>
-              <select id="dTaxYear" name="ITR Assessment Year" class="form-control">
-                <option value="AY 2026-27 (FY 2025-26)">AY 2026-27 (Current FY 2025-26)</option>
-                <option value="AY 2025-26 (FY 2024-25)">AY 2025-26 (Previous Year)</option>
-                <option value="Notice Reply">Responding to Income Tax Notice</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="dIncomeSources">Primary Income Source *</label>
-              <select id="dIncomeSources" name="Income Sources" class="form-control">
-                <option value="Salary / Pension">Salaried Employee / Pensioner</option>
-                <option value="Business / Profession">Business Owner / Freelancer</option>
-                <option value="Capital Gains / Trading">Share Market / Crypto / FnO Trading</option>
-                <option value="Multiple Sources">Multiple Sources (Salary + Capital Gains)</option>
-              </select>
-            </div>
-          </div>
-        `;
-      } else if (mainService === 'incorporation') {
-        html = `
-          <h4><i class="ti ti-building"></i> Company / LLP Setup Details</h4>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="dEntityType">Proposed Entity Structure *</label>
-              <select id="dEntityType" name="Target Entity Type" class="form-control">
-                <option value="Private Limited Company">Private Limited Company</option>
-                <option value="Limited Liability Partnership (LLP)">Limited Liability Partnership (LLP)</option>
-                <option value="One Person Company (OPC)">One Person Company (OPC)</option>
-                <option value="Partnership Firm">Partnership Firm</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="dProposedName">Proposed Name (Optional)</label>
-              <input type="text" id="dProposedName" name="Proposed Business Name" class="form-control" placeholder="e.g. MyBrand Solutions">
-            </div>
-          </div>
-        `;
-      } else if (mainService === 'gst') {
-        html = `
-          <h4><i class="ti ti-receipt"></i> GST Service Details</h4>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="dGstType">Service Required *</label>
-              <select id="dGstType" name="GST Requirement Type" class="form-control">
-                <option value="New GST Registration">New GST Registration</option>
-                <option value="Monthly Returns Filing">Regular Monthly / Quarterly Filing</option>
-                <option value="ITC Reconciliation">Input Tax Credit (ITC) Clean Up</option>
-                <option value="GST Cancellation">GST Cancellation / Amendment</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="dGstNumber">Existing GSTIN (If applicable)</label>
-              <input type="text" id="dGstNumber" name="Existing GSTIN" class="form-control" placeholder="e.g. 36AAAAA0000A1Z5">
-            </div>
-          </div>
-        `;
-      } else if (mainService === 'accounting') {
-        html = `
-          <h4><i class="ti ti-books"></i> Bookkeeping Requirements</h4>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="dVolume">Estimated Monthly Entries / Invoices *</label>
+              <label for="dVolume">Estimated Monthly Entries / Vouchers *</label>
               <select id="dVolume" name="Monthly Transaction Volume" class="form-control">
-                <option value="Under 50 transactions">Under 50 Transactions / Month</option>
-                <option value="50 - 200 transactions">50 – 200 Transactions / Month</option>
-                <option value="200+ transactions">200+ Transactions / Month</option>
+                <option value="Under 50 transactions">Under 50 per month</option>
+                <option value="50 - 200 transactions">50 – 200 per month</option>
+                <option value="200+ transactions">200+ per month</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="dSoftware">Preferred Software (If any)</label>
-              <select id="dSoftware" name="Accounting Software Preference" class="form-control">
-                <option value="No preference">No Preference (We suggest)</option>
+              <label for="dSoftware">Accounting Software In Use</label>
+              <select id="dSoftware" name="Accounting Software" class="form-control">
+                <option value="Not decided">Not decided</option>
                 <option value="Tally Prime">Tally Prime</option>
                 <option value="Zoho Books">Zoho Books</option>
-                <option value="Excel / Digital Logs">Excel / Spreadsheets</option>
+                <option value="Excel / Spreadsheets">Excel / Spreadsheets</option>
+                <option value="Other">Other</option>
               </select>
-            </div>
-          </div>
-        `;
-      } else if (mainService === 'trademark') {
-        html = `
-          <h4><i class="ti ti-registered"></i> Brand Registration Details</h4>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="dBrandName">Brand Name / Logo Text *</label>
-              <input type="text" id="dBrandName" name="Brand Name To Register" class="form-control" placeholder="e.g. Esyton" required>
-            </div>
-            <div class="form-group">
-              <label for="dIndustry">Business Domain / Products *</label>
-              <input type="text" id="dIndustry" name="Industry Description" class="form-control" placeholder="e.g. Clothing, Software, Consulting">
             </div>
           </div>
         `;
       } else if (mainService === 'payroll') {
         html = `
-          <h4><i class="ti ti-users"></i> Payroll &amp; TDS Details</h4>
+          <h4><i class="ti ti-users"></i> Payroll Processing Requirements</h4>
           <div class="form-grid">
             <div class="form-group">
               <label for="dEmpCount">Employee Count *</label>
               <select id="dEmpCount" name="Employee Count" class="form-control">
-                <option value="1 - 10 employees">1 – 10 Employees</option>
-                <option value="11 - 50 employees">11 – 50 Employees</option>
-                <option value="50+ employees">50+ Employees</option>
+                <option value="1 - 10 employees">1 – 10 employees</option>
+                <option value="11 - 50 employees">11 – 50 employees</option>
+                <option value="50+ employees">50+ employees</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="dTdsType">Service Needed *</label>
-              <select id="dTdsType" name="TDS Support Needed" class="form-control">
-                <option value="Quarterly TDS Returns">Quarterly TDS Return Filings</option>
-                <option value="Form 16 Generation">Form 16 Generation for Staff</option>
-                <option value="Complete Monthly Payroll">Complete Monthly Payroll Management</option>
+              <label for="dPayrollScope">Scope Needed *</label>
+              <select id="dPayrollScope" name="Payroll Scope" class="form-control">
+                <option value="Monthly payroll processing">Monthly payroll processing</option>
+                <option value="Salary TDS workings and certificates">Salary TDS workings and certificates</option>
+                <option value="Both">Both</option>
+              </select>
+            </div>
+          </div>
+        `;
+      } else if (mainService === 'tds_tcs') {
+        html = `
+          <h4><i class="ti ti-receipt-tax"></i> TDS / TCS Engine Requirements</h4>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="dStatement">Statement Type *</label>
+              <select id="dStatement" name="TDS/TCS Statement Type" class="form-control">
+                <option value="Salary payments">Salary payments</option>
+                <option value="Non-salary payments to residents">Non-salary payments to residents</option>
+                <option value="Payments to non-residents">Payments to non-residents</option>
+                <option value="Collections (TCS)">Collections (TCS)</option>
+                <option value="More than one type">More than one type</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="dParties">Approx. Deductees / Collectees per Quarter *</label>
+              <select id="dParties" name="Parties per Quarter" class="form-control">
+                <option value="Under 50">Under 50</option>
+                <option value="50 - 250">50 – 250</option>
+                <option value="250+">250+</option>
               </select>
             </div>
           </div>
         `;
       } else {
         html = `
-          <h4><i class="ti ti-info-circle"></i> General Business Query</h4>
+          <h4><i class="ti ti-info-circle"></i> General Back-Office Query</h4>
           <p style="font-size:.82rem; color:var(--muted);">Specify your requirement in the message field below.</p>
         `;
       }
@@ -1055,103 +979,88 @@
       container.innerHTML = html;
     }
 
-    // TAX CALCULATOR ENGINE
+    // PAYROLL TDS ESTIMATOR (salary income, resident individual, FY 2026-27)
     function runEngineCalculation() {
       const regime = document.getElementById('cRegime').value;
       const age = parseInt(document.getElementById('cAge').value) || 0;
-
       const salary = parseFloat(document.getElementById('cSalary').value) || 0;
       const exemptions = parseFloat(document.getElementById('cExemptions').value) || 0;
-      const business = parseFloat(document.getElementById('cBusiness').value) || 0;
-
-      const stcg = parseFloat(document.getElementById('cStcg').value) || 0;
-      const ltcg = parseFloat(document.getElementById('cLtcg').value) || 0;
-      const house = parseFloat(document.getElementById('cHouse').value) || 0;
-
       const ded80c = parseFloat(document.getElementById('c80c').value) || 0;
       const ded80d = parseFloat(document.getElementById('c80d').value) || 0;
 
-      if (regime === 'new') {
-        document.getElementById('cExemptions').disabled = true;
-        document.getElementById('cExemptions').value = 0;
-        document.getElementById('c80c').disabled = true;
-        document.getElementById('c80c').value = 0;
-        document.getElementById('c80d').disabled = true;
-        document.getElementById('c80d').value = 0;
-      } else {
-        document.getElementById('cExemptions').disabled = false;
-        document.getElementById('c80c').disabled = false;
-        document.getElementById('c80d').disabled = false;
-      }
+      const oldOnly = ['cExemptions', 'c80c', 'c80d'];
+      oldOnly.forEach((id) => {
+        const el = document.getElementById(id);
+        el.disabled = (regime === 'new');
+      });
 
-      let stdDed = (regime === 'new') ? 75000 : 50000;
-      let netSalary = Math.max(0, salary - exemptions - stdDed);
-      let grossTotalIncome = netSalary + business + stcg + ltcg + house;
+      const stdDed = (regime === 'new') ? 75000 : 50000;
+      const exemptionsUsed = (regime === 'old') ? exemptions : 0;
+      const netSalary = Math.max(0, salary - exemptionsUsed - stdDed);
 
       let totalDeductions = 0;
       if (regime === 'old') {
-        let allowed80c = Math.min(ded80c, 150000);
-        let allowed80d = Math.min(ded80d, 25000);
-        if (age >= 60) allowed80d = Math.min(ded80d, 50000);
+        const allowed80c = Math.min(ded80c, 150000);
+        const allowed80d = Math.min(ded80d, age >= 60 ? 50000 : 25000);
         totalDeductions = allowed80c + allowed80d;
       }
 
-      let netTaxableIncome = Math.max(0, grossTotalIncome - totalDeductions);
+      const netTaxable = Math.max(0, netSalary - totalDeductions);
 
       let basicTax = 0;
+      let rebate = 0;
+      let rebateLabelNote = '';
+
       if (regime === 'new') {
-        let remaining = netTaxableIncome;
-        if (remaining > 2400000) { basicTax += (remaining - 2400000) * 0.30; remaining = 2400000; }
-        if (remaining > 2000000) { basicTax += (remaining - 2000000) * 0.25; remaining = 2000000; }
-        if (remaining > 1600000) { basicTax += (remaining - 1600000) * 0.20; remaining = 1600000; }
-        if (remaining > 1200000) { basicTax += (remaining - 1200000) * 0.15; remaining = 1200000; }
-        if (remaining > 800000)  { basicTax += (remaining - 800000)  * 0.10; remaining = 800000; }
-        if (remaining > 400000)  { basicTax += (remaining - 400000)  * 0.05; remaining = 400000; }
-      } else {
-        let remaining = netTaxableIncome;
-        let basicExemption = 250000;
-        if (age >= 60 && age < 80) basicExemption = 300000;
-        if (age >= 80) basicExemption = 500000;
+        let r = netTaxable;
+        if (r > 2400000) { basicTax += (r - 2400000) * 0.30; r = 2400000; }
+        if (r > 2000000) { basicTax += (r - 2000000) * 0.25; r = 2000000; }
+        if (r > 1600000) { basicTax += (r - 1600000) * 0.20; r = 1600000; }
+        if (r > 1200000) { basicTax += (r - 1200000) * 0.15; r = 1200000; }
+        if (r > 800000)  { basicTax += (r - 800000)  * 0.10; r = 800000; }
+        if (r > 400000)  { basicTax += (r - 400000)  * 0.05; r = 400000; }
 
-        if (basicExemption === 500000) {
-          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }
-          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }
-        } else if (basicExemption === 300000) {
-          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }
-          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }
-          if (remaining > 300000)  { basicTax += (remaining - 300000)  * 0.05; remaining = 300000; }
-        } else {
-          if (remaining > 1000000) { basicTax += (remaining - 1000000) * 0.30; remaining = 1000000; }
-          if (remaining > 500000)  { basicTax += (remaining - 500000)  * 0.20; remaining = 500000; }
-          if (remaining > 250000)  { basicTax += (remaining - 250000)  * 0.05; remaining = 250000; }
+        if (netTaxable <= 1200000) {
+          rebate = Math.min(basicTax, 60000);
+        } else if (basicTax > (netTaxable - 1200000)) {
+          // Marginal relief: tax payable cannot exceed income above Rs 12 lakh
+          rebate = basicTax - (netTaxable - 1200000);
         }
+      } else {
+        let r = netTaxable;
+        let exemptLimit = 250000;
+        if (age >= 80) exemptLimit = 500000;
+        else if (age >= 60) exemptLimit = 300000;
+
+        if (r > 1000000) { basicTax += (r - 1000000) * 0.30; r = 1000000; }
+        if (r > 500000)  { basicTax += (r - 500000)  * 0.20; r = 500000; }
+        if (exemptLimit < 500000 && r > exemptLimit) { basicTax += (r - exemptLimit) * 0.05; }
+
+        if (netTaxable <= 500000) rebate = Math.min(basicTax, 12500);
       }
 
-      let rebate87A = 0;
-      if (regime === 'new' && netTaxableIncome <= 1200000) {
-        rebate87A = basicTax;
-      } else if (regime === 'old' && netTaxableIncome <= 500000) {
-        rebate87A = Math.min(basicTax, 125000);
-      }
+      const taxPostRebate = Math.max(0, basicTax - rebate);
+      const cess = taxPostRebate * 0.04;
+      const annualTax = taxPostRebate + cess;
+      const monthlyTds = annualTax / 12;
 
-      let taxPostRebate = Math.max(0, basicTax - rebate87A);
-      let cess = taxPostRebate * 0.04;
-      let absoluteFinalPayableTax = taxPostRebate + cess;
-
-      document.getElementById('displayFinalTax').textContent = "₹" + Math.round(absoluteFinalPayableTax).toLocaleString('en-IN');
-      document.getElementById('mGti').textContent = "₹" + Math.round(grossTotalIncome).toLocaleString('en-IN');
-      document.getElementById('mDed').textContent = "₹" + Math.round(totalDeductions).toLocaleString('en-IN');
-      document.getElementById('mNti').textContent = "₹" + Math.round(netTaxableIncome).toLocaleString('en-IN');
-      document.getElementById('mBasic').textContent = "₹" + Math.round(basicTax).toLocaleString('en-IN');
-      document.getElementById('mRebate').textContent = "₹" + Math.round(rebate87A).toLocaleString('en-IN');
-      document.getElementById('mCess').textContent = "₹" + Math.round(cess).toLocaleString('en-IN');
-      document.getElementById('mFinal').textContent = "₹" + Math.round(absoluteFinalPayableTax).toLocaleString('en-IN');
+      const inr = (n) => "₹" + Math.round(n).toLocaleString('en-IN');
+      document.getElementById('displayFinalTax').textContent = inr(annualTax);
+      document.getElementById('displayMonthlyTds').textContent = inr(monthlyTds);
+      document.getElementById('mGross').textContent = inr(salary);
+      document.getElementById('mStd').textContent = inr(stdDed + exemptionsUsed);
+      document.getElementById('mDed').textContent = inr(totalDeductions);
+      document.getElementById('mNti').textContent = inr(netTaxable);
+      document.getElementById('mBasic').textContent = inr(basicTax);
+      document.getElementById('mRebate').textContent = inr(rebate);
+      document.getElementById('mCess').textContent = inr(cess);
+      document.getElementById('mFinal').textContent = inr(annualTax);
 
       const adviceEl = document.getElementById('engineAdviceText');
       if (regime === 'new') {
-        adviceEl.innerHTML = `<strong>Note:</strong> New Tax Regime parameters used with ₹75,000 standard deduction applied. Full Section 87A rebate applies on net taxable income up to ₹12 Lakhs.`;
+        adviceEl.innerHTML = `<strong>Note:</strong> New regime with ₹75,000 standard deduction. Rebate makes tax nil up to ₹12 lakh of taxable income, with marginal relief just above it.`;
       } else {
-        adviceEl.innerHTML = `<strong>Note:</strong> Old Tax Regime parameters used. Computed for age bracket <strong>${age}</strong>. Keep all deduction proof documents saved securely.`;
+        adviceEl.innerHTML = `<strong>Note:</strong> Old regime with ₹50,000 standard deduction, computed for age <strong>${age}</strong>. Exemptions and deductions depend on the employee's declarations and proofs.`;
       }
     }
 
@@ -1167,7 +1076,7 @@
 
       submitBtn.disabled = true;
       const originalBtnHtml = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<i class="ti ti-loader-2"></i> Transmitting...';
+      submitBtn.innerHTML = '<i class="ti ti-loader-2"></i> Sending...';
 
       fetch(form.action, {
         method: 'POST',
@@ -1176,18 +1085,16 @@
       })
         .then((response) => {
           if (response.ok) {
-            const counterEl = document.getElementById('enquiryCounter');
-            if (counterEl) {
-              let currentVal = parseInt(counterEl.textContent) || 810;
-              counterEl.textContent = currentVal + 1;
-            }
-
+            const safeName = document.createElement('span');
+            safeName.textContent = name;
+            const safePhone = document.createElement('span');
+            safePhone.textContent = phone;
             container.innerHTML = `
               <div style="text-align:center; padding: 40px 20px;">
                 <i class="ti ti-circle-check-filled" style="font-size: 3.5rem; color:#2e7d32; margin-bottom:16px; display:block;"></i>
-                <h4 style="font-size:1.3rem; color:var(--navy); margin-bottom:10px;">Enquiry Received Successfully!</h4>
+                <h4 style="font-size:1.3rem; color:var(--navy); margin-bottom:10px;">Enquiry Received</h4>
                 <p style="font-size:.9rem; color:var(--muted); line-height:1.6; max-width:420px; margin: 0 auto 20px;">
-                  Thank you, <strong>${name}</strong>. Your request regarding <strong>${serviceText}</strong> has been transmitted. Our team will get in touch with you at <strong>+91 ${phone}</strong> shortly.
+                  Thank you, <strong>${safeName.innerHTML}</strong>. Your enquiry regarding <strong>${serviceText}</strong> has been received. We will respond by email, and may call you at <strong>+91 ${safePhone.innerHTML}</strong> if needed.
                 </p>
                 <span style="font-size:.78rem; background: var(--soft); padding: 8px 16px; border-radius:30px; font-weight:700; color:var(--navy);">
                   Reference Code: ESY-${Math.floor(100000 + Math.random() * 900000)}
@@ -1210,13 +1117,13 @@
             errorBox.style.cssText = 'margin-top:12px; font-size:.82rem; color:#b3261e; text-align:center;';
             form.appendChild(errorBox);
           }
-          errorBox.textContent = "Unable to send enquiry right now. Please try again or reach out at connect@esyton.com.";
+          errorBox.textContent = "Unable to send the enquiry right now. Please try again or write to connect@esyton.com.";
         });
     }
 
     // INITIALIZATION
     window.addEventListener('DOMContentLoaded', () => {
-      adaptConsoleFields();
+      switchConsole('biz');
       renderDynamicFormFields();
       runEngineCalculation();
       initFullPageRabbitScroll();
