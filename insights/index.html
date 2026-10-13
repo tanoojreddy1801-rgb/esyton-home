@@ -7,7 +7,12 @@
   <meta name="description" content="Practical articles on income tax, GST, IPOs, merchant banking, accounting and company law, written by professionals empanelled with Esyton Insights.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#062f59">
-  <link rel="canonical" href="https://www.esyton.com/insights/">
+  <link rel="canonical" href="https://esyton.com/insights/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Esyton Insights">
+  <meta property="og:title" content="Esyton Insights | Articles by empanelled professionals">
+  <meta property="og:description" content="Practical articles on income tax, GST, IPOs, merchant banking, accounting and company law.">
+  <meta property="og:url" content="https://esyton.com/insights/">
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -275,6 +280,16 @@
     const CATEGORIES = ["Income Tax", "GST", "IPO & Capital Markets", "Merchant Banking", "Accounting & Audit", "Company Law & ROC", "Other"];
     const PROFESSIONS = ["Chartered Accountant", "Company Secretary", "Cost & Management Accountant", "Advocate", "Merchant Banker", "SEBI Registered Intermediary", "Tax Practitioner / GST Practitioner", "Other Finance Professional"];
     const EDITORIAL_NAME = "Esyton Editorial Team";
+    // Set to true ONLY after the "Build Insights pages" GitHub workflow has run successfully once.
+    // When true, article cards link to the real, crawlable page /insights/a/<slug>/ (best for SEO).
+    const STATIC_PAGES_ENABLED = false;
+    // MUST match slugify() in scripts/build-insights.mjs
+    const slugify = t => String(t).toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 70).replace(/-+$/, "");
+    // A freshly published or edited article uses the instant link until the next automatic build (up to ~30 min) has made its static page
+    const articleHref = a => {
+      const settled = Date.now() - Math.max(millis(a.publishedAt), millis(a.updatedAt)) > 2 * 3600 * 1000;
+      return STATIC_PAGES_ENABLED && settled ? `/insights/a/${slugify(a.title)}-${a.id}/` : `#/a/${a.id}`;
+    };
 
     const $ = (s, r = document) => r.querySelector(s);
     const appEl = $("#app");
@@ -515,7 +530,7 @@
         return;
       }
       box.innerHTML = `<div class="grid">${list.map(a => `
-        <a class="card" href="#/a/${esc(a.id)}">
+        <a class="card" href="${esc(articleHref(a))}">
           <span class="tag">${esc(a.category)}</span>
           <h3>${esc(a.title)}</h3>
           <p>${esc(a.summary)}</p>
