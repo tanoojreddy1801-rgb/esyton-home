@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fouzen by Esyton | Incorporation Documents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Design tokens borrowed from the Esyton home page */
+:root{
+  --navy:#062f59;--navy-2:#0a426f;--navy-3:#071f36;--gold:#c5983d;--yellow:#ffd800;--yellow-pale:#fffbe6;
+  --ink:#101820;--muted:#5d6872;--paper:#fff;--soft:#f4f6f8;--line:#dfe5e9;--danger:#b3261e;--ok:#2e7d32;
+  --shadow:0 22px 55px rgba(6,47,89,.13);--max:900px;
+  --ui-font:'Inter','DM Sans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--ui-font);color:var(--ink);background:var(--soft);line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--ui-font);font-weight:700;color:var(--navy)}
+::selection{background:var(--yellow);color:var(--navy-3)}
+button,input,select,textarea{font:inherit;color:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.shell{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.site-header .shell{max-width:1200px;min-height:72px;display:flex;align-items:center;gap:14px}
+.brand-logo{height:40px;width:auto}
+.brand-name{font-size:1.25rem;font-weight:700;color:var(--navy);letter-spacing:-.02em}
+
+.hero{background:linear-gradient(115deg,#041628 0%,#062f59 60%,#0a426f 100%);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;opacity:.06;background-image:linear-gradient(rgba(255,255,255,.3) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.3) 1px,transparent 1px);background-size:40px 40px}
+.hero .shell{position:relative}
+.kicker{display:block;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px}
+.hero h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.2;letter-spacing:-.02em;margin-bottom:12px;animation:fadeSlideUp .6s ease both}
+.hero p{color:#cbdbe7;max-width:620px;animation:fadeSlideUp .6s ease .1s both}
+
+main{padding:36px 0 70px}
+.card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:2px;box-shadow:0 10px 30px rgba(6,47,89,.06);padding:30px;margin-bottom:22px}
+.card>h3{font-size:1.2rem;margin-bottom:4px}
+.card>.hint{margin-bottom:20px;color:var(--muted);font-size:.86rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+label,.legend{font-weight:700;font-size:.82rem;color:var(--ink)}
+.req::after{content:" *";color:var(--danger)}
+.opt{font-weight:400;color:var(--muted);font-size:.8rem}
+.note{font-size:.78rem;color:var(--muted);font-weight:400}
+input[type=text],input[type=email],input[type=tel],input[type=number],textarea,select{
+  width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:2px;background:#fff;font-size:.88rem;outline:none;transition:border-color .18s,box-shadow .18s}
+input:hover,textarea:hover,select:hover{border-color:var(--gold)}
+input:focus,textarea:focus,select:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(6,47,89,.08)}
+input:disabled{background:var(--soft)}
+textarea{min-height:90px;resize:vertical}
+input[type=file]{width:100%;padding:8px;border:1px dashed var(--line);border-radius:2px;background:var(--soft);font-size:.84rem}
+input[type=file]:hover{border-color:var(--gold)}
+input[type=file]::file-selector-button{margin-right:12px;padding:7px 14px;border:0;border-radius:2px;background:var(--navy);color:#fff;font-weight:700;font-size:.8rem;cursor:pointer;transition:background .2s}
+input[type=file]::file-selector-button:hover{background:var(--navy-2)}
+.radios{display:flex;gap:10px;flex-wrap:wrap}
+.radios label{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.86rem;padding:9px 16px;border:1px solid var(--line);border-radius:2px;cursor:pointer;background:#fff;transition:border-color .18s,background .18s}
+.radios label:hover{border-color:var(--gold)}
+.radios label:has(input:checked){border-color:var(--navy);background:var(--yellow-pale)}
+.radios input{accent-color:var(--navy);width:auto}
+.sub{margin-top:18px;padding:18px 20px;border-left:3px solid var(--gold);background:var(--soft);border-radius:2px;animation:fadeSlideUp .3s ease both}
+.director{border:1px solid var(--line);border-left:3px solid var(--navy);border-radius:2px;padding:20px;margin-top:18px;background:#fff}
+.director:hover{border-left-color:var(--gold)}
+.director h4{font-size:.88rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+[hidden]{display:none!important}
+.invalid{border-color:var(--danger)!important}
+.err{color:var(--danger);font-size:.8rem}
+.btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:0 30px;border:0;border-radius:2px;background:var(--navy-3);color:#fff;font-weight:700;font-size:.9rem;cursor:pointer;transition:background .2s,transform .2s,box-shadow .2s}
+.btn:hover{background:var(--navy-2);transform:translateY(-1px);box-shadow:0 8px 20px rgba(6,47,89,.25)}
+.btn:disabled{opacity:.6;cursor:wait;transform:none}
+#status{margin-top:16px;font-size:.88rem;font-weight:600;color:var(--navy)}
+#status.error{color:var(--danger)}
+.success{text-align:center;padding:48px 24px}
+.success h3{font-size:1.3rem;margin-bottom:10px}
+.success p{color:var(--muted);font-size:.92rem}
+.success .tick{font-size:3rem;color:var(--ok);display:block;margin-bottom:12px}
+.hp{position:absolute;left:-9999px}
+
+.site-footer{background:#041725;color:#7090a0;padding:30px 0;font-size:.78rem;border-top:1px solid rgba(255,255,255,.06);text-align:center}
+@media(max-width:640px){.grid{grid-template-columns:1fr}.card{padding:22px}}
+</style>
+</head>
+<body>
+
+<header class="site-header"><div class="shell">
+  <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton logo" class="brand-logo">
+  <h1 class="brand-name">Fouzen by Esyton</h1>
+</div></header>
+
+<section class="hero"><div class="shell">
+  <span class="kicker">Company Incorporation</span>
+  <h2>Document Submission</h2>
+  <p>Please complete every field marked with an asterisk and attach the requested documents. Accepted formats: PDF, JPG or PNG.</p>
+</div></section>
+
+<main><div class="shell">
+
+  <form id="inc-form" action="https://formspree.io/f/xkjodald" method="POST" enctype="multipart/form-data" novalidate>
+    <input type="hidden" name="_subject" value="New incorporation documents submission - Fouzen by Esyton">
+    <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <!-- 1. Contact -->
+    <section class="card">
+      <h3>1. Your contact details</h3>
+      <p class="hint">We will use these to reach you about your application.</p>
+      <div class="grid">
+        <div class="field"><label class="req" for="contact_name">Full name</label><input type="text" id="contact_name" name="contact_name" required></div>
+        <div class="field"><label class="req" for="email">Email</label><input type="email" id="email" name="email" required></div>
+        <div class="field"><label class="req" for="phone">Mobile number</label><input type="tel" id="phone" name="phone" required></div>
+      </div>
+    </section>
+
+    <!-- 2. Name -->
+    <section class="card">
+      <h3>2. Company name</h3>
+      <p class="hint">Choose a distinctive name that is not commonly used. A coined word works well, for example one formed from parts of several words.</p>
+      <div class="field">
+        <span class="legend req">Has the company name already been reserved?</span>
+        <div class="radios">
+          <label><input type="radio" name="name_reserved" value="Yes" required> Yes</label>
+          <label><input type="radio" name="name_reserved" value="No"> No</label>
+        </div>
+      </div>
+      <div class="sub" id="name-yes" hidden>
+        <div class="field"><label for="reserved_name">Reserved name / SRN <span class="opt">(optional)</span></label><input type="text" id="reserved_name" name="reserved_name"></div>
+      </div>
+      <div class="sub" id="name-no" hidden>
+        <div class="grid">
+          <div class="field"><label class="req" for="proposed_name_1">Proposed company name</label><input type="text" id="proposed_name_1" name="proposed_name_1" required></div>
+          <div class="field"><label for="proposed_name_2">Second proposed name <span class="opt">(recommended, not mandatory)</span></label><input type="text" id="proposed_name_2" name="proposed_name_2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Capital -->
+    <section class="card">
+      <h3>3. Capital, ownership and banking</h3>
+      <div class="grid">
+        <div class="field"><label class="req" for="authorized_capital">Proposed authorized capital (₹)</label><input type="number" id="authorized_capital" name="authorized_capital" min="1" required></div>
+        <div class="field"><label class="req" for="paid_up_capital">Proposed paid-up capital (₹)</label><input type="number" id="paid_up_capital" name="paid_up_capital" min="1" required><span class="err" id="cap-err" hidden>Paid-up capital cannot exceed authorized capital.</span></div>
+        <div class="field"><label class="req" for="shareholder_count">Number of shareholders</label><input type="number" id="shareholder_count" name="shareholder_count" min="1" required></div>
+        <div class="field"><label class="req" for="bank_choice">Preferred bank for the company account</label><input type="text" id="bank_choice" name="bank_choice" required><span class="note">The bank account is opened as part of incorporation, so please name your choice.</span></div>
+        <div class="field full"><label class="req" for="shareholding">Shareholders and shareholding</label><textarea id="shareholding" name="shareholding" placeholder="e.g. Name A: 60%, Name B: 40%" required></textarea></div>
+      </div>
+    </section>
+
+    <!-- 4. Directors -->
+    <section class="card">
+      <h3>4. Directors</h3>
+      <p class="hint">For each director, attach the documents below. Bank statements must be no more than two months old.</p>
+      <div class="field" style="max-width:260px">
+        <label class="req" for="director_count">Number of directors</label>
+        <input type="number" id="director_count" name="director_count" min="1" max="15" value="2" required>
+      </div>
+      <div id="directors"></div>
+    </section>
+
+    <!-- 5. Registered address -->
+    <section class="card">
+      <h3>5. Registered address</h3>
+      <div class="grid">
+        <div class="field full"><label class="req" for="reg_address">Proposed registered address</label><textarea id="reg_address" name="reg_address" required></textarea></div>
+      </div>
+      <div class="field" style="margin-top:16px">
+        <span class="legend req">Ownership of the premises</span>
+        <div class="radios">
+          <label><input type="radio" name="ownership" value="Owned by a proposed director/partner" required> Owned by a proposed director</label>
+          <label><input type="radio" name="ownership" value="Rented"> Rented</label>
+        </div>
+      </div>
+
+      <div class="sub" id="own-owned" hidden>
+        <div class="field"><label class="req" for="consent_owned">Consent form signed by the owner</label><input type="file" id="consent_owned" name="consent_owned" accept=".pdf,.jpg,.jpeg,.png" required><span class="note">We will provide the consent form format.</span></div>
+      </div>
+      <div class="sub" id="own-rented" hidden>
+        <div class="grid">
+          <div class="field"><label class="req" for="consent_rented">Consent form from the owner</label><input type="file" id="consent_rented" name="consent_rented" accept=".pdf,.jpg,.jpeg,.png" required></div>
+          <div class="field"><label class="req" for="rental_agreement">Rental agreement</label><input type="file" id="rental_agreement" name="rental_agreement" accept=".pdf,.jpg,.jpeg,.png" required></div>
+        </div>
+      </div>
+
+      <div class="sub" id="utility" hidden>
+        <p class="note" style="margin:0 0 12px">Utility bills must be in the owner’s name and not older than two months. The electricity bill is mandatory, plus either the gas bill or the water bill.</p>
+        <div class="grid">
+          <div class="field"><label class="req" for="electricity_bill">Electricity bill</label><input type="file" id="electricity_bill" name="electricity_bill" accept=".pdf,.jpg,.jpeg,.png" required></div>
+          <div class="field"><label for="gas_bill">Gas bill</label><input type="file" id="gas_bill" name="gas_bill" accept=".pdf,.jpg,.jpeg,.png"></div>
+          <div class="field"><label for="water_bill">Water bill</label><input type="file" id="water_bill" name="water_bill" accept=".pdf,.jpg,.jpeg,.png"></div>
+        </div>
+        <span class="err" id="util-err" hidden>Please attach the gas bill or the water bill in addition to the electricity bill.</span>
+      </div>
+    </section>
+
+    <button class="btn" type="submit" id="submit-btn">Submit documents</button>
+    <p id="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="card success" id="success" hidden>
+    <span class="tick">✓</span>
+    <h3>Documents received</h3>
+    <p>Thank you. The Fouzen team will review your submission and contact you shortly.</p>
+  </div>
+</div></main>
+
+<footer class="site-footer"><div class="shell">© <span id="yr"></span> Esyton Insights LLP. All rights reserved.</div></footer>
+
+<script>
+(function(){
+  var FORM_ENDPOINT = "https://formspree.io/f/xkjodald";
+  var MAX_MB = 10; // per file; confirm against your Formspree plan limits
+  var form = document.getElementById("inc-form");
+  var statusEl = document.getElementById("status");
+  var btn = document.getElementById("submit-btn");
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  /* Show/hide a block and disable its inputs so hidden fields are neither validated nor sent */
+  function toggle(el, show){
+    el.hidden = !show;
+    el.querySelectorAll("input,textarea,select").forEach(function(i){
+      i.disabled = !show;
+      if(!show){ i.classList.remove("invalid"); }
+    });
+  }
+  function accept(name){ return ".pdf,.jpg,.jpeg,.png"; }
+
+  /* Name reservation */
+  var nameYes = document.getElementById("name-yes"), nameNo = document.getElementById("name-no");
+  toggle(nameYes,false); toggle(nameNo,false);
+  form.querySelectorAll('[name="name_reserved"]').forEach(function(r){
+    r.addEventListener("change", function(){
+      toggle(nameYes, r.value==="Yes" && r.checked);
+      toggle(nameNo, r.value==="No" && r.checked);
+    });
+  });
+
+  /* Address ownership */
+  var ownOwned = document.getElementById("own-owned"), ownRented = document.getElementById("own-rented"), util = document.getElementById("utility");
+  toggle(ownOwned,false); toggle(ownRented,false); toggle(util,false);
+  form.querySelectorAll('[name="ownership"]').forEach(function(r){
+    r.addEventListener("change", function(){
+      if(!r.checked) return;
+      var owned = r.value.indexOf("Owned")===0;
+      toggle(ownOwned, owned); toggle(ownRented, !owned); toggle(util, true);
+    });
+  });
+
+  /* Directors */
+  var dirWrap = document.getElementById("directors");
+  var dirCount = document.getElementById("director_count");
+  function fileField(id,label,note){
+    return '<div class="field"><label class="req" for="'+id+'">'+label+'</label><input type="file" id="'+id+'" name="'+id+'" accept=".pdf,.jpg,.jpeg,.png" required>'+(note?'<span class="note">'+note+'</span>':'')+'</div>';
+  }
+  function directorHTML(n){
+    var p = "director_"+n+"_";
+    return '<div class="director" data-n="'+n+'"><h4>Director '+n+'</h4><div class="grid">'+
+      '<div class="field full"><label class="req" for="'+p+'name">Full name</label><input type="text" id="'+p+'name" name="'+p+'name" required></div>'+
+      '<div class="field"><span class="legend req">Does this director hold an active DIN?</span><div class="radios">'+
+        '<label><input type="radio" name="'+p+'has_din" value="Yes" required> Yes</label>'+
+        '<label><input type="radio" name="'+p+'has_din" value="No"> No</label></div></div>'+
+      '<div class="field din-box" hidden><label class="req" for="'+p+'din">DIN number</label><input type="text" id="'+p+'din" name="'+p+'din" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" disabled required><span class="note">8 digits</span></div>'+
+      fileField(p+'pan','PAN card')+
+      fileField(p+'aadhaar','Aadhaar card','Front and back in a single file.')+
+      fileField(p+'voter_id','Voter ID','Front and back in a single file.')+
+      fileField(p+'bank_statement','Bank statement','Not more than two months old.')+
+      '<div class="field full"><span class="legend req">Does this director hold a passport?</span><div class="radios">'+
+        '<label><input type="radio" name="'+p+'has_passport" value="Yes" required> Yes</label>'+
+        '<label><input type="radio" name="'+p+'has_passport" value="No"> No</label></div></div>'+
+      '<div class="field pp-yes full" hidden><label class="req" for="'+p+'passport">Passport</label><input type="file" id="'+p+'passport" name="'+p+'passport" accept=".pdf,.jpg,.jpeg,.png" disabled required></div>'+
+      '<div class="field pp-no full" hidden><label class="req" for="'+p+'declaration">Signed declaration of no passport</label><input type="file" id="'+p+'declaration" name="'+p+'declaration" accept=".pdf,.jpg,.jpeg,.png" disabled required><span class="note">A declaration is mandatory if you do not hold a passport. We will provide the format.</span></div>'+
+      '</div></div>';
+  }
+  function wireDirector(el){
+    var n = el.getAttribute("data-n"), p = "director_"+n+"_";
+    el.querySelectorAll('[name="'+p+'has_din"]').forEach(function(r){
+      r.addEventListener("change", function(){ toggle(el.querySelector(".din-box"), r.value==="Yes" && r.checked); });
+    });
+    el.querySelectorAll('[name="'+p+'has_passport"]').forEach(function(r){
+      r.addEventListener("change", function(){
+        toggle(el.querySelector(".pp-yes"), r.value==="Yes" && r.checked);
+        toggle(el.querySelector(".pp-no"), r.value==="No" && r.checked);
+      });
+    });
+  }
+  function renderDirectors(){
+    var target = Math.max(1, Math.min(15, parseInt(dirCount.value,10) || 1));
+    var current = dirWrap.children.length;
+    while(current > target){ dirWrap.removeChild(dirWrap.lastElementChild); current--; }
+    while(current < target){
+      current++;
+      var tmp = document.createElement("div"); tmp.innerHTML = directorHTML(current);
+      var el = tmp.firstChild; dirWrap.appendChild(el); wireDirector(el);
+    }
+  }
+  dirCount.addEventListener("change", renderDirectors);
+  renderDirectors();
+
+  /* Validation helpers */
+  function showError(msg){ statusEl.textContent = msg; statusEl.className = "error"; }
+  function validate(){
+    var ok = true, first = null;
+    form.querySelectorAll("input,textarea,select").forEach(function(i){
+      if(i.disabled) return;
+      var bad = !i.checkValidity();
+      if(i.type==="file" && i.files[0] && i.files[0].size > MAX_MB*1024*1024){ bad = true; }
+      i.classList.toggle("invalid", bad);
+      if(bad){ ok = false; if(!first) first = i; }
+    });
+    var a = parseFloat(form.authorized_capital.value), pu = parseFloat(form.paid_up_capital.value);
+    var capBad = !isNaN(a) && !isNaN(pu) && pu > a;
+    document.getElementById("cap-err").hidden = !capBad;
+    if(capBad){ ok = false; first = first || form.paid_up_capital; }
+    var utilErr = document.getElementById("util-err");
+    if(!util.hidden){
+      var hasOther = form.gas_bill.files.length || form.water_bill.files.length;
+      utilErr.hidden = !!hasOther;
+      if(!hasOther){ ok = false; first = first || form.gas_bill; }
+    }
+    if(!ok){
+      showError("Please complete all required fields. Files must be "+MAX_MB+" MB or smaller.");
+      if(first){ first.scrollIntoView({block:"center"}); first.focus({preventScroll:true}); }
+    }
+    return ok;
+  }
+
+  form.addEventListener("input", function(e){ e.target.classList.remove("invalid"); });
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    statusEl.textContent = ""; statusEl.className = "";
+    if(!validate()) return;
+    btn.disabled = true; btn.textContent = "Uploading…";
+    statusEl.textContent = "Uploading your documents. Please keep this page open.";
+    fetch(FORM_ENDPOINT, { method:"POST", body:new FormData(form), headers:{ "Accept":"application/json" } })
+      .then(function(res){
+        return res.json().catch(function(){ return {}; }).then(function(data){
+          if(res.ok){
+            form.hidden = true; document.getElementById("success").hidden = false;
+            window.scrollTo({top:0,behavior:"smooth"});
+          } else {
+            var msg = (data.errors && data.errors.map(function(x){return x.message;}).join(", ")) || "Submission failed. Please try again.";
+            throw new Error(msg);
+          }
+        });
+      })
+      .catch(function(err){
+        showError(err.message || "Something went wrong. Please try again.");
+        btn.disabled = false; btn.textContent = "Submit documents";
+      });
+  });
+})();
+</script>
+</body>
+</html>
