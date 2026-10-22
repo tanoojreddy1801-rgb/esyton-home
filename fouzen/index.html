@@ -59,6 +59,12 @@ input[type=file]{width:100%;padding:8px;border:1px dashed var(--line);border-rad
 input[type=file]:hover{border-color:var(--gold)}
 input[type=file]::file-selector-button{margin-right:12px;padding:7px 14px;border:0;border-radius:2px;background:var(--navy);color:#fff;font-weight:700;font-size:.8rem;cursor:pointer;transition:background .2s}
 input[type=file]::file-selector-button:hover{background:var(--navy-2)}
+.check{display:flex;align-items:flex-start;gap:10px;font-weight:600;font-size:.86rem;padding:10px 14px;border:1px solid var(--line);border-radius:2px;background:#fff;cursor:pointer;transition:border-color .18s,background .18s}
+.check:hover{border-color:var(--gold)}
+.check:has(input:checked){border-color:var(--navy);background:var(--yellow-pale)}
+.check input{accent-color:var(--navy);width:auto;margin-top:4px;flex:none}
+.steps{margin:0 0 4px 20px;font-size:.88rem;color:var(--ink)}
+.steps li{margin-bottom:6px}
 .radios{display:flex;gap:10px;flex-wrap:wrap}
 .radios label{display:flex;align-items:center;gap:8px;font-weight:600;font-size:.86rem;padding:9px 16px;border:1px solid var(--line);border-radius:2px;cursor:pointer;background:#fff;transition:border-color .18s,background .18s}
 .radios label:hover{border-color:var(--gold)}
@@ -91,17 +97,17 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
 <header class="site-header"><div class="shell">
   <img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton logo" class="brand-logo">
   <h1 class="brand-name">Fouzen by Esyton</h1>
-  </div></header>
+</div></header>
 
 <section class="hero"><div class="shell">
-  <span class="kicker">Formation, Optimization & Unification for Zenith Entity Network</span>
-  <h2>Document Submission for Company Incorporation</h2>
-  <p>Please complete every field marked with an asterisk and attach the requested documents. Accepted formats: PDF, JPG or PNG.</p>
+  <span class="kicker"></span>
+  <h2>Formation, Optimization & Unification for Zenith Entity Network - Document Submission for Company Incorporation</h2>
+  <p>Create one Google Drive folder and upload all the documents listed below to it (PDF, JPG or PNG). Tick each document as you add it, then share the folder link at the end.</p>
 </div></section>
 
 <main><div class="shell">
 
-  <form id="inc-form" action="https://formspree.io/f/xkjodald" method="POST" enctype="multipart/form-data" novalidate>
+  <form id="inc-form" action="https://formspree.io/f/xkjodald" method="POST" novalidate>
     <input type="hidden" name="_subject" value="New incorporation documents submission - Fouzen by Esyton">
     <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -153,7 +159,7 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
     <!-- 4. Directors -->
     <section class="card">
       <h3>4. Directors</h3>
-      <p class="hint">For each director, attach the documents below. Bank statements must be no more than two months old.</p>
+      <p class="hint">For each director, upload the documents below to your Drive folder and tick each one. Bank statements must be no more than two months old.</p>
       <div class="field" style="max-width:260px">
         <label class="req" for="director_count">Number of directors</label>
         <input type="number" id="director_count" name="director_count" min="1" max="15" value="2" required>
@@ -176,24 +182,37 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
       </div>
 
       <div class="sub" id="own-owned" hidden>
-        <div class="field"><label class="req" for="consent_owned">Consent form signed by the owner</label><input type="file" id="consent_owned" name="consent_owned" accept=".pdf,.jpg,.jpeg,.png" required><span class="note">We will provide the consent form format.</span></div>
+        <div class="field"><label class="check"><input type="checkbox" id="consent_owned" name="consent_owned" value="Included in Drive folder" required> Consent form signed by the owner</label><span class="note">We will provide the consent form format.</span></div>
       </div>
       <div class="sub" id="own-rented" hidden>
         <div class="grid">
-          <div class="field"><label class="req" for="consent_rented">Consent form from the owner</label><input type="file" id="consent_rented" name="consent_rented" accept=".pdf,.jpg,.jpeg,.png" required></div>
-          <div class="field"><label class="req" for="rental_agreement">Rental agreement</label><input type="file" id="rental_agreement" name="rental_agreement" accept=".pdf,.jpg,.jpeg,.png" required></div>
+          <div class="field"><label class="check"><input type="checkbox" id="consent_rented" name="consent_rented" value="Included in Drive folder" required> Consent form from the owner</label></div>
+          <div class="field"><label class="check"><input type="checkbox" id="rental_agreement" name="rental_agreement" value="Included in Drive folder" required> Rental agreement</label></div>
         </div>
       </div>
 
       <div class="sub" id="utility" hidden>
         <p class="note" style="margin:0 0 12px">Utility bills must be in the owner’s name and not older than two months. The electricity bill is mandatory, plus either the gas bill or the water bill.</p>
         <div class="grid">
-          <div class="field"><label class="req" for="electricity_bill">Electricity bill</label><input type="file" id="electricity_bill" name="electricity_bill" accept=".pdf,.jpg,.jpeg,.png" required></div>
-          <div class="field"><label for="gas_bill">Gas bill</label><input type="file" id="gas_bill" name="gas_bill" accept=".pdf,.jpg,.jpeg,.png"></div>
-          <div class="field"><label for="water_bill">Water bill</label><input type="file" id="water_bill" name="water_bill" accept=".pdf,.jpg,.jpeg,.png"></div>
+          <div class="field"><label class="check"><input type="checkbox" id="electricity_bill" name="electricity_bill" value="Included in Drive folder" required> Electricity bill</label></div>
+          <div class="field"><label class="check"><input type="checkbox" id="gas_bill" name="gas_bill" value="Included in Drive folder"> Gas bill</label></div>
+          <div class="field"><label class="check"><input type="checkbox" id="water_bill" name="water_bill" value="Included in Drive folder"> Water bill</label></div>
         </div>
-        <span class="err" id="util-err" hidden>Please attach the gas bill or the water bill in addition to the electricity bill.</span>
+        <span class="err" id="util-err" hidden>Please tick the gas bill or the water bill in addition to the electricity bill.</span>
       </div>
+    </section>
+
+    <!-- 6. Drive -->
+    <section class="card">
+      <h3>6. Share your documents via Google Drive</h3>
+      <p class="hint">Put every document you ticked above in a single Google Drive folder and share the folder link here.</p>
+      <ol class="steps">
+        <li>Create a folder in Google Drive and upload all the documents. Name the files clearly, for example <em>Director1_PAN.pdf</em>.</li>
+        <li>Right-click the folder, choose Share, and add <strong>connect@esyton.com</strong> as a viewer. Alternatively set general access to “Anyone with the link” as Viewer.</li>
+        <li>Copy the folder link and paste it below.</li>
+      </ol>
+      <div class="field" style="margin-top:16px"><label class="req" for="drive_link">Google Drive folder link</label><input type="url" id="drive_link" name="drive_link" placeholder="https://drive.google.com/drive/folders/…" pattern="https://(drive|docs)\.google\.com/.+" title="Please paste a Google Drive link" required></div>
+      <div class="field" style="margin-top:14px"><label class="check"><input type="checkbox" id="drive_confirm" name="drive_confirm" value="Yes" required> I confirm the folder is shared as described and contains every document I have ticked.</label></div>
     </section>
 
     <button class="btn" type="submit" id="submit-btn">Submit documents</button>
@@ -212,7 +231,6 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
 <script>
 (function(){
   var FORM_ENDPOINT = "https://formspree.io/f/xkjodald";
-  var MAX_MB = 10; // per file; confirm against your Formspree plan limits
   var form = document.getElementById("inc-form");
   var statusEl = document.getElementById("status");
   var btn = document.getElementById("submit-btn");
@@ -226,8 +244,7 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
       if(!show){ i.classList.remove("invalid"); }
     });
   }
-  function accept(name){ return ".pdf,.jpg,.jpeg,.png"; }
-
+  
   /* Name reservation */
   var nameYes = document.getElementById("name-yes"), nameNo = document.getElementById("name-no");
   toggle(nameYes,false); toggle(nameNo,false);
@@ -253,7 +270,7 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
   var dirWrap = document.getElementById("directors");
   var dirCount = document.getElementById("director_count");
   function fileField(id,label,note){
-    return '<div class="field"><label class="req" for="'+id+'">'+label+'</label><input type="file" id="'+id+'" name="'+id+'" accept=".pdf,.jpg,.jpeg,.png" required>'+(note?'<span class="note">'+note+'</span>':'')+'</div>';
+    return '<div class="field"><label class="check"><input type="checkbox" id="'+id+'" name="'+id+'" value="Included in Drive folder" required> '+label+'</label>'+(note?'<span class="note">'+note+'</span>':'')+'</div>';
   }
   function directorHTML(n){
     var p = "director_"+n+"_";
@@ -270,8 +287,8 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
       '<div class="field full"><span class="legend req">Does this director hold a passport?</span><div class="radios">'+
         '<label><input type="radio" name="'+p+'has_passport" value="Yes" required> Yes</label>'+
         '<label><input type="radio" name="'+p+'has_passport" value="No"> No</label></div></div>'+
-      '<div class="field pp-yes full" hidden><label class="req" for="'+p+'passport">Passport</label><input type="file" id="'+p+'passport" name="'+p+'passport" accept=".pdf,.jpg,.jpeg,.png" disabled required></div>'+
-      '<div class="field pp-no full" hidden><label class="req" for="'+p+'declaration">Signed declaration of no passport</label><input type="file" id="'+p+'declaration" name="'+p+'declaration" accept=".pdf,.jpg,.jpeg,.png" disabled required><span class="note">A declaration is mandatory if you do not hold a passport. We will provide the format.</span></div>'+
+      '<div class="field pp-yes full" hidden><label class="check"><input type="checkbox" id="'+p+'passport" name="'+p+'passport" value="Included in Drive folder" disabled required> Passport</label></div>'+
+      '<div class="field pp-no full" hidden><label class="check"><input type="checkbox" id="'+p+'declaration" name="'+p+'declaration" value="Included in Drive folder" disabled required> Signed declaration of no passport</label><span class="note">A declaration is mandatory if you do not hold a passport. We will provide the format.</span></div>'+
       '</div></div>';
   }
   function wireDirector(el){
@@ -306,7 +323,6 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
     form.querySelectorAll("input,textarea,select").forEach(function(i){
       if(i.disabled) return;
       var bad = !i.checkValidity();
-      if(i.type==="file" && i.files[0] && i.files[0].size > MAX_MB*1024*1024){ bad = true; }
       i.classList.toggle("invalid", bad);
       if(bad){ ok = false; if(!first) first = i; }
     });
@@ -316,12 +332,12 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
     if(capBad){ ok = false; first = first || form.paid_up_capital; }
     var utilErr = document.getElementById("util-err");
     if(!util.hidden){
-      var hasOther = form.gas_bill.files.length || form.water_bill.files.length;
+      var hasOther = form.gas_bill.checked || form.water_bill.checked;
       utilErr.hidden = !!hasOther;
       if(!hasOther){ ok = false; first = first || form.gas_bill; }
     }
     if(!ok){
-      showError("Please complete all required fields. Files must be "+MAX_MB+" MB or smaller.");
+      showError("Please complete all required fields and tick every document you have placed in your Drive folder.");
       if(first){ first.scrollIntoView({block:"center"}); first.focus({preventScroll:true}); }
     }
     return ok;
@@ -333,8 +349,8 @@ input[type=file]::file-selector-button:hover{background:var(--navy-2)}
     e.preventDefault();
     statusEl.textContent = ""; statusEl.className = "";
     if(!validate()) return;
-    btn.disabled = true; btn.textContent = "Uploading…";
-    statusEl.textContent = "Uploading your documents. Please keep this page open.";
+    btn.disabled = true; btn.textContent = "Submitting…";
+    statusEl.textContent = "Submitting your details. Please keep this page open.";
     fetch(FORM_ENDPOINT, { method:"POST", body:new FormData(form), headers:{ "Accept":"application/json" } })
       .then(function(res){
         return res.json().catch(function(){ return {}; }).then(function(data){
