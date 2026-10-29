@@ -150,20 +150,20 @@ tr.total td{background:var(--yellow-pale);font-weight:800;color:var(--navy);bord
   <div class="shell hero-grid">
     <div>
       <h1>Service Delivery <span>Trajectory at Esyton</span></h1>
-      <p>Follow Whiper along the road from the day you join us to the day your work is delivered. See what it could save you, then pick your service line to view its roadmap.</p>
+      <p>Follow BluGo along the road from the day you join us to the day your work is delivered. See what it could save you, then pick your service line to view its roadmap.</p>
       <a href="#advantage" class="btn btn-gold">Why outsource to Esyton &darr;</a>
       <a href="#selector" class="btn btn-line">Go straight to the roadmap</a>
     </div>
-    <div class="mascot-stage"><div class="ring"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/BluGo.jpg" alt="Whiper, the Esyton mascot"></div></div>
+    <div class="mascot-stage"><div class="ring"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/BluGo.jpg" alt="BluGo, the Esyton mascot"></div></div>
   </div>
 </section>
 
 <!-- ADVANTAGE BUBBLE -->
 <section class="section-alt" id="advantage">
   <div class="shell bubble-wrap">
-    <div class="bubble-mascot"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/BluGo.jpg" alt="Whiper"></div>
+    <div class="bubble-mascot"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/BluGo.jpg" alt="BluGo"></div>
     <div class="bubble">
-      <span class="kicker">Whiper says</span>
+      <span class="kicker">BluGo says</span>
       <h2>In-house Accountant vs. Outsourcing to Esyton Insights LLP</h2>
       <p class="sub">Figures are in ₹ per month and are indicative. They assume a mid-range salary and standard Indian employer obligations.</p>
 
@@ -222,7 +222,7 @@ tr.total td{background:var(--yellow-pale);font-weight:800;color:var(--navy);bord
     <div class="selector">
       <span class="kicker">Your Journey</span>
       <h2>Choose a service line</h2>
-      <p>Pick one to see how Whiper guides your work from onboarding to delivery.</p>
+      <p>Pick one to see how BluGo guides your work from onboarding to delivery.</p>
       <div class="select-wrap">
         <label for="svc">Service line</label>
         <select id="svc">
@@ -238,7 +238,7 @@ tr.total td{background:var(--yellow-pale);font-weight:800;color:var(--navy);bord
     <div id="roadmap" aria-live="polite">
       <div class="rm-head"><span class="kicker" id="rmKicker"></span><h3 id="rmTitle"></h3><p id="rmIntro"></p></div>
       <div class="track" id="track">
-        <div class="walker" id="walker"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/BluGo.jpg" alt="Whiper walking the roadmap"></div>
+        <div class="walker" id="walker"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/BluGo.jpg" alt="BluGo walking the roadmap"></div>
         <div id="steps"></div>
       </div>
       <div class="rm-cta"><a href="/#query" class="btn">Start your journey with Esyton &rarr;</a></div>
@@ -252,7 +252,7 @@ tr.total td{background:var(--yellow-pale);font-weight:800;color:var(--navy);bord
 <script>
 const LINES = {
   A:{name:'Accounting and Annual Accounts',intro:'From first hello to finalised books and reports, here is how accounts travel through Esyton.',
-    start:{t:'Welcome aboard',d:'Whiper greets you and the journey begins.'},
+    start:{t:'Welcome aboard',d:'BluGo greets you and the journey begins.'},
     steps:[
       ['Onboarding','We set up your engagement, access channels and points of contact.'],
       ['Understanding the client','We learn your business, transactions, systems and reporting needs.'],
@@ -263,7 +263,7 @@ const LINES = {
       ['Generation of reports','Bank reconciliation, ageing analysis and other necessary records are generated.']],
     end:{t:'Delivery of work',d:'Finalised accounts and supporting reports reach you.'}},
   B:{name:'Monthly Tax: TDS',intro:'Every deduction identified, deposited, reported and certified, month after month.',
-    start:{t:'Welcome aboard',d:'Whiper greets you and the journey begins.'},
+    start:{t:'Welcome aboard',d:'BluGo greets you and the journey begins.'},
     steps:[
       ['Party identification and relationship analysis','We identify each party and analyse their relationship with you.'],
       ['Nature of payment','We check the nature of each payment to see whether TDS provisions apply.'],
@@ -272,7 +272,7 @@ const LINES = {
       ['TDS certificates','Certificates are issued to the parties against whose PAN the TDS has been deposited.']],
     end:{t:'Delivery of work',d:'Deposits made, returns filed and certificates delivered.'}},
   C:{name:'Monthly Tax: GST',intro:'From transaction-level applicability to annual returns, here is the GST road.',
-    start:{t:'Welcome aboard',d:'Whiper greets you and the journey begins.'},
+    start:{t:'Welcome aboard',d:'BluGo greets you and the journey begins.'},
     steps:[
       ['Transaction-specific GST applicability','We identify how GST applies to each type of transaction.'],
       ['Monthly compliances','Monthly compliances are completed through GST returns.'],
@@ -281,7 +281,7 @@ const LINES = {
       ['Annual compliances','Annual compliances such as GSTR-9 and GSTR-9C are completed.']],
     end:{t:'Delivery of work',d:'Returns, reconciliations and annual filings are delivered.'}},
   D:{name:'Payroll',intro:'Salaries, statutory remittances and labour-law compliance, handled end to end.',
-    start:{t:'Welcome aboard',d:'Whiper greets you and the journey begins.'},
+    start:{t:'Welcome aboard',d:'BluGo greets you and the journey begins.'},
     steps:[
       ['Salary records and statutory compliances','Salary records are properly maintained along with other statutory compliances.'],
       ['Remittance to government fund accounts','Payments are remitted periodically and properly recorded in your books.'],
@@ -313,7 +313,7 @@ function render(key){
   rm.scrollIntoView({behavior:'smooth',block:'start'});
 }
 sel.addEventListener('change',()=>render(sel.value));
-// Whiper follows the reader down the roadmap
+// BluGo follows the reader down the roadmap
 let tick=false;
 addEventListener('scroll',()=>{
   if(tick||!rm.classList.contains('show'))return;
@@ -327,7 +327,7 @@ addEventListener('scroll',()=>{
 },{passive:true});
 addEventListener('resize',()=>moveTo(box.querySelector('.step.active')));
 // Fallback if the mascot image fails to load
-document.querySelectorAll('img[alt*="Whiper"]').forEach(i=>i.addEventListener('error',()=>{i.style.display='none';i.parentElement.style.background='var(--yellow)';}));
+document.querySelectorAll('img[alt*="BluGo"]').forEach(i=>i.addEventListener('error',()=>{i.style.display='none';i.parentElement.style.background='var(--yellow)';}));
 </script>
 </body>
 </html>
