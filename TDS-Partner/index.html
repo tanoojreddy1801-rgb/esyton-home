@@ -129,7 +129,19 @@ function showDashboard(p,u){
  $('profileName').textContent=p.name||'—';$('profileType').textContent=p.type||'—';$('profileEmail').textContent=u.email||'—';$('profilePhone').textContent=p.phone||'—';$('profileCity').textContent=p.city||'—';$('profileCode').textContent=p.referralCode||'—';
  renderPartnerReferrals(u.uid);window.scrollTo({top:0,behavior:'smooth'});
 }
-function friendlyError(e){const m={'auth/email-already-in-use':'An account with this email already exists. Please sign in.','auth/invalid-email':'Please enter a valid email address.','auth/weak-password':'Password must contain at least 8 characters.','auth/invalid-credential':'Email or password is incorrect.','auth/too-many-requests':'Too many attempts. Please try again later.'};return m[e.code]||e.message||'Something went wrong.';}
+function friendlyError(e){
+ const messages={
+  'auth/email-already-in-use':'An account with this email already exists. Please sign in.',
+  'auth/invalid-email':'Please enter a valid email address.',
+  'auth/weak-password':'Password must contain at least 8 characters.',
+  'auth/invalid-credential':'Email or password is incorrect.',
+  'auth/too-many-requests':'Too many attempts. Please try again later.',
+  'auth/unauthorized-domain':'This website is not authorized in Firebase Authentication. Add esyton.com under Authentication → Settings → Authorized domains.',
+  'auth/operation-not-allowed':'Email/Password sign-in is disabled. Enable it under Firebase Authentication → Sign-in method.',
+  'auth/network-request-failed':'Network request failed. Check your internet connection.'
+ };
+ return messages[e.code]||((e.code?e.code+': ':'')+(e.message||'Something went wrong.'));
+}
 async function register(e){
  e.preventDefault();clearAlert('regAlert');
  const data={name:$('regName').value.trim(),type:$('regType').value,email:$('regEmail').value.trim().toLowerCase(),phone:$('regPhone').value.trim(),business:$('regBusiness').value.trim(),city:$('regCity').value.trim()};
@@ -164,10 +176,28 @@ async function submitReferral(e){
 async function onUser(u){
  if(!u){showPublic();return;}
  try{
-  const p=await getDoc(doc(db,'partners',u.uid));if(!p.exists()){await signOut(auth);showPublic();return;}
-  const role=await getDoc(doc(db,'roles',u.email.toLowerCase()));const admin=role.exists()&&role.data().role==='admin'&&role.data().active===true;
-  showDashboard(p.data(),u);if(admin){$('adminWorkspace').classList.remove('hidden');await loadAdminReferrals();}
- }catch(e){console.error(e);showPublic();alertBox('loginAlert','Could not load account. Verify Firebase setup and Firestore rules.');}
+  // Check roles/{lowercase-email} first. Admin accounts created directly
+  // in Firebase Authentication do not need a partners/{uid} profile.
+  const role=await getDoc(doc(db,'roles',u.email.toLowerCase()));
+  const admin=role.exists() && role.data().role==='admin' && role.data().active===true;
+  const p=await getDoc(doc(db,'partners',u.uid));
+  if(!p.exists() && !admin){
+    await signOut(auth);showPublic();
+    alertBox('loginAlert','This account has no partner profile. Please register through the partner registration form first.');
+    return;
+  }
+  const profile=p.exists()?p.data():{name:'Administrator',type:'Administrator',phone:'—',city:'—',referralCode:'Admin'};
+  showDashboard(profile,u);
+  if(admin){$('adminWorkspace').classList.remove('hidden');await loadAdminReferrals();}
+ }catch(e){
+  console.error('Partner portal account loading failed:',e);
+  const msg=e.code==='permission-denied'
+    ? 'Signed in, but Firestore denied access. Check the roles document ID and confirm the merged rules are published.'
+    : e.code==='auth/unauthorized-domain'
+      ? 'This website domain is not authorized in Firebase Authentication. Add esyton.com under Authentication → Settings → Authorized domains.'
+      : 'Could not load your account: '+(e.message||e.code||'Unknown error');
+  showPublic();alertBox('loginAlert',msg);
+ }
 }
 async function loadAdminReferrals(){
  const u=auth.currentUser;if(!u)return;
