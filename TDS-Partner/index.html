@@ -88,7 +88,7 @@ footer{padding:50px 0 28px;background:#fff;border-top:1px solid var(--rule)}.foo
 </div>
 <div class="dash-layout">
 <div class="panel"><div class="panel-head"><h2>Your referrals</h2><button class="btn outline" style="padding:8px 13px" onclick="openReferral()">＋ New referral</button></div>
-<div class="table-wrap"><table><thead><tr><th>Property area</th><th>Approx. value</th><th>Date</th><th>Status</th><th>Commission</th></tr></thead><tbody id="referralRows"></tbody></table></div><div class="empty hidden" id="noRefs">You haven't submitted any referrals yet. Add your first property referral to get started.</div></div>
+<div class="table-wrap"><table><thead><tr><th>Customer name</th><th>Property area</th><th>Approx. value</th><th>Date</th><th>Status</th><th>Commission</th></tr></thead><tbody id="referralRows"></tbody></table></div><div class="empty hidden" id="noRefs">You haven't submitted any referrals yet. Add your first property referral to get started.</div></div>
 <div class="panel"><div class="panel-head"><h2>Partner profile</h2></div>
 <div class="profile-line"><span>Name</span><strong id="profileName">—</strong></div><div class="profile-line"><span>Partner type</span><strong id="profileType">—</strong></div><div class="profile-line"><span>Email</span><strong id="profileEmail">—</strong></div><div class="profile-line"><span>Mobile</span><strong id="profilePhone">—</strong></div><div class="profile-line"><span>City</span><strong id="profileCity">—</strong></div><div class="profile-line"><span>Referral code</span><strong id="profileCode">—</strong></div>
 <div class="commission-box"><strong>10%</strong><span>Professional fees, with a minimum commission of ₹1,500 for each successfully completed referral.</span></div>
@@ -97,8 +97,9 @@ footer{padding:50px 0 28px;background:#fff;border-top:1px solid var(--rule)}.foo
 </div>
 </div></main>
 
-<div class="modal-backdrop" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="refTitle"><div class="modal"><button class="close" onclick="closeReferral()" aria-label="Close">×</button><h2 id="refTitle">Submit a referral</h2><p>Share the property details. Do not enter customer names or contact details.</p><div class="alert" id="refAlert"></div>
+<div class="modal-backdrop" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="refTitle"><div class="modal"><button class="close" onclick="closeReferral()" aria-label="Close">×</button><h2 id="refTitle">Submit a referral</h2><p>Enter the customer’s name and property details. Customer mobile number and email address are not required.</p><div class="alert" id="refAlert"></div>
 <form id="referralForm"><div class="referral-form">
+<div class="field full"><label for="customerName">Customer name *</label><input id="customerName" required maxlength="120" autocomplete="off" placeholder="Enter customer name"></div>
 <div class="field full"><label for="propertyArea">Property area / location *</label><input id="propertyArea" required maxlength="180" placeholder="Area, locality or city"></div>
 <div class="field full"><label for="propertyValue">Approx. property value (₹)</label><input id="propertyValue" type="number" min="0" step="1" placeholder="e.g. 7500000"></div>
 <button class="btn gold" type="submit">Submit referral →</button>
@@ -107,7 +108,7 @@ footer{padding:50px 0 28px;background:#fff;border-top:1px solid var(--rule)}.foo
 <section id="adminWorkspace" class="hidden" style="padding:28px 0 70px"><div class="wrap">
 <div class="dash-head"><div><div class="eyebrow">Administration</div><h1>Referral management</h1><p>Review partner referrals and update completion and commission details.</p></div></div>
 <div class="panel"><div class="panel-head"><h2>All referrals</h2><button class="btn outline" onclick="loadAdminReferrals()">Refresh</button></div>
-<div class="table-wrap"><table style="min-width:900px"><thead><tr><th>Referral ID</th><th>Partner</th><th>Property area</th><th>Approx. value</th><th>Status</th><th>Professional fee</th><th>Commission</th><th>Payment</th><th>Update</th></tr></thead><tbody id="adminReferralRows"></tbody></table></div>
+<div class="table-wrap"><table style="min-width:900px"><thead><tr><th>Referral ID</th><th>Partner</th><th>Customer name</th><th>Property area</th><th>Approx. value</th><th>Status</th><th>Professional fee</th><th>Commission</th><th>Payment</th><th>Update</th></tr></thead><tbody id="adminReferralRows"></tbody></table></div>
 <div class="empty hidden" id="adminNoRefs">No referrals have been submitted yet.</div></div></div></section>\n<footer><div class="wrap"><div class="foot-top"><a class="brand" href="https://esyton.com"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton logo"><span>esyton<small>INSIGHTS LLP</small></span></a><div class="foot-links"><a href="https://esyton.com/TDS/">TDS service information</a><a href="https://esyton.com">Esyton website</a><a href="mailto:connect@esyton.com">Contact</a></div></div><div class="foot-bottom">© <span id="year"></span> Esyton Insights LLP. All rights reserved. &nbsp;|&nbsp; Partner referral programme.</div></div></footer>
 
 <script type="module">
@@ -161,16 +162,17 @@ async function renderPartnerReferrals(uid){
   $('earned').textContent=money(refs.filter(r=>r.paymentStatus==='Paid').reduce((s,r)=>s+Number(r.commission||0),0));
   $('pending').textContent=money(refs.filter(r=>r.paymentStatus!=='Paid').reduce((s,r)=>s+Number(r.commission||0),0));
   $('referralRows').innerHTML='';$('noRefs').classList.toggle('hidden',refs.length>0);
-  refs.forEach(r=>{const tr=document.createElement('tr');[r.propertyArea||'—',r.approximateValue?money(r.approximateValue):'—',formatDate(r.createdAt),r.status||'Submitted',money(r.commission)].forEach((v,i)=>{const td=document.createElement('td');if(i===3){const b=document.createElement('span');b.className='status '+(v==='Completed'?'completed':v==='In progress'?'review':'');b.textContent=v;td.appendChild(b);}else td.textContent=v;tr.appendChild(td);});$('referralRows').appendChild(tr);});
+  refs.forEach(r=>{const tr=document.createElement('tr');[r.customerName||'—',r.propertyArea||'—',r.approximateValue?money(r.approximateValue):'—',formatDate(r.createdAt),r.status||'Submitted',money(r.commission)].forEach((v,i)=>{const td=document.createElement('td');if(i===4){const b=document.createElement('span');b.className='status '+(v==='Completed'?'completed':v==='In progress'?'review':'');b.textContent=v;td.appendChild(b);}else td.textContent=v;tr.appendChild(td);});$('referralRows').appendChild(tr);});
  }catch(e){console.error(e);alertBox('loginAlert','Unable to load referrals. Check Firestore configuration and rules.');}
 }
 function openReferral(){clearAlert('refAlert');$('referralForm').reset();$('referralModal').classList.add('show');}
 function closeReferral(){$('referralModal').classList.remove('show');}
 async function submitReferral(e){
  e.preventDefault();clearAlert('refAlert');const u=auth.currentUser;if(!u)return;
- const area=$('propertyArea').value.trim(),v=$('propertyValue').value;
+ const customerName=$('customerName').value.trim(),area=$('propertyArea').value.trim(),v=$('propertyValue').value;
+ if(!customerName){alertBox('refAlert','Please enter the customer name.');return;}
  if(!area){alertBox('refAlert','Please enter the property area or location.');return;}
- try{const r=doc(collection(db,'partnerReferrals'));await setDoc(r,{partnerUid:u.uid,propertyArea:area,approximateValue:v?Number(v):null,status:'Submitted',professionalFee:0,commission:0,paymentStatus:'Not payable',referralCode:'ESY-'+r.id.slice(0,8).toUpperCase(),createdAt:serverTimestamp(),updatedAt:serverTimestamp()});closeReferral();await renderPartnerReferrals(u.uid);}
+ try{const r=doc(collection(db,'partnerReferrals'));await setDoc(r,{partnerUid:u.uid,customerName,propertyArea:area,approximateValue:v?Number(v):null,status:'Submitted',professionalFee:0,commission:0,paymentStatus:'Not payable',referralCode:'ESY-'+r.id.slice(0,8).toUpperCase(),createdAt:serverTimestamp(),updatedAt:serverTimestamp()});closeReferral();await renderPartnerReferrals(u.uid);}
  catch(e){alertBox('refAlert',friendlyError(e));}
 }
 async function onUser(u){
@@ -208,7 +210,7 @@ async function loadAdminReferrals(){
   for(const d of snap.docs){
    const r=d.data(),ps=await getDoc(doc(db,'partners',r.partnerUid)),p=ps.exists()?ps.data():{};
    const tr=document.createElement('tr');
-   [d.id,p.name||r.partnerUid,r.propertyArea||'—',r.approximateValue?money(r.approximateValue):'—'].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});
+   [d.id,p.name||r.partnerUid,r.customerName||'—',r.propertyArea||'—',r.approximateValue?money(r.approximateValue):'—'].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});
    const st=document.createElement('select');['Submitted','In progress','Completed','Rejected'].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;st.appendChild(o);});st.value=r.status||'Submitted';let td=document.createElement('td');td.appendChild(st);tr.appendChild(td);
    const fee=document.createElement('input');fee.type='number';fee.min='0';fee.value=r.professionalFee||0;fee.style.width='100px';td=document.createElement('td');td.appendChild(fee);tr.appendChild(td);
    const commission=document.createElement('input');commission.type='number';commission.min='0';commission.value=r.commission||0;commission.style.width='100px';td=document.createElement('td');td.appendChild(commission);tr.appendChild(td);
