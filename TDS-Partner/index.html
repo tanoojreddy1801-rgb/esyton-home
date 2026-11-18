@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f2a4a">
+<title>Esyton Partner Programme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f2a4a;--navy-deep:#081729;--navy-soft:#3c5978;--gold:#b8863c;--gold-dark:#966822;--paper:#fff;--tint:#f8f9fa;--ink:#1b2733;--soft:#65717d;--rule:#e4e1d8;--green:#287a55;--red:#b84b4b;--r:14px;--shadow:0 18px 55px rgba(15,42,74,.08);color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 'Albert Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Bricolage Grotesque','Albert Sans',sans-serif;line-height:1.08;letter-spacing:-.025em;color:var(--navy);margin:0}button,input,select,textarea{font:inherit}button,a{-webkit-tap-highlight-color:transparent}a{color:inherit}.hidden{display:none!important}
+.wrap{width:min(1180px,calc(100% - 40px));margin:auto}.topbar{height:72px;border-bottom:1px solid var(--rule);display:flex;align-items:center;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);position:sticky;top:0;z-index:20}.topinner{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--navy);font-weight:700;letter-spacing:.2em;text-transform:lowercase}.brand img{height:36px;width:36px;object-fit:cover;border-radius:50%}.brand small{display:block;font-size:9px;letter-spacing:.15em;color:var(--gold);font-weight:700;margin-top:-3px}.nav-actions{display:flex;align-items:center;gap:10px}.btn{border:1px solid transparent;border-radius:999px;padding:12px 20px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-size:13px;font-weight:700;cursor:pointer;transition:.2s}.btn.gold{background:var(--gold);color:#fff}.btn.gold:hover{background:var(--gold-dark);transform:translateY(-1px)}.btn.outline{border-color:var(--navy);color:var(--navy);background:#fff}.btn.outline:hover{background:var(--navy);color:#fff}.btn.light{background:#fff;color:var(--navy)}.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.hero{padding:78px 0 72px;background:linear-gradient(135deg,#fff 0%,#fbfaf7 100%);border-bottom:1px solid var(--rule);overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #eadfcf;border-radius:50%;right:-120px;top:-170px;box-shadow:0 0 0 45px rgba(184,134,60,.035),0 0 0 90px rgba(184,134,60,.025)}.eyebrow{display:flex;align-items:center;gap:10px;color:var(--gold-dark);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:22px}.eyebrow:before{content:"";width:28px;height:1px;background:var(--gold)}.hero h1{font-size:clamp(42px,6.5vw,76px);max-width:760px}.hero h1 em{font-style:normal;color:var(--gold)}.hero p{max-width:610px;color:var(--soft);font-size:17px;margin:22px 0 28px}.hero-actions{display:flex;gap:11px;flex-wrap:wrap}.hero-note{margin-top:30px;font-size:12px;color:var(--soft)}.hero-note strong{color:var(--navy)}
+section{padding:76px 0}.section-head{max-width:680px;margin-bottom:32px}.section-head h2{font-size:clamp(30px,4vw,44px)}.section-head p{color:var(--soft);margin-top:12px}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.benefit,.panel,.auth-card,.stat{background:var(--tint);border:1px solid var(--rule);border-radius:var(--r)}.benefit{padding:26px}.ico{width:42px;height:42px;display:grid;place-items:center;background:#f3eadb;color:var(--gold-dark);border-radius:12px;font-size:19px;margin-bottom:22px}.benefit h3{font-size:20px;margin-bottom:9px}.benefit p{color:var(--soft);font-size:14px;margin:0}
+.commission{background:var(--navy);color:#fff;border-radius:24px;padding:34px;display:flex;justify-content:space-between;align-items:center;gap:25px}.commission h2{color:#fff;font-size:clamp(25px,4vw,38px)}.commission p{color:#c7d2df;margin-top:10px;max-width:570px}.commission .amount{font:700 clamp(38px,5vw,58px)/1 'Bricolage Grotesque';color:#e0b66f;white-space:nowrap}.commission .amount small{display:block;font:500 12px 'Albert Sans';color:#d6dfeb;margin-top:9px;text-align:right}
+.auth-section{background:#fbfaf7}.auth-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.auth-card{padding:30px;background:#fff;box-shadow:var(--shadow)}.auth-card h2{font-size:28px}.auth-card>p{color:var(--soft);margin:9px 0 22px;font-size:14px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:700;color:var(--navy)}.field input,.field select,.field textarea{width:100%;border:1px solid #d9dee4;border-radius:9px;padding:12px 13px;background:#fff;color:var(--ink);outline:none;min-height:46px}.field textarea{min-height:88px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,134,60,.12)}.hint{font-size:11px;color:var(--soft)}.form-submit{margin-top:18px;width:100%}.switch{font-size:12px;color:var(--soft);margin-top:15px;text-align:center}.switch a{color:var(--gold-dark);font-weight:700;cursor:pointer}.alert{display:none;padding:11px 13px;border-radius:9px;font-size:12px;margin:0 0 14px}.alert.show{display:block}.alert.error{background:#fff0f0;color:var(--red);border:1px solid #f0cccc}.alert.success{background:#edf8f1;color:var(--green);border:1px solid #cce8d5}
+footer{padding:50px 0 28px;background:#fff;border-top:1px solid var(--rule)}.foot-top{display:flex;align-items:center;justify-content:space-between;gap:20px}.foot-links{display:flex;gap:18px;flex-wrap:wrap}.foot-links a{font-size:12px;color:var(--soft);text-decoration:none}.foot-bottom{border-top:1px solid var(--rule);margin-top:28px;padding-top:20px;color:var(--soft);font-size:11px}
+.dashboard{padding:38px 0 80px;background:#f7f8fa;min-height:calc(100vh - 72px)}.dash-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:26px}.dash-head h1{font-size:36px}.dash-head p{color:var(--soft);margin-top:7px}.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:22px}.stat{padding:20px;background:#fff}.stat span{font-size:12px;color:var(--soft)}.stat strong{display:block;font:700 31px 'Bricolage Grotesque';color:var(--navy);margin-top:7px}.dash-layout{display:grid;grid-template-columns:1.5fr .8fr;gap:18px}.panel{padding:23px;background:#fff}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.panel-head h2{font-size:21px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:520px}th,td{text-align:left;padding:13px 10px;border-bottom:1px solid #edf0f2;font-size:12px}th{color:var(--soft);font-weight:700}td{color:var(--ink)}.status{display:inline-block;padding:5px 9px;border-radius:20px;background:#f5f0e7;color:#89642c;font-size:10px;font-weight:700}.status.completed{background:#eaf6ee;color:#287a55}.status.review{background:#eef3fa;color:#3c5978}.empty{text-align:center;padding:28px;color:var(--soft);font-size:13px}.profile-line{padding:13px 0;border-bottom:1px solid #edf0f2;display:flex;justify-content:space-between;gap:10px;font-size:12px}.profile-line span{color:var(--soft)}.profile-line strong{text-align:right;color:var(--navy)}.referral-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.referral-form .field.full{grid-column:1/-1}.referral-form .btn{grid-column:1/-1}.commission-box{background:#fcf7ee;border:1px solid #eadfcf;border-radius:12px;padding:17px;margin-top:16px}.commission-box strong{font:700 27px 'Bricolage Grotesque';color:var(--gold-dark);display:block}.commission-box span{font-size:11px;color:var(--soft)}
+.modal-backdrop{position:fixed;inset:0;background:rgba(8,23,41,.55);z-index:60;display:none;align-items:center;justify-content:center;padding:20px}.modal-backdrop.show{display:flex}.modal{background:#fff;border-radius:18px;padding:26px;width:min(520px,100%);max-height:90vh;overflow:auto;box-shadow:var(--shadow)}.modal h2{font-size:25px;margin-bottom:8px}.modal>p{font-size:13px;color:var(--soft);margin-bottom:18px}.close{float:right;border:0;background:#f1f3f5;border-radius:50%;height:32px;width:32px;cursor:pointer;font-size:18px}
+@media(max-width:850px){.benefits{grid-template-columns:1fr 1fr}.dash-grid{grid-template-columns:1fr 1fr}.dash-layout{grid-template-columns:1fr}.commission{align-items:flex-start;flex-direction:column}.commission .amount small{text-align:left}.auth-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{width:min(100% - 28px,1180px)}.topbar{height:62px}.brand img{height:32px;width:32px}.nav-actions .btn{padding:10px 14px;font-size:11px}.hero{padding:58px 0}.hero p{font-size:15px}.benefits{grid-template-columns:1fr}.benefit{padding:22px}.commission{padding:25px}.auth-card{padding:22px}.form-grid,.referral-form{grid-template-columns:1fr}.field.full,.referral-form .field.full{grid-column:auto}.dash-head{flex-direction:column}.dash-head h1{font-size:30px}.dash-grid{gap:9px}.stat{padding:15px}.stat strong{font-size:25px}.foot-top{align-items:flex-start;flex-direction:column}section{padding:58px 0}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap topinner">
+<a class="brand" href="#home"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton logo"><span>esyton<small>PARTNER PROGRAMME</small></span></a>
+<div class="nav-actions" id="publicNav"><a class="btn outline" href="#how-it-works">How it works</a><a class="btn gold" href="#join">Become a partner</a></div>
+<div class="nav-actions hidden" id="userNav"><span id="navName" style="font-size:12px;color:var(--navy);font-weight:700"></span><button class="btn outline" onclick="logout()">Log out</button></div>
+</div></header>
+
+<main id="publicView">
+<div id="home" class="hero"><div class="wrap">
+<div class="eyebrow">A referral programme by Esyton Insights LLP</div>
+<h1>Good connections.<br><em>Meaningful rewards.</em></h1>
+<p>Turn your property network into an additional source of income. Refer buyers who need property TDS compliance to Esyton. Our team takes care of the coordination, documentation and filing process.</p>
+<div class="hero-actions"><a class="btn gold" href="#join">Join the partner programme <span>→</span></a><a class="btn outline" href="#how-it-works">Understand the programme</a></div>
+<div class="hero-note"><strong>Simple participation.</strong> No complicated verification process. Register with your basic details and get started.</div>
+</div></div>
+
+<section id="how-it-works"><div class="wrap">
+<div class="section-head"><div class="eyebrow">How it works</div><h2>Your network. Our expertise. Shared growth.</h2><p>Whether you are a property consultant, real estate agent, company or document writer, you can refer customers who require TDS compliance support.</p></div>
+<div class="benefits">
+<div class="benefit"><div class="ico">01</div><h3>Register once</h3><p>Create your partner account using your name, contact details and a password. No lengthy onboarding process.</p></div>
+<div class="benefit"><div class="ico">02</div><h3>Refer a customer</h3><p>Submit the customer's basic details through your partner dashboard. Esyton will coordinate directly with them.</p></div>
+<div class="benefit"><div class="ico">03</div><h3>Earn commission</h3><p>Track referral progress and commission. Eligible commission is payable after successful completion of the work.</p></div>
+</div>
+<div class="commission" style="margin-top:18px"><div><div class="eyebrow" style="color:#e0b66f">Partner commission</div><h2>Earn on every successful referral.</h2><p>For each successfully completed referral, receive 10% of Esyton's professional fees, subject to a minimum commission of ₹1,500 per referral.</p></div><div class="amount">10%<small>Minimum ₹1,500 per completed referral</small></div></div>
+</div></section>
+
+<section id="join" class="auth-section"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Get started</div><h2>Become an Esyton partner.</h2><p>Register your details or sign in to your existing partner account.</p></div>
+<div class="auth-grid">
+<div class="auth-card" id="registerCard"><h2>Create your account</h2><p>Join the Esyton partner network in a few simple steps.</p><div class="alert" id="regAlert"></div>
+<form id="registerForm">
+<div class="form-grid">
+<div class="field"><label for="regName">Full name *</label><input id="regName" required maxlength="100" placeholder="Your full name"></div>
+<div class="field"><label for="regType">Partner type *</label><select id="regType" required><option value="">Select type</option><option>Property Consultant</option><option>Real Estate Agent</option><option>Real Estate Company</option><option>Document Writer</option><option>Other</option></select></div>
+<div class="field"><label for="regEmail">Email address *</label><input id="regEmail" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+<div class="field"><label for="regPhone">Mobile number *</label><input id="regPhone" type="tel" required pattern="[0-9+() -]{8,18}" placeholder="+91 98765 43210"></div>
+<div class="field full"><label for="regBusiness">Business / organisation name</label><input id="regBusiness" maxlength="120" placeholder="Optional"></div>
+<div class="field"><label for="regCity">City *</label><input id="regCity" required maxlength="80" placeholder="Your city"></div>
+<div class="field"><label for="regPassword">Create password *</label><input id="regPassword" type="password" required minlength="8" autocomplete="new-password" placeholder="At least 8 characters"></div>
+</div>
+<p class="hint" style="margin-top:10px">By registering, you agree to participate in the Esyton referral programme and provide genuine referral information.</p>
+<button class="btn gold form-submit" type="submit">Create partner account →</button>
+</form><div class="switch">Already registered? <a onclick="focusLogin()">Sign in here</a></div>
+</div>
+<div class="auth-card" id="loginCard"><h2>Partner login</h2><p>Welcome back. Sign in to manage your referrals and earnings.</p><div class="alert" id="loginAlert"></div>
+<form id="loginForm"><div class="form-grid">
+<div class="field full"><label for="loginEmail">Email address</label><input id="loginEmail" type="email" required autocomplete="username" placeholder="Your registered email"></div>
+<div class="field full"><label for="loginPassword">Password</label><input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Your password"></div>
+</div><button class="btn gold form-submit" type="submit">Sign in →</button></form>
+<div class="switch">New to Esyton? <a onclick="document.getElementById('regName').focus()">Register as a partner</a></div>
+</div>
+</div>
+</div></section>
+</main>
+
+<main id="dashboardView" class="dashboard hidden"><div class="wrap">
+<div class="dash-head"><div><div class="eyebrow">Partner workspace</div><h1>Welcome, <span id="dashName">Partner</span>.</h1><p>Here is an overview of your referrals and commission activity.</p></div><button class="btn gold" onclick="openReferral()">＋ Add a referral</button></div>
+<div class="dash-grid">
+<div class="stat"><span>Total referrals</span><strong id="totalRefs">0</strong></div>
+<div class="stat"><span>Completed referrals</span><strong id="completedRefs">0</strong></div>
+<div class="stat"><span>Commission earned</span><strong id="earned">₹0</strong></div>
+<div class="stat"><span>Pending commission</span><strong id="pending">₹0</strong></div>
+</div>
+<div class="dash-layout">
+<div class="panel"><div class="panel-head"><h2>Your referrals</h2><button class="btn outline" style="padding:8px 13px" onclick="openReferral()">＋ New referral</button></div>
+<div class="table-wrap"><table><thead><tr><th>Customer</th><th>Property value</th><th>Date</th><th>Status</th><th>Commission</th></tr></thead><tbody id="referralRows"></tbody></table></div><div class="empty hidden" id="noRefs">You haven't submitted any referrals yet. Add your first customer to get started.</div></div>
+<div class="panel"><div class="panel-head"><h2>Partner profile</h2></div>
+<div class="profile-line"><span>Name</span><strong id="profileName">—</strong></div><div class="profile-line"><span>Partner type</span><strong id="profileType">—</strong></div><div class="profile-line"><span>Email</span><strong id="profileEmail">—</strong></div><div class="profile-line"><span>Mobile</span><strong id="profilePhone">—</strong></div><div class="profile-line"><span>City</span><strong id="profileCity">—</strong></div>
+<div class="commission-box"><strong>10%</strong><span>Professional fees, with a minimum commission of ₹1,500 for each successfully completed referral.</span></div>
+<p style="font-size:11px;color:var(--soft);margin-top:14px">Commission is subject to successful completion and confirmation of the referred work by Esyton.</p>
+</div>
+</div>
+</div></main>
+
+<div class="modal-backdrop" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="refTitle"><div class="modal"><button class="close" onclick="closeReferral()" aria-label="Close">×</button><h2 id="refTitle">Submit a referral</h2><p>Share the customer's basic details. Esyton's team will coordinate the next steps.</p><div class="alert" id="refAlert"></div>
+<form id="referralForm"><div class="referral-form">
+<div class="field"><label for="custName">Customer name *</label><input id="custName" required maxlength="100"></div>
+<div class="field"><label for="custPhone">Customer mobile *</label><input id="custPhone" required type="tel" pattern="[0-9+() -]{8,18}"></div>
+<div class="field"><label for="custEmail">Customer email</label><input id="custEmail" type="email"></div>
+<div class="field"><label for="propertyValue">Approx. property value (₹)</label><input id="propertyValue" type="number" min="0" step="1" placeholder="e.g. 7500000"></div>
+<div class="field full"><label for="refNotes">Additional details</label><textarea id="refNotes" maxlength="500" placeholder="Property location or any useful details (optional)"></textarea></div>
+<button class="btn gold" type="submit">Submit referral →</button>
+</div></form></div></div>
+
+<footer><div class="wrap"><div class="foot-top"><a class="brand" href="https://esyton.com"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton logo"><span>esyton<small>INSIGHTS LLP</small></span></a><div class="foot-links"><a href="https://esyton.com/TDS/">TDS service information</a><a href="https://esyton.com">Esyton website</a><a href="mailto:connect@esyton.com">Contact</a></div></div><div class="foot-bottom">© <span id="year"></span> Esyton Insights LLP. All rights reserved. &nbsp;|&nbsp; Partner referral programme.</div></div></footer>
+
+<script>
+/*
+ FRONT-END DEMONSTRATION ONLY.
+ This standalone file stores demo accounts and referrals in this browser's localStorage.
+ It is NOT production authentication and must not be used to store real passwords or customer data.
+ For launch, connect the forms to a secure backend with hashed passwords, sessions, database records,
+ server-side validation, access controls, and an admin workflow.
+*/
+const DEMO_MODE = true;
+const USERS_KEY='esyton_partner_demo_users_v1';
+const SESSION_KEY='esyton_partner_demo_session_v1';
+const REF_KEY='esyton_partner_demo_referrals_v1';
+const $=id=>document.getElementById(id);
+const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch(e){return fallback}};
+const write=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
+const money=n=>'₹'+Number(n||0).toLocaleString('en-IN',{maximumFractionDigits:0});
+function alertBox(id,msg,type='error'){const el=$(id);el.textContent=msg;el.className='alert show '+type}
+function clearAlert(id){$(id).className='alert'}
+function focusLogin(){$('loginEmail').focus();$('loginCard').scrollIntoView({behavior:'smooth',block:'center'})}
+function showDashboard(user){$('publicView').classList.add('hidden');$('dashboardView').classList.remove('hidden');$('publicNav').classList.add('hidden');$('userNav').classList.remove('hidden');$('navName').textContent=user.name;$('dashName').textContent=user.name.split(' ')[0];$('profileName').textContent=user.name;$('profileType').textContent=user.type;$('profileEmail').textContent=user.email;$('profilePhone').textContent=user.phone;$('profileCity').textContent=user.city;renderReferrals(user.email);window.scrollTo({top:0,behavior:'smooth'})}
+function showPublic(){$('dashboardView').classList.add('hidden');$('publicView').classList.remove('hidden');$('publicNav').classList.remove('hidden');$('userNav').classList.add('hidden')}
+function register(e){e.preventDefault();const user={name:$('regName').value.trim(),type:$('regType').value,email:$('regEmail').value.trim().toLowerCase(),phone:$('regPhone').value.trim(),business:$('regBusiness').value.trim(),city:$('regCity').value.trim(),password:$('regPassword').value};if(user.password.length<8){alertBox('regAlert','Please use a password with at least 8 characters.');return}const users=read(USERS_KEY,[]);if(users.some(u=>u.email===user.email)){alertBox('regAlert','An account with this email already exists. Please sign in.');return}users.push(user);write(USERS_KEY,users);write(SESSION_KEY,user.email);alertBox('regAlert','Account created. Welcome to the Esyton partner programme.','success');showDashboard(user)}
+function login(e){e.preventDefault();const email=$('loginEmail').value.trim().toLowerCase(),password=$('loginPassword').value;const user=read(USERS_KEY,[]).find(u=>u.email===email&&u.password===password);if(!user){alertBox('loginAlert','We could not match those details. Check your email and password, or register for an account.');return}write(SESSION_KEY,user.email);showDashboard(user)}
+function logout(){localStorage.removeItem(SESSION_KEY);showPublic();window.scrollTo({top:0,behavior:'smooth'})}
+function renderReferrals(email){const refs=read(REF_KEY,[]).filter(r=>r.partner===email);const done=refs.filter(r=>r.status==='Completed');const pending=refs.filter(r=>r.status!=='Completed');const earned=done.reduce((s,r)=>s+r.commission,0),pendingAmount=pending.reduce((s,r)=>s+r.commission,0);$('totalRefs').textContent=refs.length;$('completedRefs').textContent=done.length;$('earned').textContent=money(earned);$('pending').textContent=money(pendingAmount);$('referralRows').innerHTML='';$('noRefs').classList.toggle('hidden',refs.length>0);refs.slice().reverse().forEach(r=>{const tr=document.createElement('tr');const status=document.createElement('span');status.className='status '+(r.status==='Completed'?'completed':r.status==='In progress'?'review':'');status.textContent=r.status;[r.name,r.value?money(r.value):'—',r.date,status,money(r.commission)].forEach((v,i)=>{const td=document.createElement('td');if(i===3)td.appendChild(v);else td.textContent=v;tr.appendChild(td)});$('referralRows').appendChild(tr)})}
+function openReferral(){clearAlert('refAlert');$('referralForm').reset();$('referralModal').classList.add('show')}
+function closeReferral(){$('referralModal').classList.remove('show')}
+function submitReferral(e){e.preventDefault();const email=read(SESSION_KEY,null);if(!email)return;const refs=read(REF_KEY,[]);refs.push({id:Date.now(),partner:email,name:$('custName').value.trim(),phone:$('custPhone').value.trim(),customerEmail:$('custEmail').value.trim(),value:Number($('propertyValue').value||0),notes:$('refNotes').value.trim(),date:new Date().toLocaleDateString('en-IN'),status:'Submitted',commission:1500});write(REF_KEY,refs);closeReferral();renderReferrals(email)}
+$('registerForm').addEventListener('submit',register);$('loginForm').addEventListener('submit',login);$('referralForm').addEventListener('submit',submitReferral);$('referralModal').addEventListener('click',e=>{if(e.target===$('referralModal'))closeReferral()});$('year').textContent=new Date().getFullYear();
+const activeEmail=read(SESSION_KEY,null);if(activeEmail){const activeUser=read(USERS_KEY,[]).find(u=>u.email===activeEmail);if(activeUser)showDashboard(activeUser);else showPublic()}else showPublic();
+</script>
+</body>
+</html>
