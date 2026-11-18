@@ -43,7 +43,7 @@ footer{padding:50px 0 28px;background:#fff;border-top:1px solid var(--rule)}.foo
 <div class="section-head"><div class="eyebrow">How it works</div><h2>Your network. Our expertise. Shared growth.</h2><p>Whether you are a property consultant, real estate agent, company or document writer, you can refer customers who require TDS compliance support.</p></div>
 <div class="benefits">
 <div class="benefit"><div class="ico">01</div><h3>Register once</h3><p>Create your partner account using your name, contact details and a password. No lengthy onboarding process.</p></div>
-<div class="benefit"><div class="ico">02</div><h3>Refer a customer</h3><p>Submit the customer's basic details through your partner dashboard. Esyton will coordinate directly with them.</p></div>
+<div class="benefit"><div class="ico">02</div><h3>Refer a customer</h3><p>Submit the property location and approximate value. Do not submit customer contact details.</p></div>
 <div class="benefit"><div class="ico">03</div><h3>Earn commission</h3><p>Track referral progress and commission. Eligible commission is payable after successful completion of the work.</p></div>
 </div>
 <div class="commission" style="margin-top:18px"><div><div class="eyebrow" style="color:#e0b66f">Partner commission</div><h2>Earn on every successful referral.</h2><p>For each successfully completed referral, receive 10% of Esyton's professional fees, subject to a minimum commission of ₹1,500 per referral.</p></div><div class="amount">10%<small>Minimum ₹1,500 per completed referral</small></div></div>
@@ -72,7 +72,7 @@ footer{padding:50px 0 28px;background:#fff;border-top:1px solid var(--rule)}.foo
 <div class="field full"><label for="loginEmail">Email address</label><input id="loginEmail" type="email" required autocomplete="username" placeholder="Your registered email"></div>
 <div class="field full"><label for="loginPassword">Password</label><input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Your password"></div>
 </div><button class="btn gold form-submit" type="submit">Sign in →</button></form>
-<div class="switch">New to Esyton? <a onclick="document.getElementById('regName').focus()">Register as a partner</a></div>
+<div class="switch"><a onclick="resetPartnerPassword()">Forgot password?</a></div><div class="switch">New to Esyton? <a onclick="document.getElementById('regName').focus()">Register as a partner</a></div>
 </div>
 </div>
 </div></section>
@@ -88,57 +88,112 @@ footer{padding:50px 0 28px;background:#fff;border-top:1px solid var(--rule)}.foo
 </div>
 <div class="dash-layout">
 <div class="panel"><div class="panel-head"><h2>Your referrals</h2><button class="btn outline" style="padding:8px 13px" onclick="openReferral()">＋ New referral</button></div>
-<div class="table-wrap"><table><thead><tr><th>Customer</th><th>Property value</th><th>Date</th><th>Status</th><th>Commission</th></tr></thead><tbody id="referralRows"></tbody></table></div><div class="empty hidden" id="noRefs">You haven't submitted any referrals yet. Add your first customer to get started.</div></div>
+<div class="table-wrap"><table><thead><tr><th>Property area</th><th>Approx. value</th><th>Date</th><th>Status</th><th>Commission</th></tr></thead><tbody id="referralRows"></tbody></table></div><div class="empty hidden" id="noRefs">You haven't submitted any referrals yet. Add your first property referral to get started.</div></div>
 <div class="panel"><div class="panel-head"><h2>Partner profile</h2></div>
-<div class="profile-line"><span>Name</span><strong id="profileName">—</strong></div><div class="profile-line"><span>Partner type</span><strong id="profileType">—</strong></div><div class="profile-line"><span>Email</span><strong id="profileEmail">—</strong></div><div class="profile-line"><span>Mobile</span><strong id="profilePhone">—</strong></div><div class="profile-line"><span>City</span><strong id="profileCity">—</strong></div>
+<div class="profile-line"><span>Name</span><strong id="profileName">—</strong></div><div class="profile-line"><span>Partner type</span><strong id="profileType">—</strong></div><div class="profile-line"><span>Email</span><strong id="profileEmail">—</strong></div><div class="profile-line"><span>Mobile</span><strong id="profilePhone">—</strong></div><div class="profile-line"><span>City</span><strong id="profileCity">—</strong></div><div class="profile-line"><span>Referral code</span><strong id="profileCode">—</strong></div>
 <div class="commission-box"><strong>10%</strong><span>Professional fees, with a minimum commission of ₹1,500 for each successfully completed referral.</span></div>
 <p style="font-size:11px;color:var(--soft);margin-top:14px">Commission is subject to successful completion and confirmation of the referred work by Esyton.</p>
 </div>
 </div>
 </div></main>
 
-<div class="modal-backdrop" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="refTitle"><div class="modal"><button class="close" onclick="closeReferral()" aria-label="Close">×</button><h2 id="refTitle">Submit a referral</h2><p>Share the customer's basic details. Esyton's team will coordinate the next steps.</p><div class="alert" id="refAlert"></div>
+<div class="modal-backdrop" id="referralModal" role="dialog" aria-modal="true" aria-labelledby="refTitle"><div class="modal"><button class="close" onclick="closeReferral()" aria-label="Close">×</button><h2 id="refTitle">Submit a referral</h2><p>Share the property details. Do not enter customer names or contact details.</p><div class="alert" id="refAlert"></div>
 <form id="referralForm"><div class="referral-form">
-<div class="field"><label for="custName">Customer name *</label><input id="custName" required maxlength="100"></div>
-<div class="field"><label for="custPhone">Customer mobile *</label><input id="custPhone" required type="tel" pattern="[0-9+() -]{8,18}"></div>
-<div class="field"><label for="custEmail">Customer email</label><input id="custEmail" type="email"></div>
-<div class="field"><label for="propertyValue">Approx. property value (₹)</label><input id="propertyValue" type="number" min="0" step="1" placeholder="e.g. 7500000"></div>
-<div class="field full"><label for="refNotes">Additional details</label><textarea id="refNotes" maxlength="500" placeholder="Property location or any useful details (optional)"></textarea></div>
+<div class="field full"><label for="propertyArea">Property area / location *</label><input id="propertyArea" required maxlength="180" placeholder="Area, locality or city"></div>
+<div class="field full"><label for="propertyValue">Approx. property value (₹)</label><input id="propertyValue" type="number" min="0" step="1" placeholder="e.g. 7500000"></div>
 <button class="btn gold" type="submit">Submit referral →</button>
 </div></form></div></div>
 
-<footer><div class="wrap"><div class="foot-top"><a class="brand" href="https://esyton.com"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton logo"><span>esyton<small>INSIGHTS LLP</small></span></a><div class="foot-links"><a href="https://esyton.com/TDS/">TDS service information</a><a href="https://esyton.com">Esyton website</a><a href="mailto:connect@esyton.com">Contact</a></div></div><div class="foot-bottom">© <span id="year"></span> Esyton Insights LLP. All rights reserved. &nbsp;|&nbsp; Partner referral programme.</div></div></footer>
+<section id="adminWorkspace" class="hidden" style="padding:28px 0 70px"><div class="wrap">
+<div class="dash-head"><div><div class="eyebrow">Administration</div><h1>Referral management</h1><p>Review partner referrals and update completion and commission details.</p></div></div>
+<div class="panel"><div class="panel-head"><h2>All referrals</h2><button class="btn outline" onclick="loadAdminReferrals()">Refresh</button></div>
+<div class="table-wrap"><table style="min-width:900px"><thead><tr><th>Referral ID</th><th>Partner</th><th>Property area</th><th>Approx. value</th><th>Status</th><th>Professional fee</th><th>Commission</th><th>Payment</th><th>Update</th></tr></thead><tbody id="adminReferralRows"></tbody></table></div>
+<div class="empty hidden" id="adminNoRefs">No referrals have been submitted yet.</div></div></div></section>\n<footer><div class="wrap"><div class="foot-top"><a class="brand" href="https://esyton.com"><img src="https://raw.githubusercontent.com/tanoojreddy1801-rgb/esyton-home/main/logo.jpg" alt="Esyton logo"><span>esyton<small>INSIGHTS LLP</small></span></a><div class="foot-links"><a href="https://esyton.com/TDS/">TDS service information</a><a href="https://esyton.com">Esyton website</a><a href="mailto:connect@esyton.com">Contact</a></div></div><div class="foot-bottom">© <span id="year"></span> Esyton Insights LLP. All rights reserved. &nbsp;|&nbsp; Partner referral programme.</div></div></footer>
 
-<script>
-/*
- FRONT-END DEMONSTRATION ONLY.
- This standalone file stores demo accounts and referrals in this browser's localStorage.
- It is NOT production authentication and must not be used to store real passwords or customer data.
- For launch, connect the forms to a secure backend with hashed passwords, sessions, database records,
- server-side validation, access controls, and an admin workflow.
-*/
-const DEMO_MODE = true;
-const USERS_KEY='esyton_partner_demo_users_v1';
-const SESSION_KEY='esyton_partner_demo_session_v1';
-const REF_KEY='esyton_partner_demo_referrals_v1';
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, setDoc, getDoc, collection, addDoc, query, where, getDocs, orderBy, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { firebaseConfig } from "../firebase-config.js";
+
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app);
 const $=id=>document.getElementById(id);
-const read=(key,fallback)=>{try{return JSON.parse(localStorage.getItem(key))??fallback}catch(e){return fallback}};
-const write=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
 const money=n=>'₹'+Number(n||0).toLocaleString('en-IN',{maximumFractionDigits:0});
-function alertBox(id,msg,type='error'){const el=$(id);el.textContent=msg;el.className='alert show '+type}
-function clearAlert(id){$(id).className='alert'}
-function focusLogin(){$('loginEmail').focus();$('loginCard').scrollIntoView({behavior:'smooth',block:'center'})}
-function showDashboard(user){$('publicView').classList.add('hidden');$('dashboardView').classList.remove('hidden');$('publicNav').classList.add('hidden');$('userNav').classList.remove('hidden');$('navName').textContent=user.name;$('dashName').textContent=user.name.split(' ')[0];$('profileName').textContent=user.name;$('profileType').textContent=user.type;$('profileEmail').textContent=user.email;$('profilePhone').textContent=user.phone;$('profileCity').textContent=user.city;renderReferrals(user.email);window.scrollTo({top:0,behavior:'smooth'})}
-function showPublic(){$('dashboardView').classList.add('hidden');$('publicView').classList.remove('hidden');$('publicNav').classList.remove('hidden');$('userNav').classList.add('hidden')}
-function register(e){e.preventDefault();const user={name:$('regName').value.trim(),type:$('regType').value,email:$('regEmail').value.trim().toLowerCase(),phone:$('regPhone').value.trim(),business:$('regBusiness').value.trim(),city:$('regCity').value.trim(),password:$('regPassword').value};if(user.password.length<8){alertBox('regAlert','Please use a password with at least 8 characters.');return}const users=read(USERS_KEY,[]);if(users.some(u=>u.email===user.email)){alertBox('regAlert','An account with this email already exists. Please sign in.');return}users.push(user);write(USERS_KEY,users);write(SESSION_KEY,user.email);alertBox('regAlert','Account created. Welcome to the Esyton partner programme.','success');showDashboard(user)}
-function login(e){e.preventDefault();const email=$('loginEmail').value.trim().toLowerCase(),password=$('loginPassword').value;const user=read(USERS_KEY,[]).find(u=>u.email===email&&u.password===password);if(!user){alertBox('loginAlert','We could not match those details. Check your email and password, or register for an account.');return}write(SESSION_KEY,user.email);showDashboard(user)}
-function logout(){localStorage.removeItem(SESSION_KEY);showPublic();window.scrollTo({top:0,behavior:'smooth'})}
-function renderReferrals(email){const refs=read(REF_KEY,[]).filter(r=>r.partner===email);const done=refs.filter(r=>r.status==='Completed');const pending=refs.filter(r=>r.status!=='Completed');const earned=done.reduce((s,r)=>s+r.commission,0),pendingAmount=pending.reduce((s,r)=>s+r.commission,0);$('totalRefs').textContent=refs.length;$('completedRefs').textContent=done.length;$('earned').textContent=money(earned);$('pending').textContent=money(pendingAmount);$('referralRows').innerHTML='';$('noRefs').classList.toggle('hidden',refs.length>0);refs.slice().reverse().forEach(r=>{const tr=document.createElement('tr');const status=document.createElement('span');status.className='status '+(r.status==='Completed'?'completed':r.status==='In progress'?'review':'');status.textContent=r.status;[r.name,r.value?money(r.value):'—',r.date,status,money(r.commission)].forEach((v,i)=>{const td=document.createElement('td');if(i===3)td.appendChild(v);else td.textContent=v;tr.appendChild(td)});$('referralRows').appendChild(tr)})}
-function openReferral(){clearAlert('refAlert');$('referralForm').reset();$('referralModal').classList.add('show')}
-function closeReferral(){$('referralModal').classList.remove('show')}
-function submitReferral(e){e.preventDefault();const email=read(SESSION_KEY,null);if(!email)return;const refs=read(REF_KEY,[]);refs.push({id:Date.now(),partner:email,name:$('custName').value.trim(),phone:$('custPhone').value.trim(),customerEmail:$('custEmail').value.trim(),value:Number($('propertyValue').value||0),notes:$('refNotes').value.trim(),date:new Date().toLocaleDateString('en-IN'),status:'Submitted',commission:1500});write(REF_KEY,refs);closeReferral();renderReferrals(email)}
-$('registerForm').addEventListener('submit',register);$('loginForm').addEventListener('submit',login);$('referralForm').addEventListener('submit',submitReferral);$('referralModal').addEventListener('click',e=>{if(e.target===$('referralModal'))closeReferral()});$('year').textContent=new Date().getFullYear();
-const activeEmail=read(SESSION_KEY,null);if(activeEmail){const activeUser=read(USERS_KEY,[]).find(u=>u.email===activeEmail);if(activeUser)showDashboard(activeUser);else showPublic()}else showPublic();
+function alertBox(id,msg,type='error'){const el=$(id);if(el){el.textContent=msg;el.className='alert show '+type;}}
+function clearAlert(id){if($(id))$(id).className='alert';}
+function focusLogin(){$('loginEmail').focus();$('loginCard').scrollIntoView({behavior:'smooth',block:'center'});}
+function showPublic(){$('dashboardView').classList.add('hidden');$('publicView').classList.remove('hidden');$('publicNav').classList.remove('hidden');$('userNav').classList.add('hidden');$('adminWorkspace').classList.add('hidden');}
+function showDashboard(p,u){
+ $('publicView').classList.add('hidden');$('dashboardView').classList.remove('hidden');$('publicNav').classList.add('hidden');$('userNav').classList.remove('hidden');
+ $('navName').textContent=p.name||u.email;$('dashName').textContent=(p.name||'Partner').split(' ')[0];
+ $('profileName').textContent=p.name||'—';$('profileType').textContent=p.type||'—';$('profileEmail').textContent=u.email||'—';$('profilePhone').textContent=p.phone||'—';$('profileCity').textContent=p.city||'—';$('profileCode').textContent=p.referralCode||'—';
+ renderPartnerReferrals(u.uid);window.scrollTo({top:0,behavior:'smooth'});
+}
+function friendlyError(e){const m={'auth/email-already-in-use':'An account with this email already exists. Please sign in.','auth/invalid-email':'Please enter a valid email address.','auth/weak-password':'Password must contain at least 8 characters.','auth/invalid-credential':'Email or password is incorrect.','auth/too-many-requests':'Too many attempts. Please try again later.'};return m[e.code]||e.message||'Something went wrong.';}
+async function register(e){
+ e.preventDefault();clearAlert('regAlert');
+ const data={name:$('regName').value.trim(),type:$('regType').value,email:$('regEmail').value.trim().toLowerCase(),phone:$('regPhone').value.trim(),business:$('regBusiness').value.trim(),city:$('regCity').value.trim()};
+ const password=$('regPassword').value;if(password.length<8){alertBox('regAlert','Please use a password with at least 8 characters.');return;}
+ try{const c=await createUserWithEmailAndPassword(auth,data.email,password);data.uid=c.user.uid;data.referralCode='ESY-'+c.user.uid.slice(0,8).toUpperCase();data.status='active';data.createdAt=serverTimestamp();await setDoc(doc(db,'partners',c.user.uid),data);alertBox('regAlert','Account created successfully. Welcome to the Esyton partner programme.','success');}
+ catch(e){alertBox('regAlert',friendlyError(e));}
+}
+async function login(e){e.preventDefault();clearAlert('loginAlert');try{await signInWithEmailAndPassword(auth,$('loginEmail').value.trim(),$('loginPassword').value);}catch(e){alertBox('loginAlert',friendlyError(e));}}
+async function logout(){await signOut(auth);showPublic();window.scrollTo({top:0,behavior:'smooth'});}
+function formatDate(t){if(!t)return '—';return (t.toDate?t.toDate():new Date(t)).toLocaleDateString('en-IN');}
+async function renderPartnerReferrals(uid){
+ try{
+  const snap=await getDocs(query(collection(db,'partnerReferrals'),where('partnerUid','==',uid)));
+  const refs=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>(b.createdAt?.seconds||0)-(a.createdAt?.seconds||0));
+  const completed=refs.filter(r=>r.status==='Completed');
+  $('totalRefs').textContent=refs.length;$('completedRefs').textContent=completed.length;
+  $('earned').textContent=money(refs.filter(r=>r.paymentStatus==='Paid').reduce((s,r)=>s+Number(r.commission||0),0));
+  $('pending').textContent=money(refs.filter(r=>r.paymentStatus!=='Paid').reduce((s,r)=>s+Number(r.commission||0),0));
+  $('referralRows').innerHTML='';$('noRefs').classList.toggle('hidden',refs.length>0);
+  refs.forEach(r=>{const tr=document.createElement('tr');[r.propertyArea||'—',r.approximateValue?money(r.approximateValue):'—',formatDate(r.createdAt),r.status||'Submitted',money(r.commission)].forEach((v,i)=>{const td=document.createElement('td');if(i===3){const b=document.createElement('span');b.className='status '+(v==='Completed'?'completed':v==='In progress'?'review':'');b.textContent=v;td.appendChild(b);}else td.textContent=v;tr.appendChild(td);});$('referralRows').appendChild(tr);});
+ }catch(e){console.error(e);alertBox('loginAlert','Unable to load referrals. Check Firestore configuration and rules.');}
+}
+function openReferral(){clearAlert('refAlert');$('referralForm').reset();$('referralModal').classList.add('show');}
+function closeReferral(){$('referralModal').classList.remove('show');}
+async function submitReferral(e){
+ e.preventDefault();clearAlert('refAlert');const u=auth.currentUser;if(!u)return;
+ const area=$('propertyArea').value.trim(),v=$('propertyValue').value;
+ if(!area){alertBox('refAlert','Please enter the property area or location.');return;}
+ try{const r=doc(collection(db,'partnerReferrals'));await setDoc(r,{partnerUid:u.uid,propertyArea:area,approximateValue:v?Number(v):null,status:'Submitted',professionalFee:0,commission:0,paymentStatus:'Not payable',referralCode:'ESY-'+r.id.slice(0,8).toUpperCase(),createdAt:serverTimestamp(),updatedAt:serverTimestamp()});closeReferral();await renderPartnerReferrals(u.uid);}
+ catch(e){alertBox('refAlert',friendlyError(e));}
+}
+async function onUser(u){
+ if(!u){showPublic();return;}
+ try{
+  const p=await getDoc(doc(db,'partners',u.uid));if(!p.exists()){await signOut(auth);showPublic();return;}
+  const role=await getDoc(doc(db,'roles',u.email.toLowerCase()));const admin=role.exists()&&role.data().role==='admin'&&role.data().active===true;
+  showDashboard(p.data(),u);if(admin){$('adminWorkspace').classList.remove('hidden');await loadAdminReferrals();}
+ }catch(e){console.error(e);showPublic();alertBox('loginAlert','Could not load account. Verify Firebase setup and Firestore rules.');}
+}
+async function loadAdminReferrals(){
+ const u=auth.currentUser;if(!u)return;
+ try{
+  const role=await getDoc(doc(db,'roles',u.email.toLowerCase()));if(!role.exists()||role.data().role!=='admin'||role.data().active!==true)return;
+  const snap=await getDocs(query(collection(db,'partnerReferrals'),orderBy('createdAt','desc')));
+  const body=$('adminReferralRows');body.innerHTML='';$('adminNoRefs').classList.toggle('hidden',!snap.empty);
+  for(const d of snap.docs){
+   const r=d.data(),ps=await getDoc(doc(db,'partners',r.partnerUid)),p=ps.exists()?ps.data():{};
+   const tr=document.createElement('tr');
+   [d.id,p.name||r.partnerUid,r.propertyArea||'—',r.approximateValue?money(r.approximateValue):'—'].forEach(v=>{const td=document.createElement('td');td.textContent=v;tr.appendChild(td);});
+   const st=document.createElement('select');['Submitted','In progress','Completed','Rejected'].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;st.appendChild(o);});st.value=r.status||'Submitted';let td=document.createElement('td');td.appendChild(st);tr.appendChild(td);
+   const fee=document.createElement('input');fee.type='number';fee.min='0';fee.value=r.professionalFee||0;fee.style.width='100px';td=document.createElement('td');td.appendChild(fee);tr.appendChild(td);
+   const commission=document.createElement('input');commission.type='number';commission.min='0';commission.value=r.commission||0;commission.style.width='100px';td=document.createElement('td');td.appendChild(commission);tr.appendChild(td);
+   const pay=document.createElement('select');['Not payable','Pending','Paid'].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;pay.appendChild(o);});pay.value=r.paymentStatus||'Not payable';td=document.createElement('td');td.appendChild(pay);tr.appendChild(td);
+   const save=document.createElement('button');save.className='btn gold';save.textContent='Save';save.style.padding='8px 12px';td=document.createElement('td');td.appendChild(save);tr.appendChild(td);
+   save.onclick=async()=>{try{await updateDoc(doc(db,'partnerReferrals',d.id),{status:st.value,professionalFee:Number(fee.value||0),commission:Number(commission.value||0),paymentStatus:pay.value,updatedAt:serverTimestamp()});await loadAdminReferrals();await renderPartnerReferrals(u.uid);}catch(e){alert(friendlyError(e));}};
+   body.appendChild(tr);
+  }
+ }catch(e){console.error(e);alert('Could not load admin referrals: '+friendlyError(e));}
+}
+$('registerForm').addEventListener('submit',register);$('loginForm').addEventListener('submit',login);$('referralForm').addEventListener('submit',submitReferral);
+$('referralModal').addEventListener('click',e=>{if(e.target===$('referralModal'))closeReferral();});$('year').textContent=new Date().getFullYear();
+window.logout=logout;window.focusLogin=focusLogin;window.openReferral=openReferral;window.closeReferral=closeReferral;window.loadAdminReferrals=loadAdminReferrals;
+window.resetPartnerPassword=async()=>{const email=$('loginEmail').value.trim();if(!email){alertBox('loginAlert','Enter your email address first.');return;}try{await sendPasswordResetEmail(auth,email);alertBox('loginAlert','Password reset email sent.','success');}catch(e){alertBox('loginAlert',friendlyError(e));}};
+onAuthStateChanged(auth,onUser);
 </script>
 </body>
 </html>
