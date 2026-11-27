@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found | Esyton</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <script>
+    // Insights articles published after the last build: hand the address to the Insights app, which can still show them.
+    (function () {
+      var p = location.pathname;
+      if (p.indexOf('/insights/') === 0) {
+        location.replace('/insights/?__p=' + encodeURIComponent(p.slice(9) + location.search + location.hash));
+      }
+    })();
+  </script>
+  <style>
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; background: #f4f6f8; color: #101820; display: grid; place-items: center; min-height: 100vh; text-align: center; padding: 20px; }
+    .box { background: #fff; border: 1px solid #dfe5e9; border-top: 4px solid #c5983d; padding: 40px 32px; max-width: 460px; }
+    h1 { color: #062f59; margin: 0 0 8px; font-size: 1.6rem; }
+    p { color: #5d6872; margin: 0 0 22px; }
+    a { display: inline-block; background: #062f59; color: #fff; text-decoration: none; padding: 12px 24px; font-weight: 700; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Page not found</h1>
+    <p>The page you are looking for does not exist or has moved.</p>
+    <a href="/">Go to Esyton home</a>
+  </div>
+</body>
+</html>
